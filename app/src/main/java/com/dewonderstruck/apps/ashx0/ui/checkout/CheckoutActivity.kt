@@ -107,7 +107,7 @@ class CheckoutActivity : PSAppCompactActivity() {
                             psDialogMsg!!.okButton.setOnClickListener { v: View? ->
                                 psDialogMsg!!.cancel()
                                 when ((fragment as CheckoutFragment3?)!!.paymentMethod) {
-                                    Constants.PAYMENT_PAYPAL -> (fragment as CheckoutFragment3?)!!.getToken()
+                                    Constants.PAYMENT_PAYPAL -> (fragment as CheckoutFragment3?)!!.token
                                     Constants.PAYMENT_CASH_ON_DELIVERY -> (fragment as CheckoutFragment3?)!!.sendData()
                                     Constants.PAYMENT_STRIPE -> navigationController.navigateToStripeActivity(this@CheckoutActivity)
                                     Constants.PAYMENT_BANK -> (fragment as CheckoutFragment3?)!!.sendData()
