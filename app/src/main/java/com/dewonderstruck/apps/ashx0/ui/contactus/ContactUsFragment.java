@@ -142,7 +142,7 @@ public class ContactUsFragment extends PSFragment {
 
         contactUsViewModel.postContactUs(Config.API_KEY, contactUsViewModel.contactName, contactUsViewModel.contactEmail, contactUsViewModel.contactDesc, contactUsViewModel.contactPhone);
 
-        contactUsViewModel.getPostContactUsData().observe(this, state -> {
+        contactUsViewModel.postContactUsData.observe(this, state -> {
             if (state != null && state.status == Status.SUCCESS) {
                 //Success
                 binding.get().contactNameTextInput.setText("");
@@ -157,7 +157,7 @@ public class ContactUsFragment extends PSFragment {
             }
         });
 
-        contactUsViewModel.getLoadingState().observe(this, state -> {
+        contactUsViewModel.loadingState.observe(this, state -> {
             if (state != null && state) {
                 prgDialog.get().show();
             } else {

@@ -654,7 +654,7 @@ public class ProductDetailFragment extends PSFragment implements DataBoundListAd
         });
 
 
-        basketViewModel.getBasketSavedData().observe(this, resourse -> {
+        basketViewModel.basketSavedData.observe(this, resourse -> {
             if (resourse != null) {
                 if (resourse.status == Status.SUCCESS) {
 
@@ -765,7 +765,7 @@ public class ProductDetailFragment extends PSFragment implements DataBoundListAd
     private void LoadData() {
         // Load image
 
-        LiveData<Resource<List<Image>>> news = imageViewModel.getImageListLiveData();
+        LiveData<Resource<List<Image>>> news = imageViewModel.imageListLiveData;
 
         if (news != null) {
             news.observe(this, listResource -> {
@@ -925,7 +925,7 @@ public class ProductDetailFragment extends PSFragment implements DataBoundListAd
 
         // Load Product related
 
-        LiveData<Resource<List<Product>>> productRelated = productRelatedViewModel.getProductRelatedData();
+        LiveData<Resource<List<Product>>> productRelated = productRelatedViewModel.productRelatedData;
         if (productRelated != null) {
             productRelated.observe(this, listResource -> {
                 if (listResource != null) {
@@ -1003,7 +1003,7 @@ public class ProductDetailFragment extends PSFragment implements DataBoundListAd
 
         //load product specs
 
-        LiveData<List<ProductSpecs>> productSpecs = productSpecsViewModel.getProductSpecsListData();
+        LiveData<List<ProductSpecs>> productSpecs = productSpecsViewModel.productSpecsListData;
         if (productSpecs != null) {
             productSpecs.observe(this, listResource -> {
                 if (listResource != null && listResource.size() > 0) {

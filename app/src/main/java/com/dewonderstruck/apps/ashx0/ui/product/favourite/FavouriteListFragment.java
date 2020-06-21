@@ -157,7 +157,7 @@ public class FavouriteListFragment extends PSFragment implements DataBoundListAd
     @Override
     protected void initData() {
 
-        productFavouriteViewModel.getNextPageFavouriteLoadingData().observe(this, state -> {
+        productFavouriteViewModel.nextPageFavouriteLoadingData.observe(this, state -> {
             if (state != null) {
                 if (state.status == Status.ERROR) {
 
@@ -168,7 +168,7 @@ public class FavouriteListFragment extends PSFragment implements DataBoundListAd
             }
         });
 
-        productFavouriteViewModel.getLoadingState().observe(this, loadingState -> {
+        productFavouriteViewModel.loadingState.observe(this, loadingState -> {
 
             binding.get().setLoadingMore(productFavouriteViewModel.isLoading);
 
@@ -180,7 +180,7 @@ public class FavouriteListFragment extends PSFragment implements DataBoundListAd
 
         productFavouriteViewModel.setProductFavouriteListObj(loginUserId, String.valueOf(productFavouriteViewModel.offset));
 
-        LiveData<Resource<List<Product>>> news = productFavouriteViewModel.getProductFavouriteData();
+        LiveData<Resource<List<Product>>> news = productFavouriteViewModel.productFavouriteData;
 
         if (news != null) {
 

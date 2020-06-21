@@ -484,7 +484,7 @@ public class MainFragment extends PSFragment implements DataBoundListAdapter.Dif
             }
         }
 
-        clearAllDataViewModel.getDeleteAllDataData().observe(this, result -> {
+        clearAllDataViewModel.deleteAllDataData.observe(this, result -> {
 
             if (result != null) {
                 switch (result.status) {
@@ -535,7 +535,7 @@ public class MainFragment extends PSFragment implements DataBoundListAdapter.Dif
         });
 
         shopViewModel.setShopObj(Config.API_KEY);
-        shopViewModel.getShopData().observe(this, result -> {
+        shopViewModel.shopData.observe(this, result -> {
 
             if (result != null) {
                 switch (result.status) {
@@ -567,7 +567,7 @@ public class MainFragment extends PSFragment implements DataBoundListAdapter.Dif
 
         homeLatestProductViewModel.setGetProductListByKeyObj(homeLatestProductViewModel.productParameterHolder, loginUserId, String.valueOf(Config.LOAD_FROM_DB), String.valueOf(homeLatestProductViewModel.offset));
 
-        LiveData<Resource<List<Product>>> latest = homeLatestProductViewModel.getGetProductListByKeyData();
+        LiveData<Resource<List<Product>>> latest = homeLatestProductViewModel.getProductListByKeyData;
 
         if (latest != null) {
 
@@ -637,7 +637,7 @@ public class MainFragment extends PSFragment implements DataBoundListAdapter.Dif
             });
         }
 
-        homeLatestProductViewModel.getGetNextPageProductListByKeyData().observe(this, state -> {
+        homeLatestProductViewModel.getNextPageProductListByKeyData.observe(this, state -> {
             if (state != null) {
                 if (state.status == Status.ERROR) {
                     Utils.psLog("Next Page State : " + state.data);
@@ -648,7 +648,7 @@ public class MainFragment extends PSFragment implements DataBoundListAdapter.Dif
             }
         });
 
-        homeLatestProductViewModel.getLoadingState().observe(this, loadingState -> {
+        homeLatestProductViewModel.loadingState.observe(this, loadingState -> {
 
             binding.get().setLoadingMore(homeLatestProductViewModel.isLoading);
             Utils.psLog("getLoadingState : start");
@@ -663,7 +663,7 @@ public class MainFragment extends PSFragment implements DataBoundListAdapter.Dif
 
         homeFeaturedProductViewModel.setGetProductListByKeyObj(homeFeaturedProductViewModel.productParameterHolder, loginUserId, String.valueOf(Config.LOAD_FROM_DB), String.valueOf(homeFeaturedProductViewModel.offset));
 
-        LiveData<Resource<List<Product>>> featured = homeFeaturedProductViewModel.getGetProductListByKeyData();
+        LiveData<Resource<List<Product>>> featured = homeFeaturedProductViewModel.getProductListByKeyData;
 
         if (featured != null) {
 
@@ -708,7 +708,7 @@ public class MainFragment extends PSFragment implements DataBoundListAdapter.Dif
             });
         }
 
-        homeFeaturedProductViewModel.getGetNextPageProductListByKeyData().observe(this, state -> {
+        homeFeaturedProductViewModel.getNextPageProductListByKeyData.observe(this, state -> {
             if (state != null) {
                 if (state.status == Status.ERROR) {
                     Utils.psLog("Next Page State : " + state.data);
@@ -719,14 +719,14 @@ public class MainFragment extends PSFragment implements DataBoundListAdapter.Dif
             }
         });
 
-        homeFeaturedProductViewModel.getLoadingState().observe(this, loadingState -> binding.get().setLoadingMore(homeFeaturedProductViewModel.isLoading));
+        homeFeaturedProductViewModel.loadingState.observe(this, loadingState -> binding.get().setLoadingMore(homeFeaturedProductViewModel.isLoading));
 
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         /* CategoryRecyclerView*/
 
         categoryViewModel.setCategoryListObj(loginUserId, categoryViewModel.categoryParameterHolder, String.valueOf(Config.LOAD_FROM_DB), String.valueOf(homeSearchProductViewModel.offset));
 
-        LiveData<Resource<List<Category>>> categories = categoryViewModel.getCategoryListData();
+        LiveData<Resource<List<Category>>> categories = categoryViewModel.categoryListData;
 
         if (categories != null) {
             categories.observe(this, listResource -> {
@@ -819,7 +819,7 @@ public class MainFragment extends PSFragment implements DataBoundListAdapter.Dif
             });
         }
 
-        categoryViewModel.getLoadingState().observe(this, loadingState -> binding.get().setLoadingMore(categoryViewModel.isLoading));
+        categoryViewModel.loadingState.observe(this, loadingState -> binding.get().setLoadingMore(categoryViewModel.isLoading));
 
 
         /* CategoryRecyclerView*/
@@ -828,7 +828,7 @@ public class MainFragment extends PSFragment implements DataBoundListAdapter.Dif
 
 
         homeSearchProductViewModel.setGetProductListByKeyObj(homeSearchProductViewModel.holder, loginUserId, String.valueOf(Config.LOAD_FROM_DB), String.valueOf(homeSearchProductViewModel.offset));
-        LiveData<Resource<List<Product>>> discount = homeSearchProductViewModel.getGetProductListByKeyData();
+        LiveData<Resource<List<Product>>> discount = homeSearchProductViewModel.getProductListByKeyData;
 
         if (discount != null) {
 
@@ -874,7 +874,7 @@ public class MainFragment extends PSFragment implements DataBoundListAdapter.Dif
             });
         }
 
-        homeSearchProductViewModel.getGetNextPageProductListByKeyData().observe(this, state -> {
+        homeSearchProductViewModel.getNextPageProductListByKeyData.observe(this, state -> {
             if (state != null) {
                 if (state.status == Status.ERROR) {
                     Utils.psLog("Next Page State : " + state.data);
@@ -885,7 +885,7 @@ public class MainFragment extends PSFragment implements DataBoundListAdapter.Dif
             }
         });
 
-        homeSearchProductViewModel.getLoadingState().observe(this, loadingState -> binding.get().setLoadingMore(homeSearchProductViewModel.isLoading));
+        homeSearchProductViewModel.loadingState.observe(this, loadingState -> binding.get().setLoadingMore(homeSearchProductViewModel.isLoading));
 
         /*DiscountList*/
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -893,7 +893,7 @@ public class MainFragment extends PSFragment implements DataBoundListAdapter.Dif
 
         homeTrendingProductViewModel.setGetProductListByKeyObj(homeTrendingProductViewModel.productParameterHolder, loginUserId, String.valueOf(Config.LOAD_FROM_DB), String.valueOf(homeSearchProductViewModel.offset));
 
-        LiveData<Resource<List<Product>>> trending = homeTrendingProductViewModel.getGetProductListByKeyData();
+        LiveData<Resource<List<Product>>> trending = homeTrendingProductViewModel.getProductListByKeyData;
 
         if (trending != null) {
 
@@ -936,7 +936,7 @@ public class MainFragment extends PSFragment implements DataBoundListAdapter.Dif
             });
         }
 
-        homeTrendingProductViewModel.getGetNextPageProductListByKeyData().observe(this, state -> {
+        homeTrendingProductViewModel.getNextPageProductListByKeyData.observe(this, state -> {
             if (state != null) {
                 if (state.status == Status.ERROR) {
                     Utils.psLog("Next Page State : " + state.data);
@@ -947,7 +947,7 @@ public class MainFragment extends PSFragment implements DataBoundListAdapter.Dif
             }
         });
 
-        homeTrendingProductViewModel.getLoadingState().observe(this, loadingState -> {
+        homeTrendingProductViewModel.loadingState.observe(this, loadingState -> {
 
             binding.get().setLoadingMore(homeTrendingProductViewModel.isLoading);
 
@@ -963,7 +963,7 @@ public class MainFragment extends PSFragment implements DataBoundListAdapter.Dif
 
         homeTrendingCategoryListViewModel.setHomeTrendingCatrgoryListDataObj(homeTrendingCategoryListViewModel.categoryParameterHolder, String.valueOf(Config.LOAD_FROM_DB), String.valueOf(homeTrendingCategoryListViewModel.offset));
 
-        LiveData<Resource<List<Category>>> trendingCategories = homeTrendingCategoryListViewModel.getHomeTrendingCategoryListData();
+        LiveData<Resource<List<Category>>> trendingCategories = homeTrendingCategoryListViewModel.homeTrendingCategoryListData;
 
         if (trendingCategories != null) {
             trendingCategories.observe(this, listResource -> {
@@ -1054,7 +1054,7 @@ public class MainFragment extends PSFragment implements DataBoundListAdapter.Dif
             });
         }
 
-        homeTrendingCategoryListViewModel.getLoadingState().observe(this, loadingState -> binding.get().setLoadingMore(homeTrendingCategoryListViewModel.isLoading));
+        homeTrendingCategoryListViewModel.loadingState.observe(this, loadingState -> binding.get().setLoadingMore(homeTrendingCategoryListViewModel.isLoading));
         /*trendingCategoryList*/
 
         /*Collection List*/
@@ -1062,7 +1062,7 @@ public class MainFragment extends PSFragment implements DataBoundListAdapter.Dif
         productCollectionViewModel.setProductCollectionHeaderListForHomeObj(String.valueOf(Config.COLLECTION_PRODUCT_LIST_LIMIT), String.valueOf(Config.COLLECTION_PRODUCT_LIST_LIMIT),
                 String.valueOf(Config.COLLECTION_PRODUCT_LIST_LIMIT), String.valueOf(homeTrendingCategoryListViewModel.offset));
 
-        LiveData<Resource<List<ProductCollectionHeader>>> productCollection = productCollectionViewModel.getProductCollectionHeaderListDataForHome();
+        LiveData<Resource<List<ProductCollectionHeader>>> productCollection = productCollectionViewModel.productCollectionHeaderListDataForHome;
 
         if (productCollection != null) {
             productCollection.observe(this, listResource -> {
@@ -1127,7 +1127,7 @@ public class MainFragment extends PSFragment implements DataBoundListAdapter.Dif
             });
         }
 
-        productCollectionViewModel.getLoadingState().observe(this, loadingState -> binding.get().setLoadingMore(productCollectionViewModel.isLoading));
+        productCollectionViewModel.loadingState.observe(this, loadingState -> binding.get().setLoadingMore(productCollectionViewModel.isLoading));
 
         binding.get().categoryIconList.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
             @Override

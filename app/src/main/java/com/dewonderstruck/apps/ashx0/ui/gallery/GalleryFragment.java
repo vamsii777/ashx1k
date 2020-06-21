@@ -114,7 +114,7 @@ public class GalleryFragment extends PSFragment implements DataBoundListAdapter.
             Utils.psErrorLog("Error in getting intent.", e);
         }
 
-        LiveData<Resource<List<Image>>> imageListLiveData = imageViewModel.getImageListLiveData();
+        LiveData<Resource<List<Image>>> imageListLiveData = imageViewModel.imageListLiveData;
         imageViewModel.setImageParentId(imageViewModel.imgType, imageViewModel.id);
         imageListLiveData.observe(this, listResource -> {
             // we don't need any null checks here for the adapter since LiveData guarantees that

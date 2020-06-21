@@ -5,7 +5,7 @@ import androidx.room.Entity
 import com.google.gson.annotations.SerializedName
 
 /**
- * Created by Vamsi Madduluri on 11/25/17.
+ * Created by Vamsi Madduluri on 12/02/2020.
  * Contact Email : vamsii.wrkhost@gmail.com
  */
 @Entity(primaryKeys = ["id"])

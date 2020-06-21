@@ -131,7 +131,7 @@ public class SearchCategoryFragment extends PSFragment {
 
         categoryViewModel.setCategoryListObj(loginUserId, categoryViewModel.categoryParameterHolder, String.valueOf(Config.LIST_CATEGORY_COUNT), String.valueOf(categoryViewModel.offset));
 
-        LiveData<Resource<List<Category>>> news = categoryViewModel.getCategoryListData();
+        LiveData<Resource<List<Category>>> news = categoryViewModel.categoryListData;
 
         if (news != null) {
 
@@ -197,7 +197,7 @@ public class SearchCategoryFragment extends PSFragment {
             });
         }
 
-        categoryViewModel.getNextPageLoadingStateData().observe(this, state -> {
+        categoryViewModel.nextPageLoadingStateData.observe(this, state -> {
             if (state != null) {
                 if (state.status == Status.ERROR) {
                     Utils.psLog("Next Page State : " + state.data);

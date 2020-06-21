@@ -195,7 +195,7 @@ public class TrendingCategoryFragment extends PSFragment implements DataBoundLis
         // Load Category List
         homeTrendingCategoryListViewModel.setHomeTrendingCatrgoryListDataObj(homeTrendingCategoryListViewModel.categoryParameterHolder, String.valueOf(Config.LIST_CATEGORY_COUNT), String.valueOf(homeTrendingCategoryListViewModel.offset));
 
-        LiveData<Resource<List<Category>>> news = homeTrendingCategoryListViewModel.getHomeTrendingCategoryListData();
+        LiveData<Resource<List<Category>>> news = homeTrendingCategoryListViewModel.homeTrendingCategoryListData;
 
         if (news != null) {
 
@@ -261,7 +261,7 @@ public class TrendingCategoryFragment extends PSFragment implements DataBoundLis
             });
         }
 
-        homeTrendingCategoryListViewModel.getHomeTrendingCategoryLoadNetworkData().observe(this, state -> {
+        homeTrendingCategoryListViewModel.homeTrendingCategoryLoadNetworkData.observe(this, state -> {
             if (state != null) {
                 if (state.status == Status.ERROR) {
                     Utils.psLog("Next Page State : " + state.data);
@@ -272,7 +272,7 @@ public class TrendingCategoryFragment extends PSFragment implements DataBoundLis
             }
         });
 
-        homeTrendingCategoryListViewModel.getLoadingState().observe(this, loadingState -> {
+        homeTrendingCategoryListViewModel.loadingState.observe(this, loadingState -> {
 
             binding.get().setLoadingMore(homeTrendingCategoryListViewModel.isLoading);
 

@@ -152,8 +152,8 @@ public class CategoryFilterFragment extends PSFragment implements DataBoundListA
         categoryViewModel.setCategoryListObj(loginUserId, categoryViewModel.categoryParameterHolder, String.valueOf(Config.LIST_CATEGORY_COUNT),String.valueOf(categoryViewModel.offset));
         subCategoryViewModel.setAllSubCategoryListObj();
 
-        LiveData<Resource<List<Category>>> categories = categoryViewModel.getCategoryListData();
-        LiveData<Resource<List<SubCategory>>> subCategories = subCategoryViewModel.getAllSubCategoryListData();
+        LiveData<Resource<List<Category>>> categories = categoryViewModel.categoryListData;
+        LiveData<Resource<List<SubCategory>>> subCategories = subCategoryViewModel.allSubCategoryListData;
 
 
         if (categories != null) {

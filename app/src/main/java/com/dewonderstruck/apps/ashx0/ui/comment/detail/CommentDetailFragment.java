@@ -194,7 +194,7 @@ public class CommentDetailFragment extends PSFragment implements DataBoundListAd
         // Load Latest Product
         commentDetailListViewModel.setCommentDetailListObj(String.valueOf(commentDetailListViewModel.offset), commentDetailListViewModel.commentId);
 
-        LiveData<Resource<List<CommentDetail>>> news = commentDetailListViewModel.getCommentDetailListData();
+        LiveData<Resource<List<CommentDetail>>> news = commentDetailListViewModel.commentDetailListData;
 
         if (news != null) {
             news.observe(this, listResource -> {
@@ -258,7 +258,7 @@ public class CommentDetailFragment extends PSFragment implements DataBoundListAd
 
             });
         }
-        commentDetailListViewModel.getNextPageCommentDetailLoadingData().observe(this, state -> {
+        commentDetailListViewModel.nextPageCommentDetailLoadingData.observe(this, state -> {
             if (state != null) {
                 if (state.status == Status.ERROR) {
                     Utils.psLog("Next Page State : " + state.data);
@@ -269,7 +269,7 @@ public class CommentDetailFragment extends PSFragment implements DataBoundListAd
             }
         });
 
-        commentDetailListViewModel.getLoadingState().observe(this, loadingState -> {
+        commentDetailListViewModel.loadingState.observe(this, loadingState -> {
 
             binding.get().setLoadingMore(commentDetailListViewModel.isLoading);
 
@@ -286,8 +286,8 @@ public class CommentDetailFragment extends PSFragment implements DataBoundListAd
                     binding.get().editText.setText("");
                     commentDetailListViewModel.setLoadingState(false);
 
-                    if(commentDetailListViewModel.getCommentDetailListData().getValue() == null || commentDetailListViewModel.getCommentDetailListData().getValue().data == null ||
-                    commentDetailListViewModel.getCommentDetailListData().getValue().data.size() <= 1 ){
+                    if(commentDetailListViewModel.commentDetailListData.getValue() == null || commentDetailListViewModel.commentDetailListData.getValue().data == null ||
+                    commentDetailListViewModel.commentDetailListData.getValue().data.size() <= 1 ){
                         commentDetailListViewModel.offset = 0;
 
                         // reset productViewModel.forceEndLoading

@@ -228,7 +228,7 @@ public class BasketListFragment extends PSFragment implements DataBoundListAdapt
             });
         }
 
-        basketViewModel.getBasketUpdateData().observe(this, resourse -> {
+        basketViewModel.basketUpdateData.observe(this, resourse -> {
             if (resourse != null) {
                 if (resourse.status == Status.SUCCESS) {
 
@@ -241,7 +241,7 @@ public class BasketListFragment extends PSFragment implements DataBoundListAdapt
             }
         });
 
-        basketViewModel.getBasketDeleteData().observe(this, resource -> {
+        basketViewModel.basketDeleteData.observe(this, resource -> {
             if (resource != null) {
                 if (resource.status == Status.SUCCESS) {
 

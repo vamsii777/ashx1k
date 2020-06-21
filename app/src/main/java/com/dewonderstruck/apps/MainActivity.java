@@ -793,7 +793,7 @@ public class MainActivity extends PSAppCompactActivity {
         registerNotificationToken(); // Just send "" because don't have token to sent. It will get token itself.
 
         shopViewModel.setShopObj(Config.API_KEY);
-        shopViewModel.getShopData().observe(this, new Observer<Resource<Shop>>() {
+        shopViewModel.shopData.observe(this, new Observer<Resource<Shop>>() {
             @Override
             public void onChanged(Resource<Shop> resource) {
 

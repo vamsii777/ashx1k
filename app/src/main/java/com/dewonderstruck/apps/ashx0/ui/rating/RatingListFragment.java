@@ -271,7 +271,7 @@ public class RatingListFragment extends PSFragment implements DataBoundListAdapt
 
         //rating list
         ratingViewModel.setRatingListObj(productDetailViewModel.productId, String.valueOf(Config.RATING_COUNT), Constants.ZERO);
-        LiveData<Resource<List<Rating>>> news = ratingViewModel.getRatingList();
+        LiveData<Resource<List<Rating>>> news = ratingViewModel.ratingList;
 
         if (news != null) {
 
@@ -342,7 +342,7 @@ public class RatingListFragment extends PSFragment implements DataBoundListAdapt
         }
 
         //get rating post method
-        ratingViewModel.getRatingPostData().observe(this, result -> {
+        ratingViewModel.ratingPostData.observe(this, result -> {
             if (result != null) {
                 if (result.status == Status.SUCCESS) {
                     if (RatingListFragment.this.getActivity() != null) {
@@ -366,7 +366,7 @@ public class RatingListFragment extends PSFragment implements DataBoundListAdapt
             }
         });
 
-        ratingViewModel.getNextPageLoadingStateData().observe(this, state -> {
+        ratingViewModel.nextPageLoadingStateData.observe(this, state -> {
             if (state != null) {
                 if (state.status == Status.ERROR) {
                     Utils.psLog("Next Page State : " + state.data);
@@ -377,7 +377,7 @@ public class RatingListFragment extends PSFragment implements DataBoundListAdapt
             }
         });
 
-        ratingViewModel.getLoadingState().observe(this, loadingState -> binding.get().setLoadingMore(ratingViewModel.isLoading));
+        ratingViewModel.loadingState.observe(this, loadingState -> binding.get().setLoadingMore(ratingViewModel.isLoading));
 
         //end region
 
@@ -447,7 +447,7 @@ public class RatingListFragment extends PSFragment implements DataBoundListAdapt
 
                 prgDialog.get().show();
 
-                if (ratingViewModel.getRatingList() != null && ratingViewModel.getRatingList().getValue() != null) {
+                if (ratingViewModel.ratingList != null && ratingViewModel.ratingList.getValue() != null) {
                     ratingViewModel.setLoadingState(false);
                     ratingViewModel.setRatingListObj(productDetailViewModel.productId, String.valueOf(Config.RATING_COUNT), Constants.ZERO);
                 }

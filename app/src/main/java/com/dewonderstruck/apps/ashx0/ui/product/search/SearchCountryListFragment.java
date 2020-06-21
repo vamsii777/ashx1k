@@ -140,7 +140,7 @@ public class SearchCountryListFragment extends PSFragment {
 
         countryViewModel.setCountryListObj(shopId, String.valueOf(Config.LIST_CATEGORY_COUNT), String.valueOf(countryViewModel.offset));
 
-        LiveData<Resource<List<Country>>> news = countryViewModel.getCountryListData();
+        LiveData<Resource<List<Country>>> news = countryViewModel.countryListData;
 
         if (news != null) {
 
@@ -206,7 +206,7 @@ public class SearchCountryListFragment extends PSFragment {
             });
         }
 
-        countryViewModel.getNextPageCountryListData().observe(this, state -> {
+        countryViewModel.nextPageCountryListData.observe(this, state -> {
             if (state != null) {
                 if (state.status == Status.ERROR) {
                     Utils.psLog("Next Page State : " + state.data);

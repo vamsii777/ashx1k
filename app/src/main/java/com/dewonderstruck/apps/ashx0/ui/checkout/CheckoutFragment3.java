@@ -534,7 +534,7 @@ public class CheckoutFragment3 extends PSFragment implements DataBoundListAdapte
 
         shopViewModel.setShopObj(Config.API_KEY);
 
-        shopViewModel.getShopData().observe(this, result -> {
+        shopViewModel.shopData.observe(this, result -> {
 
             if (result != null) {
                 switch (result.status) {
@@ -604,7 +604,7 @@ public class CheckoutFragment3 extends PSFragment implements DataBoundListAdapte
             }
         });
 
-        paypalViewModel.getPaypalTokenData().observe(this, result -> {
+        paypalViewModel.paypalTokenData.observe(this, result -> {
 
             if (result != null) {
                 switch (result.status) {
@@ -712,7 +712,7 @@ public class CheckoutFragment3 extends PSFragment implements DataBoundListAdapte
 
         });
 
-        transactionListViewModel.getSendTransactionDetailData().observe(this, result -> {
+        transactionListViewModel.sendTransactionDetailData.observe(this, result -> {
             if (result != null) {
                 if (result.status == Status.SUCCESS) {
                     if (CheckoutFragment3.this.getActivity() != null) {
@@ -749,7 +749,7 @@ public class CheckoutFragment3 extends PSFragment implements DataBoundListAdapte
             }
         });
 
-        basketViewModel.getWholeBasketDeleteData().observe(this, result -> {
+        basketViewModel.wholeBasketDeleteData.observe(this, result -> {
             if (result != null) {
                 if (result.status == Status.SUCCESS) {
                     Utils.psLog("Success");

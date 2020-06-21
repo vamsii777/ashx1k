@@ -206,7 +206,7 @@ public class CommentListFragment extends PSFragment implements DataBoundListAdap
         // Load Latest Product
         commentListViewModel.setCommentListObj(String.valueOf(Config.COMMENT_COUNT), String.valueOf(commentListViewModel.offset), commentListViewModel.productId);
 
-        LiveData<Resource<List<com.dewonderstruck.apps.ashx0.viewobject.Comment>>> news = commentListViewModel.getCommentListData();
+        LiveData<Resource<List<com.dewonderstruck.apps.ashx0.viewobject.Comment>>> news = commentListViewModel.commentListData;
 
         if (news != null) {
             news.observe(this, listResource -> {
@@ -283,7 +283,7 @@ public class CommentListFragment extends PSFragment implements DataBoundListAdap
                     navigationController.navigateBackToProductDetailFragment(getActivity(), commentListViewModel.productId);
 
                     try {
-                        Resource<List<Comment>> resourceCommentList = commentListViewModel.getCommentListData().getValue();
+                        Resource<List<Comment>> resourceCommentList = commentListViewModel.commentListData.getValue();
 
                         if (resourceCommentList != null && resourceCommentList.data != null) {
                             if (resourceCommentList.data.size() <= 1) {
@@ -322,7 +322,7 @@ public class CommentListFragment extends PSFragment implements DataBoundListAdap
             }
         });
 
-        commentListViewModel.getLoadingState().observe(this, loadingState -> {
+        commentListViewModel.loadingState.observe(this, loadingState -> {
 
             binding.get().setLoadingMore(commentListViewModel.isLoading);
 
