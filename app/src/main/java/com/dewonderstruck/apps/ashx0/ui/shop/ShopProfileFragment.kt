@@ -12,6 +12,7 @@ import androidx.annotation.VisibleForTesting
 import androidx.databinding.DataBindingComponent
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import com.dewonderstruck.apps.Config
 import com.dewonderstruck.apps.ashx0.R
@@ -224,8 +225,8 @@ class ShopProfileFragment : PSFragment() {
     }
 
     override fun initViewModels() {
-        basketViewModel = ViewModelProviders.of(this, viewModelFactory).get(BasketViewModel::class.java)
-        shopViewModel = ViewModelProviders.of(this, viewModelFactory).get(ShopViewModel::class.java)
+        basketViewModel = ViewModelProvider(this, viewModelFactory).get(BasketViewModel::class.java)
+        shopViewModel = ViewModelProvider(this, viewModelFactory).get(ShopViewModel::class.java)
     }
 
     override fun initAdapters() {}

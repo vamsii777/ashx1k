@@ -78,7 +78,7 @@ public class CategoryRepository extends PSRepository {
                     String dateTime = Utils.getDateTime();
 
                     for (int i = 0; i < item.size(); i++) {
-                        db.categoryMapDao().insert(new CategoryMap(mapKey + item.get(i).id, mapKey, item.get(i).id, i + 1, dateTime));
+                        db.categoryMapDao().insert(new CategoryMap(mapKey + item.get(i).getId(), mapKey, item.get(i).getId(), i + 1, dateTime));
                     }
 
                     db.setTransactionSuccessful();
@@ -158,7 +158,7 @@ public class CategoryRepository extends PSRepository {
                             String dateTime = Utils.getDateTime();
 
                             for (int i = 0; i < response.body.size(); i++) {
-                                db.categoryMapDao().insert(new CategoryMap(mapKey + response.body.get(i).id, mapKey, response.body.get(i).id, startIndex + i, dateTime));
+                                db.categoryMapDao().insert(new CategoryMap(mapKey + response.body.get(i).getId(), mapKey, response.body.get(i).getId(), startIndex + i, dateTime));
                             }
 
                             //db.trendingCategoryDao().insertAll(new TrendingCategory(apiResponse.body.));
