@@ -3,7 +3,7 @@ package com.dewonderstruck.apps.ashx0.repository.comment;
 import com.dewonderstruck.apps.AppExecutors;
 import com.dewonderstruck.apps.Config;
 import com.dewonderstruck.apps.ashx0.api.ApiResponse;
-import com.dewonderstruck.apps.ashx0.api.PSApiService;
+import com.dewonderstruck.apps.ashx0.api.ApiService;
 import com.dewonderstruck.apps.ashx0.db.CommentDetailDao;
 import com.dewonderstruck.apps.ashx0.db.PSCoreDb;
 import com.dewonderstruck.apps.ashx0.repository.common.NetworkBoundResource;
@@ -36,8 +36,8 @@ public class CommentDetailRepository extends PSRepository {
 
     //region Constructor
     @Inject
-    CommentDetailRepository(PSApiService psApiService, AppExecutors appExecutors, PSCoreDb db, CommentDetailDao commentDetailDao) {
-        super(psApiService, appExecutors, db);
+    CommentDetailRepository(ApiService apiService, AppExecutors appExecutors, PSCoreDb db, CommentDetailDao commentDetailDao) {
+        super(apiService, appExecutors, db);
         this.commentDetailDao = commentDetailDao;
     }
     //endregion
@@ -86,7 +86,7 @@ public class CommentDetailRepository extends PSRepository {
             @NonNull
             @Override
             protected LiveData<ApiResponse<List<CommentDetail>>> createCall() {
-                return psApiService.getCommentDetailList(apiKey, commentid, String.valueOf(Config.COMMENT_COUNT), offset);
+                return apiService.getCommentDetailList(apiKey, commentid, String.valueOf(Config.COMMENT_COUNT), offset);
 
             }
 
@@ -101,7 +101,7 @@ public class CommentDetailRepository extends PSRepository {
     public LiveData<Resource<Boolean>> getNextPageCommentDetailList(String offset, String commentid) {
 
         final MediatorLiveData<Resource<Boolean>> statusLiveData = new MediatorLiveData<>();
-        LiveData<ApiResponse<List<CommentDetail>>> apiResponse = psApiService.getCommentDetailList(Config.API_KEY, commentid, String.valueOf(Config.COMMENT_COUNT), offset);
+        LiveData<ApiResponse<List<CommentDetail>>> apiResponse = apiService.getCommentDetailList(Config.API_KEY, commentid, String.valueOf(Config.COMMENT_COUNT), offset);
 
         statusLiveData.addSource(apiResponse, response -> {
 
@@ -153,7 +153,7 @@ public class CommentDetailRepository extends PSRepository {
             Response<List<CommentDetail>> response;
 
             try {
-                response = psApiService.rawCommentDetailPost(
+                response = apiService.rawCommentDetailPost(
                         Config.API_KEY,
                         headerId,
                         userId,

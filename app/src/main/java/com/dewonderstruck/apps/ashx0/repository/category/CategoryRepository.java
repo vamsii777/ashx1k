@@ -8,7 +8,7 @@ import androidx.lifecycle.MediatorLiveData;
 import com.dewonderstruck.apps.AppExecutors;
 import com.dewonderstruck.apps.Config;
 import com.dewonderstruck.apps.ashx0.api.ApiResponse;
-import com.dewonderstruck.apps.ashx0.api.PSApiService;
+import com.dewonderstruck.apps.ashx0.api.ApiService;
 import com.dewonderstruck.apps.ashx0.db.CategoryDao;
 import com.dewonderstruck.apps.ashx0.db.PSCoreDb;
 import com.dewonderstruck.apps.ashx0.repository.common.NetworkBoundResource;
@@ -43,8 +43,8 @@ public class CategoryRepository extends PSRepository {
     //region Constructor
 
     @Inject
-    CategoryRepository(PSApiService psApiService, AppExecutors appExecutors, PSCoreDb db, CategoryDao categoryDao) {
-        super(psApiService, appExecutors, db);
+    CategoryRepository(ApiService apiService, AppExecutors appExecutors, PSCoreDb db, CategoryDao categoryDao) {
+        super(apiService, appExecutors, db);
 
         Utils.psLog("Inside CategoryRepository");
 
@@ -118,7 +118,7 @@ public class CategoryRepository extends PSRepository {
             protected LiveData<ApiResponse<List<Category>>> createCall() {
                 Utils.psLog("Call Get All Categories webservice.");
 
-                return psApiService.getSearchCategory(Config.API_KEY, limit, offset, categoryParameterHolder.order_by);
+                return apiService.getSearchCategory(Config.API_KEY, limit, offset, categoryParameterHolder.order_by);
             }
 
             @Override
@@ -131,7 +131,7 @@ public class CategoryRepository extends PSRepository {
 
     public LiveData<Resource<Boolean>> getNextSearchCategory(String limit, String offset, CategoryParameterHolder categoryParameterHolder) {
         final MediatorLiveData<Resource<Boolean>> statusLiveData = new MediatorLiveData<>();
-        LiveData<ApiResponse<List<Category>>> apiResponse = psApiService.getSearchCategory(Config.API_KEY, limit, offset, categoryParameterHolder.order_by);
+        LiveData<ApiResponse<List<Category>>> apiResponse = apiService.getSearchCategory(Config.API_KEY, limit, offset, categoryParameterHolder.order_by);
 
         statusLiveData.addSource(apiResponse, response -> {
 

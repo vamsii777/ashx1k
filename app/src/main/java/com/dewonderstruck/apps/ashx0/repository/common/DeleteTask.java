@@ -3,7 +3,7 @@ package com.dewonderstruck.apps.ashx0.repository.common;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
-import com.dewonderstruck.apps.ashx0.api.PSApiService;
+import com.dewonderstruck.apps.ashx0.api.ApiService;
 import com.dewonderstruck.apps.ashx0.db.PSCoreDb;
 import com.dewonderstruck.apps.ashx0.viewobject.User;
 import com.dewonderstruck.apps.ashx0.viewobject.common.Resource;
@@ -21,7 +21,7 @@ public class DeleteTask implements Runnable {
 
     private final MutableLiveData<Resource<Boolean>> statusLiveData = new MutableLiveData<>();
 
-    public final PSApiService service;
+    public final ApiService service;
     private final PSCoreDb db;
     private final Object obj;
 
@@ -30,7 +30,7 @@ public class DeleteTask implements Runnable {
 
     //region Constructor
 
-    DeleteTask(PSApiService service, PSCoreDb db, Object obj) {
+    DeleteTask(ApiService service, PSCoreDb db, Object obj) {
         this.service = service;
         this.db = db;
         this.obj = obj;

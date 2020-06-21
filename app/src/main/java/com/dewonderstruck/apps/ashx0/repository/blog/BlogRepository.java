@@ -3,7 +3,7 @@ package com.dewonderstruck.apps.ashx0.repository.blog;
 import com.dewonderstruck.apps.AppExecutors;
 import com.dewonderstruck.apps.Config;
 import com.dewonderstruck.apps.ashx0.api.ApiResponse;
-import com.dewonderstruck.apps.ashx0.api.PSApiService;
+import com.dewonderstruck.apps.ashx0.api.ApiService;
 import com.dewonderstruck.apps.ashx0.db.BlogDao;
 import com.dewonderstruck.apps.ashx0.db.PSCoreDb;
 import com.dewonderstruck.apps.ashx0.repository.common.NetworkBoundResource;
@@ -28,8 +28,8 @@ public class BlogRepository extends PSRepository {
     private final BlogDao blogDao;
 
     @Inject
-    BlogRepository(PSApiService psApiService, AppExecutors appExecutors, PSCoreDb db, BlogDao blogDao) {
-        super(psApiService, appExecutors, db);
+    BlogRepository(ApiService apiService, AppExecutors appExecutors, PSCoreDb db, BlogDao blogDao) {
+        super(apiService, appExecutors, db);
         this.blogDao = blogDao;
     }
 
@@ -76,7 +76,7 @@ public class BlogRepository extends PSRepository {
             protected LiveData<ApiResponse<List<Blog>>> createCall() {
                 Utils.psLog("Call API Service to getNewsFeedList.");
 
-                return psApiService.getAllNewsFeed(Config.API_KEY, limit, offset);
+                return apiService.getAllNewsFeed(Config.API_KEY, limit, offset);
             }
 
             @Override
@@ -145,7 +145,7 @@ public class BlogRepository extends PSRepository {
 
         final MediatorLiveData<Resource<Boolean>> statusLiveData = new MediatorLiveData<>();
 
-        LiveData<ApiResponse<List<Blog>>> apiResponse = psApiService.getAllNewsFeed(apiKey, limit, offset);
+        LiveData<ApiResponse<List<Blog>>> apiResponse = apiService.getAllNewsFeed(apiKey, limit, offset);
 
         statusLiveData.addSource(apiResponse, response -> {
 
@@ -228,7 +228,7 @@ public class BlogRepository extends PSRepository {
             protected LiveData<ApiResponse<Blog>> createCall() {
 
                 Utils.psLog("Call API Service to getBlogById.");
-                return psApiService.getNewsById(Config.API_KEY, id);
+                return apiService.getNewsById(Config.API_KEY, id);
 
             }
 

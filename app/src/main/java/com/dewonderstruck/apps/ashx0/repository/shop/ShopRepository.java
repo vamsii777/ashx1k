@@ -4,7 +4,7 @@ import android.content.SharedPreferences;
 
 import com.dewonderstruck.apps.AppExecutors;
 import com.dewonderstruck.apps.ashx0.api.ApiResponse;
-import com.dewonderstruck.apps.ashx0.api.PSApiService;
+import com.dewonderstruck.apps.ashx0.api.ApiService;
 import com.dewonderstruck.apps.ashx0.db.PSCoreDb;
 import com.dewonderstruck.apps.ashx0.db.ShopDao;
 import com.dewonderstruck.apps.ashx0.repository.common.NetworkBoundResource;
@@ -31,8 +31,8 @@ public class ShopRepository extends PSRepository {
     protected SharedPreferences pref;
 
     @Inject
-    ShopRepository(PSApiService psApiService, AppExecutors appExecutors, PSCoreDb db, ShopDao shopDao) {
-        super(psApiService, appExecutors, db);
+    ShopRepository(ApiService apiService, AppExecutors appExecutors, PSCoreDb db, ShopDao shopDao) {
+        super(apiService, appExecutors, db);
 
         Utils.psLog("Inside ShopRepository");
 
@@ -83,7 +83,7 @@ public class ShopRepository extends PSRepository {
             protected LiveData<ApiResponse<Shop>> createCall() {
                 Utils.psLog("Call API Service to get discount.");
 
-                return psApiService.getShopById(api_key);
+                return apiService.getShopById(api_key);
 
             }
 

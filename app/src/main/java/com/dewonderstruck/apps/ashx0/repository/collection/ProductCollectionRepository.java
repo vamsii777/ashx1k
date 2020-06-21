@@ -9,7 +9,7 @@ import androidx.lifecycle.MutableLiveData;
 import com.dewonderstruck.apps.AppExecutors;
 import com.dewonderstruck.apps.Config;
 import com.dewonderstruck.apps.ashx0.api.ApiResponse;
-import com.dewonderstruck.apps.ashx0.api.PSApiService;
+import com.dewonderstruck.apps.ashx0.api.ApiService;
 import com.dewonderstruck.apps.ashx0.db.PSCoreDb;
 import com.dewonderstruck.apps.ashx0.db.ProductCollectionDao;
 import com.dewonderstruck.apps.ashx0.repository.common.NetworkBoundResource;
@@ -44,8 +44,8 @@ public class ProductCollectionRepository extends PSRepository {
     //region Constructor
 
     @Inject
-    ProductCollectionRepository(PSApiService psApiService, AppExecutors appExecutors, PSCoreDb db, ProductCollectionDao productCollectionDao) {
-        super(psApiService, appExecutors, db);
+    ProductCollectionRepository(ApiService apiService, AppExecutors appExecutors, PSCoreDb db, ProductCollectionDao productCollectionDao) {
+        super(apiService, appExecutors, db);
 
         Utils.psLog("Inside ProductCollectionRepository");
 
@@ -122,7 +122,7 @@ public class ProductCollectionRepository extends PSRepository {
             @Override
             protected LiveData<ApiResponse<List<ProductCollectionHeader>>> createCall() {
 
-                return psApiService.getProductCollectionHeader(apiKey, productLimit, offset);
+                return apiService.getProductCollectionHeader(apiKey, productLimit, offset);
             }
         }.asLiveData();
     }
@@ -187,7 +187,7 @@ public class ProductCollectionRepository extends PSRepository {
             @Override
             protected LiveData<ApiResponse<List<ProductCollectionHeader>>> createCall() {
 
-                return psApiService.getProductCollectionHeader(apiKey, productlimit, offset);
+                return apiService.getProductCollectionHeader(apiKey, productlimit, offset);
             }
         }.asLiveData();
     }
@@ -195,7 +195,7 @@ public class ProductCollectionRepository extends PSRepository {
     public LiveData<Resource<Boolean>> getNextPageProductionCollectionHeaderList(String limit, String offset) {
 
         final MediatorLiveData<Resource<Boolean>> statusLiveData = new MediatorLiveData<>();
-        LiveData<ApiResponse<List<ProductCollectionHeader>>> apiResponse = psApiService.getProductCollectionHeader(Config.API_KEY, limit, offset);
+        LiveData<ApiResponse<List<ProductCollectionHeader>>> apiResponse = apiService.getProductCollectionHeader(Config.API_KEY, limit, offset);
 
         statusLiveData.addSource(apiResponse, response -> {
 
@@ -294,7 +294,7 @@ public class ProductCollectionRepository extends PSRepository {
             @Override
             protected LiveData<ApiResponse<List<Product>>> createCall() {
 
-                return psApiService.getCollectionProducts(apiKey, limit, offset, id);
+                return apiService.getCollectionProducts(apiKey, limit, offset, id);
             }
         }.asLiveData();
     }
@@ -302,7 +302,7 @@ public class ProductCollectionRepository extends PSRepository {
     public LiveData<Resource<Boolean>> getNextPageProductCollectionProduct(String limit, String offset, String id) {
 
         final MediatorLiveData<Resource<Boolean>> statusLiveData = new MediatorLiveData<>();
-        LiveData<ApiResponse<List<Product>>> apiResponse = psApiService.getCollectionProducts(Config.API_KEY, limit, offset, id);
+        LiveData<ApiResponse<List<Product>>> apiResponse = apiService.getCollectionProducts(Config.API_KEY, limit, offset, id);
 
         statusLiveData.addSource(apiResponse, response -> {
 

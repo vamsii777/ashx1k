@@ -7,7 +7,7 @@ import androidx.preference.PreferenceManager;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.dewonderstruck.apps.Config;
-import com.dewonderstruck.apps.ashx0.api.PSApiService;
+import com.dewonderstruck.apps.ashx0.api.ApiService;
 import com.dewonderstruck.apps.ashx0.db.AboutUsDao;
 import com.dewonderstruck.apps.ashx0.db.BasketDao;
 import com.dewonderstruck.apps.ashx0.db.BlogDao;
@@ -64,7 +64,7 @@ class AppModule {
 
     @Singleton
     @Provides
-    PSApiService providePSApiService() {
+    ApiService providePSApiService() {
 
         Gson gson = new GsonBuilder()
                 .setDateFormat("yyyy-MM-dd HH:mm:ss")
@@ -81,7 +81,7 @@ class AppModule {
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .addCallAdapterFactory(new LiveDataCallAdapterFactory())
                 .build()
-                .create(PSApiService.class);
+                .create(ApiService.class);
 
     }
 

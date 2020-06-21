@@ -1,6 +1,6 @@
 package com.dewonderstruck.apps.ashx0.repository.common;
 
-import com.dewonderstruck.apps.ashx0.api.PSApiService;
+import com.dewonderstruck.apps.ashx0.api.ApiService;
 import com.dewonderstruck.apps.ashx0.db.PSCoreDb;
 import com.dewonderstruck.apps.ashx0.viewobject.Category;
 import com.dewonderstruck.apps.ashx0.viewobject.common.Resource;
@@ -21,7 +21,7 @@ public class SaveTask implements Runnable {
 
     private final MutableLiveData<Resource<Boolean>> statusLiveData = new MutableLiveData<>();
 
-    public final PSApiService service;
+    public final ApiService service;
     private final PSCoreDb db;
     private final Object obj;
 
@@ -37,7 +37,7 @@ public class SaveTask implements Runnable {
      * @param obj Object to Save
      *
      */
-    SaveTask(PSApiService service, PSCoreDb db, Object obj) {
+    SaveTask(ApiService service, PSCoreDb db, Object obj) {
         this.service = service;
         this.db = db;
         this.obj = obj;

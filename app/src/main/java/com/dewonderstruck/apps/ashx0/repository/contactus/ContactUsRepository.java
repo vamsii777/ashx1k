@@ -2,7 +2,7 @@ package com.dewonderstruck.apps.ashx0.repository.contactus;
 
 import com.dewonderstruck.apps.AppExecutors;
 import com.dewonderstruck.apps.ashx0.api.ApiResponse;
-import com.dewonderstruck.apps.ashx0.api.PSApiService;
+import com.dewonderstruck.apps.ashx0.api.ApiService;
 import com.dewonderstruck.apps.ashx0.db.PSCoreDb;
 import com.dewonderstruck.apps.ashx0.repository.common.PSRepository;
 import com.dewonderstruck.apps.ashx0.utils.Utils;
@@ -24,8 +24,8 @@ import retrofit2.Response;
 public class ContactUsRepository extends PSRepository {
 
     @Inject
-    ContactUsRepository(PSApiService psApiService, AppExecutors appExecutors, PSCoreDb db) {
-        super(psApiService, appExecutors, db);
+    ContactUsRepository(ApiService apiService, AppExecutors appExecutors, PSCoreDb db) {
+        super(apiService, appExecutors, db);
 
     }
 
@@ -44,7 +44,7 @@ public class ContactUsRepository extends PSRepository {
             try {
 
                 // Call the API Service
-                Response<ApiStatus> response = psApiService.rawPostContact(apiKey, contactName, contactEmail, contactDesc, contactPhone).execute();
+                Response<ApiStatus> response = apiService.rawPostContact(apiKey, contactName, contactEmail, contactDesc, contactPhone).execute();
 
                 // Wrap with APIResponse Class
                 ApiResponse<ApiStatus> apiResponse = new ApiResponse<>(response);

@@ -11,7 +11,7 @@ import androidx.lifecycle.MutableLiveData;
 import com.dewonderstruck.apps.AppExecutors;
 import com.dewonderstruck.apps.Config;
 import com.dewonderstruck.apps.ashx0.api.ApiResponse;
-import com.dewonderstruck.apps.ashx0.api.PSApiService;
+import com.dewonderstruck.apps.ashx0.api.ApiService;
 import com.dewonderstruck.apps.ashx0.db.PSCoreDb;
 import com.dewonderstruck.apps.ashx0.db.ProductDao;
 import com.dewonderstruck.apps.ashx0.repository.common.NetworkBoundResource;
@@ -65,8 +65,8 @@ public class ProductRepository extends PSRepository {
     protected SharedPreferences pref;
 
     @Inject
-    public ProductRepository(PSApiService psApiService, AppExecutors appExecutors, PSCoreDb db, ProductDao productDao) {
-        super(psApiService, appExecutors, db);
+    public ProductRepository(ApiService apiService, AppExecutors appExecutors, PSCoreDb db, ProductDao productDao) {
+        super(apiService, appExecutors, db);
 
         Utils.psLog("Inside ProductRepository");
 
@@ -150,7 +150,7 @@ public class ProductRepository extends PSRepository {
                 Utils.psLog("holder.order_by : " + productParameterHolder.order_by);
                 Utils.psLog("holder.order_type : " + productParameterHolder.order_type);
 
-                return psApiService.searchProduct(Config.API_KEY, Utils.checkUserId(loginUserId), limit, offset, productParameterHolder.search_term, productParameterHolder.catId,
+                return apiService.searchProduct(Config.API_KEY, Utils.checkUserId(loginUserId), limit, offset, productParameterHolder.search_term, productParameterHolder.catId,
                         productParameterHolder.subCatId, productParameterHolder.isFeatured, productParameterHolder.isDiscount, productParameterHolder.isAvailable, productParameterHolder.max_price,
                         String.valueOf(productParameterHolder.min_price), productParameterHolder.overall_rating, productParameterHolder.order_by, productParameterHolder.order_type);
 
@@ -171,7 +171,7 @@ public class ProductRepository extends PSRepository {
 
         prepareRatingValueForServer(productParameterHolder);
 
-        LiveData<ApiResponse<List<Product>>> apiResponse = psApiService.searchProduct(Config.API_KEY, Utils.checkUserId(loginUserId), limit, offset, productParameterHolder.search_term, productParameterHolder.catId,
+        LiveData<ApiResponse<List<Product>>> apiResponse = apiService.searchProduct(Config.API_KEY, Utils.checkUserId(loginUserId), limit, offset, productParameterHolder.search_term, productParameterHolder.catId,
                 productParameterHolder.subCatId, productParameterHolder.isFeatured, productParameterHolder.isDiscount, productParameterHolder.isAvailable, productParameterHolder.max_price,
                 String.valueOf(productParameterHolder.min_price), productParameterHolder.overall_rating, productParameterHolder.order_by, productParameterHolder.order_type);
 
@@ -285,7 +285,7 @@ public class ProductRepository extends PSRepository {
             protected LiveData<ApiResponse<List<Product>>> createCall() {
                 Utils.psLog("Call API Service to get related.");
 
-                return psApiService.getProductDetailRelatedList(apiKey, productId, catId);
+                return apiService.getProductDetailRelatedList(apiKey, productId, catId);
 
             }
 
@@ -353,7 +353,7 @@ public class ProductRepository extends PSRepository {
             protected LiveData<ApiResponse<List<Product>>> createCall() {
                 Utils.psLog("Call API Service to get related.");
 
-                return psApiService.getFavouriteList(apiKey, Utils.checkUserId(loginUserId), String.valueOf(Config.PRODUCT_COUNT), offset);//////////////////////////////////////
+                return apiService.getFavouriteList(apiKey, Utils.checkUserId(loginUserId), String.valueOf(Config.PRODUCT_COUNT), offset);//////////////////////////////////////
 
             }
 
@@ -368,7 +368,7 @@ public class ProductRepository extends PSRepository {
     public LiveData<Resource<Boolean>> getNextPageFavouriteProductList(String loginUserId, String offset) {
 
         final MediatorLiveData<Resource<Boolean>> statusLiveData = new MediatorLiveData<>();
-        LiveData<ApiResponse<List<Product>>> apiResponse = psApiService.getFavouriteList(Config.API_KEY, Utils.checkUserId(loginUserId),String.valueOf(Config.PRODUCT_COUNT), offset);
+        LiveData<ApiResponse<List<Product>>> apiResponse = apiService.getFavouriteList(Config.API_KEY, Utils.checkUserId(loginUserId),String.valueOf(Config.PRODUCT_COUNT), offset);
 
         statusLiveData.addSource(apiResponse, response -> {
 
@@ -473,7 +473,7 @@ public class ProductRepository extends PSRepository {
             protected LiveData<ApiResponse<List<Product>>> createCall() {
                 Utils.psLog("Call API Service to get product list by catId.");
 
-                return psApiService.getProductListByCatId(apiKey, Utils.checkUserId(loginUserId), String.valueOf(Config.PRODUCT_COUNT), offset, catId);
+                return apiService.getProductListByCatId(apiKey, Utils.checkUserId(loginUserId), String.valueOf(Config.PRODUCT_COUNT), offset, catId);
 
             }
 
@@ -489,7 +489,7 @@ public class ProductRepository extends PSRepository {
     public LiveData<Resource<Boolean>> getNextPageProductListByCatId(String loginUserId, String offset, String catId) {
 
         final MediatorLiveData<Resource<Boolean>> statusLiveData = new MediatorLiveData<>();
-        LiveData<ApiResponse<List<Product>>> apiResponse = psApiService.getProductListByCatId(Config.API_KEY, Utils.checkUserId(loginUserId), String.valueOf(Config.PRODUCT_COUNT), offset, catId);
+        LiveData<ApiResponse<List<Product>>> apiResponse = apiService.getProductListByCatId(Config.API_KEY, Utils.checkUserId(loginUserId), String.valueOf(Config.PRODUCT_COUNT), offset, catId);
 
         statusLiveData.addSource(apiResponse, response -> {
 
@@ -606,7 +606,7 @@ public class ProductRepository extends PSRepository {
             protected LiveData<ApiResponse<Product>> createCall() {
                 Utils.psLog("Call API Service to get discount.");
 
-                return psApiService.getProductDetail(apiKey, productId, Utils.checkUserId(userId));
+                return apiService.getProductDetail(apiKey, productId, Utils.checkUserId(userId));
 
             }
 
@@ -653,7 +653,7 @@ public class ProductRepository extends PSRepository {
                 // Call the API Service
                 Response<Product> response;
 
-                response = psApiService.setPostFavourite(Config.API_KEY, product_id, userId).execute();
+                response = apiService.setPostFavourite(Config.API_KEY, product_id, userId).execute();
 
                 // Wrap with APIResponse Class
                 ApiResponse<Product> apiResponse = new ApiResponse<>(response);
@@ -734,7 +734,7 @@ public class ProductRepository extends PSRepository {
             Response<ApiStatus> response;
 
             try {
-                response = psApiService.setrawPostTouchCount(Config.API_KEY, typeId, typeName, Utils.checkUserId(userId)).execute();
+                response = apiService.setrawPostTouchCount(Config.API_KEY, typeId, typeName, Utils.checkUserId(userId)).execute();
 
                 ApiResponse<ApiStatus> apiResponse = new ApiResponse<>(response);
 

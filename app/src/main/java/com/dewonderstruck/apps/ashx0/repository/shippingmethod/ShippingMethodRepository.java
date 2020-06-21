@@ -3,7 +3,7 @@ package com.dewonderstruck.apps.ashx0.repository.shippingmethod;
 import com.dewonderstruck.apps.AppExecutors;
 import com.dewonderstruck.apps.Config;
 import com.dewonderstruck.apps.ashx0.api.ApiResponse;
-import com.dewonderstruck.apps.ashx0.api.PSApiService;
+import com.dewonderstruck.apps.ashx0.api.ApiService;
 import com.dewonderstruck.apps.ashx0.db.PSCoreDb;
 import com.dewonderstruck.apps.ashx0.db.ShippingMethodDao;
 import com.dewonderstruck.apps.ashx0.repository.common.NetworkBoundResource;
@@ -33,13 +33,13 @@ public class ShippingMethodRepository extends PSRepository {
     /**
      * Constructor of PSRepository
      *
-     * @param psApiService Vamsi Madduluri API Service Instance
+     * @param apiService Vamsi Madduluri API Service Instance
      * @param appExecutors Executors Instance
      * @param db           Vamsi Madduluri DB
      */
     @Inject
-    ShippingMethodRepository(PSApiService psApiService, AppExecutors appExecutors, PSCoreDb db, ShippingMethodDao shippingMethodDao) {
-        super(psApiService, appExecutors, db);
+    ShippingMethodRepository(ApiService apiService, AppExecutors appExecutors, PSCoreDb db, ShippingMethodDao shippingMethodDao) {
+        super(apiService, appExecutors, db);
 
         Utils.psLog("Inside ProductRepository");
 
@@ -90,7 +90,7 @@ public class ShippingMethodRepository extends PSRepository {
             protected LiveData<ApiResponse<List<ShippingMethod>>> createCall() {
                 Utils.psLog("Call API Service to getAllShippingMethods.");
 
-                return psApiService.getShipping(Config.API_KEY);
+                return apiService.getShipping(Config.API_KEY);
 
             }
 
@@ -112,7 +112,7 @@ public class ShippingMethodRepository extends PSRepository {
             Response<ShippingCost> response;
 
             try {
-                response = psApiService.postShippingByCountryAndCity( Config.API_KEY, shippingCostContainer).execute();
+                response = apiService.postShippingByCountryAndCity( Config.API_KEY, shippingCostContainer).execute();
 
                 ApiResponse<ShippingCost> apiResponse = new ApiResponse<>(response);
 

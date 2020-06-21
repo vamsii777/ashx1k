@@ -3,7 +3,7 @@ package com.dewonderstruck.apps.ashx0.repository.transaction;
 import com.dewonderstruck.apps.AppExecutors;
 import com.dewonderstruck.apps.Config;
 import com.dewonderstruck.apps.ashx0.api.ApiResponse;
-import com.dewonderstruck.apps.ashx0.api.PSApiService;
+import com.dewonderstruck.apps.ashx0.api.ApiService;
 import com.dewonderstruck.apps.ashx0.db.PSCoreDb;
 import com.dewonderstruck.apps.ashx0.db.TransactionOrderDao;
 import com.dewonderstruck.apps.ashx0.repository.common.NetworkBoundResource;
@@ -31,8 +31,8 @@ public class TransactionOrderRepository extends PSRepository {
 
     //region constructor
     @Inject
-    TransactionOrderRepository(PSApiService psApiService, AppExecutors appExecutors, PSCoreDb db, TransactionOrderDao transactionOrderDao) {
-        super(psApiService, appExecutors, db);
+    TransactionOrderRepository(ApiService apiService, AppExecutors appExecutors, PSCoreDb db, TransactionOrderDao transactionOrderDao) {
+        super(apiService, appExecutors, db);
         this.transactionOrderDao = transactionOrderDao;
     }
     //end constructor
@@ -78,7 +78,7 @@ public class TransactionOrderRepository extends PSRepository {
             @NonNull
             @Override
             protected LiveData<ApiResponse<List<TransactionDetail>>> createCall() {
-                return psApiService.getTransactionOrderList(apiKey, transactionHeaderId, String.valueOf(Config.TRANSACTION_ORDER_COUNT), offset);
+                return apiService.getTransactionOrderList(apiKey, transactionHeaderId, String.valueOf(Config.TRANSACTION_ORDER_COUNT), offset);
             }
         }.asLiveData();
     }
@@ -88,7 +88,7 @@ public class TransactionOrderRepository extends PSRepository {
     public LiveData<Resource<Boolean>> getNextPageTransactionOrderList(String transactionHeaderId, String offset) {
 
         final MediatorLiveData<Resource<Boolean>> statusLiveData = new MediatorLiveData<>();
-        LiveData<ApiResponse<List<TransactionDetail>>> apiResponse = psApiService.getTransactionOrderList(Config.API_KEY, transactionHeaderId, String.valueOf(Config.TRANSACTION_ORDER_COUNT), offset);
+        LiveData<ApiResponse<List<TransactionDetail>>> apiResponse = apiService.getTransactionOrderList(Config.API_KEY, transactionHeaderId, String.valueOf(Config.TRANSACTION_ORDER_COUNT), offset);
 
         statusLiveData.addSource(apiResponse, response -> {
 

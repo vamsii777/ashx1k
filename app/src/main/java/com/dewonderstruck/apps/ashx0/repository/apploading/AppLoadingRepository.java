@@ -3,7 +3,7 @@ package com.dewonderstruck.apps.ashx0.repository.apploading;
 import com.dewonderstruck.apps.AppExecutors;
 import com.dewonderstruck.apps.Config;
 import com.dewonderstruck.apps.ashx0.api.ApiResponse;
-import com.dewonderstruck.apps.ashx0.api.PSApiService;
+import com.dewonderstruck.apps.ashx0.api.ApiService;
 import com.dewonderstruck.apps.ashx0.db.PSCoreDb;
 import com.dewonderstruck.apps.ashx0.repository.common.PSRepository;
 import com.dewonderstruck.apps.ashx0.utils.Constants;
@@ -23,8 +23,8 @@ import retrofit2.Response;
 public class AppLoadingRepository extends PSRepository {
 
     @Inject
-    AppLoadingRepository(PSApiService psApiService, AppExecutors appExecutors, PSCoreDb db) {
-        super(psApiService, appExecutors, db);
+    AppLoadingRepository(ApiService apiService, AppExecutors appExecutors, PSCoreDb db) {
+        super(apiService, appExecutors, db);
     }
 
     public LiveData<Resource<PSAppInfo>> deleteTheSpecificObjects(String startDate, String endDate) {
@@ -36,7 +36,7 @@ public class AppLoadingRepository extends PSRepository {
             Response<PSAppInfo> response;
 
             try {
-                response = psApiService.getDeletedHistory(Config.API_KEY, startDate, endDate).execute();
+                response = apiService.getDeletedHistory(Config.API_KEY, startDate, endDate).execute();
 
                 ApiResponse<PSAppInfo> apiResponse = new ApiResponse<>(response);
 

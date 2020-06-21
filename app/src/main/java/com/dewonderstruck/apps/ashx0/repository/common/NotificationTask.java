@@ -7,7 +7,7 @@ import androidx.preference.PreferenceManager;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.dewonderstruck.apps.Config;
 import com.dewonderstruck.apps.ashx0.api.ApiResponse;
-import com.dewonderstruck.apps.ashx0.api.PSApiService;
+import com.dewonderstruck.apps.ashx0.api.ApiService;
 import com.dewonderstruck.apps.ashx0.utils.Constants;
 import com.dewonderstruck.apps.ashx0.utils.Utils;
 import com.dewonderstruck.apps.ashx0.viewobject.ApiStatus;
@@ -33,7 +33,7 @@ public class NotificationTask implements Runnable {
     SharedPreferences prefs;
     private final MutableLiveData<Resource<Boolean>> statusLiveData = new MutableLiveData<>();
 
-    private final PSApiService service;
+    private final ApiService service;
     private final String platform;
     private final Boolean isRegister;
     private final Context context;
@@ -43,7 +43,7 @@ public class NotificationTask implements Runnable {
 
 
     //region Constructor
-    public NotificationTask(Context context, PSApiService service, String platform, Boolean isRegister, String token) {
+    public NotificationTask(Context context, ApiService service, String platform, Boolean isRegister, String token) {
         this.service = service;
         this.platform = platform;
         this.isRegister = isRegister;

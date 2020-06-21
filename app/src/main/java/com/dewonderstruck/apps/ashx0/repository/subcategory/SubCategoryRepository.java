@@ -8,7 +8,7 @@ import androidx.lifecycle.MediatorLiveData;
 import com.dewonderstruck.apps.AppExecutors;
 import com.dewonderstruck.apps.Config;
 import com.dewonderstruck.apps.ashx0.api.ApiResponse;
-import com.dewonderstruck.apps.ashx0.api.PSApiService;
+import com.dewonderstruck.apps.ashx0.api.ApiService;
 import com.dewonderstruck.apps.ashx0.db.PSCoreDb;
 import com.dewonderstruck.apps.ashx0.db.SubCategoryDao;
 import com.dewonderstruck.apps.ashx0.repository.common.NetworkBoundResource;
@@ -28,8 +28,8 @@ public class SubCategoryRepository extends PSRepository {
     private final SubCategoryDao subCategoryDao;
 
     @Inject
-    SubCategoryRepository(PSApiService psApiService, AppExecutors appExecutors, PSCoreDb db, SubCategoryDao subCategoryDao) {
-        super(psApiService, appExecutors, db);
+    SubCategoryRepository(ApiService apiService, AppExecutors appExecutors, PSCoreDb db, SubCategoryDao subCategoryDao) {
+        super(apiService, appExecutors, db);
 
         Utils.psLog("Inside SubCategoryRepository");
 
@@ -76,7 +76,7 @@ public class SubCategoryRepository extends PSRepository {
             @NonNull
             @Override
             protected LiveData<ApiResponse<List<SubCategory>>> createCall() {
-                return psApiService.getAllSubCategoryList(apiKey);
+                return apiService.getAllSubCategoryList(apiKey);
             }
 
             @Override
@@ -126,7 +126,7 @@ public class SubCategoryRepository extends PSRepository {
             @NonNull
             @Override
             protected LiveData<ApiResponse<List<SubCategory>>> createCall() {
-                return psApiService.getSubCategoryListWithCatId(Config.API_KEY, Utils.checkUserId(loginUserId), catId, "", offset);
+                return apiService.getSubCategoryListWithCatId(Config.API_KEY, Utils.checkUserId(loginUserId), catId, "", offset);
             }
 
             @Override
@@ -139,7 +139,7 @@ public class SubCategoryRepository extends PSRepository {
 
     public LiveData<Resource<Boolean>> getNextPageSubCategoriesWithCatId(String loginUserId, String limit, String offset, String catId) {
         final MediatorLiveData<Resource<Boolean>> statusLiveData = new MediatorLiveData<>();
-        LiveData<ApiResponse<List<SubCategory>>> apiResponse = psApiService.getSubCategoryListWithCatId(Config.API_KEY, Utils.checkUserId(loginUserId), catId, limit, offset);
+        LiveData<ApiResponse<List<SubCategory>>> apiResponse = apiService.getSubCategoryListWithCatId(Config.API_KEY, Utils.checkUserId(loginUserId), catId, limit, offset);
 
         statusLiveData.addSource(apiResponse, response -> {
 

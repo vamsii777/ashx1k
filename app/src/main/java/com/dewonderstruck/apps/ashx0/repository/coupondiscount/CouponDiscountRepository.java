@@ -3,7 +3,7 @@ package com.dewonderstruck.apps.ashx0.repository.coupondiscount;
 import com.dewonderstruck.apps.AppExecutors;
 import com.dewonderstruck.apps.Config;
 import com.dewonderstruck.apps.ashx0.api.ApiResponse;
-import com.dewonderstruck.apps.ashx0.api.PSApiService;
+import com.dewonderstruck.apps.ashx0.api.ApiService;
 import com.dewonderstruck.apps.ashx0.db.PSCoreDb;
 import com.dewonderstruck.apps.ashx0.repository.common.PSRepository;
 import com.dewonderstruck.apps.ashx0.viewobject.CouponDiscount;
@@ -23,14 +23,14 @@ public class CouponDiscountRepository extends PSRepository {
     /**
      * Constructor of PSRepository
      *
-     * @param psApiService Vamsi Madduluri API Service Instance
+     * @param apiService Vamsi Madduluri API Service Instance
      * @param appExecutors Executors Instance
      * @param db           Vamsi Madduluri DB
      */
 
     @Inject
-    CouponDiscountRepository(PSApiService psApiService, AppExecutors appExecutors, PSCoreDb db) {
-        super(psApiService, appExecutors, db);
+    CouponDiscountRepository(ApiService apiService, AppExecutors appExecutors, PSCoreDb db) {
+        super(apiService, appExecutors, db);
     }
 
     public LiveData<Resource<CouponDiscount>> getCouponDiscount(String code)
@@ -42,7 +42,7 @@ public class CouponDiscountRepository extends PSRepository {
             try {
                 // Call the API Service
                 Response<CouponDiscount> response;
-                response = psApiService.checkCouponDiscount(Config.API_KEY, code).execute();
+                response = apiService.checkCouponDiscount(Config.API_KEY, code).execute();
 
                 // Wrap with APIResponse Class
                 ApiResponse<CouponDiscount> apiResponse = new ApiResponse<>(response);

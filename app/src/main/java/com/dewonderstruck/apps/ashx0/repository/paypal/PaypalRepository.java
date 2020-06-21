@@ -3,7 +3,7 @@ package com.dewonderstruck.apps.ashx0.repository.paypal;
 import com.dewonderstruck.apps.AppExecutors;
 import com.dewonderstruck.apps.Config;
 import com.dewonderstruck.apps.ashx0.api.ApiResponse;
-import com.dewonderstruck.apps.ashx0.api.PSApiService;
+import com.dewonderstruck.apps.ashx0.api.ApiService;
 import com.dewonderstruck.apps.ashx0.db.PSCoreDb;
 import com.dewonderstruck.apps.ashx0.repository.common.PSRepository;
 import com.dewonderstruck.apps.ashx0.utils.Utils;
@@ -22,8 +22,8 @@ public class PaypalRepository extends PSRepository {
 
 
     @Inject
-    PaypalRepository(PSApiService psApiService, AppExecutors appExecutors, PSCoreDb db) {
-        super(psApiService, appExecutors, db);
+    PaypalRepository(ApiService apiService, AppExecutors appExecutors, PSCoreDb db) {
+        super(apiService, appExecutors, db);
 
         Utils.psLog("Inside PaypalRepository");
     }
@@ -37,7 +37,7 @@ public class PaypalRepository extends PSRepository {
             Response<ApiStatus> response;
 
             try {
-                response = psApiService.getPaypalToken(Config.API_KEY).execute();
+                response = apiService.getPaypalToken(Config.API_KEY).execute();
 
                 ApiResponse<ApiStatus> apiResponse = new ApiResponse<>(response);
 

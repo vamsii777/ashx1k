@@ -3,7 +3,7 @@ package com.dewonderstruck.apps.ashx0.repository.image;
 import com.dewonderstruck.apps.AppExecutors;
 import com.dewonderstruck.apps.Config;
 import com.dewonderstruck.apps.ashx0.api.ApiResponse;
-import com.dewonderstruck.apps.ashx0.api.PSApiService;
+import com.dewonderstruck.apps.ashx0.api.ApiService;
 import com.dewonderstruck.apps.ashx0.db.ImageDao;
 import com.dewonderstruck.apps.ashx0.db.PSCoreDb;
 import com.dewonderstruck.apps.ashx0.repository.common.NetworkBoundResource;
@@ -40,8 +40,8 @@ public class ImageRepository extends PSRepository {
     //region Constructor
 
     @Inject
-    ImageRepository(PSApiService psApiService, AppExecutors appExecutors, PSCoreDb db, ImageDao imageDao) {
-        super(psApiService, appExecutors, db);
+    ImageRepository(ApiService apiService, AppExecutors appExecutors, PSCoreDb db, ImageDao imageDao) {
+        super(apiService, appExecutors, db);
 
         this.imageDao = imageDao;
     }
@@ -97,8 +97,8 @@ public class ImageRepository extends PSRepository {
             @NonNull
             @Override
             protected LiveData<ApiResponse<List<Image>>> createCall() {
-                Utils.psLog("Call API webservice to get image list."+psApiService.getImageList(Config.API_KEY, imgParentId,imgType));
-                return psApiService.getImageList(Config.API_KEY, imgParentId,imgType);
+                Utils.psLog("Call API webservice to get image list."+ apiService.getImageList(Config.API_KEY, imgParentId,imgType));
+                return apiService.getImageList(Config.API_KEY, imgParentId,imgType);
             }
 
             @Override

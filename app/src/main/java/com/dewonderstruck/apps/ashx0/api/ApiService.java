@@ -45,48 +45,31 @@ import retrofit2.http.Path;
 /**
  * REST API access points
  */
-public interface PSApiService {
+public interface ApiService {
 
 
     //region Products
-
     //region Get Product Collection
-
     @GET("rest/collections/get/api_key/{API_KEY}/limit/{limit}/offset/{offset}")
     LiveData<ApiResponse<List<ProductCollectionHeader>>> getProductCollectionHeader(@Path("API_KEY") String apiKey, @Path("limit") String limit, @Path("offset") String offset);
-
     //endregion
-
     //region Get product detail related product list
-
     @GET("rest/products/related_product_trending/api_key/{API_KEY}/id/{id}/cat_id/{cat_id}")
     LiveData<ApiResponse<List<Product>>> getProductDetailRelatedList(@Path("API_KEY") String apiKey, @Path("id") String id, @Path("cat_id") String catId);
-
     //endregion
-
     //region Get favourite product list
-
     @GET("rest/products/get_favourite/api_key/{API_KEY}/login_user_id/{login_user_id}/limit/{limit}/offset/{offset}")
     LiveData<ApiResponse<List<Product>>> getFavouriteList(@Path("API_KEY") String apiKey, @Path("login_user_id") String userId, @Path("limit") String limit, @Path("offset") String offset);
-
     //endregion
-
     //region Get Product by Category Id
-
     @GET("rest/products/get/api_key/{API_KEY}/login_user_id/{login_user_id}/limit/{limit}/offset/{offset}/cat_id/{cat_id}")
     LiveData<ApiResponse<List<Product>>> getProductListByCatId(@Path("API_KEY") String apiKey, @Path("login_user_id") String loginUserId, @Path("limit") String limit, @Path("offset") String offset, @Path("cat_id") String catId);
-
     //end region
-
     //endregion
-
     //region Get Collection Product List
-
     @GET("rest/products/all_collection_products/api_key/{API_KEY}/limit/{limit}/offset/{offset}/id/{id}")
     LiveData<ApiResponse<List<Product>>> getCollectionProducts(@Path("API_KEY") String apiKey, @Path("limit") String limit, @Path("offset") String offset, @Path("id") String id);
-
     //endregion
-
     //region Post Favourite Product
     @FormUrlEncoded
     @POST("rest/favourites/press/api_key/{API_KEY}")
@@ -94,11 +77,8 @@ public interface PSApiService {
             @Path("API_KEY") String api_key,
             @Field("product_id") String productId,
             @Field("user_id") String userId);
-
     //endregion
-
     //region Search Product
-
     @FormUrlEncoded
     @POST("rest/products/search/api_key/{API_KEY}/limit/{limit}/offset/{offset}/login_user_id/{login_user_id}")
     LiveData<ApiResponse<List<Product>>> searchProduct(
@@ -387,61 +367,41 @@ public interface PSApiService {
 
     @GET("rest/subcategories/get/api_key/{API_KEY}")
     LiveData<ApiResponse<List<SubCategory>>> getAllSubCategoryList(@Path("API_KEY") String apiKey);
-
-
     @GET("rest/subcategories/get/api_key/{API_KEY}/login_user_id/{login_user_id}/cat_id/{cat_id}/limit/{limit}/offset/{offset}")
     LiveData<ApiResponse<List<SubCategory>>> getSubCategoryListWithCatId(@Path("API_KEY") String apiKey, @Path("login_user_id") String loginUserId, @Path("cat_id") String catId, @Path("limit") String limit, @Path("offset") String offset);
-
     //endregion
-
     //country list
     @FormUrlEncoded
     @POST("rest/shipping_zones/get_shipping_country/api_key/{API_KEY}/shop_id/{shop_id}/limit/{limit}/offset/{offset}")
     LiveData<ApiResponse<List<Country>>> getCountryListWithShopId(@Path("API_KEY") String apiKey, @Field("shop_id") String shopId, @Path("limit") String limit, @Path("offset") String offset);
-
     //endregion
-
     //country list
     @Headers("Content-Type: application/json")
     @POST("rest/shipping_zones/get_shipping_cost/api_key/{API_KEY}")
     Call<ShippingCost> postShippingByCountryAndCity(@Path("API_KEY") String apiKey, @Body ShippingCostContainer productUpload);
-
     //endregion
-
     //city list
     @FormUrlEncoded
     @POST("rest/shipping_zones/get_shipping_city/api_key/{API_KEY}/shop_id/{shop_id}/country_id/{country_id}/limit/{limit}/offset/{offset}")
     LiveData<ApiResponse<List<City>>> getCityListWithCountryId(@Path("API_KEY") String apiKey, @Field("shop_id") String shopId, @Field("country_id") String country_id, @Path("limit") String limit, @Path("offset") String offset);
-
     //endregion
-
     //region Delete item list by date
-
     @FormUrlEncoded
     @POST("rest/appinfo/get_delete_history/api_key/{API_KEY}")
     Call<PSAppInfo> getDeletedHistory(
             @Path("API_KEY") String apiKey,
             @Field("start_date") String start_date,
             @Field("end_date") String end_date);
-
     //endregion
-
     //region Get Shop by Id
-
     @GET("rest/shops/get_shop_info/api_key/{API_KEY}")
     LiveData<ApiResponse<Shop>> getShopById(@Path("API_KEY") String api_key);
-
     //endregion
-
     //region Get All Rating List
-
     @GET("rest/rates/get/api_key/{API_KEY}/product_id/{product_id}/limit/{limit}/offset/{offset}")
     LiveData<ApiResponse<List<Rating>>> getAllRatingList(@Path("API_KEY") String apiKey, @Path("product_id") String productId, @Path("limit") String limit, @Path("offset") String offset);
-
     //endregion
-
     //region Post Rating
-
     @FormUrlEncoded
     @POST("rest/rates/add_rating/api_key/{API_KEY}")
     Call<Rating> postRating(
@@ -451,14 +411,9 @@ public interface PSApiService {
             @Field("rating") String rating,
             @Field("user_id") String userId,
             @Field("product_id") String productId);
-
     //endregion
-
     //endregion
-
-
     //region Touch Count
-
     @FormUrlEncoded
     @POST("rest/touches/add_touch/api_key/{API_KEY}")
     Call<ApiStatus> setrawPostTouchCount(
@@ -466,36 +421,22 @@ public interface PSApiService {
             @Field("type_id") String typeId,
             @Field("type_name") String typeName,
             @Field("user_id") String userId);
-
     //endregion
-
     //region News|Blog
-
     @GET("rest/feeds/get/api_key/{API_KEY}/limit/{limit}/offset/{offset}")
     LiveData<ApiResponse<List<Blog>>> getAllNewsFeed(@Path("API_KEY") String api_key, @Path("limit") String limit, @Path("offset") String offset);
 
     @GET("rest/feeds/get/api_key/{API_KEY}/id/{id}")
     LiveData<ApiResponse<Blog>> getNewsById(@Path("API_KEY") String api_key, @Path("id") String id);
-
     //endregion
-
-
     //region Shipping Methods
-
     @GET("rest/shippings/get/api_key/{API_KEY}")
     LiveData<ApiResponse<List<ShippingMethod>>> getShipping(@Path("API_KEY") String api_key);
-
     //endregion
-
-
     //region Paypal
-
     @GET("rest/paypal/get_token/api_key/{API_KEY}")
     Call<ApiStatus> getPaypalToken(@Path("API_KEY") String apiKey);
-
     //endregion
-
-
     //region Check Coupon Discount
     @FormUrlEncoded
     @POST("rest/coupons/check/api_key/{API_KEY}/")
@@ -509,8 +450,6 @@ public interface PSApiService {
             @Path("API_KEY") String API_KEY,
             @Field("user_id") String userId,
             @Field("code") String code);
-
-
     //Resend Verify Code again
     @FormUrlEncoded
     @POST("rest/users/request_code/api_key/{API_KEY}")
@@ -518,7 +457,6 @@ public interface PSApiService {
             @Path("API_KEY") String API_KEY,
             @Field("user_email") String user_email
     );
-
     @FormUrlEncoded
     @POST("rest/users/google_register/api_key/{API_KEY}")
     Call<User> postGoogleLogin(
@@ -529,7 +467,6 @@ public interface PSApiService {
             @Field("profile_photo_url") String profilePhotoUrl,
             @Field("device_token") String deviceToken
     );
-
     @FormUrlEncoded
     @POST("rest/users/phone_register/api_key/{API_KEY}")
     Call<User> postPhoneLogin(
@@ -539,7 +476,6 @@ public interface PSApiService {
             @Field("user_phone") String userPhone,
             @Field("device_token") String deviceToken
     );
-
     //endregion
 
 

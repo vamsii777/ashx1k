@@ -4,7 +4,7 @@ import android.content.Context;
 
 import com.dewonderstruck.apps.AppExecutors;
 import com.dewonderstruck.apps.ashx0.api.ApiResponse;
-import com.dewonderstruck.apps.ashx0.api.PSApiService;
+import com.dewonderstruck.apps.ashx0.api.ApiService;
 import com.dewonderstruck.apps.ashx0.db.AboutUsDao;
 import com.dewonderstruck.apps.ashx0.db.PSCoreDb;
 import com.dewonderstruck.apps.ashx0.repository.common.NetworkBoundResource;
@@ -42,8 +42,8 @@ public class AboutUsRepository extends PSRepository {
     //region Constructor
 
     @Inject
-    AboutUsRepository(PSApiService psApiService, AppExecutors appExecutors, PSCoreDb db, AboutUsDao aboutUsDao) {
-        super(psApiService, appExecutors, db);
+    AboutUsRepository(ApiService apiService, AppExecutors appExecutors, PSCoreDb db, AboutUsDao aboutUsDao) {
+        super(apiService, appExecutors, db);
 
         this.aboutUsDao = aboutUsDao;
     }
@@ -104,7 +104,7 @@ public class AboutUsRepository extends PSRepository {
             @Override
             protected LiveData<ApiResponse<List<AboutUs>>> createCall() {
                 Utils.psLog("Call About us webservice.");
-                return psApiService.getAboutUs(apiKey);
+                return apiService.getAboutUs(apiKey);
             }
 
             @Override
@@ -127,7 +127,7 @@ public class AboutUsRepository extends PSRepository {
      */
     public LiveData<Resource<Boolean>> registerNotification(Context context, String platform, String token) {
         NotificationTask notificationTask = new NotificationTask( context,
-                psApiService, platform, true, token);
+                apiService, platform, true, token);
 
         Utils.psLog("Register Notification : News repository.");
         appExecutors.networkIO().execute(notificationTask);
@@ -144,7 +144,7 @@ public class AboutUsRepository extends PSRepository {
      */
     public LiveData<Resource<Boolean>> unregisterNotification(Context context, String platform, String token) {
         NotificationTask notificationTask = new NotificationTask(context,
-                psApiService, platform, false, token);
+                apiService, platform, false, token);
 
         Utils.psLog("Unregister Notification : News repository.");
         appExecutors.networkIO().execute(notificationTask);

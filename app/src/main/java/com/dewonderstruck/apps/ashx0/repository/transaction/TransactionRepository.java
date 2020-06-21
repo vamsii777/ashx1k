@@ -9,7 +9,7 @@ import androidx.lifecycle.MutableLiveData;
 import com.dewonderstruck.apps.AppExecutors;
 import com.dewonderstruck.apps.Config;
 import com.dewonderstruck.apps.ashx0.api.ApiResponse;
-import com.dewonderstruck.apps.ashx0.api.PSApiService;
+import com.dewonderstruck.apps.ashx0.api.ApiService;
 import com.dewonderstruck.apps.ashx0.db.PSCoreDb;
 import com.dewonderstruck.apps.ashx0.db.TransactionDao;
 import com.dewonderstruck.apps.ashx0.repository.common.NetworkBoundResource;
@@ -36,8 +36,8 @@ public class TransactionRepository extends PSRepository {
 
     //region constructor
     @Inject
-    TransactionRepository(PSApiService psApiService, AppExecutors appExecutors, PSCoreDb db, TransactionDao transactionDao) {
-        super(psApiService, appExecutors, db);
+    TransactionRepository(ApiService apiService, AppExecutors appExecutors, PSCoreDb db, TransactionDao transactionDao) {
+        super(apiService, appExecutors, db);
         this.transactionDao = transactionDao;
     }
 
@@ -86,7 +86,7 @@ public class TransactionRepository extends PSRepository {
             @NonNull
             @Override
             protected LiveData<ApiResponse<List<TransactionObject>>> createCall() {
-                return psApiService.getTransList(apiKey, Utils.checkUserId(userId), String.valueOf(Config.TRANSACTION_COUNT), offset);
+                return apiService.getTransList(apiKey, Utils.checkUserId(userId), String.valueOf(Config.TRANSACTION_COUNT), offset);
             }
 
             @Override
@@ -102,7 +102,7 @@ public class TransactionRepository extends PSRepository {
     public LiveData<Resource<Boolean>> getNextPageTransactionList(String userId, String offset) {
 
         final MediatorLiveData<Resource<Boolean>> statusLiveData = new MediatorLiveData<>();
-        LiveData<ApiResponse<List<TransactionObject>>> apiResponse = psApiService.getTransList(Config.API_KEY, Utils.checkUserId(userId), String.valueOf(Config.TRANSACTION_COUNT), offset);
+        LiveData<ApiResponse<List<TransactionObject>>> apiResponse = apiService.getTransList(Config.API_KEY, Utils.checkUserId(userId), String.valueOf(Config.TRANSACTION_COUNT), offset);
 
         statusLiveData.addSource(apiResponse, response -> {
 
@@ -152,7 +152,7 @@ public class TransactionRepository extends PSRepository {
             Response<TransactionObject> response;
 
             try {
-                response = psApiService.uploadTransactionHeader(transactionHeaderUpload, Config.API_KEY).execute();
+                response = apiService.uploadTransactionHeader(transactionHeaderUpload, Config.API_KEY).execute();
 
                 ApiResponse<TransactionObject> apiResponse = new ApiResponse<>(response);
 
@@ -221,7 +221,7 @@ public class TransactionRepository extends PSRepository {
             protected LiveData<ApiResponse<TransactionObject>> createCall() {
                 Utils.psLog("Call API Service to get discount.");
 
-                return psApiService.getTransactionDetail(apiKey, userId, id);
+                return apiService.getTransactionDetail(apiKey, userId, id);
 
             }
 

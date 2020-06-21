@@ -3,7 +3,7 @@ package com.dewonderstruck.apps.ashx0.repository.notification;
 import com.dewonderstruck.apps.AppExecutors;
 import com.dewonderstruck.apps.Config;
 import com.dewonderstruck.apps.ashx0.api.ApiResponse;
-import com.dewonderstruck.apps.ashx0.api.PSApiService;
+import com.dewonderstruck.apps.ashx0.api.ApiService;
 import com.dewonderstruck.apps.ashx0.db.NotificationDao;
 import com.dewonderstruck.apps.ashx0.db.PSCoreDb;
 import com.dewonderstruck.apps.ashx0.repository.common.NetworkBoundResource;
@@ -34,8 +34,8 @@ public class NotificationRepository extends PSRepository {
 
     //region constructor
     @Inject
-    NotificationRepository(PSApiService psApiService, AppExecutors appExecutors, PSCoreDb db, NotificationDao notificationDao) {
-        super(psApiService, appExecutors, db);
+    NotificationRepository(ApiService apiService, AppExecutors appExecutors, PSCoreDb db, NotificationDao notificationDao) {
+        super(apiService, appExecutors, db);
         this.notificationDao = notificationDao;
     }
     //end region
@@ -81,7 +81,7 @@ public class NotificationRepository extends PSRepository {
             @NonNull
             @Override
             protected LiveData<ApiResponse<List<Noti>>> createCall() {
-                return psApiService.getNotificationList(apiKey,
+                return apiService.getNotificationList(apiKey,
                         limit,
                         offset,
                         userId,
@@ -99,7 +99,7 @@ public class NotificationRepository extends PSRepository {
     public LiveData<Resource<Boolean>> getNextPageNotificationList(String userId, String deviceToken, String limit, String offset) {
 
         final MediatorLiveData<Resource<Boolean>> statusLiveData = new MediatorLiveData<>();
-        LiveData<ApiResponse<List<Noti>>> apiResponse = psApiService.getNotificationList(Config.API_KEY, limit, offset, userId, deviceToken);
+        LiveData<ApiResponse<List<Noti>>> apiResponse = apiService.getNotificationList(Config.API_KEY, limit, offset, userId, deviceToken);
 
         statusLiveData.addSource(apiResponse, response -> {
 
@@ -189,7 +189,7 @@ public class NotificationRepository extends PSRepository {
             protected LiveData<ApiResponse<Noti>> createCall() {
                 Utils.psLog("Call API Service to get discount.");
 
-                return psApiService.getNotificationDetail(apiKey, notificationId);
+                return apiService.getNotificationDetail(apiKey, notificationId);
 
             }
 
@@ -212,7 +212,7 @@ public class NotificationRepository extends PSRepository {
                 // Call the API Service
                 Response<Noti> response;
 
-                response = psApiService
+                response = apiService
                         .isReadNoti(Config.API_KEY, noti_id, userId, device_token).execute();
 
                 // Wrap with APIResponse Class

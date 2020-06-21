@@ -11,7 +11,7 @@ import androidx.lifecycle.MutableLiveData;
 import com.dewonderstruck.apps.AppExecutors;
 import com.dewonderstruck.apps.Config;
 import com.dewonderstruck.apps.ashx0.api.ApiResponse;
-import com.dewonderstruck.apps.ashx0.api.PSApiService;
+import com.dewonderstruck.apps.ashx0.api.ApiService;
 import com.dewonderstruck.apps.ashx0.db.PSCoreDb;
 import com.dewonderstruck.apps.ashx0.db.RatingDao;
 import com.dewonderstruck.apps.ashx0.repository.common.NetworkBoundResource;
@@ -37,8 +37,8 @@ public class RatingRepository extends PSRepository {
     protected SharedPreferences pref;
 
     @Inject
-    RatingRepository(PSApiService psApiService, AppExecutors appExecutors, PSCoreDb db, RatingDao ratingDao) {
-        super(psApiService, appExecutors, db);
+    RatingRepository(ApiService apiService, AppExecutors appExecutors, PSCoreDb db, RatingDao ratingDao) {
+        super(apiService, appExecutors, db);
 
         Utils.psLog("Inside RatingRepository");
 
@@ -93,7 +93,7 @@ public class RatingRepository extends PSRepository {
             protected LiveData<ApiResponse<List<Rating>>> createCall() {
                 Utils.psLog("Call API Service to get product list by catId.");
 
-                return psApiService.getAllRatingList(apiKey, productId, limit, offset);
+                return apiService.getAllRatingList(apiKey, productId, limit, offset);
 
             }
 
@@ -110,7 +110,7 @@ public class RatingRepository extends PSRepository {
     public LiveData<Resource<Boolean>> getNextPageRatingListByProductId(String productId, String limit, String offset) {
 
         final MediatorLiveData<Resource<Boolean>> statusLiveData = new MediatorLiveData<>();
-        LiveData<ApiResponse<List<Rating>>> apiResponse = psApiService.getAllRatingList(Config.API_KEY, productId, limit, offset);
+        LiveData<ApiResponse<List<Rating>>> apiResponse = apiService.getAllRatingList(Config.API_KEY, productId, limit, offset);
 
         statusLiveData.addSource(apiResponse, response -> {
 
@@ -165,7 +165,7 @@ public class RatingRepository extends PSRepository {
             // Call the API Service
             Response<Rating> response;
 
-            response = psApiService.postRating(Config.API_KEY, title, description, rating, userId, productId).execute();
+            response = apiService.postRating(Config.API_KEY, title, description, rating, userId, productId).execute();
 
 
             // Wrap with APIResponse Class

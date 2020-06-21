@@ -9,7 +9,7 @@ import androidx.lifecycle.MutableLiveData;
 import com.dewonderstruck.apps.AppExecutors;
 import com.dewonderstruck.apps.Config;
 import com.dewonderstruck.apps.ashx0.api.ApiResponse;
-import com.dewonderstruck.apps.ashx0.api.PSApiService;
+import com.dewonderstruck.apps.ashx0.api.ApiService;
 import com.dewonderstruck.apps.ashx0.db.PSCoreDb;
 import com.dewonderstruck.apps.ashx0.db.UserDao;
 import com.dewonderstruck.apps.ashx0.repository.common.NetworkBoundResource;
@@ -52,8 +52,8 @@ public class UserRepository extends PSRepository{
     //region Constructor
 
     @Inject
-    UserRepository(PSApiService psApiService, AppExecutors appExecutors, PSCoreDb db, UserDao userDao) {
-        super(psApiService, appExecutors, db);
+    UserRepository(ApiService apiService, AppExecutors appExecutors, PSCoreDb db, UserDao userDao) {
+        super(apiService, appExecutors, db);
 
         this.userDao = userDao;
     }
@@ -129,7 +129,7 @@ public class UserRepository extends PSRepository{
             @Override
             protected LiveData<ApiResponse<User>> createCall() {
                 Utils.psLog("Call API Service to do user login.");
-                return psApiService.postUserLogin(apiKey, email, password);
+                return apiService.postUserLogin(apiKey, email, password);
             }
 
             @Override
@@ -214,7 +214,7 @@ public class UserRepository extends PSRepository{
             @Override
             protected LiveData<ApiResponse<List<User>>> createCall() {
                 Utils.psLog("Call API Service to do user login.");
-                return psApiService.getUser(apiKey, userId);
+                return apiService.getUser(apiKey, userId);
             }
 
             @Override
@@ -242,7 +242,7 @@ public class UserRepository extends PSRepository{
         try {
 
             // Call the API Service
-            Response<User> response = psApiService.postUser(apiKey,Utils.checkUserId(loginUserId), userName, email, password,phone,deviceToken).execute();
+            Response<User> response = apiService.postUser(apiKey,Utils.checkUserId(loginUserId), userName, email, password,phone,deviceToken).execute();
 
             // Wrap with APIResponse Class
             ApiResponse<User> apiResponse = new ApiResponse<>(response);
@@ -311,7 +311,7 @@ public class UserRepository extends PSRepository{
             try {
 
                 // Call the API Service
-                Response<User> response = psApiService
+                Response<User> response = apiService
                         .postFBUser(apiKey, fbId, userName, email, imageUrl).execute();
 
 
@@ -435,7 +435,7 @@ public class UserRepository extends PSRepository{
             @Override
             protected LiveData<ApiResponse<User>> createCall() {
                 Utils.psLog("Call API Service to update user.");
-                return psApiService.putUser(apiKey, user.userId, user.userName, user.userEmail, user.userPhone, user.userAboutMe,
+                return apiService.putUser(apiKey, user.userId, user.userName, user.userEmail, user.userPhone, user.userAboutMe,
                         user.billingFirstName, user.billingLastName, user.billingCompany, user.billingAddress1, user.billingAddress2,
                         user.billingCountry, user.billingState, user.billingCity, user.billingPostalCode, user.billingEmail, user.billingPhone,
                         user.shippingFirstName, user.shippingLastName, user.shippingCompany, user.shippingAddress1, user.shippingAddress2,
@@ -500,7 +500,7 @@ public class UserRepository extends PSRepository{
             @Override
             protected LiveData<ApiResponse<ApiStatus>> createCall() {
                 Utils.psLog("Call API Service to Request Forgot Password.");
-                return psApiService.postForgotPassword(apiKey, email);
+                return apiService.postForgotPassword(apiKey, email);
             }
 
             @Override
@@ -558,7 +558,7 @@ public class UserRepository extends PSRepository{
             @Override
             protected LiveData<ApiResponse<ApiStatus>> createCall() {
                 Utils.psLog("Call API Service to update password.");
-                return psApiService.postPasswordUpdate(apiKey, loginUserId, password);
+                return apiService.postPasswordUpdate(apiKey, loginUserId, password);
             }
 
             @Override
@@ -660,7 +660,7 @@ public class UserRepository extends PSRepository{
             protected LiveData<ApiResponse<User>> createCall() {
                 Utils.psLog("Call API Service to upload image.");
 
-                return psApiService.doUploadImage(Config.API_KEY, useIdRB, fullName, body, platformRB);
+                return apiService.doUploadImage(Config.API_KEY, useIdRB, fullName, body, platformRB);
             }
 
             @Override
@@ -679,7 +679,7 @@ public class UserRepository extends PSRepository{
             try {
 
                 // Call the API Service
-                Response<User> response = psApiService
+                Response<User> response = apiService
                         .postGoogleLogin(apiKey, googleId, userName, userEmail, profilePhotoUrl, deviceToken).execute();
 
 
@@ -743,7 +743,7 @@ public class UserRepository extends PSRepository{
             try {
 
                 // Call the API Service
-                Response<User> response = psApiService.verifyEmail(Config.API_KEY, userId, code).execute();
+                Response<User> response = apiService.verifyEmail(Config.API_KEY, userId, code).execute();
 
 
                 // Wrap with APIResponse Class
@@ -804,7 +804,7 @@ public class UserRepository extends PSRepository{
             Response<ApiStatus> response;
 
             try {
-                response = psApiService.resentCodeAgain(Config.API_KEY, userEmail).execute();
+                response = apiService.resentCodeAgain(Config.API_KEY, userEmail).execute();
 
 
                 if (response.isSuccessful()) {
@@ -831,7 +831,7 @@ public class UserRepository extends PSRepository{
             try {
 
                 // Call the API Service
-                Response<User> response = psApiService
+                Response<User> response = apiService
                         .postPhoneLogin(apiKey, phoneId, userName, userPhone, deviceToken).execute();
 
 

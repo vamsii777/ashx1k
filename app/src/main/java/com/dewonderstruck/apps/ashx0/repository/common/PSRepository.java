@@ -3,7 +3,7 @@ package com.dewonderstruck.apps.ashx0.repository.common;
 import androidx.lifecycle.LiveData;
 import com.dewonderstruck.apps.AppExecutors;
 import com.dewonderstruck.apps.Config;
-import com.dewonderstruck.apps.ashx0.api.PSApiService;
+import com.dewonderstruck.apps.ashx0.api.ApiService;
 import com.dewonderstruck.apps.ashx0.db.PSCoreDb;
 import com.dewonderstruck.apps.ashx0.utils.AbsentLiveData;
 import com.dewonderstruck.apps.ashx0.utils.Connectivity;
@@ -25,7 +25,7 @@ public abstract class PSRepository {
 
     //region Variables
 
-    protected final PSApiService psApiService;
+    protected final ApiService apiService;
     protected final AppExecutors appExecutors;
     protected final PSCoreDb db;
     @Inject
@@ -39,13 +39,13 @@ public abstract class PSRepository {
 
     /**
      * Constructor of PSRepository
-     * @param psApiService Vamsi Madduluri API Service Instance
+     * @param apiService Vamsi Madduluri API Service Instance
      * @param appExecutors Executors Instance
      * @param db Vamsi Madduluri DB
      */
-    protected PSRepository(PSApiService psApiService, AppExecutors appExecutors, PSCoreDb db) {
+    protected PSRepository(ApiService apiService, AppExecutors appExecutors, PSCoreDb db) {
         Utils.psLog("Inside NewsRepository");
-        this.psApiService = psApiService;
+        this.apiService = apiService;
         this.appExecutors = appExecutors;
         this.db = db;
     }
@@ -61,7 +61,7 @@ public abstract class PSRepository {
             return AbsentLiveData.create();
         }
 
-        SaveTask saveTask = new SaveTask(psApiService, db, obj);
+        SaveTask saveTask = new SaveTask(apiService, db, obj);
         appExecutors.diskIO().execute(saveTask);
         return saveTask.getStatusLiveData();
     }
@@ -73,7 +73,7 @@ public abstract class PSRepository {
             return AbsentLiveData.create();
         }
 
-        DeleteTask deleteTask = new DeleteTask(psApiService, db, obj);
+        DeleteTask deleteTask = new DeleteTask(apiService, db, obj);
         appExecutors.diskIO().execute(deleteTask);
         return deleteTask.getStatusLiveData();
     }

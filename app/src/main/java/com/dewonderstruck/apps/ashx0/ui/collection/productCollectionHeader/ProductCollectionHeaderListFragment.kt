@@ -97,7 +97,11 @@ class ProductCollectionHeaderListFragment : PSFragment(), DiffUtilDispatchedInte
 
     override fun initAdapters() {
         val nvAdapter = ProductCollectionHeaderListAdapter(dataBindingComponent,
-                ProductCollectionHeaderClickCallback { productCollectionHeader: ProductCollectionHeader -> navigationController.navigateToCollectionProductList(this@ProductCollectionHeaderListFragment.activity, productCollectionHeader.id, productCollectionHeader.name, productCollectionHeader.defaultPhoto.imgPath) },
+                object : ProductCollectionHeaderClickCallback {
+                    override fun onClick(productCollectionHeader: ProductCollectionHeader?) {
+                        navigationController.navigateToCollectionProductList(this@ProductCollectionHeaderListFragment.activity, productCollectionHeader!!.id, productCollectionHeader.name, productCollectionHeader.defaultPhoto.imgPath)
+                    }
+                },
                 this)
         adapter = AutoClearedValue(this, nvAdapter)
         binding!!.get().productCollectionHeaderList.adapter = nvAdapter

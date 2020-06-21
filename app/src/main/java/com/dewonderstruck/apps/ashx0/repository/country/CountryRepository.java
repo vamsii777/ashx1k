@@ -8,7 +8,7 @@ import androidx.lifecycle.MediatorLiveData;
 import com.dewonderstruck.apps.AppExecutors;
 import com.dewonderstruck.apps.Config;
 import com.dewonderstruck.apps.ashx0.api.ApiResponse;
-import com.dewonderstruck.apps.ashx0.api.PSApiService;
+import com.dewonderstruck.apps.ashx0.api.ApiService;
 import com.dewonderstruck.apps.ashx0.db.CountryDao;
 import com.dewonderstruck.apps.ashx0.db.PSCoreDb;
 import com.dewonderstruck.apps.ashx0.repository.common.NetworkBoundResource;
@@ -34,8 +34,8 @@ public class CountryRepository extends PSRepository {
     //region Constructor
 
     @Inject
-    CountryRepository(PSApiService psApiService, AppExecutors appExecutors, PSCoreDb db, CountryDao countryDao) {
-        super(psApiService, appExecutors, db);
+    CountryRepository(ApiService apiService, AppExecutors appExecutors, PSCoreDb db, CountryDao countryDao) {
+        super(apiService, appExecutors, db);
 
         Utils.psLog("Inside CategoryRepository");
 
@@ -82,7 +82,7 @@ public class CountryRepository extends PSRepository {
             @NonNull
             @Override
             protected LiveData<ApiResponse<List<Country>>> createCall() {
-                return psApiService.getCountryListWithShopId(apiKey, shopId, limit, offset);
+                return apiService.getCountryListWithShopId(apiKey, shopId, limit, offset);
             }
 
             @Override
@@ -95,7 +95,7 @@ public class CountryRepository extends PSRepository {
 
     public LiveData<Resource<Boolean>> getNextPageCityListWithShopId(String apiKey,String shopId, String limit, String offset) {
         final MediatorLiveData<Resource<Boolean>> statusLiveData = new MediatorLiveData<>();
-        LiveData<ApiResponse<List<Country>>> apiResponse = psApiService.getCountryListWithShopId(Config.API_KEY, shopId, limit, offset);
+        LiveData<ApiResponse<List<Country>>> apiResponse = apiService.getCountryListWithShopId(Config.API_KEY, shopId, limit, offset);
 
         statusLiveData.addSource(apiResponse, response -> {
 
