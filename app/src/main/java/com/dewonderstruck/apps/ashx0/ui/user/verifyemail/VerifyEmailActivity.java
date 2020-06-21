@@ -3,7 +3,7 @@ package com.dewonderstruck.apps.ashx0.ui.user.verifyemail;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
+import androidx.preference.PreferenceManager;
 
 import androidx.databinding.DataBindingUtil;
 
