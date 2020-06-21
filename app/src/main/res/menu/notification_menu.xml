@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_blog"
+        android:icon="@drawable/ic_outline_chrome_reader_mode_24"
+        android:orderInCategory="100"
+        android:iconTint="@color/md_white_1000"
+        android:title="@string/shop_blog"
+        app:showAsAction="always"
+        />
+
+    <item
+        android:id="@+id/action_notification"
+        android:icon="@drawable/ic_outline_notifications_active_24"
+        android:iconTint="@color/md_white_1000"
+        android:iconTintMode="multiply"
+        android:orderInCategory="100"
+        android:title="Favourite"
+        app:showAsAction="always"
+        />
+
+
+</menu>

@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!--<data>-->
+    <!--<variable-->
+    <!--name="aboutUs"-->
+    <!--type="com.panaceasoft.mokets.viewobject.AboutUs" />-->
+    <!--</data>-->
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+      <!--  <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/dncyoutubelist"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />-->
+
+        <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+            android:id="@+id/dncyoutubelist"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            app:videoId="73KnYMA76ZM"
+            app:autoPlay="true"
+            app:showFullScreenButton="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:padding="16dp"
+            android:text="@string/sudhir_s_danceoholics_is_a_dance_fitness_company_established_in_2009_we_are_located_in_sri_nagarcolony_banjarahills_we_offer_kids_dance_classes_zumba_fitness_bollywood_dance_dance_fitness_classes_personal_training_wedding_choreography_events_and_more"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dncyoutubelist" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout3"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView2">
+
+
+            <ImageView
+                android:id="@+id/dnctvyou"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="24dp"
+                android:visibility="invisible"
+                app:layout_constraintStart_toEndOf="@+id/dnc_textView11"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_youtube"
+                tools:visibility="invisible" />
+
+            <ImageView
+                android:id="@+id/twitterdnc"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="32dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/dnc_textView10"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_twitter" />
+
+            <ImageView
+                android:id="@+id/fbdnc"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="32dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_facebook" />
+
+            <TextView
+                android:id="@+id/dnc_textView10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="/danceohlics"
+                android:textColor="@color/bt_blue"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/fbdnc"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/dnc_textView11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="/sudhirdancecom1"
+                android:textColor="@color/bt_blue"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/twitterdnc"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/dnc_textView12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="24dp"
+                android:text="/dnctv"
+                android:textColor="@color/bt_blue"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/dnctvyou"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:visibility="invisible" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <LinearLayout
+            android:id="@+id/dncbanner_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout3" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>
