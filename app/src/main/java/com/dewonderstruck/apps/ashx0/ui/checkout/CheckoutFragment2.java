@@ -292,11 +292,11 @@ public class CheckoutFragment2 extends PSFragment implements DataBoundListAdapte
                             //progressDialog.get().show();
                             if (getActivity() != null && getActivity() instanceof CheckoutActivity) {
                                 ((CheckoutActivity) getActivity()).progressDialog.show();
-                                Utils.psLog(((CheckoutActivity) getActivity()).user.country.id + " - " + ((CheckoutActivity) getActivity()).user.city.id + " - " + shopId);
+                                Utils.psLog(((CheckoutActivity) getActivity()).currentUser.country.id + " - " + ((CheckoutActivity) getActivity()).currentUser.city.id + " - " + shopId);
 
 
                                 shippingMethodViewModel.setshippingCostByCountryAndCityObj(new ShippingCostContainer(
-                                        ((CheckoutActivity) getActivity()).user.country.id, ((CheckoutActivity) getActivity()).user.city.id, shopId,
+                                        ((CheckoutActivity) getActivity()).currentUser.country.id, ((CheckoutActivity) getActivity()).currentUser.city.id, shopId,
                                         shippingMethodViewModel.shippingProductContainer));
                             }
                         }
