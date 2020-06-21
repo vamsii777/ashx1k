@@ -33,7 +33,7 @@ class AboutUsRepository //endregion
     fun getAboutUs(apiKey: String?): LiveData<Resource<AboutUs?>> {
         val functionKey = "getAboutUs"
         return object : NetworkBoundResource<AboutUs?, List<AboutUs?>?>(appExecutors) {
-            override fun saveCallResult(item: List<AboutUs?>) {
+            override fun saveCallResult(item: List<AboutUs?>?) {
                 db.beginTransaction()
                 try {
                     aboutUsDao.deleteTable()
@@ -64,7 +64,7 @@ class AboutUsRepository //endregion
                 return apiService.getAboutUs(apiKey)!!
             }
 
-            override fun onFetchFailed(message: String) {
+            override fun onFetchFailed(responseErrorMessage: String?) {
                 Utils.psLog("Fetch Failed of About Us")
                 rateLimiter.reset(functionKey)
             }
