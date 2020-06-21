@@ -57,7 +57,7 @@ class NotificationTask //endregion
                     if (apiResponse.body != null) {
                         Utils.psLog("API Status : " + apiResponse.body.status)
                         if (apiResponse.body.status == "success") {
-                            val editor = prefs.edit()
+                            val editor = prefs!!.edit()
                             editor.putBoolean(Constants.NOTI_SETTING, true).apply()
                             editor.putString(Constants.NOTI_TOKEN, token).apply()
                         }
@@ -69,7 +69,7 @@ class NotificationTask //endregion
             } else { // Un-register
 
                 // Get Token
-                val token = prefs.getString(Constants.NOTI_TOKEN, "")
+                val token = prefs!!.getString(Constants.NOTI_TOKEN, "")
                 if (token != "") {
 
                     // Call unregister service to server
@@ -83,7 +83,7 @@ class NotificationTask //endregion
                         if (apiResponse.body != null) {
                             Utils.psLog("API Status : " + apiResponse.body.status)
                             if (apiResponse.body.status == "success") {
-                                val editor = prefs.edit()
+                                val editor = prefs!!.edit()
                                 editor.putBoolean(Constants.NOTI_SETTING, false).apply()
                                 editor.putString(Constants.NOTI_TOKEN, "-").apply()
                             }
