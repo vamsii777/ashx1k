@@ -44,7 +44,7 @@ class ShippingMethodsAdapter(private val dataBindingComponent: DataBindingCompon
     }
 
     // For general animation
-    override fun bindView(holder: DataBoundViewHolder<ItemShippingMethodBinding>?, position: Int) {
+    override fun bindView(holder: DataBoundViewHolder<ItemShippingMethodBinding?>?, position: Int) {
         super.bindView(holder, position)
 
         // setAnimation(holder.itemView, position);
@@ -54,9 +54,9 @@ class ShippingMethodsAdapter(private val dataBindingComponent: DataBindingCompon
         diffUtilDispatchedInterface?.onDispatched()
     }
 
-    protected override fun bind(binding: ItemShippingMethodBinding?, shippingMethod: ShippingMethod) {
+    protected override fun bind(binding: ItemShippingMethodBinding?, shippingMethod: ShippingMethod?) {
         binding!!.shippingMethod = shippingMethod
-        if (shippingMethod.price * 10 % 10 == 0f) {
+        if (shippingMethod!!.price * 10 % 10 == 0f) {
             binding.cashTextView.text = shippingMethod.currencySymbol + Math.round(shippingMethod.price)
         } else {
             binding.cashTextView.text = shippingMethod.currencySymbol + shippingMethod.price
@@ -80,13 +80,13 @@ class ShippingMethodsAdapter(private val dataBindingComponent: DataBindingCompon
         }
     }
 
-    protected override fun areItemsTheSame(oldItem: ShippingMethod, newItem: ShippingMethod): Boolean {
-        return (Objects.equals(oldItem.id, newItem.id)
+    protected override fun areItemsTheSame(oldItem: ShippingMethod?, newItem: ShippingMethod?): Boolean {
+        return (Objects.equals(oldItem!!.id, newItem!!.id)
                 && oldItem.name == newItem.name)
     }
 
-    protected override fun areContentsTheSame(oldItem: ShippingMethod, newItem: ShippingMethod): Boolean {
-        return (Objects.equals(oldItem.id, newItem.id)
+    protected override fun areContentsTheSame(oldItem: ShippingMethod?, newItem: ShippingMethod?): Boolean {
+        return (Objects.equals(oldItem!!.id, newItem!!.id)
                 && oldItem.name == newItem.name)
     }
 
