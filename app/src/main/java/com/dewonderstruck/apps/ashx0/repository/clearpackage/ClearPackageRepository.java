@@ -1,7 +1,7 @@
 package com.dewonderstruck.apps.ashx0.repository.clearpackage;
 
 import com.dewonderstruck.apps.AppExecutors;
-import com.dewonderstruck.apps.ashx0.api.ApiService;
+import com.dewonderstruck.apps.ashx0.api.PSApiService;
 import com.dewonderstruck.apps.ashx0.db.PSCoreDb;
 import com.dewonderstruck.apps.ashx0.repository.common.PSRepository;
 import com.dewonderstruck.apps.ashx0.utils.Utils;
@@ -15,8 +15,8 @@ import androidx.lifecycle.MutableLiveData;
 public class ClearPackageRepository extends PSRepository {
 
     @Inject
-    ClearPackageRepository(ApiService apiService, AppExecutors appExecutors, PSCoreDb db) {
-        super(apiService, appExecutors, db);
+    ClearPackageRepository(PSApiService psApiService, AppExecutors appExecutors, PSCoreDb db) {
+        super(psApiService, appExecutors, db);
 
         Utils.psLog("Inside CategoryRepository");
     }

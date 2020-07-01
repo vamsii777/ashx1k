@@ -83,7 +83,7 @@ public class BlogDetailFragment extends PSFragment {
         if (blogId != null && !blogId.isEmpty()) {
             blogViewModel.setBlogByIdObj(blogId);
 
-            blogViewModel.blogByIdData.observe(this, result -> {
+            blogViewModel.getBlogByIdData().observe(this, result -> {
 
                 if (result != null) {
                     if (result.data != null) {

@@ -128,7 +128,7 @@ public class BlogListFragment extends PSFragment implements DataBoundListAdapter
 
         blogViewModel.setNewsFeedObj(String.valueOf(Config.LIST_NEW_FEED_COUNT), String.valueOf(blogViewModel.offset));
 
-        blogViewModel.newsFeedData.observe(this, result -> {
+        blogViewModel.getNewsFeedData().observe(this, result -> {
 
             if (result != null) {
                 switch (result.status) {
@@ -150,7 +150,7 @@ public class BlogListFragment extends PSFragment implements DataBoundListAdapter
 
         });
 
-        blogViewModel.nextPageNewsFeedData.observe(this, state -> {
+        blogViewModel.getNextPageNewsFeedData().observe(this, state -> {
             if (state != null) {
                 if (state.status == Status.ERROR) {
 
@@ -161,7 +161,7 @@ public class BlogListFragment extends PSFragment implements DataBoundListAdapter
         });
 
 
-        blogViewModel.loadingState.observe(this, loadingState -> {
+        blogViewModel.getLoadingState().observe(this, loadingState -> {
 
             binding.get().setLoadingMore(blogViewModel.isLoading);
 

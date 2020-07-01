@@ -170,7 +170,7 @@ public class NotificationListFragment extends PSFragment implements DataBoundLis
 
         notificationListViewModel.setNotificationListObj(loginUserId, deviceToken, String.valueOf(Config.NOTI_LIST_COUNT), String.valueOf(notificationListViewModel.offset));
 
-        LiveData<Resource<List<Noti>>> news = notificationListViewModel.notificationListData;
+        LiveData<Resource<List<Noti>>> news = notificationListViewModel.getNotificationListData();
 
         if (news != null) {
             news.observe(this, listResource -> {
@@ -243,7 +243,7 @@ public class NotificationListFragment extends PSFragment implements DataBoundLis
             }
         });
 
-        notificationListViewModel.loadingState.observe(this, loadingState -> {
+        notificationListViewModel.getLoadingState().observe(this, loadingState -> {
 
             binding.get().setLoadingMore(notificationListViewModel.isLoading);
 

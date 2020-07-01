@@ -1,5 +1,0 @@
-package com.dewonderstruck.apps.ashx0.viewobject
-
-import com.google.gson.annotations.SerializedName
-
-class RatingDetail(@field:SerializedName("five_star_count") val fiveStarCount: Int, @field:SerializedName("five_star_percent") val fiveStarPercent: Float, @field:SerializedName("four_star_count") val fourStarCount: Int, @field:SerializedName("four_star_percent") val fourStarPercent: Float, @field:SerializedName("three_star_count") val threeStarCount: Int, @field:SerializedName("three_star_percent") val threeStarPercent: Float, @field:SerializedName("two_star_count") val twoStarCount: Int, @field:SerializedName("two_star_percent") val twoStarPercent: Float, @field:SerializedName("one_star_count") val oneStarCount: Int, @field:SerializedName("one_star_percent") val oneStarPercent: Float, @field:SerializedName("total_rating_count") val totalRatingCount: Int, @field:SerializedName("total_rating_value") val totalRatingValue: Float)

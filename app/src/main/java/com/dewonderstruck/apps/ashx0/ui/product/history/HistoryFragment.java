@@ -139,7 +139,7 @@ public class HistoryFragment extends PSFragment implements DataBoundListAdapter.
         }
 
 
-        historyProductViewModel.loadingState.observe(this, loadingState -> binding.get().setLoadingMore(historyProductViewModel.isLoading));
+        historyProductViewModel.getLoadingState().observe(this, loadingState -> binding.get().setLoadingMore(historyProductViewModel.isLoading));
 
     }
 

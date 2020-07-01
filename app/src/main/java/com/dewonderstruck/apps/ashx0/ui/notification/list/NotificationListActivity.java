@@ -7,7 +7,7 @@ import android.content.SharedPreferences;
 import androidx.databinding.DataBindingUtil;
 import com.dewonderstruck.apps.ashx0.R;
 import android.os.Bundle;
-import androidx.preference.PreferenceManager;
+import android.preference.PreferenceManager;
 
 import androidx.fragment.app.Fragment;
 

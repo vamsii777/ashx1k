@@ -144,7 +144,7 @@ public class SearchCityListFragment extends PSFragment {
 
         cityViewModel.setCityListObj(shopId, cityViewModel.countryId, String.valueOf(Config.LIST_CATEGORY_COUNT), String.valueOf(cityViewModel.offset));
 
-        LiveData<Resource<List<City>>> news = cityViewModel.cityListData;
+        LiveData<Resource<List<City>>> news = cityViewModel.getCityListData();
 
         if (news != null) {
 
@@ -210,7 +210,7 @@ public class SearchCityListFragment extends PSFragment {
             });
         }
 
-        cityViewModel.nextPageCityListData.observe(this, state -> {
+        cityViewModel.getNextPageCityListData().observe(this, state -> {
             if (state != null) {
                 if (state.status == Status.ERROR) {
                     Utils.psLog("Next Page State : " + state.data);

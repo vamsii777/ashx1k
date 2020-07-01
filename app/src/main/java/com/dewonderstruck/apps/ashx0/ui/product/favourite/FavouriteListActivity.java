@@ -3,7 +3,7 @@ package com.dewonderstruck.apps.ashx0.ui.product.favourite;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import androidx.preference.PreferenceManager;
+import android.preference.PreferenceManager;
 
 import com.dewonderstruck.apps.Config;
 

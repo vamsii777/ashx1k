@@ -233,7 +233,7 @@ public class ProductListByCatIdFragment extends PSFragment implements DataBoundL
             });
         }
 
-        productListByCatIdViewModel.nextPageLoadingStateData.observe(this, state -> {
+        productListByCatIdViewModel.getNextPageLoadingStateData().observe(this, state -> {
             if (state != null) {
                 if (state.status == Status.ERROR) {
                     Utils.psLog("Next Page State : " + state.data);
@@ -244,7 +244,7 @@ public class ProductListByCatIdFragment extends PSFragment implements DataBoundL
             }
         });
 
-        productListByCatIdViewModel.loadingState.observe(this, loadingState -> {
+        productListByCatIdViewModel.getLoadingState().observe(this, loadingState -> {
 
             binding.get().setLoadingMore(productListByCatIdViewModel.isLoading);
 

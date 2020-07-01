@@ -360,7 +360,7 @@ public class ProductListFragment extends PSFragment implements DataBoundListAdap
 
         loadProductList();
 
-        LiveData<Resource<List<Product>>> news = homeSearchProductViewModel.getProductListByKeyData;
+        LiveData<Resource<List<Product>>> news = homeSearchProductViewModel.getGetProductListByKeyData();
 
         if (news != null) {
 
@@ -416,10 +416,10 @@ public class ProductListFragment extends PSFragment implements DataBoundListAdap
                             homeSearchProductViewModel.setLoadingState(false);
                             homeSearchProductViewModel.forceEndLoading = true;
 
-                            if(homeSearchProductViewModel.getProductListByKeyData != null) {
-                                if(homeSearchProductViewModel.getProductListByKeyData.getValue() != null) {
-                                    if(homeSearchProductViewModel.getProductListByKeyData.getValue().data != null) {
-                                        if (!binding.get().getLoadingMore() && homeSearchProductViewModel.getProductListByKeyData.getValue().data.size() == 0) {
+                            if(homeSearchProductViewModel.getGetProductListByKeyData() != null) {
+                                if(homeSearchProductViewModel.getGetProductListByKeyData().getValue() != null) {
+                                    if(homeSearchProductViewModel.getGetProductListByKeyData().getValue().data != null) {
+                                        if (!binding.get().getLoadingMore() && homeSearchProductViewModel.getGetProductListByKeyData().getValue().data.size() == 0) {
                                             binding.get().noItemConstraintLayout.setVisibility(View.VISIBLE);
                                         }
                                     }
@@ -435,7 +435,7 @@ public class ProductListFragment extends PSFragment implements DataBoundListAdap
             });
         }
 
-        homeSearchProductViewModel.getNextPageProductListByKeyData.observe(this, state -> {
+        homeSearchProductViewModel.getGetNextPageProductListByKeyData().observe(this, state -> {
 
             if (state != null) {
                 if (state.status == Status.ERROR) {
@@ -448,7 +448,7 @@ public class ProductListFragment extends PSFragment implements DataBoundListAdap
 
         });
 
-        homeSearchProductViewModel.loadingState.observe(this, loadingState -> {
+        homeSearchProductViewModel.getLoadingState().observe(this, loadingState -> {
 
             binding.get().setLoadingMore(homeSearchProductViewModel.isLoading);
 

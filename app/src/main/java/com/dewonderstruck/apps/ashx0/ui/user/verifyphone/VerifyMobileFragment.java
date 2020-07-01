@@ -209,7 +209,7 @@ public class VerifyMobileFragment extends PSFragment {
     protected void initData() {
         token = pref.getString(Constants.NOTI_TOKEN, Constants.USER_NO_DEVICE_TOKEN);
 
-        userViewModel.phoneLoginData.observe(this, listResource -> {
+        userViewModel.getPhoneLoginData().observe(this, listResource -> {
 
             if (listResource != null) {
 
