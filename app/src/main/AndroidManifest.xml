@@ -35,7 +35,8 @@
         android:xlargeScreens="true" />
 
     <compatible-screens>
-        <!--no small size screens -->
+
+        <!-- no small size screens -->
         <screen
             android:screenDensity="ldpi"
             android:screenSize="small" /> <!-- approximately 120 dpi -->
@@ -68,7 +69,7 @@
             android:screenSize="small" /> <!-- Workaround -->
 
 
-        <!--all normal size screens -->
+        <!-- all normal size screens -->
         <screen
             android:screenDensity="ldpi"
             android:screenSize="normal" /> <!-- approximately 120 dpi -->
@@ -134,7 +135,7 @@
             android:screenDensity="213"
             android:screenSize="large" />
 
-        <!--xxhdpi-->
+        <!-- xxhdpi -->
 
         <screen
             android:screenDensity="480"
@@ -145,7 +146,6 @@
         <screen
             android:screenDensity="480"
             android:screenSize="xlarge" />
-
     </compatible-screens>
 
     <application
@@ -155,13 +155,19 @@
         android:hardwareAccelerated="true"
         android:icon="@mipmap/ic_launcher_round"
         android:label="@string/app__app_name"
-        android:testOnly="false"
         android:largeHeap="true"
+        android:requestLegacyExternalStorage="true"
+        android:testOnly="false"
         android:theme="@style/Base.PSTheme"
         android:usesCleartextTraffic="true"
-        tools:replace="android:label, android:allowBackup"
         tools:ignore="UnusedAttribute"
-        tools:overrideLibrary="com.google.android.youtube.player">
+        tools:overrideLibrary="com.google.android.youtube.player"
+        tools:replace="android:label, android:allowBackup">
+        <activity
+            android:name=".ui.apploading.FullscreenActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/title_activity_fullscreen"
+            android:theme="@style/FullscreenTheme"></activity>
 
         <meta-data
             android:name="com.google.android.gms.ads.AD_MANAGER_APP"
@@ -177,8 +183,14 @@
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
             android:theme="@style/SplashTheme"
+            android:windowSoftInputMode="adjustPan"></activity>
+        <activity
+            android:name="com.dewonderstruck.apps.MainActivity"
+            android:label="@string/app__app_name"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/SplashTheme"
             android:windowSoftInputMode="adjustPan">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -194,8 +206,8 @@
                 <category android:name="android.intent.category.BROWSABLE" />
 
                 <data
-                    android:scheme="http"
-                    android:host="ashtrixx.com" />
+                    android:host="ashtrixx.com"
+                    android:scheme="http" />
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -204,31 +216,18 @@
                 <category android:name="android.intent.category.BROWSABLE" />
 
                 <data
-                    android:scheme="https"
-                    android:host="ashtrixx.com" />
+                    android:host="ashtrixx.com"
+                    android:scheme="https" />
             </intent-filter>
-
-        </activity>
-
-        <activity
-            android:name="com.dewonderstruck.apps.MainActivity"
-            android:label="@string/app__app_name"
-            android:launchMode="singleTop"
-            android:screenOrientation="portrait"
-            android:theme="@style/SplashTheme"
-            android:windowSoftInputMode="adjustPan">
-
         </activity>
         <activity
             android:name=".ui.category.CategoryListActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Base.PSTheme" />
-
         <activity
             android:name=".ui.rating.RatingListActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Base.PSTheme" />
-
         <activity
             android:name=".ui.user.ProfileEditActivity"
             android:screenOrientation="portrait"
@@ -275,8 +274,8 @@
             android:theme="@style/Base.PSTheme" />
         <activity
             android:name=".ui.danceoholics.DanceoholicsActivity"
-            android:screenOrientation="portrait"
             android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
             android:theme="@style/Base.PSTheme" />
         <activity
             android:name=".ui.setting.NotificationSettingActivity"
@@ -298,7 +297,6 @@
         <meta-data
             android:name="com.dewonderstruck.apps.ashx0.utils.CustomCachingGlideModule"
             android:value="AppGlideModule" />
-
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
@@ -308,14 +306,12 @@
             android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
             android:label="@string/app_name" />
 
-
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_color"
             android:resource="@color/global__accent" />
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" /> <!-- <service android:name=".utils.FirebaseInstanceIDService" android:stopWithTask="false"> -->
-
         <service android:name=".utils.FirebaseMessagingService">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />

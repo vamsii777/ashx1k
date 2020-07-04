@@ -327,6 +327,8 @@
     <color name="md_blue_grey_800">#37474F</color>
     <color name="md_blue_grey_900">#263238</color>
 
+    <color name="black_overlay">#66000000</color>
+
 
     <!--<color name="colorPrimary">#E65100</color>-->
 

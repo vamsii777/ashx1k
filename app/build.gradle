@@ -14,9 +14,9 @@ android {
         applicationId "com.dewonderstruck.apps.ashx0"
         minSdkVersion 17
         //minSdkVersion hasProperty('minSdk') ? minSdk.toInteger() : 17
-        targetSdkVersion 29
-        versionCode 7
-        versionName '1.105'
+        targetSdkVersion 30
+        versionCode 8
+        versionName '1.115'
         multiDexEnabled true
         vectorDrawables.useSupportLibrary = true
     }

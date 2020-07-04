@@ -83,7 +83,8 @@
                     android:id="@+id/viewPager"
                     android:layout_width="0dp"
                     android:layout_height="250dp"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_margin="8dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/sliderHeaderTextView" />
@@ -424,7 +425,7 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
+       <!-- <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/gotoyou"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -439,7 +440,24 @@
             app:fabCustomSize="44dp"
             app:rippleColor="@color/colorFabRipple"
             app:srcCompat="@drawable/ic_outline_play_arrow_24"
-            tools:ignore="MissingConstraints" />
+            tools:ignore="MissingConstraints" />-->
+
+
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/gotoyounew"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="@dimen/fab_margin"
+            android:text="WATCH"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:textColor="@android:color/white"
+            app:iconTint="@color/bt_white"
+            style="@style/Widget.App.ExtendedFloatingActionButton"
+            app:icon="@drawable/ic_outline_play_circle" />
 
 
 

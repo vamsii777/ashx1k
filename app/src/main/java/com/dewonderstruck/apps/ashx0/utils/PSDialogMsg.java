@@ -1,7 +1,9 @@
 package com.dewonderstruck.apps.ashx0.utils;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Dialog;
+import android.graphics.Color;
 import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.view.Window;
@@ -83,6 +85,7 @@ public class PSDialogMsg {
         titleTextView.setText(dialog.getContext().getString(R.string.confirm));
         msgTextView.setText(message);
         okButton.setText(okTitle);
+
         cancelButton.setText(cancelTitle);
 
         if (dialog.getWindow() != null) {
@@ -106,7 +109,7 @@ public class PSDialogMsg {
         titleTextView.setText(dialog.getContext().getString(R.string.info));
         msgTextView.setText(message);
         okButton.setText(okTitle);
-
+        okButton.setBackgroundResource(R.drawable.rounded_dialog);
         if (dialog.getWindow() != null) {
             dialog.getWindow().setAttributes(getLayoutParams(dialog));
 
@@ -129,7 +132,7 @@ public class PSDialogMsg {
         okButton = dialog.findViewById(R.id.dialogOkButton);
 
         descriptionTextView.setMovementMethod(new ScrollingMovementMethod());
-
+        okButton.setBackgroundResource(R.drawable.rounded_dialog);
         titleTextView.setText(dialog.getContext().getString(R.string.version_update));
         msgTextView.setText(title);
         descriptionTextView.setText(description);
@@ -144,6 +147,7 @@ public class PSDialogMsg {
         }
     }
 
+    @SuppressLint("ResourceAsColor")
     public void showSuccessDialog(String message, String okTitle) {
         this.dialog.setContentView(R.layout.dialog_box_design);
         view = dialog.findViewById(R.id.dialogTitleView);
@@ -154,8 +158,9 @@ public class PSDialogMsg {
 
         msgTextView = dialog.findViewById(R.id.dialogMessageTextView);
         okButton = dialog.findViewById(R.id.dialogOkButton);
-
+        okButton.setBackgroundResource(R.drawable.rounded_dialog);
         titleTextView.setText(dialog.getContext().getString(R.string.success));
+        //msgTextView.setTextColor(R.color.black);
         msgTextView.setText(message);
         okButton.setText(okTitle);
 
@@ -178,14 +183,13 @@ public class PSDialogMsg {
 
         msgTextView = dialog.findViewById(R.id.dialogMessageTextView);
         okButton = dialog.findViewById(R.id.dialogOkButton);
-
+        okButton.setBackgroundResource(R.drawable.rounded_dialog);
         titleTextView.setText(dialog.getContext().getString(R.string.error));
         msgTextView.setText(message);
         okButton.setText(okTitle);
 
         if (dialog.getWindow() != null) {
             dialog.getWindow().setAttributes(getLayoutParams(dialog));
-
             this.dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
             this.dialog.setCancelable(cancelable);
             okButton.setOnClickListener(view -> PSDialogMsg.this.cancel());
@@ -202,10 +206,11 @@ public class PSDialogMsg {
 
         msgTextView = dialog.findViewById(R.id.dialogMessageTextView);
         okButton = dialog.findViewById(R.id.dialogOkButton);
-
+        okButton.setBackgroundResource(R.drawable.rounded_dialog);
         titleTextView.setText(dialog.getContext().getString(R.string.warning));
         msgTextView.setText(message);
         okButton.setText(okTitle);
+
 
         if (dialog.getWindow() != null) {
             dialog.getWindow().setAttributes(getLayoutParams(dialog));
@@ -216,6 +221,7 @@ public class PSDialogMsg {
         }
     }
 
+    @SuppressLint("CutPasteId")
     public void showCategoryConfirm(String message, String okTitle, String cancelTitle, String halfTitle) {
         this.dialog.setContentView(R.layout.dialog_category_delete_confirm);
         view = dialog.findViewById(R.id.dialogTitleTextView);
@@ -224,7 +230,7 @@ public class PSDialogMsg {
         halfButton = dialog.findViewById(R.id.onlyCategoryButton);
         imageView = dialog.findViewById(R.id.imageView14);
         imageView.setImageResource(R.drawable.baseline_confirm_white_24);
-
+        okButton.setBackgroundResource(R.drawable.rounded_dialog);
         msgTextView = dialog.findViewById(R.id.dialogMessageTextView);
         okButton = dialog.findViewById(R.id.dialogOkButton);
 

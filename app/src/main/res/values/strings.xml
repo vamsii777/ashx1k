@@ -641,6 +641,9 @@ Learn More >
 
     <string name="error_player" translatable="false">There was an error initializing the YouTubePlayer (%1$s)</string>
     <string name="sudhir_s_danceoholics_is_a_dance_fitness_company_established_in_2009_we_are_located_in_sri_nagarcolony_banjarahills_we_offer_kids_dance_classes_zumba_fitness_bollywood_dance_dance_fitness_classes_personal_training_wedding_choreography_events_and_more"><![CDATA[Sudhir\'s Danceoholics is a Dance & Fitness company ! Established in 2009. We are located in Sri nagarcolony, banjarahills. We offer kids dance classes , Zumba fitness , Bollywood dance , dance & fitness classes , personal training , wedding Choreography , events and more..]]></string>
+    <string name="title_activity_fullscreen">FullscreenActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
 
 </resources>
 

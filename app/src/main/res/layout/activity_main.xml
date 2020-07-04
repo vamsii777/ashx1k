@@ -58,11 +58,12 @@
                     app:labelVisibilityMode="labeled"
                     app:elevation="24dp"
                     app:layout_optimizationLevel="standard"
-                    app:layout_behavior="@string/appbar_scrolling_view_behavior"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:menu="@menu/menu_home" />
+                    <!--app:layout_behavior="@string/appbar_scrolling_view_behavior"-->
+
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
