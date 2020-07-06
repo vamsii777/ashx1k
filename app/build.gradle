@@ -9,6 +9,7 @@ apply plugin: 'com.google.firebase.firebase-perf'
 
 
 android {
+    //flavorDimensions "default"
     compileSdkVersion 30
     defaultConfig {
         applicationId "com.dewonderstruck.apps.ashx0"
@@ -31,14 +32,42 @@ android {
             pseudoLocalesEnabled false
             zipAlignEnabled true
             shrinkResources true
+            crunchPngs true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
         debug {
             //resConfigs "en"
+            crunchPngs false
+            //ext.alwaysUpdateBuildId = false
             ext.enableCrashlytics = false
         }
     }
 
+   /* productFlavors {
+        // When building a variant that uses this flavor, the following configurations
+        // override those in the defaultConfig block.
+        dev {
+            // To avoid using legacy multidex when building from the command line,
+            // set minSdkVersion to 21 or higher. When using Android Studio 2.3 or higher,
+            // the build automatically avoids legacy multidex when deploying to a device running
+            // API level 21 or higher—regardless of what you set as your minSdkVersion.
+            //noinspection DevModeObsolete
+            minSdkVersion 21
+            // The following configuration limits the "dev" flavor to using
+            // English stringresources and xxhdpi screen-density resources.
+            resConfigs "en", "xxhdpi"
+            versionNameSuffix "-dev"
+            //applicationIdSuffix '.dev'
+        }
+
+        prod {
+            // If you've configured the defaultConfig block for the release version of
+            // your app, you can leave this block empty and Gradle uses configurations in
+            // the defaultConfig block instead. You still need to create this flavor.
+            // Otherwise, all variants use the "dev" flavor configurations.
+        }
+    }
+*/
 
 
     /* dataBinding {
@@ -62,7 +91,7 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
-    /*aaptOptions {
+    /* aaptOptions {
         cruncherEnabled = false
     }
 
@@ -72,7 +101,7 @@ android {
 
     dexOptions {
         preDexLibraries true
-    }*/
+    } */
 
   /*  codeQuality {
         reportsDirectory = file('build/reports')
@@ -87,6 +116,10 @@ android {
     configurations.all {
         resolutionStrategy.force "org.antlr:antlr4-runtime:4.7.1"
         resolutionStrategy.force "org.antlr:antlr4-tool:4.7.1"
+    }
+
+    dexOptions {
+        preDexLibraries true
     }
 
     /*kapt {
@@ -132,12 +165,12 @@ dependencies {
     implementation 'com.google.firebase:firebase-ads:19.2.0'
     // Dagger 2
     implementation 'com.google.dagger:dagger:2.27'
-    implementation 'com.google.dagger:dagger-android-support:2.23'
-    kapt 'com.google.dagger:dagger-android-processor:2.23'
-    kapt 'com.google.dagger:dagger-compiler:2.23'
+    implementation 'com.google.dagger:dagger-android-support:2.27'
+    kapt 'com.google.dagger:dagger-android-processor:2.27'
+    kapt 'com.google.dagger:dagger-compiler:2.27'
     // Retrofit
-    implementation "com.squareup.retrofit2:retrofit:2.5.0"
-    implementation "com.squareup.retrofit2:converter-gson:2.5.0"
+    implementation "com.squareup.retrofit2:retrofit:2.8.1"
+    implementation "com.squareup.retrofit2:converter-gson:2.8.1"
     // Lifecycle Arch
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.3.0-alpha05"
     implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
@@ -182,6 +215,7 @@ dependencies {
     implementation 'com.google.android.gms:play-services-tagmanager:17.0.0'
     implementation 'com.github.flipkart-incubator:android-inline-youtube-view:1.0.3'
     implementation 'com.flurry.android:analytics:12.3.0@aar'
+    implementation 'com.google.android.play:core:1.7.3'
     implementation 'com.pierfrancescosoffritti.androidyoutubeplayer:core:10.0.5'
     //implementation 'com.github.davidmigloz:youtube-android-player-api-gradle:1.2.2.1'
 }
