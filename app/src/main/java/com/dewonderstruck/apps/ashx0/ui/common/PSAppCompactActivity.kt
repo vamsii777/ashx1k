@@ -29,7 +29,7 @@ abstract class PSAppCompactActivity : AppCompatActivity(), HasSupportFragmentInj
 
 
     @set:Inject
-    open var navigationController: NavigationController? = null
+    open var navigationController: NavigationController2? = null
 
     //endregion
     //region Override Methods

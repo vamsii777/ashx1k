@@ -12,10 +12,10 @@ import com.dewonderstruck.apps.ashx0.utils.Objects
 import com.dewonderstruck.apps.ashx0.viewobject.HistoryProduct
 
 class HistoryAdapter(private val dataBindingComponent: DataBindingComponent, private val callback: HistoryClickCallback?) : DataBoundListAdapter<HistoryProduct?, ItemHistoryAdapterBinding?>() {
-    private val diffUtilDispatchedInterface: DiffUtilDispatchedInterface? = null
-    override fun createBinding(parent: ViewGroup): ItemHistoryAdapterBinding {
+    private val diffUtilDispatchedInterface: DiffUtilDispatchedInterface2? = null
+    override fun createBinding(parent: ViewGroup?): ItemHistoryAdapterBinding {
         val binding: ItemHistoryAdapterBinding = DataBindingUtil
-                .inflate(LayoutInflater.from(parent.context),
+                .inflate(LayoutInflater.from(parent!!.context),
                         R.layout.item_history_adapter, parent, false,
                         dataBindingComponent)
         binding.root.setOnClickListener { v: View? ->

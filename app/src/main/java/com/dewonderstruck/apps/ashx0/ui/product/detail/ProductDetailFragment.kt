@@ -26,7 +26,7 @@ import com.dewonderstruck.apps.ashx0.R
 import com.dewonderstruck.apps.ashx0.binding.FragmentDataBindingComponent
 import com.dewonderstruck.apps.ashx0.databinding.BottomBoxBasketAndBuyBinding
 import com.dewonderstruck.apps.ashx0.databinding.FragmentProductDetailBinding
-import com.dewonderstruck.apps.ashx0.ui.common.DataBoundListAdapter.DiffUtilDispatchedInterface
+import com.dewonderstruck.apps.ashx0.ui.common.DataBoundListAdapter.DiffUtilDispatchedInterface2
 import com.dewonderstruck.apps.ashx0.ui.common.PSFragment
 import com.dewonderstruck.apps.ashx0.ui.product.adapter.ProductHorizontalListAdapter
 import com.dewonderstruck.apps.ashx0.ui.product.detail.adapter.*
@@ -57,7 +57,7 @@ import java.util.*
  * Contact Email : vamsii.wrkhost@gmail.com
  * Website : http://www.dewonderstruck.com
  */
-class ProductDetailFragment() : PSFragment(), DiffUtilDispatchedInterface {
+class ProductDetailFragment() : PSFragment(), DiffUtilDispatchedInterface2 {
     //region Variables
     private val dataBindingComponent: DataBindingComponent = FragmentDataBindingComponent(this)
     private var dotsCount = 0
@@ -81,7 +81,7 @@ class ProductDetailFragment() : PSFragment(), DiffUtilDispatchedInterface {
     private val twist = false
 
     @VisibleForTesting
-    private var pagerAdapter: AutoClearedValue<ProductDetailListPagerAdapter>? = null
+    var pagerAdapter: AutoClearedValue<ProductDetailListPagerAdapter>? = null
     private var binding: AutoClearedValue<FragmentProductDetailBinding?>? = null
     var adapter: AutoClearedValue<ProductDetailListPagerAdapter>? = null
     private var colorAdapter: AutoClearedValue<ProductColorAdapter>? = null
@@ -206,7 +206,7 @@ class ProductDetailFragment() : PSFragment(), DiffUtilDispatchedInterface {
                 }
             }
 
-        });*/binding!!.get()!!.messengerFloatingActionButton.setOnClickListener({ v: View? ->
+        });*/binding!!.get()!!.messengerFloatingActionButton.setOnClickListener { v: View? ->
             try {
                 val intent: Intent = Intent()
                 intent.setAction(Intent.ACTION_VIEW)
@@ -217,8 +217,8 @@ class ProductDetailFragment() : PSFragment(), DiffUtilDispatchedInterface {
                 e.printStackTrace()
                 Toast.makeText(getActivity(), getString(R.string.product_detail__install_messenger_app), Toast.LENGTH_SHORT).show()
             }
-        })
-        binding!!.get()!!.whatsappFloatingActionButton.setOnClickListener({ v: View? ->
+        }
+        binding!!.get()!!.whatsappFloatingActionButton.setOnClickListener { v: View? ->
             try {
                 val sendIntent: Intent = Intent("android.intent.action.MAIN")
                 sendIntent.setComponent(ComponentName("com.whatsapp", "com.whatsapp.Conversation"))
@@ -228,7 +228,7 @@ class ProductDetailFragment() : PSFragment(), DiffUtilDispatchedInterface {
                 e.printStackTrace()
                 Toast.makeText(getActivity(), getString(R.string.product_detail__install_whatsapp_app), Toast.LENGTH_SHORT).show()
             }
-        })
+        }
 
 
         /*addToCartButton.get().setOnClickListener(view -> {
@@ -285,8 +285,8 @@ class ProductDetailFragment() : PSFragment(), DiffUtilDispatchedInterface {
 //            }
 //
 //        });
-        binding!!.get()!!.seeAllFactButton.setOnClickListener({ view: View? -> navigationController.navigateToTermsAndConditionsActivity(getActivity(), Constants.SHOP_TERMS) })
-        binding!!.get()!!.refundPolicyButton.setOnClickListener({ view: View? -> navigationController.navigateToTermsAndConditionsActivity(getActivity(), Constants.SHOP_REFUND) })
+        binding!!.get()!!.seeAllFactButton.setOnClickListener({ view: View? -> navigationController.navigateToTermsAndConditionsActivity(requireActivity(), Constants.SHOP_TERMS) })
+        binding!!.get()!!.refundPolicyButton.setOnClickListener({ view: View? -> navigationController.navigateToTermsAndConditionsActivity(requireActivity(), Constants.SHOP_REFUND) })
         binding!!.get()!!.phoneFloatingActionButton.setOnClickListener({ v: View? ->
             if (!(shopPhoneNumber.trim { it <= ' ' }.isEmpty() || (shopPhoneNumber.trim { it <= ' ' } == "-"))) {
                 Utils.callPhone(this@ProductDetailFragment, shopPhoneNumber)
@@ -392,18 +392,18 @@ class ProductDetailFragment() : PSFragment(), DiffUtilDispatchedInterface {
                             Constants.CATEGORY -> {
                                 productParameterHolder.resetTheHolder()
                                 productParameterHolder.catId = tabObjectList!!.get().get(0).tag_id
-                                navigationController.navigateToHomeFilteringActivity(getActivity(), productParameterHolder, tabObjectList!!.get().get(0).tag_name)
+                                navigationController.navigateToHomeFilteringActivity(requireActivity(), productParameterHolder, tabObjectList!!.get().get(0).tag_name)
                             }
                             Constants.SUBCATEGORY -> {
                                 productParameterHolder.resetTheHolder()
                                 productParameterHolder.catId = tabObjectList!!.get().get(0).tag_id
                                 productParameterHolder.subCatId = tabObjectList!!.get().get(1).tag_id
-                                navigationController.navigateToHomeFilteringActivity(getActivity(), productParameterHolder, tabObjectList!!.get().get(1).tag_name)
+                                navigationController.navigateToHomeFilteringActivity(requireActivity(), productParameterHolder, tabObjectList!!.get().get(1).tag_name)
                             }
                             Constants.PRODUCT_TAG -> {
                                 productParameterHolder.resetTheHolder()
                                 productParameterHolder.search_term = tabObject.tag_name
-                                navigationController.navigateToHomeFilteringActivity(getActivity(), productParameterHolder, tabObject.tag_name)
+                                navigationController.navigateToHomeFilteringActivity(requireActivity(), productParameterHolder, tabObject.tag_name)
                             }
                         }
                     }
@@ -458,7 +458,7 @@ class ProductDetailFragment() : PSFragment(), DiffUtilDispatchedInterface {
         bottomBoxLayoutBinding!!.get()!!.attributeHeaderRecycler.adapter = headerAdapter
         val homeScreenAdapter1 = ProductHorizontalListAdapter(dataBindingComponent, object : ProductHorizontalListAdapter.NewsClickCallback {
             override fun onClick(product: Product?) {
-                navigationController.navigateToDetailActivity(this@ProductDetailFragment.activity, product)
+                navigationController.navigateToDetailActivity(this@ProductDetailFragment.requireActivity(), product!!)
                 //                if (ProductDetailFragment.this.getActivity() != null) {
 //                    ProductDetailFragment.this.getActivity().finish();
 //                }

@@ -20,7 +20,7 @@ import com.dewonderstruck.apps.ashx0.R
 import com.dewonderstruck.apps.ashx0.binding.FragmentDataBindingComponent
 import com.dewonderstruck.apps.ashx0.databinding.BottomBoxLayoutBinding
 import com.dewonderstruck.apps.ashx0.databinding.FragmentProductListBinding
-import com.dewonderstruck.apps.ashx0.ui.common.DataBoundListAdapter.DiffUtilDispatchedInterface
+import com.dewonderstruck.apps.ashx0.ui.common.DataBoundListAdapter.DiffUtilDispatchedInterface2
 import com.dewonderstruck.apps.ashx0.ui.common.PSFragment
 import com.dewonderstruck.apps.ashx0.ui.product.adapter.ProductVerticalListAdapter
 import com.dewonderstruck.apps.ashx0.utils.AutoClearedValue
@@ -40,7 +40,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.like.LikeButton
 import java.util.*
 
-class ProductListFragment : PSFragment(), DiffUtilDispatchedInterface {
+class ProductListFragment : PSFragment(), DiffUtilDispatchedInterface2 {
     private val dataBindingComponent: DataBindingComponent = FragmentDataBindingComponent(this)
     private var typeClicked = false
     private var filterClicked = false
@@ -183,7 +183,7 @@ class ProductListFragment : PSFragment(), DiffUtilDispatchedInterface {
     override fun initAdapters() {
         val nvAdapter = ProductVerticalListAdapter(dataBindingComponent, object : ProductVerticalListAdapter.NewsClickCallback {
             override fun onClick(product: Product?) {
-                navigationController.navigateToDetailActivity(this@ProductListFragment.activity, product)
+                navigationController.navigateToDetailActivity(this@ProductListFragment.requireActivity(), product!!)
             }
 
             override fun onFavLikeClick(product: Product?, likeButton: LikeButton?) {
@@ -352,12 +352,12 @@ class ProductListFragment : PSFragment(), DiffUtilDispatchedInterface {
     private fun ButtonClick(view: View) {
         when (view.id) {
             R.id.typeButton -> {
-                navigationController.navigateToTypeFilterFragment(this@ProductListFragment.activity, homeSearchProductViewModel!!.holder.catId,
+                navigationController.navigateToTypeFilterFragment(this@ProductListFragment.requireActivity(), homeSearchProductViewModel!!.holder.catId,
                         homeSearchProductViewModel!!.holder.subCatId, homeSearchProductViewModel!!.holder, Constants.FILTERING_TYPE_FILTER)
                 typeButtonClicked(typeClicked)
             }
             R.id.tuneButton -> {
-                navigationController.navigateToTypeFilterFragment(this@ProductListFragment.activity, homeSearchProductViewModel!!.holder.catId,
+                navigationController.navigateToTypeFilterFragment(this@ProductListFragment.requireActivity(), homeSearchProductViewModel!!.holder.catId,
                         homeSearchProductViewModel!!.holder.subCatId, homeSearchProductViewModel!!.holder, Constants.FILTERING_SPECIAL_FILTER)
                 tuneButtonClicked(filterClicked)
             }

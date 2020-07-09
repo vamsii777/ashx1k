@@ -40,7 +40,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.dewonderstruck.apps.Config;
 import com.dewonderstruck.apps.MainActivity;
 
-import com.dewonderstruck.apps.ashx0.ui.common.NavigationController;
+import com.dewonderstruck.apps.ashx0.ui.common.NavigationController2;
 import com.dewonderstruck.apps.ashx0.viewobject.User;
 
 import java.io.File;
@@ -911,7 +911,7 @@ public class Utils {
         pref.edit().putString(Constants.USER_ID_TO_VERIFY, user.userId).apply();
     }
 
-    public static void navigateAfterUserLogin(Activity activity, NavigationController navigationController){
+    public static void navigateAfterUserLogin(Activity activity, NavigationController2 navigationController){
         if (activity instanceof MainActivity) {
             ((MainActivity) activity).setToolbarText(((MainActivity) activity).binding.toolbar, activity.getString(R.string.profile__title));
             navigationController.navigateToUserProfile((MainActivity) activity);
@@ -927,7 +927,7 @@ public class Utils {
         }
     }
 
-    public static void navigateAfterUserRegister(Activity activity, NavigationController navigationController){
+    public static void navigateAfterUserRegister(Activity activity, NavigationController2 navigationController){
         if (activity instanceof MainActivity) {
             ((MainActivity) activity).setToolbarText(((MainActivity) activity).binding.toolbar, activity.getString(R.string.verify_email));
 
@@ -945,7 +945,7 @@ public class Utils {
         }
     }
 
-    public static void navigateAfterForgotPassword(Activity activity, NavigationController navigationController){
+    public static void navigateAfterForgotPassword(Activity activity, NavigationController2 navigationController){
         if (activity instanceof MainActivity) {
             navigationController.navigateToUserForgotPassword((MainActivity) activity);
         } else {
@@ -963,7 +963,7 @@ public class Utils {
 
     }
 
-    public static void navigateToLogin(Activity activity, NavigationController navigationController){
+    public static void navigateToLogin(Activity activity, NavigationController2 navigationController){
         if (activity instanceof MainActivity) {
             navigationController.navigateToUserLogin((MainActivity) activity);
         } else {
@@ -981,7 +981,7 @@ public class Utils {
 
     }
 
-    public static void navigateAfterRegister(Activity activity, NavigationController navigationController){
+    public static void navigateAfterRegister(Activity activity, NavigationController2 navigationController){
         if (activity instanceof MainActivity) {
             navigationController.navigateToUserRegister((MainActivity) activity);
         } else {
@@ -999,7 +999,7 @@ public class Utils {
 
     }
 
-    public static void navigateOnUserVerificationFragment(SharedPreferences pref,User user,NavigationController navigationController,MainActivity activity) {
+    public static void navigateOnUserVerificationFragment(SharedPreferences pref,User user,NavigationController2 navigationController, MainActivity activity) {
         String fragmentType = pref.getString(Constants.USER_ID_TO_VERIFY, Constants.EMPTY_STRING);
 
         if (fragmentType!= null && fragmentType.isEmpty()) {
@@ -1025,7 +1025,7 @@ public class Utils {
 
     public static void navigateOnUserVerificationActivity(String userIdToVerify,String loginUserId,
                                                           PSDialogMsg psDialogMsg,Activity activity,
-                                                          NavigationController navigationController,
+                                                          NavigationController2 navigationController,
                                                           NavigateOnUserVerificationActivityCallback callback
     ) {
         if (userIdToVerify.isEmpty()) {
@@ -1051,7 +1051,7 @@ public class Utils {
 
     public static void navigateOnUserVerificationActivityFromFav(String userIdToVerify,String loginUserId,
                                                                  PSDialogMsg psDialogMsg,Activity activity,
-                                                                 NavigationController navigationController,
+                                                                 NavigationController2 navigationController,
                                                                  LikeButton likeButton,
                                                                  NavigateOnUserVerificationActivityCallback callback
 
@@ -1077,7 +1077,7 @@ public class Utils {
         }
     }
 
-    public static void navigateAfterLogin(Activity activity, NavigationController navigationController){
+    public static void navigateAfterLogin(Activity activity, NavigationController2 navigationController){
         if (activity instanceof MainActivity) {
             navigationController.navigateToUserLogin((MainActivity) activity);
         } else {
@@ -1095,7 +1095,7 @@ public class Utils {
 
     }
 
-    public static void navigateAfterPhoneVerify(Activity activity, NavigationController navigationController,String number,String username){
+    public static void navigateAfterPhoneVerify(Activity activity, NavigationController2 navigationController,String number,String username){
         if(activity instanceof  MainActivity) {
             navigationController.navigateToPhoneVerifyFragment((MainActivity) activity,number, username);
         }else {
@@ -1113,7 +1113,7 @@ public class Utils {
 
     }
 
-    public static void navigateAfterPhoneLogin(Activity activity, NavigationController navigationController){
+    public static void navigateAfterPhoneLogin(Activity activity, NavigationController2 navigationController){
         if(activity instanceof  MainActivity) {
             navigationController.navigateToPhoneLoginFragment((MainActivity) activity);
         }else {

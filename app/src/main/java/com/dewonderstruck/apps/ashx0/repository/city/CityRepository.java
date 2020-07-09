@@ -11,7 +11,7 @@ import com.dewonderstruck.apps.ashx0.api.ApiResponse;
 import com.dewonderstruck.apps.ashx0.api.PSApiService;
 import com.dewonderstruck.apps.ashx0.db.CityDao;
 import com.dewonderstruck.apps.ashx0.db.PSCoreDb;
-import com.dewonderstruck.apps.ashx0.repository.common.NetworkBoundResource;
+import com.dewonderstruck.apps.ashx0.repository.common.NetworkBoundResource2;
 import com.dewonderstruck.apps.ashx0.repository.common.PSRepository;
 import com.dewonderstruck.apps.ashx0.utils.Utils;
 import com.dewonderstruck.apps.ashx0.viewobject.City;
@@ -46,7 +46,7 @@ public class CityRepository extends PSRepository {
     //region Category Repository Functions for ViewModel
 
     public LiveData<Resource<List<City>>> getCityListWithShopId(String apiKey, String shopId, String countryId, String limit, String offset) {
-        return new NetworkBoundResource<List<City>, List<City>>(appExecutors) {
+        return new NetworkBoundResource2<List<City>, List<City>>(appExecutors) {
             @Override
             protected void saveCallResult(@NonNull List<City> itemList) {
 

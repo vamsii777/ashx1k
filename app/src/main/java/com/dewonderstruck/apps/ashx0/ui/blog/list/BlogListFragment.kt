@@ -1,5 +1,6 @@
 package com.dewonderstruck.apps.ashx0.ui.blog.list
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -17,7 +18,7 @@ import com.dewonderstruck.apps.ashx0.R
 import com.dewonderstruck.apps.ashx0.binding.FragmentDataBindingComponent
 import com.dewonderstruck.apps.ashx0.databinding.FragmentBlogListBinding
 import com.dewonderstruck.apps.ashx0.ui.blog.list.adapter.BlogListAdapter
-import com.dewonderstruck.apps.ashx0.ui.common.DataBoundListAdapter.DiffUtilDispatchedInterface
+import com.dewonderstruck.apps.ashx0.ui.common.DataBoundListAdapter.DiffUtilDispatchedInterface2
 import com.dewonderstruck.apps.ashx0.ui.common.PSFragment
 import com.dewonderstruck.apps.ashx0.utils.AutoClearedValue
 import com.dewonderstruck.apps.ashx0.utils.Utils
@@ -26,7 +27,7 @@ import com.dewonderstruck.apps.ashx0.viewobject.Blog
 import com.dewonderstruck.apps.ashx0.viewobject.common.Resource
 import com.dewonderstruck.apps.ashx0.viewobject.common.Status
 
-class BlogListFragment : PSFragment(), DiffUtilDispatchedInterface {
+class BlogListFragment : PSFragment(), DiffUtilDispatchedInterface2 {
     private val dataBindingComponent: DataBindingComponent = FragmentDataBindingComponent(this)
     private var blogViewModel: BlogViewModel? = null
 
@@ -79,8 +80,9 @@ class BlogListFragment : PSFragment(), DiffUtilDispatchedInterface {
     override fun initAdapters() {
         val nvAdapter = BlogListAdapter(dataBindingComponent, object : BlogListAdapter.NewsClickCallback
         {
+            @SuppressLint("UseRequireInsteadOfGet")
             override fun onClick(blog: Blog?) {
-                navigationController.navigateToBlogDetailActivity(this@BlogListFragment.activity, blog!!.id)
+                navigationController.navigateToBlogDetailActivity(this@BlogListFragment.activity!!, blog!!.id)
             }
         }, this)
         adapter = AutoClearedValue(this, nvAdapter)

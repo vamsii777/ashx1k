@@ -15,11 +15,11 @@ import com.dewonderstruck.apps.ashx0.viewobject.Blog
 
 class BlogListAdapter(private val dataBindingComponent: DataBindingComponent,
                       private val callback: NewsClickCallback?,
-                      private val diffUtilDispatchedInterface: DiffUtilDispatchedInterface?) : DataBoundListAdapter<Blog?, ItemBlogListAdapterBinding?>() {
+                      private val diffUtilDispatchedInterface: DiffUtilDispatchedInterface2?) : DataBoundListAdapter<Blog?, ItemBlogListAdapterBinding?>() {
     private var lastPosition = -1
-    override fun createBinding(parent: ViewGroup): ItemBlogListAdapterBinding {
+    override fun createBinding(parent: ViewGroup?): ItemBlogListAdapterBinding? {
         val binding: ItemBlogListAdapterBinding = DataBindingUtil
-                .inflate(LayoutInflater.from(parent.context),
+                .inflate(LayoutInflater.from(parent!!.context),
                         R.layout.item_blog_list_adapter, parent, false,
                         dataBindingComponent)
         binding.root.setOnClickListener { v: View? ->
@@ -31,7 +31,7 @@ class BlogListAdapter(private val dataBindingComponent: DataBindingComponent,
         return binding
     }
 
-    override fun bindView(holder: DataBoundViewHolder<ItemBlogListAdapterBinding?>, position: Int) {
+    override fun bindView(holder: DataBoundViewHolder<ItemBlogListAdapterBinding?>?, position: Int) {
         super.bindView(holder, position)
     }
 

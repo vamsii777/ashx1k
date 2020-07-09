@@ -15,7 +15,7 @@ import com.dewonderstruck.apps.Config
 import com.dewonderstruck.apps.ashx0.R
 import com.dewonderstruck.apps.ashx0.binding.FragmentDataBindingComponent
 import com.dewonderstruck.apps.ashx0.databinding.FragmentHistoryBinding
-import com.dewonderstruck.apps.ashx0.ui.common.DataBoundListAdapter.DiffUtilDispatchedInterface
+import com.dewonderstruck.apps.ashx0.ui.common.DataBoundListAdapter.DiffUtilDispatchedInterface2
 import com.dewonderstruck.apps.ashx0.ui.common.PSFragment
 import com.dewonderstruck.apps.ashx0.ui.product.history.adapter.HistoryAdapter
 import com.dewonderstruck.apps.ashx0.ui.product.history.adapter.HistoryAdapter.HistoryClickCallback
@@ -27,7 +27,7 @@ import com.dewonderstruck.apps.ashx0.viewobject.HistoryProduct
 /**
  * A simple [Fragment] subclass.
  */
-class HistoryFragment : PSFragment(), DiffUtilDispatchedInterface {
+class HistoryFragment : PSFragment(), DiffUtilDispatchedInterface2 {
     //region Variables
     private val dataBindingComponent: DataBindingComponent = FragmentDataBindingComponent(this)
     private var historyProductViewModel: HistoryProductViewModel? = null
@@ -81,7 +81,7 @@ class HistoryFragment : PSFragment(), DiffUtilDispatchedInterface {
     override fun initAdapters() {
         val historyAdapter = HistoryAdapter(dataBindingComponent, object : HistoryClickCallback {
             override fun onClick(historyProduct: HistoryProduct?) {
-                navigationController.navigateToProductDetailActivity(this@HistoryFragment.activity, historyProduct)
+                navigationController.navigateToProductDetailActivity(this@HistoryFragment.requireActivity(), historyProduct!!)
             }
         })
         this.historyAdapter = AutoClearedValue(this, historyAdapter)

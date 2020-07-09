@@ -1,7 +1,8 @@
 package com.dewonderstruck.apps.ashx0.ui.notification.list
 
+import android.annotation.SuppressLint
 import com.dewonderstruck.apps.ashx0.ui.common.PSFragment
-import com.dewonderstruck.apps.ashx0.ui.common.DataBoundListAdapter.DiffUtilDispatchedInterface
+import com.dewonderstruck.apps.ashx0.ui.common.DataBoundListAdapter.DiffUtilDispatchedInterface2
 import androidx.databinding.DataBindingComponent
 import com.dewonderstruck.apps.ashx0.binding.FragmentDataBindingComponent
 import com.dewonderstruck.apps.ashx0.viewmodel.notification.NotificationsViewModel
@@ -21,7 +22,7 @@ import androidx.lifecycle.LiveData
 import android.content.Intent
 import androidx.lifecycle.ViewModelProvider
 
-class NotificationListFragment constructor() : PSFragment(), DiffUtilDispatchedInterface {
+class NotificationListFragment constructor() : PSFragment(), DiffUtilDispatchedInterface2 {
     private val dataBindingComponent: DataBindingComponent? = FragmentDataBindingComponent(this)
     private var notificationListViewModel: NotificationsViewModel? = null
     var nvAdapter: NotificationListAdapter? = null
@@ -99,8 +100,9 @@ class NotificationListFragment constructor() : PSFragment(), DiffUtilDispatchedI
 
     protected override fun initAdapters(): kotlin.Unit {
         nvAdapter = NotificationListAdapter(this!!.dataBindingComponent!!, object:  NotificationClickCallback{
+            @SuppressLint("UseRequireInsteadOfGet")
             override fun onClick(notification: Noti?) {
-                navigationController.navigateToNotificationDetail(getActivity(), notification, notificationListViewModel!!.token)
+                navigationController.navigateToNotificationDetail(requireActivity(), notification!!, notificationListViewModel!!.token)
             }
 
         }, this)

@@ -6,7 +6,7 @@ import com.dewonderstruck.apps.ashx0.api.ApiResponse;
 import com.dewonderstruck.apps.ashx0.api.PSApiService;
 import com.dewonderstruck.apps.ashx0.db.CommentDao;
 import com.dewonderstruck.apps.ashx0.db.PSCoreDb;
-import com.dewonderstruck.apps.ashx0.repository.common.NetworkBoundResource;
+import com.dewonderstruck.apps.ashx0.repository.common.NetworkBoundResource2;
 import com.dewonderstruck.apps.ashx0.repository.common.PSRepository;
 import com.dewonderstruck.apps.ashx0.utils.Utils;
 import com.dewonderstruck.apps.ashx0.viewobject.Comment;
@@ -45,7 +45,7 @@ public class CommentRepository extends PSRepository {
     //Get comment list
     public LiveData<Resource<List<Comment>>> getCommentList(String apiKey, String productId, String limit, String offset) {
 
-        return new NetworkBoundResource<List<Comment>, List<Comment>>(appExecutors) {
+        return new NetworkBoundResource2<List<Comment>, List<Comment>>(appExecutors) {
 
             @Override
             protected void saveCallResult(@NonNull List<Comment> itemList) {

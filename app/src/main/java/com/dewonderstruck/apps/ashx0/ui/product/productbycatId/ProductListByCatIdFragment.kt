@@ -18,7 +18,7 @@ import com.dewonderstruck.apps.MainActivity
 import com.dewonderstruck.apps.ashx0.R
 import com.dewonderstruck.apps.ashx0.binding.FragmentDataBindingComponent
 import com.dewonderstruck.apps.ashx0.databinding.FragmentProdcutListByCatidBinding
-import com.dewonderstruck.apps.ashx0.ui.common.DataBoundListAdapter.DiffUtilDispatchedInterface
+import com.dewonderstruck.apps.ashx0.ui.common.DataBoundListAdapter.DiffUtilDispatchedInterface2
 import com.dewonderstruck.apps.ashx0.ui.common.PSFragment
 import com.dewonderstruck.apps.ashx0.ui.product.adapter.ProductVerticalListAdapter
 import com.dewonderstruck.apps.ashx0.utils.AutoClearedValue
@@ -32,7 +32,7 @@ import com.dewonderstruck.apps.ashx0.viewobject.common.Resource
 import com.dewonderstruck.apps.ashx0.viewobject.common.Status
 import com.like.LikeButton
 
-class ProductListByCatIdFragment : PSFragment(), DiffUtilDispatchedInterface {
+class ProductListByCatIdFragment : PSFragment(), DiffUtilDispatchedInterface2 {
     //region Variables
     private val dataBindingComponent: DataBindingComponent = FragmentDataBindingComponent(this)
     private var catId: String? = null
@@ -98,7 +98,7 @@ class ProductListByCatIdFragment : PSFragment(), DiffUtilDispatchedInterface {
     override fun initAdapters() {
         val nvAdapter = ProductVerticalListAdapter(dataBindingComponent, object : ProductVerticalListAdapter.NewsClickCallback {
             override fun onClick(product: Product?) {
-                navigationController.navigateToShopProfile(activity as MainActivity?)
+                navigationController.navigateToShopProfile((activity as MainActivity?)!!)
             }
 
             override fun onFavLikeClick(product: Product?, likeButton: LikeButton?) {

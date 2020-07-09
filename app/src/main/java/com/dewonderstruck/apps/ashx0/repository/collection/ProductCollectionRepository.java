@@ -12,7 +12,7 @@ import com.dewonderstruck.apps.ashx0.api.ApiResponse;
 import com.dewonderstruck.apps.ashx0.api.PSApiService;
 import com.dewonderstruck.apps.ashx0.db.PSCoreDb;
 import com.dewonderstruck.apps.ashx0.db.ProductCollectionDao;
-import com.dewonderstruck.apps.ashx0.repository.common.NetworkBoundResource;
+import com.dewonderstruck.apps.ashx0.repository.common.NetworkBoundResource2;
 import com.dewonderstruck.apps.ashx0.repository.common.PSRepository;
 import com.dewonderstruck.apps.ashx0.utils.Utils;
 import com.dewonderstruck.apps.ashx0.viewobject.Product;
@@ -58,7 +58,7 @@ public class ProductCollectionRepository extends PSRepository {
     //region ProductCollectionHeader Repository Functions for ViewModel
 
     public LiveData<Resource<List<ProductCollectionHeader>>> getProductionCollectionHeaderListForHome(String apiKey, String collectionLimit, String colProductLimit, String productLimit, String offset) {
-        return new NetworkBoundResource<List<ProductCollectionHeader>, List<ProductCollectionHeader>>(appExecutors) {
+        return new NetworkBoundResource2<List<ProductCollectionHeader>, List<ProductCollectionHeader>>(appExecutors) {
 
             @Override
             protected void saveCallResult(@NonNull List<ProductCollectionHeader> itemList) {
@@ -131,7 +131,7 @@ public class ProductCollectionRepository extends PSRepository {
     // get next page ProductionCollectionHeaderList
 
     public LiveData<Resource<List<ProductCollectionHeader>>> getProductionCollectionHeaderList(String apiKey, String productlimit,String offset) {
-        return new NetworkBoundResource<List<ProductCollectionHeader>, List<ProductCollectionHeader>>(appExecutors) {
+        return new NetworkBoundResource2<List<ProductCollectionHeader>, List<ProductCollectionHeader>>(appExecutors) {
 
             @Override
             protected void saveCallResult(@NonNull List<ProductCollectionHeader> itemList) {
@@ -246,7 +246,7 @@ public class ProductCollectionRepository extends PSRepository {
     }
 
     public LiveData<Resource<List<Product>>> getProductCollectionProducts(String apiKey, String limit, String offset, String id) {
-        return new NetworkBoundResource<List<Product>, List<Product>>(appExecutors) {
+        return new NetworkBoundResource2<List<Product>, List<Product>>(appExecutors) {
 
             @Override
             protected void saveCallResult(@NonNull List<Product> itemList) {

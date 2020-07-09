@@ -62,7 +62,7 @@ class SearchCategoryFragment : PSFragment() {
             catId = ""
             initAdapters()
             initData()
-            navigationController.navigateBackToSearchFragment(this@SearchCategoryFragment.activity, catId, "")
+            navigationController.navigateBackToSearchFragment(this@SearchCategoryFragment.requireActivity(), catId, "")
         }
         return super.onOptionsItemSelected(item)
     }
@@ -76,7 +76,7 @@ class SearchCategoryFragment : PSFragment() {
         val nvadapter = SearchCategoryAdapter(dataBindingComponent,
                 object: SearchCategoryAdapter.NewsClickCallback {
                     override fun onClick(category: Category?, id: String?) {
-                        navigationController.navigateBackToSearchFragment(this@SearchCategoryFragment.activity, category!!.id, category.name)
+                        navigationController.navigateBackToSearchFragment(this@SearchCategoryFragment.requireActivity(), category!!.id, category.name)
                         if (activity != null) {
                             this@SearchCategoryFragment.activity!!.finish()
                         }

@@ -64,7 +64,7 @@ class SearchCityListFragment : PSFragment() {
             cityId = ""
             initAdapters()
             initData()
-            navigationController.navigateBackToSearchFragmentFromCity(this@SearchCityListFragment.activity, cityId, "")
+            navigationController.navigateBackToSearchFragmentFromCity(this@SearchCityListFragment.requireActivity(), cityId, "")
         }
         return super.onOptionsItemSelected(item)
     }

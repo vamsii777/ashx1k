@@ -20,7 +20,7 @@ import com.google.firebase.messaging.RemoteMessage
  */
 
 open class FirebaseMessagingService : FirebaseMessagingService() {
-    private val channelId = "PsStoreChannelId1"
+    private val channelId = "StoreChannelId1"
     override fun onMessageReceived(remoteMessage: RemoteMessage) {
 
         /* Important : Please don't change this "message" because if you change this, need to update at PHP.  */

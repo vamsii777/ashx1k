@@ -16,13 +16,13 @@ import com.dewonderstruck.apps.ashx0.viewobject.SubCategory
 class SearchSubCategoryAdapter : DataBoundListAdapter<SubCategory?, ItemSearchSubCategoryAdapterBinding?> {
     private val dataBindingComponent: DataBindingComponent
     private val callback: NewsClickCallback?
-    private var diffUtilDispatchedInterface: DiffUtilDispatchedInterface? = null
+    private var diffUtilDispatchedInterface: DiffUtilDispatchedInterface2? = null
     private var lastPosition = -1
     private var subCatId: String? = null
 
     constructor(dataBindingComponent: DataBindingComponent,
                 callback: NewsClickCallback?,
-                diffUtilDispatchedInterface: DiffUtilDispatchedInterface?) {
+                diffUtilDispatchedInterface: DiffUtilDispatchedInterface2?) {
         this.dataBindingComponent = dataBindingComponent
         this.callback = callback
         this.diffUtilDispatchedInterface = diffUtilDispatchedInterface
@@ -35,9 +35,9 @@ class SearchSubCategoryAdapter : DataBoundListAdapter<SubCategory?, ItemSearchSu
         this.subCatId = subCatId
     }
 
-    override fun createBinding(parent: ViewGroup): ItemSearchSubCategoryAdapterBinding {
+    override fun createBinding(parent: ViewGroup?): ItemSearchSubCategoryAdapterBinding? {
         val binding: ItemSearchSubCategoryAdapterBinding = DataBindingUtil
-                .inflate(LayoutInflater.from(parent.context),
+                .inflate(LayoutInflater.from(parent!!.context),
                         R.layout.item_search_sub_category_adapter, parent, false,
                         dataBindingComponent)
         binding.root.setOnClickListener { v: View? ->

@@ -14,10 +14,10 @@ import com.dewonderstruck.apps.ashx0.viewobject.Noti
 
 class NotificationListAdapter(private val dataBindingComponent: DataBindingComponent,
                               private val callback: NotificationClickCallback?,
-                              private val diffUtilDispatchedInterface: DiffUtilDispatchedInterface?) : DataBoundListAdapter<Noti?, ItemNotificationListAdapterBinding?>() {
-    override fun createBinding(parent: ViewGroup): ItemNotificationListAdapterBinding {
+                              private val diffUtilDispatchedInterface: DiffUtilDispatchedInterface2?) : DataBoundListAdapter<Noti?, ItemNotificationListAdapterBinding?>() {
+    override fun createBinding(parent: ViewGroup?): ItemNotificationListAdapterBinding? {
         val binding: ItemNotificationListAdapterBinding = DataBindingUtil
-                .inflate(LayoutInflater.from(parent.context),
+                .inflate(LayoutInflater.from(parent!!.context),
                         R.layout.item_notification_list_adapter, parent, false,
                         dataBindingComponent)
         binding.root.setOnClickListener { v: View? ->

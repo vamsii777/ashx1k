@@ -16,13 +16,13 @@ import com.dewonderstruck.apps.ashx0.viewobject.Country
 class SearchCountryAdapter : DataBoundListAdapter<Country?, ItemSearchCountryBinding?> {
     private val dataBindingComponent: DataBindingComponent
     private val callback: NewsClickCallback?
-    private var diffUtilDispatchedInterface: DiffUtilDispatchedInterface? = null
+    private var diffUtilDispatchedInterface: DiffUtilDispatchedInterface2? = null
     private var lastPosition = -1
     var countryId: String? = ""
 
     constructor(dataBindingComponent: DataBindingComponent,
                 callback: NewsClickCallback?,
-                diffUtilDispatchedInterface: DiffUtilDispatchedInterface?) {
+                diffUtilDispatchedInterface: DiffUtilDispatchedInterface2?) {
         this.dataBindingComponent = dataBindingComponent
         this.callback = callback
         this.diffUtilDispatchedInterface = diffUtilDispatchedInterface
@@ -35,9 +35,9 @@ class SearchCountryAdapter : DataBoundListAdapter<Country?, ItemSearchCountryBin
         this.countryId = countryId
     }
 
-    override fun createBinding(parent: ViewGroup): ItemSearchCountryBinding {
+    override fun createBinding(parent: ViewGroup?): ItemSearchCountryBinding {
         val binding: ItemSearchCountryBinding = DataBindingUtil
-                .inflate(LayoutInflater.from(parent.context),
+                .inflate(LayoutInflater.from(parent!!.context),
                         R.layout.item_search_country, parent, false,
                         dataBindingComponent)
         binding.root.setOnClickListener { v: View? ->

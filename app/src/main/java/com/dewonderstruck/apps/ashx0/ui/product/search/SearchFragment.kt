@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import android.widget.Button
 import androidx.annotation.VisibleForTesting
 import androidx.databinding.DataBindingComponent
@@ -19,7 +20,7 @@ import com.dewonderstruck.apps.Config
 import com.dewonderstruck.apps.ashx0.R
 import com.dewonderstruck.apps.ashx0.binding.FragmentDataBindingComponent
 import com.dewonderstruck.apps.ashx0.databinding.FragmentSearchBinding
-import com.dewonderstruck.apps.ashx0.ui.common.DataBoundListAdapter.DiffUtilDispatchedInterface
+import com.dewonderstruck.apps.ashx0.ui.common.DataBoundListAdapter.DiffUtilDispatchedInterface2
 import com.dewonderstruck.apps.ashx0.ui.common.PSFragment
 import com.dewonderstruck.apps.ashx0.utils.AutoClearedValue
 import com.dewonderstruck.apps.ashx0.utils.Constants
@@ -28,8 +29,9 @@ import com.dewonderstruck.apps.ashx0.viewmodel.homelist.HomeSearchProductViewMod
 import com.dewonderstruck.apps.ashx0.viewmodel.product.BasketViewModel
 import com.dewonderstruck.apps.ashx0.viewobject.Basket
 import com.google.android.gms.ads.AdRequest
+import com.google.firebase.database.*
 
-class SearchFragment : PSFragment(), DiffUtilDispatchedInterface {
+class SearchFragment : PSFragment(), DiffUtilDispatchedInterface2 {
     private val dataBindingComponent: DataBindingComponent = FragmentDataBindingComponent(this)
     private var catId: String? = Constants.NO_DATA
     private var subCatId: String? = Constants.NO_DATA
@@ -103,6 +105,29 @@ class SearchFragment : PSFragment(), DiffUtilDispatchedInterface {
         }
         psDialogMsg = PSDialogMsg(activity, false)
         binding!!.get().itemNameEditText.setHint(R.string.search__notSet)
+        //Nothing special, create database reference.
+        //Nothing special, create database reference.
+        val database: DatabaseReference = FirebaseDatabase.getInstance().getReference()
+        //Create a new ArrayAdapter with your context and the simple layout for the dropdown menu provided by Android
+        //Create a new ArrayAdapter with your context and the simple layout for the dropdown menu provided by Android
+        val autoComplete: ArrayAdapter<String> = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_1)
+        //Child the root before all the push() keys are found and add a ValueEventListener()
+        //Child the root before all the push() keys are found and add a ValueEventListener()
+        database.child("SearchMetaData").addValueEventListener(object : ValueEventListener {
+            override fun onCancelled(error: DatabaseError) {}
+
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                //Basically, this says "For each DataSnapshot *Data* in dataSnapshot, do what's inside the method.
+                for (suggestionSnapshot in dataSnapshot.getChildren()) {
+                    //Get the suggestion by childing the key of the string you want to get.
+                    val suggestion: String = suggestionSnapshot.child("name").getValue(String::class.java)!!
+                    //Add the retrieved string to the list
+                    autoComplete.add(suggestion)
+                }
+            }
+
+        })
+        binding!!.get().itemNameEditText.setAdapter(autoComplete)
         binding!!.get().categoryTextView.setHint(R.string.search__notSet)
         binding!!.get().subCategoryTextView.setHint(R.string.search__notSet)
         //binding.get().lowestPriceEditText.setHint(R.string.search__notSet);
@@ -122,13 +147,13 @@ class SearchFragment : PSFragment(), DiffUtilDispatchedInterface {
         binding!!.get().searchButton.text = binding!!.get().searchButton.text.toString()
         binding!!.get().categoryTextView.text = ""
         binding!!.get().subCategoryTextView.text = ""
-        binding!!.get().categorySelectionView.setOnClickListener { view: View? -> navigationController.navigateToSearchActivityCategoryFragment(this@SearchFragment.activity, Constants.CATEGORY, catId, subCatId, Constants.NO_DATA, Constants.NO_DATA) }
+        binding!!.get().categorySelectionView.setOnClickListener { view: View? -> navigationController.navigateToSearchActivityCategoryFragment(this@SearchFragment.requireActivity(), Constants.CATEGORY, catId!!!!, subCatId!!, Constants.NO_DATA, Constants.NO_DATA) }
         binding!!.get().subCategorySelectionView.setOnClickListener { view: View? ->
             if (catId == Constants.NO_DATA) {
                 psDialogMsg!!.showWarningDialog(getString(R.string.error_message__choose_category), getString(R.string.app__ok))
                 psDialogMsg!!.show()
             } else {
-                navigationController.navigateToSearchActivityCategoryFragment(this@SearchFragment.activity, Constants.SUBCATEGORY, catId, subCatId, Constants.NO_DATA, Constants.NO_DATA)
+                navigationController.navigateToSearchActivityCategoryFragment(this@SearchFragment.requireActivity(), Constants.SUBCATEGORY, catId!!, subCatId!!, Constants.NO_DATA, Constants.NO_DATA)
             }
         }
         binding!!.get().oneStar.setOnClickListener { v: View? ->
@@ -261,7 +286,7 @@ class SearchFragment : PSFragment(), DiffUtilDispatchedInterface {
             }
 
             // Set to Intent
-            navigationController.navigateToHomeFilteringActivity(this@SearchFragment.activity, homeSearchProductViewModel!!.holder, null)
+            navigationController.navigateToHomeFilteringActivity(this@SearchFragment.requireActivity(), homeSearchProductViewModel!!.holder, null)
         }
     }
 
