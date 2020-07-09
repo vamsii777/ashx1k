@@ -1378,9 +1378,10 @@
             android:layout_marginBottom="@dimen/space_64"
             android:gravity="center_horizontal"
             android:orientation="vertical"
+            android:visibility="gone"
             tools:layout_editor_absoluteX="338dp"
             tools:layout_editor_absoluteY="403dp"
-            tools:visibility="invisible">
+            tools:visibility="gone">
 
             <TextView
                 android:id="@+id/phone_profile"
@@ -1404,10 +1405,12 @@
                 android:text="@string/product_detail__messenger_text"
                 android:textColor="@color/global__primary"
                 android:textSize="@dimen/font_body_size"
+                android:visibility="gone"
                 app:font='@{"bold"}'
                 app:layout_constraintBottom_toBottomOf="@+id/messengerFloatingActionButton"
                 app:layout_constraintEnd_toStartOf="@+id/messengerFloatingActionButton"
-                app:layout_constraintTop_toTopOf="@+id/messengerFloatingActionButton" />
+                app:layout_constraintTop_toTopOf="@+id/messengerFloatingActionButton"
+                tools:visibility="gone" />
 
             <TextView
                 android:id="@+id/whatsAppTextView"
@@ -1417,10 +1420,12 @@
                 android:text="@string/product_detail__whatsApp_text"
                 android:textColor="@color/global__primary"
                 android:textSize="@dimen/font_body_size"
+                android:visibility="gone"
                 app:font='@{"bold"}'
                 app:layout_constraintBottom_toBottomOf="@+id/whatsappFloatingActionButton"
                 app:layout_constraintEnd_toStartOf="@+id/whatsappFloatingActionButton"
-                app:layout_constraintTop_toTopOf="@+id/whatsappFloatingActionButton" />
+                app:layout_constraintTop_toTopOf="@+id/whatsappFloatingActionButton"
+                tools:visibility="gone" />
 
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -1433,13 +1438,15 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:tint="@color/md_white_1000"
+                android:visibility="gone"
                 app:backgroundTint="@color/global__primary"
                 app:fabSize="mini"
                 app:layout_constraintBottom_toTopOf="@+id/whatsappFloatingActionButton"
                 app:layout_constraintEnd_toEndOf="@+id/whatsappFloatingActionButton"
                 app:layout_constraintStart_toStartOf="@+id/whatsappFloatingActionButton"
                 app:rippleColor="@color/colorFabRipple"
-                app:srcCompat="@drawable/baseline_messenger_black_24" />
+                app:srcCompat="@drawable/baseline_messenger_black_24"
+                tools:visibility="gone" />
 
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -1452,13 +1459,15 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:tint="@color/md_white_1000"
+                android:visibility="gone"
                 app:backgroundTint="@color/global__primary"
                 app:fabSize="mini"
                 app:layout_constraintBottom_toTopOf="@+id/messengerFloatingActionButton"
                 app:layout_constraintEnd_toEndOf="@+id/messengerFloatingActionButton"
                 app:layout_constraintStart_toStartOf="@+id/messengerFloatingActionButton"
                 app:rippleColor="@color/colorFabRipple"
-                app:srcCompat="@drawable/common_full_open_on_phone" />
+                app:srcCompat="@drawable/common_full_open_on_phone"
+                tools:visibility="gone" />
 
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -1471,13 +1480,15 @@
                 android:clickable="true"
                 android:focusable="true"
                 android:tint="@color/md_white_1000"
+                android:visibility="gone"
                 app:backgroundTint="@color/global__primary"
                 app:fabSize="mini"
                 app:layout_constraintBottom_toTopOf="@+id/mainFloatingActionButton"
                 app:layout_constraintEnd_toEndOf="@+id/mainFloatingActionButton"
                 app:layout_constraintStart_toStartOf="@+id/mainFloatingActionButton"
                 app:rippleColor="@color/colorFabRipple"
-                app:srcCompat="@drawable/baseline_whatsapp_grey_24" />
+                app:srcCompat="@drawable/baseline_whatsapp_grey_24"
+                tools:visibility="gone" />
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/mainFloatingActionButton"
@@ -1488,10 +1499,12 @@
                 android:focusable="true"
                 android:src="@drawable/baseline_chat_grey_24"
                 android:tint="@color/md_white_1000"
+                android:visibility="gone"
                 app:backgroundTint="@color/global__primary_dark"
                 app:fabSize="normal"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" />
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:visibility="gone" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>

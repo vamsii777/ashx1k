@@ -415,24 +415,24 @@ class ProductListFragment : PSFragment(), DiffUtilDispatchedInterface2 {
     private fun setSortingSelection(index: Int) {
         binding!!.get()!!.sortButton.setCompoundDrawablesWithIntrinsicBounds(null, resources.getDrawable(R.drawable.baseline_sort_with_check_orange_24), null, null)
         if (index == 0) {
-            bottomBoxLayoutBinding!!.get().recentButton.setCompoundDrawablesWithIntrinsicBounds(resources.getDrawable(R.drawable.baesline_access_time_black_24), null, resources.getDrawable(R.drawable.baseline_check_green_24), null)
+            bottomBoxLayoutBinding!!.get().recentButton.setCompoundDrawablesWithIntrinsicBounds(resources.getDrawable(R.drawable.ic_baseline_access_time_24), null, resources.getDrawable(R.drawable.baseline_check_green_24), null)
         } else {
-            bottomBoxLayoutBinding!!.get().recentButton.setCompoundDrawablesWithIntrinsicBounds(resources.getDrawable(R.drawable.baesline_access_time_black_24), null, null, null)
+            bottomBoxLayoutBinding!!.get().recentButton.setCompoundDrawablesWithIntrinsicBounds(resources.getDrawable(R.drawable.ic_baseline_access_time_24), null, null, null)
         }
         if (index == 1) {
-            bottomBoxLayoutBinding!!.get().popularButton.setCompoundDrawablesWithIntrinsicBounds(resources.getDrawable(R.drawable.baseline_graph_black_24), null, resources.getDrawable(R.drawable.baseline_check_green_24), null)
+            bottomBoxLayoutBinding!!.get().popularButton.setCompoundDrawablesWithIntrinsicBounds(resources.getDrawable(R.drawable.ic_baseline_trending_up_24), null, resources.getDrawable(R.drawable.baseline_check_green_24), null)
         } else {
-            bottomBoxLayoutBinding!!.get().popularButton.setCompoundDrawablesWithIntrinsicBounds(resources.getDrawable(R.drawable.baseline_graph_black_24), null, null, null)
+            bottomBoxLayoutBinding!!.get().popularButton.setCompoundDrawablesWithIntrinsicBounds(resources.getDrawable(R.drawable.ic_baseline_trending_up_24), null, null, null)
         }
         if (index == 2) {
-            bottomBoxLayoutBinding!!.get().lowestButton.setCompoundDrawablesWithIntrinsicBounds(resources.getDrawable(R.drawable.baseline_price_down_black_24), null, resources.getDrawable(R.drawable.baseline_check_green_24), null)
+            bottomBoxLayoutBinding!!.get().lowestButton.setCompoundDrawablesWithIntrinsicBounds(resources.getDrawable(R.drawable.ic_baseline_arrow_downward_24), null, resources.getDrawable(R.drawable.baseline_check_green_24), null)
         } else {
-            bottomBoxLayoutBinding!!.get().lowestButton.setCompoundDrawablesWithIntrinsicBounds(resources.getDrawable(R.drawable.baseline_price_down_black_24), null, null, null)
+            bottomBoxLayoutBinding!!.get().lowestButton.setCompoundDrawablesWithIntrinsicBounds(resources.getDrawable(R.drawable.ic_baseline_arrow_downward_24), null, null, null)
         }
         if (index == 3) {
-            bottomBoxLayoutBinding!!.get().highestButton.setCompoundDrawablesWithIntrinsicBounds(resources.getDrawable(R.drawable.baseline_price_up_black_24), null, resources.getDrawable(R.drawable.baseline_check_green_24), null)
+            bottomBoxLayoutBinding!!.get().highestButton.setCompoundDrawablesWithIntrinsicBounds(resources.getDrawable(R.drawable.ic_baseline_arrow_upward_24), null, resources.getDrawable(R.drawable.baseline_check_green_24), null)
         } else {
-            bottomBoxLayoutBinding!!.get().highestButton.setCompoundDrawablesWithIntrinsicBounds(resources.getDrawable(R.drawable.baseline_price_up_black_24), null, null, null)
+            bottomBoxLayoutBinding!!.get().highestButton.setCompoundDrawablesWithIntrinsicBounds(resources.getDrawable(R.drawable.ic_baseline_arrow_upward_24), null, null, null)
         }
     }
 

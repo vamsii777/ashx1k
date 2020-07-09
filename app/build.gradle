@@ -16,8 +16,8 @@ android {
         minSdkVersion 17
         //minSdkVersion hasProperty('minSdk') ? minSdk.toInteger() : 17
         targetSdkVersion 30
-        versionCode 8
-        versionName '1.115'
+        versionCode 9
+        versionName '1.135'
         multiDexEnabled true
         vectorDrawables.useSupportLibrary = true
     }
@@ -218,6 +218,7 @@ dependencies {
     implementation 'com.flurry.android:analytics:12.3.0@aar'
     implementation 'com.google.android.play:core:1.7.3'
     implementation 'com.pierfrancescosoffritti.androidyoutubeplayer:core:10.0.5'
+    //implementation 'com.pcchin.licenseview:licenseview:1.3.1'
     //implementation 'com.github.davidmigloz:youtube-android-player-api-gradle:1.2.2.1'
 }
 repositories {

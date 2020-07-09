@@ -74,7 +74,7 @@ class ProductActivity : PSAppCompactActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == android.R.id.home) {
-            productDetailFragment!!.refreshBasketData()
+            //productDetailFragment!!.refreshBasketData()
             finish()
         }
         if (item.itemId == R.id.action_basket) {

@@ -20,7 +20,6 @@ public class AutoClearedValue<T> {
                         public void onFragmentViewDestroyed(FragmentManager fm, Fragment f) {
                             if (f.equals(fragment)) {
                                 AutoClearedValue.this.value = null;
-
                                 fragmentManager.unregisterFragmentLifecycleCallbacks(this);
 
                             }
