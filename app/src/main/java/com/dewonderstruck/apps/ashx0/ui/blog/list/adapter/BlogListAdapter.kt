@@ -48,7 +48,7 @@ class BlogListAdapter(private val dataBindingComponent: DataBindingComponent,
                 && oldItem.name == newItem.name)
     }
 
-    protected override fun areContentsTheSame(oldItem: Blog?, newItem: Blog?): Boolean {
+    override fun areContentsTheSame(oldItem: Blog?, newItem: Blog?): Boolean {
         return (Objects.equals(oldItem!!.id, newItem!!.id)
                 && oldItem.name == newItem.name)
     }

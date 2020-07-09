@@ -8,6 +8,7 @@ import androidx.annotation.VisibleForTesting
 import androidx.databinding.DataBindingComponent
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -72,11 +73,16 @@ class BlogListFragment : PSFragment(), DiffUtilDispatchedInterface {
     }
 
     override fun initViewModels() {
-        blogViewModel = ViewModelProviders.of(this, viewModelFactory).get(BlogViewModel::class.java)
+        blogViewModel = ViewModelProvider(this, viewModelFactory).get(BlogViewModel::class.java)
     }
 
     override fun initAdapters() {
-        val nvAdapter = BlogListAdapter(dataBindingComponent, BlogListAdapter.NewsClickCallback { newsFeed: Blog -> navigationController.navigateToBlogDetailActivity(this@BlogListFragment.activity, newsFeed.id) }, this)
+        val nvAdapter = BlogListAdapter(dataBindingComponent, object : BlogListAdapter.NewsClickCallback
+        {
+            override fun onClick(blog: Blog?) {
+                navigationController.navigateToBlogDetailActivity(this@BlogListFragment.activity, blog!!.id)
+            }
+        }, this)
         adapter = AutoClearedValue(this, nvAdapter)
         binding!!.get().shopListRecyclerView.adapter = adapter!!.get()
     }

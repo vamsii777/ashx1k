@@ -45,7 +45,7 @@ open class FirebaseMessagingService : FirebaseMessagingService() {
         Utils.psLog("Message From Server : $message")
         displayMessage = if (message == null || message == "") {
             i.putExtra(Constants.NOTI_EXISTS_TO_SHOW, false)
-            "Welcome from PSApp"
+            "Welcome from Ashtrixx"
         } else {
             i.putExtra(Constants.NOTI_EXISTS_TO_SHOW, true)
             message //"You've received new message.";
