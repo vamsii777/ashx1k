@@ -85,7 +85,7 @@ public class PSDialogMsg {
         titleTextView.setText(dialog.getContext().getString(R.string.confirm));
         msgTextView.setText(message);
         okButton.setText(okTitle);
-
+        okButton.setBackgroundResource(R.drawable.rounded_dialog);
         cancelButton.setText(cancelTitle);
 
         if (dialog.getWindow() != null) {
@@ -133,6 +133,7 @@ public class PSDialogMsg {
 
         descriptionTextView.setMovementMethod(new ScrollingMovementMethod());
         okButton.setBackgroundResource(R.drawable.rounded_dialog);
+
         titleTextView.setText(dialog.getContext().getString(R.string.version_update));
         msgTextView.setText(title);
         descriptionTextView.setText(description);

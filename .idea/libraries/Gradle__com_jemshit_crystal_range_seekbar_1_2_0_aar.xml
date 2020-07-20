@@ -1,8 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: com.jemshit:crystal-range-seekbar:1.2.0@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/2d335376b908653fa92fb5161dd650d8/jetified-crystal-range-seekbar-1.2.0/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/2d335376b908653fa92fb5161dd650d8/jetified-crystal-range-seekbar-1.2.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/b999807c564b348fef2c2fe22e180573/jetified-crystal-range-seekbar-1.2.0/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/b999807c564b348fef2c2fe22e180573/jetified-crystal-range-seekbar-1.2.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/b999807c564b348fef2c2fe22e180573/jetified-crystal-range-seekbar-1.2.0/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
