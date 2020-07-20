@@ -29,7 +29,7 @@ class App : MultiDexApplication(), HasActivityInjector {
         // Initialize the Audience Network SDK
         AudienceNetworkAds.initialize(this)
         Bugsnag.start(this)
-        FlurryAgent.Builder().withLogEnabled(true).build(this, "BJS8NMHKTTVFF9CGKCQ3")
+    
         //        if (LeakCanary.isInAnalyzerProcess(this)) {
 //            // This process is dedicated to LeakCanary for heap analysis.
 //            // You should not init your app in this process.
