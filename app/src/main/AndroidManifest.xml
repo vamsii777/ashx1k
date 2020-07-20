@@ -374,7 +374,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.collection.CollectionActivity"
+            android:name=".ui.collection.CollectionBaseActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Base.PSTheme" />
         <activity

@@ -13,7 +13,7 @@ import com.dewonderstruck.apps.ashx0.ui.blog.detail.BlogDetailActivity
 import com.dewonderstruck.apps.ashx0.ui.blog.list.BlogListActivity
 import com.dewonderstruck.apps.ashx0.ui.category.CategoryListActivity
 import com.dewonderstruck.apps.ashx0.ui.category.CategoryListFragment
-import com.dewonderstruck.apps.ashx0.ui.collection.CollectionActivity
+import com.dewonderstruck.apps.ashx0.ui.collection.CollectionBaseActivity
 import com.dewonderstruck.apps.ashx0.ui.collection.productCollectionHeader.ProductCollectionHeaderListFragment
 import com.dewonderstruck.apps.ashx0.ui.contactus.ContactUsFragment
 import com.dewonderstruck.apps.ashx0.ui.danceoholics.DanceholicsFragment
@@ -522,7 +522,7 @@ class NavigationController2 @Inject constructor() {
     }
 
     fun navigateToCollectionProductList(fragmentActivity: FragmentActivity, id: String?, Name: String?, image_path: String?) {
-        val intent = Intent(fragmentActivity, CollectionActivity::class.java)
+        val intent = Intent(fragmentActivity, CollectionBaseActivity::class.java)
         intent.putExtra(Constants.COLLECTION_ID, id)
         intent.putExtra(Constants.COLLECTION_NAME, Name)
         intent.putExtra(Constants.COLLECTION_IMAGE, image_path)

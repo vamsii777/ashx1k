@@ -105,6 +105,7 @@ class MainActivity : PSAppCompactActivity() {
         setTheme(R.style.Base_PSTheme)
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+        WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
         initUIAndActions()
         initModels()
         initData()
@@ -305,37 +306,33 @@ class MainActivity : PSAppCompactActivity() {
     }
 
     private fun initNavigationView() {
-        if (binding!!.navView != null) {
 
-            // Updating Custom Fonts
-            val m: Menu = binding!!.navView.menu
-            try {
-                if (m != null) {
-                    for (i in 0 until m.size()) {
-                        val mi = m.getItem(i)
+        // Updating Custom Fonts
+        val m: Menu = binding!!.navView.menu
+        try {
+            for (i in 0 until m.size()) {
+                val mi = m.getItem(i)
 
-                        //for applying a font to subMenu ...
-                        val subMenu = mi.subMenu
-                        if (subMenu != null && subMenu.size() > 0) {
-                            for (j in 0 until subMenu.size()) {
-                                val subMenuItem = subMenu.getItem(j)
-                                subMenuItem.title = subMenuItem.title
-                                // update font
-                                subMenuItem.title = Utils.getSpannableString(baseContext, subMenuItem.title.toString(), Utils.Fonts.ROBOTO)
-                            }
-                        }
-                        mi.title = mi.title
+                //for applying a font to subMenu ...
+                val subMenu = mi.subMenu
+                if (subMenu != null && subMenu.size() > 0) {
+                    for (j in 0 until subMenu.size()) {
+                        val subMenuItem = subMenu.getItem(j)
+                        subMenuItem.title = subMenuItem.title
                         // update font
-                        mi.title = Utils.getSpannableString(baseContext, mi.title.toString(), Utils.Fonts.ROBOTO)
+                        subMenuItem.title = Utils.getSpannableString(baseContext, subMenuItem.title.toString(), Utils.Fonts.ROBOTO)
                     }
                 }
-            } catch (e: Exception) {
-                Utils.psErrorLog("Error in Setting Custom Font", e)
+                mi.title = mi.title
+                // update font
+                mi.title = Utils.getSpannableString(baseContext, mi.title.toString(), Utils.Fonts.ROBOTO)
             }
-            binding!!.navView.setNavigationItemSelectedListener { menuItem: MenuItem ->
-                navigationMenuChanged(menuItem)
-                true
-            }
+        } catch (e: Exception) {
+            Utils.psErrorLog("Error in Setting Custom Font", e)
+        }
+        binding!!.navView.setNavigationItemSelectedListener { menuItem: MenuItem ->
+            navigationMenuChanged(menuItem)
+            true
         }
         if (binding!!.bottomNavigationView != null) {
 

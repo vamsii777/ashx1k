@@ -71,7 +71,7 @@ public class Config {
     /**
      * Loading Limit Count Setting
      */
-    public static final int API_SERVICE_CACHE_LIMIT = 5; // Minutes Cache
+    public static final int API_SERVICE_CACHE_LIMIT = 8; // Minutes Cache
 
     public static final int TRANSACTION_COUNT = 10;
 
@@ -81,7 +81,7 @@ public class Config {
 
     public static int LOAD_FROM_DB = 10; //not increase
 
-    public static int PRODUCT_COUNT = 30;
+    public static int PRODUCT_COUNT = 40;
 
     public static int LIST_CATEGORY_COUNT = 30;
 
@@ -120,7 +120,7 @@ public class Config {
     /**
      * Image Cache and Loading
      */
-    public static int IMAGE_CACHE_LIMIT = 250; // Mb
+    public static int IMAGE_CACHE_LIMIT = 350; // Mb
     public static boolean PRE_LOAD_FULL_IMAGE = true;
 
     /**

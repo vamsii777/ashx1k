@@ -349,12 +349,12 @@ class MainFragment : PSFragment(), DiffUtilDispatchedInterface2 {
         binding!!.get()!!.collections.isNestedScrollingEnabled = false
     }
 
-    private fun replaceLatestData(productList: List<Product>) {
+    private fun replaceLatestData(productList: List<Product>?) {
         latestAdapter!!.get().replace(productList)
         binding!!.get()!!.executePendingBindings()
     }
 
-    private fun replaceCategoryIconList(categoryList: List<Category>) {
+    private fun replaceCategoryIconList(categoryList: List<Category>?) {
         categoryIconListAdapter!!.get().replace(categoryList)
         binding!!.get()!!.executePendingBindings()
     }
@@ -371,12 +371,13 @@ class MainFragment : PSFragment(), DiffUtilDispatchedInterface2 {
         binding!!.get()!!.executePendingBindings()
     }
 
-    private fun replaceTrendingData(productList: List<Product>) {
+    private fun replaceTrendingData(productList: List<Product>?) {
         trendingAdapter!!.get().replace(productList)
+        trendingAdapter!!.get().notifyDataSetChanged()
         binding!!.get()!!.executePendingBindings()
     }
 
-    private fun replaceTrendingCategoryData(categoryList: List<Category>) {
+    private fun replaceTrendingCategoryData(categoryList: List<Category>?) {
         categoryAdapter!!.get().replace(categoryList)
         binding!!.get()!!.executePendingBindings()
     }
@@ -605,10 +606,12 @@ class MainFragment : PSFragment(), DiffUtilDispatchedInterface2 {
                                 if (listResource.data.size < 9) {
                                     categoryGridLayoutManager = GridLayoutManager(context, 1)
                                     categoryGridLayoutManager!!.orientation = RecyclerView.HORIZONTAL
+                                    categoryGridLayoutManager!!.reverseLayout
                                     binding!!.get()!!.categoryIconList.layoutManager = categoryGridLayoutManager
                                 } else {
                                     categoryGridLayoutManager = GridLayoutManager(context, 2)
                                     categoryGridLayoutManager!!.orientation = RecyclerView.HORIZONTAL
+                                    categoryGridLayoutManager!!.reverseLayout
                                     binding!!.get()!!.categoryIconList.layoutManager = categoryGridLayoutManager
                                 }
                                 replaceCategoryIconList(listResource.data)
@@ -627,10 +630,12 @@ class MainFragment : PSFragment(), DiffUtilDispatchedInterface2 {
                                 if (listResource.data.size < 9) {
                                     categoryGridLayoutManager = GridLayoutManager(context, 1)
                                     categoryGridLayoutManager!!.orientation = RecyclerView.HORIZONTAL
+                                    categoryGridLayoutManager!!.reverseLayout
                                     binding!!.get()!!.categoryIconList.layoutManager = categoryGridLayoutManager
                                 } else {
                                     categoryGridLayoutManager = GridLayoutManager(context, 2)
                                     categoryGridLayoutManager!!.orientation = RecyclerView.HORIZONTAL
+                                    categoryGridLayoutManager!!.reverseLayout
                                     binding!!.get()!!.categoryIconList.layoutManager = categoryGridLayoutManager
                                 }
                                 replaceCategoryIconList(listResource.data)
@@ -801,7 +806,8 @@ class MainFragment : PSFragment(), DiffUtilDispatchedInterface2 {
         homeTrendingCategoryListViewModel!!.loadingState.observe(this, Observer { loadingState: Boolean? -> binding!!.get()!!.loadingMore = homeTrendingCategoryListViewModel!!.isLoading })
         /*trendingCategoryList*/
 
-        /*Collection List*/productCollectionViewModel!!.setProductCollectionHeaderListForHomeObj(Config.COLLECTION_PRODUCT_LIST_LIMIT.toString(), Config.COLLECTION_PRODUCT_LIST_LIMIT.toString(), Config.COLLECTION_PRODUCT_LIST_LIMIT.toString(), homeTrendingCategoryListViewModel!!.offset.toString())
+        /*Collection List*/
+        productCollectionViewModel!!.setProductCollectionHeaderListForHomeObj(Config.COLLECTION_PRODUCT_LIST_LIMIT.toString(), Config.COLLECTION_PRODUCT_LIST_LIMIT.toString(), Config.COLLECTION_PRODUCT_LIST_LIMIT.toString(), homeTrendingCategoryListViewModel!!.offset.toString())
         val productCollection = productCollectionViewModel!!.productCollectionHeaderListDataForHome
         productCollection?.observe(this, Observer { listResource: Resource<List<ProductCollectionHeader>?>? ->
             if (listResource != null) {

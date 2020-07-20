@@ -12,7 +12,7 @@ import com.dewonderstruck.apps.ashx0.ui.category.CategoryListActivity
 import com.dewonderstruck.apps.ashx0.ui.category.CategoryListFragment
 import com.dewonderstruck.apps.ashx0.ui.category.TrendingCategoryFragment
 
-import com.dewonderstruck.apps.ashx0.ui.collection.CollectionActivity
+import com.dewonderstruck.apps.ashx0.ui.collection.CollectionBaseActivity
 import com.dewonderstruck.apps.ashx0.ui.collection.CollectionFragment
 import com.dewonderstruck.apps.ashx0.ui.collection.productCollectionHeader.ProductCollectionHeaderListFragment
 
@@ -145,7 +145,7 @@ internal abstract class MainActivityModule {
 
 
     @ContributesAndroidInjector(modules = [CollectionModule::class])
-    abstract fun collectionActivity(): CollectionActivity?
+    abstract fun collectionActivity(): CollectionBaseActivity?
 
 
     @ContributesAndroidInjector(modules = [BlogListActivityModule::class])

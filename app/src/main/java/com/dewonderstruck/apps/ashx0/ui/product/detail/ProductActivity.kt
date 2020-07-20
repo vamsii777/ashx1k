@@ -3,7 +3,7 @@ package com.dewonderstruck.apps.ashx0.ui.product.detail
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.preference.PreferenceManager
+import androidx.preference.PreferenceManager
 import android.view.MenuItem
 import androidx.databinding.DataBindingUtil
 import com.dewonderstruck.apps.Config

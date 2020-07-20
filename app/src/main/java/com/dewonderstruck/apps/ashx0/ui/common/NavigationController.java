@@ -18,7 +18,7 @@ import com.dewonderstruck.apps.ashx0.ui.blog.list.BlogListActivity;
 import com.dewonderstruck.apps.ashx0.ui.category.CategoryListActivity;
 import com.dewonderstruck.apps.ashx0.ui.category.CategoryListFragment;
 
-import com.dewonderstruck.apps.ashx0.ui.collection.CollectionActivity;
+import com.dewonderstruck.apps.ashx0.ui.collection.CollectionBaseActivity;
 import com.dewonderstruck.apps.ashx0.ui.collection.productCollectionHeader.ProductCollectionHeaderListFragment;
 
 import com.dewonderstruck.apps.ashx0.ui.contactus.ContactUsFragment;
@@ -67,11 +67,9 @@ import com.dewonderstruck.apps.ashx0.ui.user.verifyphone.VerifyMobileFragment;
 import com.dewonderstruck.apps.ashx0.utils.Constants;
 import com.dewonderstruck.apps.ashx0.utils.Utils;
 import com.dewonderstruck.apps.ashx0.viewobject.Basket;
-import com.dewonderstruck.apps.ashx0.viewobject.Comment;
 import com.dewonderstruck.apps.ashx0.viewobject.HistoryProduct;
 import com.dewonderstruck.apps.ashx0.viewobject.Noti;
 import com.dewonderstruck.apps.ashx0.viewobject.Product;
-import com.dewonderstruck.apps.ashx0.viewobject.TransactionObject;
 import com.dewonderstruck.apps.ashx0.viewobject.holder.ProductParameterHolder;
 
 import javax.inject.Inject;
@@ -601,7 +599,7 @@ public class NavigationController {
     }
 
     public void navigateToCollectionProductList(FragmentActivity fragmentActivity, String id, String Name, String image_path) {
-        Intent intent = new Intent(fragmentActivity, CollectionActivity.class);
+        Intent intent = new Intent(fragmentActivity, CollectionBaseActivity.class);
         intent.putExtra(Constants.COLLECTION_ID, id);
         intent.putExtra(Constants.COLLECTION_NAME, Name);
         intent.putExtra(Constants.COLLECTION_IMAGE, image_path);

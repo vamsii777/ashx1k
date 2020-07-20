@@ -148,10 +148,10 @@ class CategoryListFragment : PSFragment(), DiffUtilDispatchedInterface2 {
 
     override fun initData() {
         loadCategory()
-        basketData()
+        //basketData()
     }
 
-    private fun basketData() {
+    /*private fun basketData() {
         //set and get basket list
         basketViewModel!!.setBasketListObj()
         basketViewModel!!.allBasketList.observe(this, Observer { resourse: List<Basket?>? ->
@@ -164,7 +164,7 @@ class CategoryListFragment : PSFragment(), DiffUtilDispatchedInterface2 {
                 }
             }
         })
-    }
+    }*/
 
     //region Private Methods
     private fun loadCategory() {

@@ -609,6 +609,7 @@ public class UserRepository extends PSRepository{
             @Override
             protected void saveCallResult(@NonNull User item) {
                 Utils.psLog("SaveCallResult");
+
                 db.beginTransaction();
                 try {
 

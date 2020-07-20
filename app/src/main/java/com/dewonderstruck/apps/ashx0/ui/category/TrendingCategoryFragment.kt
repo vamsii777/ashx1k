@@ -130,10 +130,10 @@ class TrendingCategoryFragment : PSFragment(), DiffUtilDispatchedInterface2 {
 
     override fun initData() {
         loadCategory()
-        basketData()
+        //basketData()
     }
 
-    private fun basketData() {
+   /* private fun basketData() {
         //set and get basket list
         basketViewModel!!.setBasketListObj()
         basketViewModel!!.allBasketList.observe(this, Observer { resourse: List<Basket?>? ->
@@ -146,7 +146,7 @@ class TrendingCategoryFragment : PSFragment(), DiffUtilDispatchedInterface2 {
                 }
             }
         })
-    }
+    }*/
 
     //region Private Methods
     private fun loadCategory() {
@@ -163,7 +163,6 @@ class TrendingCategoryFragment : PSFragment(), DiffUtilDispatchedInterface2 {
                         if (listResource.data != null) {
                             //fadeIn Animation
                             fadeIn(binding!!.get().root)
-
                             // Update the data
                             replaceData(listResource.data)
                         }

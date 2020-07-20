@@ -12,6 +12,7 @@ import androidx.core.content.res.ResourcesCompat
 import androidx.databinding.DataBindingComponent
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -134,9 +135,9 @@ class CollectionFragment : PSFragment(), DiffUtilDispatchedInterface2 {
     }
 
     override fun initViewModels() {
-        productCollectionProductViewModel = ViewModelProviders.of(this, viewModelFactory).get(ProductCollectionProductViewModel::class.java)
-        favouriteViewModel = ViewModelProviders.of(this, viewModelFactory).get(ProductFavouriteViewModel::class.java)
-        basketViewModel = ViewModelProviders.of(this, viewModelFactory).get(BasketViewModel::class.java)
+        productCollectionProductViewModel = ViewModelProvider(this, viewModelFactory).get(ProductCollectionProductViewModel::class.java)
+        favouriteViewModel = ViewModelProvider(this, viewModelFactory).get(ProductFavouriteViewModel::class.java)
+        basketViewModel = ViewModelProvider(this, viewModelFactory).get(BasketViewModel::class.java)
     }
 
     override fun initAdapters() {
@@ -160,10 +161,10 @@ class CollectionFragment : PSFragment(), DiffUtilDispatchedInterface2 {
 
     override fun initData() {
         loadDiscount()
-        basketData()
+        //basketData()
     }
 
-    private fun basketData() {
+   /* private fun basketData() {
         //set and get basket list
         basketViewModel!!.setBasketListObj()
         basketViewModel!!.allBasketList.observe(this, Observer { resource: List<Basket?>? ->
@@ -176,7 +177,7 @@ class CollectionFragment : PSFragment(), DiffUtilDispatchedInterface2 {
                 }
             }
         })
-    }
+    }*/
 
     //region Private Methods
     private fun loadDiscount() {

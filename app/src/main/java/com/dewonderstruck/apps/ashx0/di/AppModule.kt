@@ -2,7 +2,7 @@ package com.dewonderstruck.apps.ashx0.di
 
 import android.app.Application
 import android.content.SharedPreferences
-import android.preference.PreferenceManager
+import androidx.preference.PreferenceManager
 import androidx.room.Room
 import com.dewonderstruck.apps.Config
 import com.dewonderstruck.apps.ashx0.api.PSApiService
@@ -47,7 +47,7 @@ internal class AppModule {
     @Singleton
     @Provides
     fun provideDb(app: Application?): PSCoreDb {
-        return Room.databaseBuilder(app!!, PSCoreDb::class.java, "PSApp.db") //.addMigrations(MIGRATION_1_2)
+        return Room.databaseBuilder(app!!, PSCoreDb::class.java, "App.db") //.addMigrations(MIGRATION_1_2)
                 .fallbackToDestructiveMigration()
                 .build()
     }

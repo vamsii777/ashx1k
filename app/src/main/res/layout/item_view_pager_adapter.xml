@@ -61,7 +61,8 @@
             android:id="@+id/bottomView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:background="@drawable/black_alpha_50"
+            android:background="@drawable/gradient_orange"
+            android:padding="4dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
@@ -73,13 +74,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
-                android:layout_marginBottom="45dp"
+                android:layout_marginBottom="25dp"
                 android:maxLines="1"
                 android:text="@{product.name}"
                 android:textAlignment="viewStart"
                 android:textColor="@color/text__white"
                 android:textSize="@dimen/font_title_size"
                 app:font='@{"normal"}'
+                tools:text="Product Name"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -106,6 +108,7 @@
                 android:textColor="@color/text__white"
                 android:textSize="@dimen/font_title_size"
                 app:font='@{"normal"}'
+                tools:text="100"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/name_profile" />
@@ -116,9 +119,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginBottom="4dp"
-                android:textColor="@color/text__primary_light"
+                android:textColor="@color/view__primary_line"
                 android:textSize="@dimen/font_body_size"
                 app:font='@{"normal"}'
+                tools:text="120"
                 app:layout_constraintBottom_toBottomOf="@+id/newDiscountPriceTextView"
                 app:layout_constraintStart_toEndOf="@+id/newDiscountPriceTextView"
                 app:layout_constraintTop_toTopOf="@+id/newDiscountPriceTextView" />
@@ -132,12 +136,12 @@
                 android:layout_marginBottom="8dp"
                 android:textColor="@color/text__primary_light"
                 android:textSize="@dimen/font_body_size"
-                android:visibility="invisible"
+                android:visibility="gone"
                 app:font='@{"normal"}'
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/ratingBar"
-                tools:visibility="invisible" />
+                tools:visibility="gone" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

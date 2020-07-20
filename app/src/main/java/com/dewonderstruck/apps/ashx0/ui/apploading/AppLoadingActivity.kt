@@ -2,7 +2,7 @@ package com.dewonderstruck.apps.ashx0.ui.apploading
 
 import android.content.Context
 import android.os.Bundle
-import android.preference.PreferenceManager
+import androidx.preference.PreferenceManager
 import android.view.WindowManager
 import androidx.databinding.DataBindingUtil
 import com.dewonderstruck.apps.Config
