@@ -109,7 +109,7 @@ class MainActivity : PSAppCompactActivity() {
         initUIAndActions()
         initModels()
         initData()
-        //checkForUpdates()
+        checkForUpdates()
         checkConsentStatus()
     }
 

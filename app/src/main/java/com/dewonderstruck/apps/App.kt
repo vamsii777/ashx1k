@@ -3,6 +3,7 @@ package com.dewonderstruck.apps
 import android.app.Activity
 import android.content.Context
 import androidx.multidex.MultiDexApplication
+import com.bugsnag.android.Bugsnag
 import com.dewonderstruck.apps.ashx0.di.AppInjector
 import com.facebook.ads.AudienceNetworkAds
 import com.flurry.android.FlurryAgent
@@ -27,9 +28,8 @@ class App : MultiDexApplication(), HasActivityInjector {
         super.onCreate()
         // Initialize the Audience Network SDK
         AudienceNetworkAds.initialize(this)
-        FlurryAgent.Builder()
-                .withLogEnabled(true)
-                .build(this, "BJS8NMHKTTVFF9CGKCQ3")
+        Bugsnag.start(this)
+        FlurryAgent.Builder().withLogEnabled(true).build(this, "BJS8NMHKTTVFF9CGKCQ3")
         //        if (LeakCanary.isInAnalyzerProcess(this)) {
 //            // This process is dedicated to LeakCanary for heap analysis.
 //            // You should not init your app in this process.

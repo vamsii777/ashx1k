@@ -5,6 +5,7 @@ buildscript {
     apply from: 'versions.gradle'
     addRepos(repositories)
     dependencies {
+        classpath "com.bugsnag:bugsnag-android-gradle-plugin:4.7.5"
         classpath 'com.android.tools.build:gradle:4.0.1'
         classpath 'com.google.gms:google-services:4.3.3'
         classpath 'com.getkeepsafe.dexcount:dexcount-gradle-plugin:1.0.0'

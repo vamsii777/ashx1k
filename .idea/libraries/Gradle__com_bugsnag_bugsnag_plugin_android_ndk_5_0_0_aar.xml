@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Gradle: com.bugsnag:bugsnag-plugin-android-ndk:5.0.0@aar">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/83ec97f3ab8d1fbcb3fc9f2afee704f5/jetified-bugsnag-plugin-android-ndk-5.0.0/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/83ec97f3ab8d1fbcb3fc9f2afee704f5/jetified-bugsnag-plugin-android-ndk-5.0.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/83ec97f3ab8d1fbcb3fc9f2afee704f5/jetified-bugsnag-plugin-android-ndk-5.0.0/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.bugsnag/bugsnag-plugin-android-ndk/5.0.0/bb076d6714fd7bd0890e3e007662e9654aede9b6/bugsnag-plugin-android-ndk-5.0.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

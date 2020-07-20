@@ -6,11 +6,13 @@ apply plugin: 'kotlin-kapt'
 apply plugin: 'com.google.gms.google-services'
 apply plugin: 'com.google.firebase.crashlytics'
 apply plugin: 'com.google.firebase.firebase-perf'
+apply plugin: "com.bugsnag.android.gradle"
 
 
 android {
     //flavorDimensions "default"
     compileSdkVersion 30
+
     defaultConfig {
         applicationId "com.dewonderstruck.apps.ashx0"
         minSdkVersion 17
@@ -80,13 +82,35 @@ android {
         abortOnError false
     }
 
+    signingConfigs {
+        config {
+            //enableV3Signing(true)
+            //enableV4Signing(true)
+        }
+    }
+
     buildFeatures {
-        dataBinding = true
-        // for view binding :
+        // Determines whether to generate a BuildConfig class.
+        buildConfig = true
+        // Determines whether to support View Binding.
+        // Note that the viewBinding.enabled property is now deprecated.
         viewBinding = true
+        // Determines whether to support Data Binding.
+        // Note that the dataBinding.enabled property is now deprecated.
+        dataBinding = true
+        // Determines whether to generate binder classes for your AIDL files.
+        aidl = true
+        // Determines whether to support RenderScript.
+        renderScript = true
+        // Determines whether to support injecting custom variables into the module’s R class.
+        resValues = true
+        // Determines whether to support shader AOT compilation.
+        shaders = true
     }
 
     compileOptions {
+        // Flag to enable support for the new language APIs
+        coreLibraryDesugaringEnabled true
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
@@ -132,6 +156,7 @@ android {
 dependencies {
     implementation 'androidx.multidex:multidex:2.0.1'
     // Google Support Lib
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.0.9'
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation "androidx.cardview:cardview:1.0.0"
     implementation "androidx.recyclerview:recyclerview:1.2.0-alpha04"
@@ -209,8 +234,9 @@ dependencies {
     //Stripe Payment
     implementation 'com.stripe:stripe-android:8.3.0'
     //firebase authentication
-    implementation 'com.google.firebase:firebase-auth:19.3.1'
+    implementation 'com.google.firebase:firebase-auth:19.3.2'
     implementation "androidx.core:core-ktx:1.3.0"
+    implementation "com.bugsnag:bugsnag-android:5.0.0"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'com.google.android.gms:play-services-tagmanager:17.0.0'

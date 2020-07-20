@@ -163,15 +163,14 @@
         tools:ignore="UnusedAttribute"
         tools:overrideLibrary="com.google.android.youtube.player"
         tools:replace="android:label, android:allowBackup">
-        <activity
-            android:name=".ui.apploading.FullscreenActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize"
-            android:label="@string/title_activity_fullscreen"
-            android:theme="@style/FullscreenTheme"></activity>
 
         <meta-data
             android:name="com.google.android.gms.ads.AD_MANAGER_APP"
             android:value="true" />
+
+        <meta-data
+            android:name="com.bugsnag.android.API_KEY"
+            android:value="792559c5a711f7cf2478ccb63f0ed2aa"/>
 
         <uses-library
             android:name="org.apache.http.legacy"
@@ -181,14 +180,6 @@
             android:name=".ui.apploading.AppLoadingActivity"
             android:label="@string/app__app_name"
             android:launchMode="singleTop"
-            android:screenOrientation="portrait"
-            android:theme="@style/SplashTheme"
-            android:windowSoftInputMode="adjustPan"></activity>
-        <activity
-            android:name="com.dewonderstruck.apps.MainActivity"
-            android:label="@string/app__app_name"
-            android:launchMode="singleTop"
-            android:screenOrientation="portrait"
             android:theme="@style/SplashTheme"
             android:windowSoftInputMode="adjustPan">
             <intent-filter>
@@ -219,6 +210,14 @@
                     android:host="ashtrixx.com"
                     android:scheme="https" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name="com.dewonderstruck.apps.MainActivity"
+            android:label="@string/app__app_name"
+            android:launchMode="singleTop"
+            android:theme="@style/SplashTheme"
+            android:windowSoftInputMode="adjustPan">
+
         </activity>
         <activity
             android:name=".ui.category.CategoryListActivity"
