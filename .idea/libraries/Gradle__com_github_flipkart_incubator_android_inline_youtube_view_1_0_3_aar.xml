@@ -1,13 +1,13 @@
 <component name="libraryTable">
   <library name="Gradle: com.github.flipkart-incubator:android-inline-youtube-view:1.0.3@aar">
     <ANNOTATIONS>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/9bcbde4d2b06648c4975d7fadddfb4ce/jetified-android-inline-youtube-view-1.0.3/annotations.zip!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/5a8ed33d0a726dfe5de4855ecbb21654/jetified-android-inline-youtube-view-1.0.3/annotations.zip!/" />
     </ANNOTATIONS>
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/9bcbde4d2b06648c4975d7fadddfb4ce/jetified-android-inline-youtube-view-1.0.3/AndroidManifest.xml" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/9bcbde4d2b06648c4975d7fadddfb4ce/jetified-android-inline-youtube-view-1.0.3/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/9bcbde4d2b06648c4975d7fadddfb4ce/jetified-android-inline-youtube-view-1.0.3/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/9bcbde4d2b06648c4975d7fadddfb4ce/jetified-android-inline-youtube-view-1.0.3/jars/libs/YouTubeAndroidPlayerApi-1.2.2.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/5a8ed33d0a726dfe5de4855ecbb21654/jetified-android-inline-youtube-view-1.0.3/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/5a8ed33d0a726dfe5de4855ecbb21654/jetified-android-inline-youtube-view-1.0.3/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/5a8ed33d0a726dfe5de4855ecbb21654/jetified-android-inline-youtube-view-1.0.3/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/5a8ed33d0a726dfe5de4855ecbb21654/jetified-android-inline-youtube-view-1.0.3/jars/libs/YouTubeAndroidPlayerApi-1.2.2.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

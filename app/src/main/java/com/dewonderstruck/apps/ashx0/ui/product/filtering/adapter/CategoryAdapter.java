@@ -149,7 +149,7 @@ public class CategoryAdapter extends BaseExpandableListAdapter {
         subCategoryItemBinding.setSubcategory(subCategory);
 
         if (categoryList.get(i).id.equals(catId) && subCategory.id.equals(subCatId)) {
-            subCategoryItemBinding.subcategoryItem.setCompoundDrawablesWithIntrinsicBounds(null, null, viewGroup.getResources().getDrawable(R.drawable.baseline_check_green_24), null);
+            subCategoryItemBinding.subcategoryItem.setCompoundDrawablesWithIntrinsicBounds(null, null, viewGroup.getResources().getDrawable(R.drawable.baseline_check_circle_24), null);
             selectedView = subCategoryItemBinding.subcategoryItem;
         }
 
@@ -160,7 +160,7 @@ public class CategoryAdapter extends BaseExpandableListAdapter {
 
             }
 
-            subCategoryItemBinding.subcategoryItem.setCompoundDrawablesWithIntrinsicBounds(null, null, viewGroup.getResources().getDrawable(R.drawable.baseline_check_green_24), null);
+            subCategoryItemBinding.subcategoryItem.setCompoundDrawablesWithIntrinsicBounds(null, null, viewGroup.getResources().getDrawable(R.drawable.baseline_check_circle_24), null);
 
             catId = (categoryList.get(i).id);
 

@@ -1,12 +1,12 @@
 <component name="libraryTable">
   <library name="Gradle: com.bugsnag:bugsnag-android-core:5.0.0@aar">
     <ANNOTATIONS>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/73ceb23cabc0f70dd498424450c32eb4/jetified-bugsnag-android-core-5.0.0/annotations.zip!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a1749fe04b5e1535c936623ab5e1b906/jetified-bugsnag-android-core-5.0.0/annotations.zip!/" />
     </ANNOTATIONS>
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/73ceb23cabc0f70dd498424450c32eb4/jetified-bugsnag-android-core-5.0.0/AndroidManifest.xml" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/73ceb23cabc0f70dd498424450c32eb4/jetified-bugsnag-android-core-5.0.0/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/73ceb23cabc0f70dd498424450c32eb4/jetified-bugsnag-android-core-5.0.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a1749fe04b5e1535c936623ab5e1b906/jetified-bugsnag-android-core-5.0.0/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a1749fe04b5e1535c936623ab5e1b906/jetified-bugsnag-android-core-5.0.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a1749fe04b5e1535c936623ab5e1b906/jetified-bugsnag-android-core-5.0.0/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

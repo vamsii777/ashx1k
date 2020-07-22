@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
-    <style name="Base.PSTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="Base.PSTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="colorPrimaryVariant">#000000</item>
         <item name="colorOnPrimary">#E8678B</item>
         <item name="colorSecondary">#F3507D</item>

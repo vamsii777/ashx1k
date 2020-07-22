@@ -83,7 +83,8 @@ class ShopProfileFragment : PSFragment() {
         } else {
             binding!!.get().adView.visibility = View.GONE
         }
-        binding!!.get().aboutImageView.setOnClickListener { view: View? -> navigationController.navigateToGalleryActivity(requireActivity(), Constants.IMAGE_TYPE_ABOUT, shopViewModel!!.selectedShopId) }
+
+        //binding!!.get().aboutImageView.setOnClickListener { view: View? -> navigationController.navigateToGalleryActivity(requireActivity(), Constants.IMAGE_TYPE_ABOUT, shopViewModel!!.selectedShopId) }
 
 
         //For Phone 1

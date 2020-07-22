@@ -171,7 +171,7 @@
     <string name="basket_card_view__default_count">0</string>
 
     <!--Button Sheet Dialog Messages-->
-    <string name="dialog__title_m_mun">Sorting</string>
+    <string name="dialog__title_m_mun">Sort</string>
     <string name="popular__m_mun">Popular</string>
     <string name="recent__m_mun">Latest</string>
     <string name="low_price__m_mun">Lowest Price</string>

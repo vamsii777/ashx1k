@@ -40,9 +40,9 @@
                 <ImageView
                     android:id="@+id/aboutImageView"
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
+                    android:layout_height="320dp"
                     android:contentDescription="@string/menu__about_app"
-                    android:scaleType="centerCrop"
+                    android:scaleType="fitXY"
                     app:imageUrl="@{shop.defaultPhoto.imgPath}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -669,11 +669,13 @@
                     android:layout_marginEnd="@dimen/space_16"
                     android:textAlignment="viewStart"
                     android:textSize="@dimen/font_body_size"
+                    android:visibility="gone"
                     app:font='@{"normal"}'
                     app:layout_constraintBottom_toBottomOf="@+id/imageView17"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/imageView17"
-                    app:layout_constraintTop_toTopOf="@+id/imageView17" />
+                    app:layout_constraintTop_toTopOf="@+id/imageView17"
+                    tools:visibility="gone" />
 
                 <TextView
                     android:id="@+id/address3"

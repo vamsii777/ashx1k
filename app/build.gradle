@@ -17,8 +17,8 @@ android {
         minSdkVersion 17
         //minSdkVersion hasProperty('minSdk') ? minSdk.toInteger() : 17
         targetSdkVersion 30
-        versionCode 12
-        versionName '1.144'
+        versionCode 14
+        versionName '1.153'
         multiDexEnabled true
         vectorDrawables.useSupportLibrary = true
     }

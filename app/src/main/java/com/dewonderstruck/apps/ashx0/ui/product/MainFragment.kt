@@ -815,7 +815,7 @@ class MainFragment : PSFragment(), DiffUtilDispatchedInterface2 {
                                     binding!!.get()!!.trendingCategoryList.layoutManager = gridLayoutManager
                                 }
                                 binding!!.get()!!.trendingCategoriesTitleTextView.visibility = View.VISIBLE
-                                binding!!.get()!!.viewAllTrendingCategoriesTextView.visibility = View.VISIBLE
+                                binding!!.get()!!.viewAllTrendingCategoriesTextView.visibility = View.INVISIBLE
                                 replaceTrendingCategoryData(listResource.data)
                             }
                         }
@@ -835,7 +835,7 @@ class MainFragment : PSFragment(), DiffUtilDispatchedInterface2 {
                                     binding!!.get()!!.trendingCategoryList.layoutManager = gridLayoutManager
                                 }
                                 binding!!.get()!!.trendingCategoriesTitleTextView.visibility = View.VISIBLE
-                                binding!!.get()!!.viewAllTrendingCategoriesTextView.visibility = View.VISIBLE
+                                binding!!.get()!!.viewAllTrendingCategoriesTextView.visibility = View.INVISIBLE
                                 replaceTrendingCategoryData(listResource.data)
                             }
                         }

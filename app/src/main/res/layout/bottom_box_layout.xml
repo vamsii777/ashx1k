@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/popularButton"
             style="?android:attr/borderlessButtonStyle"
             android:layout_width="0dp"
@@ -24,6 +24,8 @@
             android:gravity="start|center_vertical"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
+            android:textStyle="bold"
+            android:textColor="#ffffff"
             android:text="@string/popular__m_mun"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
@@ -39,6 +41,8 @@
             android:background="@android:color/background_light"
             android:drawablePadding="10dp"
             android:text="@string/recent__m_mun"
+            android:textStyle="bold"
+            android:textColor="#ffffff"
             android:gravity="start|center_vertical"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
@@ -56,6 +60,8 @@
             android:gravity="start|center_vertical"
             android:text="@string/low_price__m_mun"
             android:paddingLeft="10dp"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
             android:paddingRight="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -66,11 +72,13 @@
             android:id="@+id/highestButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:background="@android:color/background_light"
+            android:background="@drawable/header_grad"
             android:drawablePadding="10dp"
             android:gravity="start|center_vertical"
             android:paddingLeft="10dp"
+            android:textStyle="bold"
             android:text="@string/high_price__m_mun"
+            android:textColor="#ffffff"
             android:paddingRight="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -89,7 +97,7 @@
             android:textSize="18sp"
             android:textStyle="bold"
             android:padding="8dp"
-            android:background="#DF4E78"
+            android:background="@drawable/header_grad"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>

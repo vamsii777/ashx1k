@@ -34,5 +34,5 @@
         app:layout_constraintBottom_toBottomOf="@+id/languageNameTextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/languageNameTextView"
-        app:srcCompat="@drawable/baseline_check_green_24" />
+        app:srcCompat="@drawable/baseline_check_circle_24" />
 </androidx.constraintlayout.widget.ConstraintLayout>
