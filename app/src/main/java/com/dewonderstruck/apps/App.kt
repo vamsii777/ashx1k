@@ -31,7 +31,7 @@ class App : MultiDexApplication(), HasActivityInjector {
         Bugsnag.start(this)
         FlurryAgent.Builder()
                 .withLogEnabled(true)
-                .build(this, "BJS8NMHKTTVFF9CGKCQ3")
+                .build(this, "APP_KEY")
         //        if (LeakCanary.isInAnalyzerProcess(this)) {
 //            // This process is dedicated to LeakCanary for heap analysis.
 //            // You should not init your app in this process.
