@@ -16,9 +16,8 @@
         android:iconTint="@color/md_white_1000"
         android:iconTintMode="multiply"
         android:orderInCategory="100"
-        android:title="Favourite"
-        app:showAsAction="always"
-        />
+        android:title="Notifcations"
+        app:showAsAction="always" />
 
 
 </menu>

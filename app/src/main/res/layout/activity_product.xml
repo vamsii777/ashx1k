@@ -11,6 +11,7 @@
             android:id="@+id/mainAppBarLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:elevation="4dp"
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
             <com.google.android.material.appbar.CollapsingToolbarLayout
@@ -26,7 +27,7 @@
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="250dp">
+                    android:layout_height="350dp">
 
                     <androidx.viewpager.widget.ViewPager
                         android:id="@+id/imageViewPager"
@@ -129,6 +130,7 @@
                 android:layout_marginStart="@dimen/space_4"
                 android:background="@drawable/rounded_corner_shape_button"
                 android:text="@string/product_detail__buy"
+                android:elevation="16dp"
                 android:textAllCaps="false"
                 android:textColor="@color/md_white_1000"
                 app:layout_constraintBottom_toBottomOf="parent"

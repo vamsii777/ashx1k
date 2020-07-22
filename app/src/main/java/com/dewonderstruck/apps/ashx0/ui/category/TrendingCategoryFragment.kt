@@ -208,7 +208,7 @@ class TrendingCategoryFragment : PSFragment(), DiffUtilDispatchedInterface2 {
         })
     }
 
-    private fun replaceData(categoryList: List<Category?>) {
+    private fun replaceData(categoryList: List<Category?>?) {
         adapter!!.get().replace(categoryList)
         binding!!.get().executePendingBindings()
     }

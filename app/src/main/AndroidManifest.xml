@@ -164,6 +164,7 @@
         tools:overrideLibrary="com.google.android.youtube.player"
         tools:replace="android:label, android:allowBackup">
 
+
         <meta-data
             android:name="com.google.android.gms.ads.AD_MANAGER_APP"
             android:value="true" />
@@ -182,6 +183,9 @@
             android:launchMode="singleTop"
             android:theme="@style/SplashTheme"
             android:windowSoftInputMode="adjustPan">
+            <meta-data
+                android:name="android.app.shortcuts"
+                android:resource="@xml/shortcuts"/>
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -223,18 +227,12 @@
             android:name=".ui.category.CategoryListActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Base.PSTheme" />
-        <activity
-            android:name=".ui.rating.RatingListActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/Base.PSTheme" />
+
         <activity
             android:name=".ui.user.ProfileEditActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Base.PSTheme" />
-        <activity
-            android:name=".ui.transaction.list.TransactionListActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/Base.PSTheme" />
+
         <activity
             android:name=".ui.user.UserRegisterActivity"
             android:screenOrientation="portrait"
@@ -259,14 +257,8 @@
             android:name=".ui.notification.detail.NotificationActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Base.PSTheme" />
-        <activity
-            android:name=".ui.transaction.detail.TransactionActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/Base.PSTheme" />
-        <activity
-            android:name=".ui.checkout.CheckoutActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/Base.PSTheme" />
+
+
         <activity
             android:name=".ui.setting.SettingActivity"
             android:screenOrientation="portrait"
@@ -318,10 +310,7 @@
         </service>
 
         <activity android:name=".ui.product.detail.ProductActivity" />
-        <activity
-            android:name=".ui.comment.detail.CommentDetailActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/Base.PSTheme" />
+
         <activity
             android:name=".ui.notification.list.NotificationListActivity"
             android:screenOrientation="portrait"
@@ -330,10 +319,7 @@
             android:name=".ui.product.list.ProductListActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Base.PSTheme" />
-        <activity
-            android:name=".ui.comment.list.CommentListActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/Base.PSTheme" />
+
         <activity
             android:name=".ui.gallery.GalleryActivity"
             android:screenOrientation="portrait"
@@ -346,7 +332,7 @@
             android:name=".ui.gallery.detail.GalleryDetailActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Base.PSTheme" />
-        <activity android:name=".ui.basket.BasketListActivity" />
+
         <activity
             android:name=".ui.product.search.SearchByCategoryActivity"
             android:screenOrientation="portrait"
@@ -356,10 +342,7 @@
             android:label="@string/title__activity_user_history_list"
             android:screenOrientation="portrait"
             android:theme="@style/Base.PSTheme" />
-        <activity
-            android:name=".ui.stripe.StripeActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/Base.PSTheme" />
+
         <activity
             android:name="com.braintreepayments.api.BraintreeBrowserSwitchActivity"
             android:launchMode="singleTask">
@@ -379,7 +362,11 @@
         <activity
             android:name=".ui.blog.list.BlogListActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/Base.PSTheme" />
+            android:theme="@style/Base.PSTheme" >
+            <meta-data
+                android:name="android.app.shortcuts"
+                android:resource="@xml/shortcuts"/>
+        </activity>
         <activity
             android:name=".ui.blog.detail.BlogDetailActivity"
             android:screenOrientation="portrait"

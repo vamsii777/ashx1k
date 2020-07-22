@@ -1,6 +1,17 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
-    <style name="Base.PSTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+    <style name="Base.PSTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimaryVariant">#000000</item>
+        <item name="colorOnPrimary">#E8678B</item>
+        <item name="colorSecondary">#F3507D</item>
+        <item name="colorSecondaryVariant">#FF2B68</item>
+        <item name="colorOnSecondary">#FFFFFF</item>
+        <item name="colorError">#F43662</item>
+        <item name="colorOnError">#FFFFFF</item>
+        <item name="colorSurface">#FFFFFF</item>
+        <item name="colorOnSurface">#212121</item>
+        <item name="android:colorBackground">#FAFAFA</item>
+        <item name="colorOnBackground">#212121</item>
         <item name="colorButtonNormal">@color/global__primary</item>
         <item name="colorPrimary">@color/global__primary</item>
         <item name="colorPrimaryDark">@color/global__primary_dark</item>
@@ -39,6 +50,13 @@
     </style>
 
 
+    <style name="MaterialAlertDialog.MaterialComponents.R" parent="MaterialAlertDialog.MaterialComponents">
+        <item name="colorPrimary">#E8678B</item>
+        <item name="colorSecondary">#E8678B</item>
+        <item name="colorSurface">#FFFFFF</item>
+    </style>
+
+
     <style name="dance_class">
 
         <item name="android:textSize">
@@ -70,6 +88,8 @@
         </item>
 
     </style>
+
+    #E8678B
 
 
     <style name="sudhir_s_da">
@@ -241,7 +261,7 @@
 
     <style name="ShapeAppearance.App.SmallComponent" parent="ShapeAppearance.MaterialComponents.SmallComponent">
         <item name="cornerFamily">rounded</item>
-        <item name="cornerSize">28dp</item>
+        <item name="cornerSize">4dp</item>
     </style>
 
     <style name="FullscreenTheme" parent="Base.PSTheme">

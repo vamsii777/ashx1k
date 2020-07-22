@@ -41,11 +41,9 @@
                         android:id="@+id/newsHolderCardView"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/space_8"
-                        android:layout_marginTop="@dimen/space_8"
-                        android:layout_marginEnd="@dimen/space_8"
                         android:clipToPadding="false"
                         android:focusable="true"
+                        android:elevation="0dp"
                         app:cardUseCompatPadding="true"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="1.0"
@@ -56,7 +54,6 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:focusable="true">
-
 
                             <TextView
                                 android:id="@+id/name_profile"
@@ -897,20 +894,17 @@
                         android:id="@+id/sixCardView"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/space_8"
-                        android:layout_marginEnd="@dimen/space_8"
-                        android:layout_marginBottom="@dimen/space_8"
                         android:clipToPadding="false"
-                        android:visibility="gone"
+                        android:visibility="visible"
                         app:cardCornerRadius="@dimen/space_4"
+                        android:elevation="0dp"
                         app:cardUseCompatPadding="true"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/fifthCardView"
-                        tools:visibility="gone">
+                        tools:visibility="visible">
 
                         <androidx.constraintlayout.widget.ConstraintLayout
                             android:layout_width="match_parent"
@@ -1320,7 +1314,6 @@
                 android:id="@+id/bottomConstraint"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#fff"
                 android:minHeight="0dp"
                 android:padding="@dimen/space_8"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -1334,7 +1327,6 @@
                     android:layout_width="0dp"
                     android:layout_height="@dimen/space_44"
                     android:layout_marginEnd="@dimen/space_4"
-                    android:background="@drawable/grey_button_bg"
                     android:text="@string/product_detail__add_to_busket"
                     android:textAllCaps="false"
                     android:textColor="@color/md_white_1000"
@@ -1349,7 +1341,7 @@
                     app:layout_constraintVertical_bias="1.0"
                     tools:visibility="gone" />
 
-                <Button
+                <com.google.android.material.button.MaterialButton
                     android:id="@+id/buyButton"
                     android:layout_width="0dp"
                     android:layout_height="@dimen/space_44"
@@ -1359,7 +1351,7 @@
                     android:textAllCaps="false"
                     android:textColor="@color/md_white_1000"
                     app:font='@{"normal"}'
-
+                    app:elevation="16dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"

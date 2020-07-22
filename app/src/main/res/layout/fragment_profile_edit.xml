@@ -27,7 +27,6 @@
                 android:layout_height="150dp"
                 android:contentDescription="@string/image_default__image"
                 android:scaleType="centerCrop"
-                android:src="@drawable/default_profile"
                 app:imageProfileUrl="@{user.userProfilePhoto}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -39,7 +38,7 @@
                 android:layout_height="150dp"
                 android:contentDescription="@string/image_default__image"
                 android:scaleType="fitXY"
-                android:src="@drawable/blur"
+                android:src="@drawable/header_grad"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -136,7 +135,7 @@
                         app:layout_constraintTop_toTopOf="parent"
                         tools:text="@string/edit_profile__user_name" />
 
-                    <EditText
+                    <androidx.appcompat.widget.AppCompatEditText
                         android:id="@+id/userNameEditText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

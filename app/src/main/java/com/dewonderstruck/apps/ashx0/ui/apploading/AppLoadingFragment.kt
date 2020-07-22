@@ -25,6 +25,7 @@ import com.dewonderstruck.apps.ashx0.viewmodel.clearalldata.ClearAllDataViewMode
 import com.dewonderstruck.apps.ashx0.viewobject.PSAppInfo
 import com.dewonderstruck.apps.ashx0.viewobject.common.Resource
 import com.dewonderstruck.apps.ashx0.viewobject.common.Status
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.util.*
@@ -112,24 +113,42 @@ class AppLoadingFragment : PSFragment() {
             navigationController.navigateToForceUpdateActivity(this.activity!!, psAppInfo.psAppVersion.versionTitle, psAppInfo.psAppVersion.versionMessage)
         } else if (psAppInfo.psAppVersion.versionForceUpdate == Constants.ZERO) {
             pref.edit().putBoolean(Constants.APPINFO_PREF_FORCE_UPDATE, false).apply()
-            psDialogMsg!!.showAppInfoDialog(getString(R.string.update), getString(R.string.app__cancel), psAppInfo.psAppVersion.versionTitle, psAppInfo.psAppVersion.versionMessage)
-            psDialogMsg!!.show()
-            psDialogMsg!!.okButton.setOnClickListener { v: View? ->
-                psDialogMsg!!.cancel()
-                navigationController.navigateToMainActivity(this@AppLoadingFragment.activity!!)
-                navigationController.navigateToPlayStore(this@AppLoadingFragment.activity!!)
-                if (activity != null) {
-                    requireActivity().finish()
-                }
-            }
-            psDialogMsg!!.cancelButton.setOnClickListener {
-                psDialogMsg!!.cancel()
-                navigationController.navigateToMainActivity(this@AppLoadingFragment.activity!!)
-                if (this@AppLoadingFragment.activity != null) {
-                    this@AppLoadingFragment.requireActivity().finish()
-                }
-            }
-            psDialogMsg!!.dialog.setCancelable(false)
+            //psDialogMsg!!.showAppInfoDialog(getString(R.string.update), getString(R.string.app__cancel), psAppInfo.psAppVersion.versionTitle, psAppInfo.psAppVersion.versionMessage)
+            //psDialogMsg!!.show()
+
+            MaterialAlertDialogBuilder(this!!.context!!, R.style.MaterialAlertDialog_MaterialComponents_R)
+                    .setCancelable(false)
+                    .setTitle(psAppInfo.psAppVersion.versionTitle)
+                    .setMessage(psAppInfo.psAppVersion.versionMessage)
+                    .setNeutralButton(resources.getString(R.string.app__ignore)) { dialog, which ->
+                        // Respond to neutral button press
+
+                        navigationController.navigateToMainActivity(this@AppLoadingFragment.activity!!)
+                        if (activity != null) {
+                            requireActivity().finish()
+                        }
+                        dialog.dismiss()
+                    }
+                    .setNegativeButton(resources.getString(R.string.app__cancel)) { dialog, which ->
+                        // Respond to negative button press
+
+                        navigationController.navigateToMainActivity(this@AppLoadingFragment.activity!!)
+                        if (this@AppLoadingFragment.activity != null) {
+                            this@AppLoadingFragment.requireActivity().finish()
+                        }
+                        dialog.dismiss()
+                    }
+                    .setPositiveButton("OK") { dialog, which ->
+                        // Respond to positive button press
+                        dialog.dismiss()
+                        navigationController.navigateToMainActivity(this@AppLoadingFragment.activity!!)
+                        navigationController.navigateToPlayStore(this@AppLoadingFragment.activity!!)
+                        if (activity != null) {
+                            requireActivity().finish()
+                        }
+                    }
+                    .show()
+
         } else {
             navigationController.navigateToMainActivity(this@AppLoadingFragment.activity!!)
             if (activity != null) {
@@ -138,6 +157,7 @@ class AppLoadingFragment : PSFragment() {
         }
     }
 
+    @SuppressLint("UseRequireInsteadOfGet")
     private fun checkVersionNumber(psAppInfo: PSAppInfo?) {
         if (Config.APP_VERSION != psAppInfo!!.psAppVersion.versionNo) {
             if (psAppInfo.psAppVersion.versionNeedClearData == Constants.ONE) {

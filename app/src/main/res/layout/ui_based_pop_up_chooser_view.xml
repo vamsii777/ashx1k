@@ -27,7 +27,7 @@
             android:clickable="false"
             android:contentDescription="@string/image_default__image"
             android:scaleType="center"
-            android:src="@drawable/down"
+            app:srcCompat="@drawable/ic_baseline_arrow_drop_down_24"
             android:tint="@color/global__primary" />
 
     </RelativeLayout>

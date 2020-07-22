@@ -26,7 +26,7 @@ open class FirebaseMessagingService : FirebaseMessagingService() {
         /* Important : Please don't change this "message" because if you change this, need to update at PHP.  */
         var msg = remoteMessage.data["message"]
 
-//        Utils.psLog("****** 2 >>> " + remoteMessage.getData().get("action2"));
+        Utils.psLog("****** 2 >>> " + remoteMessage.getData().get("action2"));
         if (msg == null || msg == "") {
             msg = remoteMessage.notification!!.body
         }

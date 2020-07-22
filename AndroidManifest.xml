@@ -343,9 +343,7 @@
             android:label="@string/title__activity_user_history_list"
             android:screenOrientation="portrait"
             android:theme="@style/Base.PSTheme" />
-        <activity android:name=".ui.stripe.StripeActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/Base.PSTheme" />
+
         <activity
             android:name="com.braintreepayments.api.BraintreeBrowserSwitchActivity"
             android:launchMode="singleTask">

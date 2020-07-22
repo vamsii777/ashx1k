@@ -3,7 +3,14 @@
     <!--===============-->
     <!-- Key to update -->
     <!--===============-->
-
+    <string name="long_shortcut">Go To Home</string>
+    <string name="short_shortcut">Home</string>
+    <string name="long_shortcut2">Search</string>
+    <string name="short_shortcut2">Search</string>
+    <string name="long_shortcut3">About</string>
+    <string name="short_shortcut3">About</string>
+    <string name="long_shortcut4">Go To Blogs</string>
+    <string name="short_shortcut4">Blogs</string>
     <string name="facebook_app_id" translatable="false">2027882067320201</string>
     <!--<string name="facebook_app_id" translatable="false">0000000000000000</string>-->
 
@@ -52,7 +59,7 @@
     <!-- App General -->
     <string name="app__app_name">Ashtrixx</string>
     <string name="app__ok">OK</string>
-    <string name="app__cancel">Cancel</string>
+    <string name="app__cancel">CANCEL</string>
     <string name="app__drawer_open">Drawer Open</string>
     <string name="app__drawer_close">Drawer Close</string>
 
@@ -644,6 +651,7 @@ Learn More >
     <string name="title_activity_fullscreen">FullscreenActivity</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="app__ignore">IGNORE</string>
 
 </resources>
 

@@ -3,10 +3,10 @@ package com.dewonderstruck.apps.ashx0.ui.product
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import android.net.ConnectivityManager
 import android.net.Uri
 import android.os.Bundle
+import android.os.Handler
 import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
@@ -23,6 +23,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.viewpager.widget.ViewPager
 import androidx.viewpager.widget.ViewPager.OnPageChangeListener
 import com.dewonderstruck.apps.Config
 import com.dewonderstruck.apps.ashx0.R
@@ -60,7 +61,6 @@ import com.like.LikeButton
 import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.util.*
-import javax.inject.Inject
 
 class MainFragment : PSFragment(), DiffUtilDispatchedInterface2 {
     private val dataBindingComponent: DataBindingComponent = FragmentDataBindingComponent(this)
@@ -171,6 +171,7 @@ class MainFragment : PSFragment(), DiffUtilDispatchedInterface2 {
         binding!!.get()!!.viewAllTrendingCategoriesTextView.setOnClickListener { view: View? -> navigationController.navigateToCategoryActivity(this@MainFragment.activity!!, Constants.CATEGORY_TRENDING) }
         binding!!.get()!!.viewALlLatestTextView.setOnClickListener { view: View? -> navigationController.navigateToHomeFilteringActivity(this@MainFragment.activity!!, homeLatestProductViewModel!!.productParameterHolder, getString(R.string.menu__latest_product)) }
         binding!!.get()!!.categoryViewAllTextView.setOnClickListener { v: View? -> navigationController.navigateToCategoryActivity(this@MainFragment.activity!!, Constants.CATEGORY) }
+
         binding!!.get()!!.viewPager.addOnPageChangeListener(object : OnPageChangeListener {
             override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {}
             override fun onPageSelected(position: Int) {
@@ -260,6 +261,35 @@ class MainFragment : PSFragment(), DiffUtilDispatchedInterface2 {
         viewPagerAdapter = AutoClearedValue(this, viewPagerAdapter1)
         binding!!.get()!!.viewPager.adapter = viewPagerAdapter1
         binding!!.get()!!.viewPagerCountDots.visibility = View.VISIBLE
+        //binding!!.get()!!.viewPager.autoScroll(30000)
+
+        /*After setting the adapter use the timer *//*
+        val handler = Handler()
+        val Update = Runnable {
+            val NUM_PAGES = 4
+            if (currentPage === NUM_PAGES - 1) {
+                currentPage = 0
+            }
+            binding!!.get()!!.viewPager.setCurrentItem(currentPage++, true)
+        }
+
+        timer = Timer() // This will create a new Thread
+
+        timer!!.schedule(object : TimerTask() {
+            // task to be scheduled
+            override fun run() {
+                handler.post(Update)
+            }
+        }, DELAY_MS, PERIOD_MS)*/
+
+        /*val timerTask: TimerTask = object : TimerTask() {
+            override fun run() {
+                binding!!.get()!!.viewPager.post(Runnable {  binding!!.get()!!.viewPager.setCurrentItem(( binding!!.get()!!.viewPager.getCurrentItem() + 1) % id) })
+            }
+        }
+        timer = Timer()
+        timer.schedule(timerTask, 3000, 3000)*/
+
 
 
         /*featuredList*/
@@ -347,6 +377,30 @@ class MainFragment : PSFragment(), DiffUtilDispatchedInterface2 {
         verticalRowAdapter = AutoClearedValue(this, verticalRowAdapter1)
         binding!!.get()!!.collections.adapter = verticalRowAdapter1
         binding!!.get()!!.collections.isNestedScrollingEnabled = false
+    }
+
+    private fun ViewPager.autoScroll(interval: Long) {
+
+        val handler = Handler()
+        var scrollPosition = 0
+
+        val runnable = object : Runnable {
+
+            override fun run() {
+
+                /**
+                 * Calculate "scroll position" with
+                 * adapter pages count and current
+                 * value of scrollPosition.
+                 */
+                val count = adapter?.count ?: 0
+                setCurrentItem(scrollPosition++ % count, true)
+
+                handler.postDelayed(this, interval)
+            }
+        }
+
+        handler.post(runnable)
     }
 
     private fun replaceLatestData(productList: List<Product>?) {
@@ -885,6 +939,12 @@ class MainFragment : PSFragment(), DiffUtilDispatchedInterface2 {
         })
     }
 
+    var currentPage = 0
+    var timer: Timer? = null
+    val DELAY_MS: Long = 500 //delay in milliseconds before task is to be executed
+    val PERIOD_MS: Long = 3000 // time in milliseconds between successive task executions.
+
+
     override fun onDispatched() {
         if (homeLatestProductViewModel!!.loadingDirection == Utils.LoadingDirection.top) {
             val layoutManager = binding!!.get()!!.productList.layoutManager as LinearLayoutManager?
@@ -902,6 +962,7 @@ class MainFragment : PSFragment(), DiffUtilDispatchedInterface2 {
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     private fun setupSliderPagination() {
+
         dotsCount = viewPagerAdapter!!.get().count
         if (dotsCount > 0 && dots == null) {
             dots = arrayOfNulls(dotsCount)

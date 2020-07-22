@@ -3,9 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools">
     <item
         android:id="@+id/action_search"
-        android:icon="@drawable/ic_search"
+        android:icon="@drawable/ic_outline_search_24"
         android:orderInCategory="100"
         android:title="@string/menu__search"
         app:showAsAction="always"
+        android:iconTint="@color/md_white_1000"
+        android:iconTintMode="multiply"
         app:actionViewClass="androidx.appcompat.widget.SearchView" />
 </menu>

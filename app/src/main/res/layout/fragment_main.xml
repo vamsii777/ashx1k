@@ -276,7 +276,7 @@
                     android:textAllCaps="true"
                     android:textColor="@color/global__primary"
                     android:textSize="@dimen/font_body_s_size"
-                    android:visibility="visible"
+                    android:visibility="gone"
                     android:gravity="center"
                     app:font='@{"normal"}'
                     app:layout_constraintBottom_toBottomOf="@+id/trendingTitleTextView"
@@ -445,19 +445,21 @@
 
         <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
             android:id="@+id/gotoyounew"
-            android:layout_width="wrap_content"
+            android:layout_width="180dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom|end"
+            android:layout_gravity="end|bottom"
             android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"
-            android:layout_margin="@dimen/fab_margin"
             android:text="WATCH"
+            android:textAlignment="center"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             android:textColor="@android:color/white"
             app:iconTint="@color/bt_white"
+            app:iconPadding="24dp"
             style="@style/Widget.App.ExtendedFloatingActionButton"
-            app:icon="@drawable/ic_outline_play_circle" />
+            app:icon="@drawable/ic_outline_play_circle"
+            tools:ignore="RtlCompat" />
 
 
 

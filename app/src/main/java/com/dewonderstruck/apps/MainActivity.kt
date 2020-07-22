@@ -42,6 +42,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.tasks.Task
 import com.google.android.material.bottomnavigation.BottomNavigationItemView
 import com.google.android.material.bottomnavigation.BottomNavigationMenuView
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.play.core.appupdate.AppUpdateInfo
 import com.google.android.play.core.appupdate.AppUpdateManager
 import com.google.android.play.core.appupdate.AppUpdateManagerFactory
@@ -183,17 +184,32 @@ class MainActivity : PSAppCompactActivity() {
             val fragment = supportFragmentManager.findFragmentById(R.id.content_frame)
             if (fragment != null) {
                 if (fragment is MainFragment) {
+                    MaterialAlertDialogBuilder(this, R.style.MaterialAlertDialog_MaterialComponents_R)
+                            .setCancelable(true)
+                            .setMessage(resources.getString(R.string.message__want_to_quit))
+                            .setNegativeButton(resources.getString(R.string.app__cancel)) { dialog, which ->
+                                // Respond to negative button press
+                                dialog.cancel()
+                            }
+                            .setPositiveButton("OK") { dialog, which ->
+                                // Respond to positive button press
+                                dialog.dismiss()
+                                finish()
+                                System.exit(0)
+                            }
+                            .show()
+
                     val message = baseContext.getString(R.string.message__want_to_quit)
                     val okStr = baseContext.getString(R.string.message__ok_close)
                     val cancelStr = baseContext.getString(R.string.message__cancel_close)
-                    psDialogMsg!!.showConfirmDialog(message, okStr, cancelStr)
+                   /* psDialogMsg!!.showConfirmDialog(message, okStr, cancelStr)
                     psDialogMsg!!.show()
                     psDialogMsg!!.okButton.setOnClickListener { view: View? ->
                         psDialogMsg!!.cancel()
                         finish()
                         System.exit(0)
                     }
-                    psDialogMsg!!.cancelButton.setOnClickListener({ view: View? -> psDialogMsg!!.cancel() })
+                    psDialogMsg!!.cancelButton.setOnClickListener({ view: View? -> psDialogMsg!!.cancel() })*/
                 } else {
                     setSelectMenu(R.id.nav_home)
                     navigationController!!.navigateToHome(this)
@@ -679,7 +695,7 @@ class MainActivity : PSAppCompactActivity() {
                 Utils.psLog("No Data of About Us.")
             }
         })
-        basketViewModel!!.allBasketList.observe(this, Observer { resourse: List<Basket>? ->
+        /*basketViewModel!!.allBasketList.observe(this, Observer { resourse: List<Basket>? ->
             if (resourse != null) {
                 var total = 0
                 for (i in resourse.indices) {
@@ -692,7 +708,7 @@ class MainActivity : PSAppCompactActivity() {
                     basketNotificationTextView!!.text = total.toString()
                 }
             }
-        })
+        })*/
     }
 
     /**

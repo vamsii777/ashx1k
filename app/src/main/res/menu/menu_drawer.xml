@@ -46,13 +46,13 @@
 
                     <item
                         android:id="@+id/nav_productCollectionHeaderList"
-                        android:visible="false"
-                        android:icon="@drawable/baseline_collection_grey_24"
+                        android:visible="true"
+                        android:icon="@drawable/ic_outline_view_list_24"
                         android:title="@string/menu__collections" />
 
                     <item
                         android:id="@+id/nav_danceoholics"
-                        android:icon="@drawable/ic_commerce_and_shopping"
+                        android:icon="@drawable/ic_outline_fiber_new_24"
                         android:title="Danceoholics" />
 
                 </group>
@@ -173,8 +173,8 @@
 
                     <item
                         android:id="@+id/nav_productCollectionHeaderList_login"
-                        android:visible="false"
-                        android:icon="@drawable/baseline_collection_grey_24"
+                        android:visible="true"
+                        android:icon="@drawable/ic_outline_view_list_24"
                         android:title="@string/menu__collections" />
 
 

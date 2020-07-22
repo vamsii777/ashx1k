@@ -11,21 +11,21 @@
 
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
 
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/recycler_item_bg">
 
-        <androidx.cardview.widget.CardView
+        <com.google.android.material.card.MaterialCardView
             android:id="@+id/newsHolderCardView"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="2dp"
+            app:cardElevation="8dp"
+            android:clickable="false"
             android:layout_marginEnd="2dp"
             android:layout_marginBottom="2dp"
             android:clipToPadding="false"
             app:cardCornerRadius="@dimen/space_4"
+            android:elevation="0dp"
+            android:foreground="?android:attr/selectableItemBackground"
             app:cardUseCompatPadding="true"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -73,9 +73,7 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-        </androidx.cardview.widget.CardView>
+        </com.google.android.material.card.MaterialCardView>
 
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>
