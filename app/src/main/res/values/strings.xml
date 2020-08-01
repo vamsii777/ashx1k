@@ -395,7 +395,7 @@
     <string name="menu__contact_us">Contact Us</string>
     <string name="menu__notification_setting">Notification Setting</string>
     <string name="menu__language">Language</string>
-    <string name="menu__setting">Setting</string>
+    <string name="menu__setting">Settings</string>
     <string name="menu__shop_profile">About</string>
     <string name="menu__me">Me</string>
     <string name="menu__basket">Basket</string>
@@ -455,7 +455,7 @@
     <string name="product_detail__related_tags">Related Tags</string>
     <string name="product_detail__related_product">Related Products</string>
     <string name="product_detail__add_to_busket"> Add to basket</string>
-    <string name="product_detail__buy">Buy</string>
+    <string name="product_detail__buy">BUY NOW</string>
     <string name="product_detail__successfully_added">Successfully added to basket</string>
     <string name="product_detail__like">Like</string>
     <string name="product_detail__comment">Comments</string>

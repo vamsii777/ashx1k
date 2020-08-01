@@ -1,9 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: androidx.preference:preference-ktx:1.1.1@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/666a8a29b0ecba5329d2d38694b85a6d/jetified-preference-ktx-1.1.1/AndroidManifest.xml" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/666a8a29b0ecba5329d2d38694b85a6d/jetified-preference-ktx-1.1.1/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/666a8a29b0ecba5329d2d38694b85a6d/jetified-preference-ktx-1.1.1/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/1b4da568b3edbf12dfc5b5e79637bfeb/jetified-preference-ktx-1.1.1/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/1b4da568b3edbf12dfc5b5e79637bfeb/jetified-preference-ktx-1.1.1/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/1b4da568b3edbf12dfc5b5e79637bfeb/jetified-preference-ktx-1.1.1/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

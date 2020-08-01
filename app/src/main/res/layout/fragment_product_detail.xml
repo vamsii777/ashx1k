@@ -552,7 +552,6 @@
                                 android:contentDescription="@string/image_default__image"
                                 android:focusable="true"
                                 android:scaleType="fitCenter"
-                                android:src="@drawable/baseline_add_green_24"
                                 android:visibility="gone"
                                 app:backgroundTint="@color/md_white_1000"
                                 app:elevation="1dp"
@@ -1322,42 +1321,27 @@
                 app:layout_constraintHorizontal_weight="2"
                 app:layout_constraintStart_toStartOf="parent">
 
-                <Button
-                    android:id="@+id/addToBasketButton"
-                    android:layout_width="0dp"
-                    android:layout_height="@dimen/space_44"
-                    android:layout_marginEnd="@dimen/space_4"
-                    android:text="@string/product_detail__add_to_busket"
-                    android:textAllCaps="false"
-                    android:textColor="@color/md_white_1000"
-                    android:visibility="gone"
-                    app:font='@{"normal"}'
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/buyButton"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintHorizontal_weight="1"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="1.0"
-                    tools:visibility="gone" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/buyButton"
+                    style="@style/TextAppearance.MaterialComponents.Button"
                     android:layout_width="0dp"
                     android:layout_height="@dimen/space_44"
                     android:layout_marginStart="@dimen/space_4"
-                    android:background="@drawable/rounded_corner_shape_button"
+                    android:background="@drawable/shaddow"
                     android:text="@string/product_detail__buy"
                     android:textAllCaps="false"
                     android:textColor="@color/md_white_1000"
-                    app:font='@{"normal"}'
+                    android:textStyle="bold"
                     app:elevation="16dp"
+                    app:font='@{"normal"}'
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintHorizontal_weight="1"
-                    app:layout_constraintStart_toEndOf="@+id/addToBasketButton"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>

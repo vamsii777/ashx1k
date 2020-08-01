@@ -116,7 +116,7 @@
                 android:layout_marginStart="4dp"
                 android:layout_marginEnd="24dp"
                 android:text="/dnctv"
-                android:textColor="@color/bt_blue"
+                android:textColor="@android:color/holo_blue_dark"
                 android:visibility="invisible"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

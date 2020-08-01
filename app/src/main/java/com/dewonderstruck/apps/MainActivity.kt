@@ -34,6 +34,7 @@ import com.dewonderstruck.apps.ashx0.viewobject.UserLogin
 import com.dewonderstruck.apps.ashx0.viewobject.common.Resource
 import com.dewonderstruck.apps.ashx0.viewobject.common.Status
 import com.dewonderstruck.apps.ashx0.viewobject.holder.ProductParameterHolder
+import com.dewonderstruck.pod.feedback.EasyFeedback
 import com.facebook.login.LoginManager
 import com.google.ads.consent.*
 import com.google.android.gms.auth.api.signin.GoogleSignIn
@@ -573,12 +574,22 @@ class MainActivity : PSAppCompactActivity() {
                     })
                     Utils.psLog("nav_logout_login")
                 }
-                psDialogMsg!!.cancelButton.setOnClickListener({ view: View? -> psDialogMsg!!.cancel() })
+                psDialogMsg!!.cancelButton.setOnClickListener { view: View? -> psDialogMsg!!.cancel() }
             }
             R.id.nav_setting, R.id.nav_setting_login -> {
                 setToolbarText(binding!!.toolbar, getString(R.string.menu__setting))
                 navigationController!!.navigateToSetting(this)
                 Utils.psLog("nav_setting")
+                //hideBottomNavigation()
+            }
+            R.id.nav_report, R.id.nav_report_login -> {
+                //setToolbarText(binding!!.toolbar, getString(R.string.menu__setting))
+                EasyFeedback.Builder(this)
+                        .withEmail("helpdesk@dewonderstruck.com")
+                        .withSystemInfo()
+                        .build()
+                        .start()
+                Utils.psLog("nav_report")
                 //hideBottomNavigation()
             }
             R.id.nav_language, R.id.nav_language_login -> {

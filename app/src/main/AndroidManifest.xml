@@ -22,131 +22,14 @@
     <uses-feature
         android:name="android.hardware.camera"
         android:required="false" />
+
+    <uses-feature
+        android:name="android.hardware.location.gps"
+        android:required="false"/>
+
     <uses-feature
         android:name="android.hardware.camera.autofocus"
         android:required="false" />
-
-    <supports-screens
-        android:anyDensity="true"
-        android:largeScreens="true"
-        android:normalScreens="true"
-        android:resizeable="true"
-        android:smallScreens="true"
-        android:xlargeScreens="true" />
-
-    <compatible-screens>
-
-        <!-- no small size screens -->
-        <screen
-            android:screenDensity="ldpi"
-            android:screenSize="small" /> <!-- approximately 120 dpi -->
-        <screen
-            android:screenDensity="mdpi"
-            android:screenSize="small" /> <!-- approximately 160 dpi -->
-        <screen
-            android:screenDensity="hdpi"
-            android:screenSize="small" /> <!-- approximately 240 dpi -->
-        <screen
-            android:screenDensity="280"
-            android:screenSize="small" /> <!-- Workaround -->
-        <screen
-            android:screenDensity="xhdpi"
-            android:screenSize="small" /> <!-- approximately 320 dpi -->
-        <screen
-            android:screenDensity="360"
-            android:screenSize="small" /> <!-- Workaround -->
-        <screen
-            android:screenDensity="420"
-            android:screenSize="small" /> <!-- Workaround -->
-        <screen
-            android:screenDensity="480"
-            android:screenSize="small" /> <!-- Workaround -->
-        <screen
-            android:screenDensity="560"
-            android:screenSize="small" /> <!-- Workaround -->
-        <screen
-            android:screenDensity="640"
-            android:screenSize="small" /> <!-- Workaround -->
-
-
-        <!-- all normal size screens -->
-        <screen
-            android:screenDensity="ldpi"
-            android:screenSize="normal" /> <!-- approximately 120 dpi -->
-        <screen
-            android:screenDensity="mdpi"
-            android:screenSize="normal" /> <!-- approximately 160 dpi -->
-        <screen
-            android:screenDensity="hdpi"
-            android:screenSize="normal" /> <!-- approximately 240 dpi -->
-        <screen
-            android:screenDensity="280"
-            android:screenSize="normal" /> <!-- Workaround -->
-        <screen
-            android:screenDensity="xhdpi"
-            android:screenSize="normal" /> <!-- approximately 320 dpi -->
-        <screen
-            android:screenDensity="360"
-            android:screenSize="normal" /> <!-- Workaround -->
-        <screen
-            android:screenDensity="420"
-            android:screenSize="normal" /> <!-- Workaround -->
-        <screen
-            android:screenDensity="480"
-            android:screenSize="normal" /> <!-- Workaround -->
-        <screen
-            android:screenDensity="560"
-            android:screenSize="normal" /> <!-- Workaround -->
-        <screen
-            android:screenDensity="640"
-            android:screenSize="normal" /> <!-- Workaround -->
-
-
-        <!-- all large size screens -->
-        <screen
-            android:screenDensity="ldpi"
-            android:screenSize="large" />
-        <screen
-            android:screenDensity="mdpi"
-            android:screenSize="large" />
-        <screen
-            android:screenDensity="hdpi"
-            android:screenSize="large" />
-        <screen
-            android:screenDensity="xhdpi"
-            android:screenSize="large" />
-
-        <!-- all xlarge size screens -->
-        <screen
-            android:screenDensity="ldpi"
-            android:screenSize="xlarge" />
-        <screen
-            android:screenDensity="mdpi"
-            android:screenSize="xlarge" />
-        <screen
-            android:screenDensity="hdpi"
-            android:screenSize="xlarge" />
-        <screen
-            android:screenDensity="xhdpi"
-            android:screenSize="xlarge" />
-
-        <!-- Special case for Nexus 7 -->
-        <screen
-            android:screenDensity="213"
-            android:screenSize="large" />
-
-        <!-- xxhdpi -->
-
-        <screen
-            android:screenDensity="480"
-            android:screenSize="normal" />
-        <screen
-            android:screenDensity="480"
-            android:screenSize="large" />
-        <screen
-            android:screenDensity="480"
-            android:screenSize="xlarge" />
-    </compatible-screens>
 
     <application
         android:name="com.dewonderstruck.apps.App"

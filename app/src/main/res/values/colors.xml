@@ -9,12 +9,12 @@
     <color name="colorLine">#E0E0E0</color>
     //button
     <color name="colorFabRipple">#ef9a9a</color>
-
+<color name="bt_blue">@android:color/holo_blue_dark</color>
     <color name="global__primary_light">#FF99B1</color>
     <color name="global__primary">#E8678B</color>
     <color name="global__primary_dark">#E8678B</color>
     <color name="global__accent">#EC5680</color>
-
+    <color name="bt_white">@android:color/white</color>
     <color name="layout__primary_background">@color/md_grey_50</color>
     <color name="layout__selection">@color/md_grey_400</color>
 

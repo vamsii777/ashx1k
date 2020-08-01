@@ -55,6 +55,8 @@
                         android:icon="@drawable/ic_outline_fiber_new_24"
                         android:title="Danceoholics" />
 
+
+
                 </group>
             </menu>
 
@@ -102,15 +104,25 @@
                         android:title="@string/menu__language" />
 
                     <item
+                        android:id="@+id/nav_report"
+                        android:icon="@drawable/ic_outline_bug_report_24"
+                        android:title="Report" />
+
+                    <item
                         android:id="@+id/nav_setting"
                         android:icon="@drawable/ic_outline_settings_24"
                         android:title="@string/menu__setting" />
+
 
                     <item
                         android:id="@+id/nav_contact_us"
                         android:icon="@drawable/ic_outline_alternate_email_24"
                         android:title="@string/menu__contact_us" />
 
+                    <item
+                        android:id="@+id/nav_rate_this_app"
+                        android:icon="@drawable/ic_outline_rate_review_24"
+                        android:title="@string/menu__rate" />
 
                     <item
                         android:id="@+id/nav_privacy_policy"
@@ -118,10 +130,8 @@
                         android:icon="@drawable/baseline_info_white_24"
                         android:title="@string/terms_and_conditions__title" />
 
-                    <item
-                        android:id="@+id/nav_rate_this_app"
-                        android:icon="@drawable/ic_outline_rate_review_24"
-                        android:title="@string/menu__rate" />
+
+
                 </group>
             </menu>
 
@@ -256,14 +266,22 @@
                         android:visible="false"
                         android:icon="@drawable/baseline_language_24"
                         android:title="@string/menu__language" />
+
                     <item
-                        android:id="@+id/nav_contact_us_login"
-                        android:icon="@drawable/ic_outline_alternate_email_24"
-                        android:title="@string/menu__contact_us" />
+                        android:id="@+id/nav_report_login"
+                        android:icon="@drawable/ic_outline_bug_report_24"
+                        android:title="Report" />
+
                     <item
                         android:id="@+id/nav_setting_login"
                         android:icon="@drawable/ic_outline_settings_24"
                         android:title="@string/menu__setting" />
+
+                    <item
+                        android:id="@+id/nav_contact_us_login"
+                        android:icon="@drawable/ic_outline_alternate_email_24"
+                        android:title="@string/menu__contact_us" />
+
                     <item
                         android:id="@+id/nav_privacy_policy_login"
                         android:visible="false"
@@ -273,6 +291,8 @@
                         android:id="@+id/nav_rate_this_app_login"
                         android:icon="@drawable/ic_outline_rate_review_24"
                         android:title="@string/menu__rate" />
+
+
 
                 </group>
             </menu>

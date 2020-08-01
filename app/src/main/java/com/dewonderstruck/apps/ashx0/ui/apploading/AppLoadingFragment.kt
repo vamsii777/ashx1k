@@ -115,7 +115,7 @@ class AppLoadingFragment : PSFragment() {
             pref.edit().putBoolean(Constants.APPINFO_PREF_FORCE_UPDATE, false).apply()
             //psDialogMsg!!.showAppInfoDialog(getString(R.string.update), getString(R.string.app__cancel), psAppInfo.psAppVersion.versionTitle, psAppInfo.psAppVersion.versionMessage)
             //psDialogMsg!!.show()
-
+            binding!!.get().progressBar.visibility = View.INVISIBLE
             MaterialAlertDialogBuilder(this!!.context!!, R.style.MaterialAlertDialog_MaterialComponents_R)
                     .setCancelable(false)
                     .setTitle(psAppInfo.psAppVersion.versionTitle)

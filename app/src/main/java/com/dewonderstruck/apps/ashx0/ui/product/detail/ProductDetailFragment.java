@@ -313,27 +313,24 @@ public class ProductDetailFragment extends PSFragment implements DataBoundListAd
         });
 */
 
-        buyNowButton.get().setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (available) {
-                    //productDetailViewModel.isAddtoCart = false;
-                    //bottomBoxLayoutBinding.get().lowestButton.setText(getString(R.string.product_detail__buy));
-                    //mBottomSheetDialog.get().show();
-                    String url = binding.get().getProduct().productLink;
-                    Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-                    //i.setData(Uri.parse(url));
-                    //requireContext().startActivity(i);
-                    if (i.resolveActivity(requireActivity().getPackageManager()) != null) {
-                        startActivity(i);
-                    } else {
-                        psDialogMsg.showWarningDialog(getString(R.string.product_detail__error_browser), getString(R.string.app__ok));
-                        psDialogMsg.show();
-                    }
+        buyNowButton.get().setOnClickListener(view -> {
+            if (available) {
+                //productDetailViewModel.isAddtoCart = false;
+                //bottomBoxLayoutBinding.get().lowestButton.setText(getString(R.string.product_detail__buy));
+                //mBottomSheetDialog.get().show();
+                String url = binding.get().getProduct().productLink;
+                Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                //i.setData(Uri.parse(url));
+                //requireContext().startActivity(i);
+                if (i.resolveActivity(requireActivity().getPackageManager()) != null) {
+                    startActivity(i);
                 } else {
-                    psDialogMsg.showWarningDialog(getString(R.string.product_detail__not_available), getString(R.string.app__ok));
+                    psDialogMsg.showWarningDialog(getString(R.string.product_detail__error_browser), getString(R.string.app__ok));
                     psDialogMsg.show();
                 }
+            } else {
+                psDialogMsg.showWarningDialog(getString(R.string.product_detail__not_available), getString(R.string.app__ok));
+                psDialogMsg.show();
             }
         });
 

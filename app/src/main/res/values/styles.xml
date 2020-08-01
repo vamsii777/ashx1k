@@ -20,7 +20,7 @@
         <item name="drawerArrowStyle">@style/MyDrawerArrowToggle</item>
         <item name="colorControlNormal">@color/global__accent</item>
         <item name="actionBarStyle">@style/Widget.Styled.ActionBar</item>
-        <item name="android:navigationBarColor" tools:targetApi="lollipop">@color/bt_white</item>
+        <item name="android:navigationBarColor" tools:targetApi="lollipop">@android:color/white</item>
         <item name="materialAlertDialogTheme">@style/AlertDialogTheme</item>
     </style>
 

@@ -1,0 +1,16 @@
+<component name="libraryTable">
+  <library name="Gradle: com.bugsnag:bugsnag-android-core:5.0.1@aar">
+    <ANNOTATIONS>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f76bf3a7196a38d0176b2925222179d4/jetified-bugsnag-android-core-5.0.1/annotations.zip!/" />
+    </ANNOTATIONS>
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f76bf3a7196a38d0176b2925222179d4/jetified-bugsnag-android-core-5.0.1/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f76bf3a7196a38d0176b2925222179d4/jetified-bugsnag-android-core-5.0.1/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f76bf3a7196a38d0176b2925222179d4/jetified-bugsnag-android-core-5.0.1/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.bugsnag/bugsnag-android-core/5.0.1/245e5fd765f8d29d5d943d6004735ec5d8d2d4f1/bugsnag-android-core-5.0.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
