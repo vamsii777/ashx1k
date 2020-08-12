@@ -16,7 +16,8 @@ import com.dewonderstruck.apps.ashx0.ui.category.CategoryListFragment
 import com.dewonderstruck.apps.ashx0.ui.collection.CollectionBaseActivity
 import com.dewonderstruck.apps.ashx0.ui.collection.productCollectionHeader.ProductCollectionHeaderListFragment
 import com.dewonderstruck.apps.ashx0.ui.contactus.ContactUsFragment
-import com.dewonderstruck.apps.ashx0.ui.danceoholics.DanceholicsFragment
+import com.dewonderstruck.apps.ashx0.ui.danceoholics.DanceoholicsFragment
+
 import com.dewonderstruck.apps.ashx0.ui.forceupdate.ForceUpdateActivity
 import com.dewonderstruck.apps.ashx0.ui.gallery.GalleryActivity
 import com.dewonderstruck.apps.ashx0.ui.gallery.detail.GalleryDetailActivity
@@ -287,15 +288,16 @@ class NavigationController2 @Inject constructor() {
     fun navigateToDanceoholics(mainActivity: MainActivity) {
         if (checkFragmentChange(RegFragmentS.HOME_DANCEOHOLICS)) {
             try {
-                val fragment = DanceholicsFragment()
+                val fragment = DanceoholicsFragment()
                 mainActivity.supportFragmentManager.beginTransaction()
                         .replace(containerId, fragment)
                         .commitAllowingStateLoss()
-            } catch (e: Exception) {
+            } catch (e: java.lang.Exception) {
                 Utils.psErrorLog("Error! Can't replace fragment.", e)
             }
         }
     }
+
 
     fun navigateToCollectionList(mainActivity: MainActivity) {
         if (checkFragmentChange(RegFragmentS.HOME_PRODUCT_COLLECTION)) {

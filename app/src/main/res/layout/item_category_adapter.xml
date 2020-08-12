@@ -72,13 +72,10 @@
                     textSize="14sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginBottom="16dp"
                     android:background="@drawable/header_grad"
                     android:ellipsize="end"
                     android:maxLines="1"
+                    android:padding="4dp"
                     android:textAlignment="center"
                     android:textAllCaps="true"
                     android:textColor="#f9f5f5"
@@ -86,8 +83,10 @@
                     app:font='@{"normal"}'
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="@+id/imageView13"
+                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="1.0"
                     app:textSize='@{"tag"}'
                     tools:text="Text" />
 

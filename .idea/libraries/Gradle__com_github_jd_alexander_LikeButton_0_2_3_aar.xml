@@ -1,9 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: com.github.jd-alexander:LikeButton:0.2.3@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/dc172b53012de1777d3cdbca6727529f/jetified-LikeButton-0.2.3/AndroidManifest.xml" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/dc172b53012de1777d3cdbca6727529f/jetified-LikeButton-0.2.3/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/dc172b53012de1777d3cdbca6727529f/jetified-LikeButton-0.2.3/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/2dbc3f07aa16932853f591cc28abcce0/jetified-LikeButton-0.2.3/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/2dbc3f07aa16932853f591cc28abcce0/jetified-LikeButton-0.2.3/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/2dbc3f07aa16932853f591cc28abcce0/jetified-LikeButton-0.2.3/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

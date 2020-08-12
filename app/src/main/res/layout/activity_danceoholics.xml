@@ -16,6 +16,8 @@
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
+                app:title="Danceoholics"
+                android:padding="16dp"
                 android:layout_width="match_parent"
                 android:layout_height="?android:attr/actionBarSize"
                 android:background="@color/global__primary"
@@ -28,6 +30,18 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+        <ProgressBar
+            android:id="@+id/progressBar2"
+            style="@style/Widget.MaterialComponents.ProgressIndicator.Circular.Indeterminate"
+            android:layout_width="wrap_content"
+            android:progressDrawable="@drawable/header_grad"
+            android:indeterminateTintMode="src_atop"
+            android:indeterminateTint="@color/global__primary_dark"
+            android:layout_height="wrap_content"
+            android:progressTint="@color/button__primary_bg"
+            app:layout_anchor="@+id/content_frame"
+            app:layout_anchorGravity="center" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 

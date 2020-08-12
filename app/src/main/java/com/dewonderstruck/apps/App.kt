@@ -15,6 +15,7 @@ import javax.inject.Inject
  * Created by Vamsi Madduluri on 11/15/17.
  * Contact Email : vamsii.wrkhost@gmail.com
  */
+
 class App : MultiDexApplication(), HasActivityInjector {
     @JvmField
     @Inject
@@ -31,8 +32,10 @@ class App : MultiDexApplication(), HasActivityInjector {
         Bugsnag.start(this)
         FlurryAgent.Builder()
                 .withLogEnabled(true)
-                .build(this, "APP_KEY")
-        //        if (LeakCanary.isInAnalyzerProcess(this)) {
+                .build(this, "BJS8NMHKTTVFF9CGKCQ3")
+
+
+//if (LeakCanary.isInAnalyzerProcess(this)) {
 //            // This process is dedicated to LeakCanary for heap analysis.
 //            // You should not init your app in this process.
 //            return;

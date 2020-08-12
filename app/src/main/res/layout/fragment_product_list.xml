@@ -132,6 +132,7 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <ImageView
+                    android:src="@drawable/ic_hypnotized"
                     android:id="@+id/noDataImageView"
                     android:layout_width="120dp"
                     android:layout_height="120dp"
@@ -139,12 +140,11 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="8dp"
                     android:layout_marginBottom="250dp"
-                    android:contentDescription="@string/image_default__image"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/baseline_empty_item_grey_24" />
+                     />
 
                 <TextView
                     android:id="@+id/noItemTitleTextView"

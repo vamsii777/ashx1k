@@ -22,7 +22,7 @@ import com.dewonderstruck.apps.ashx0.ui.collection.CollectionBaseActivity;
 import com.dewonderstruck.apps.ashx0.ui.collection.productCollectionHeader.ProductCollectionHeaderListFragment;
 
 import com.dewonderstruck.apps.ashx0.ui.contactus.ContactUsFragment;
-import com.dewonderstruck.apps.ashx0.ui.danceoholics.DanceholicsFragment;
+import com.dewonderstruck.apps.ashx0.ui.danceoholics.DanceoholicsFragment;
 import com.dewonderstruck.apps.ashx0.ui.forceupdate.ForceUpdateActivity;
 import com.dewonderstruck.apps.ashx0.ui.gallery.GalleryActivity;
 import com.dewonderstruck.apps.ashx0.ui.gallery.detail.GalleryDetailActivity;
@@ -139,6 +139,20 @@ public class NavigationController {
         if (checkFragmentChange(RegFragments.HOME_FAVOURITE)) {
             try {
                 FavouriteListFragment fragment = new FavouriteListFragment();
+                mainActivity.getSupportFragmentManager().beginTransaction()
+                        .replace(containerId, fragment)
+                        .commitAllowingStateLoss();
+            } catch (Exception e) {
+                Utils.psErrorLog("Error! Can't replace fragment.", e);
+            }
+        }
+    }
+
+
+    public void navigateToDanceoholics(MainActivity mainActivity) {
+        if (checkFragmentChange(RegFragments.HOME_DANCEOHOLICS)) {
+            try {
+                DanceoholicsFragment fragment = new DanceoholicsFragment();
                 mainActivity.getSupportFragmentManager().beginTransaction()
                         .replace(containerId, fragment)
                         .commitAllowingStateLoss();
@@ -326,18 +340,7 @@ public class NavigationController {
         }
     }
 
-    public void navigateToDanceoholics(MainActivity mainActivity) {
-        if (checkFragmentChange(RegFragments.HOME_DANCEOHOLICS)) {
-            try {
-                DanceholicsFragment fragment = new DanceholicsFragment();
-                mainActivity.getSupportFragmentManager().beginTransaction()
-                        .replace(containerId, fragment)
-                        .commitAllowingStateLoss();
-            } catch (Exception e) {
-                Utils.psErrorLog("Error! Can't replace fragment.", e);
-            }
-        }
-    }
+
 
     public void navigateToCollectionList(MainActivity mainActivity) {
         if (checkFragmentChange(RegFragments.HOME_PRODUCT_COLLECTION)) {

@@ -40,9 +40,9 @@
                 <ImageView
                     android:id="@+id/aboutImageView"
                     android:layout_width="match_parent"
-                    android:layout_height="320dp"
+                    android:layout_height="220dp"
                     android:contentDescription="@string/menu__about_app"
-                    android:scaleType="fitXY"
+                    android:scaleType="centerCrop"
                     app:imageUrl="@{shop.defaultPhoto.imgPath}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"

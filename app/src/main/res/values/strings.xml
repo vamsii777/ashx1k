@@ -331,7 +331,7 @@
     <string name="Feature_UI_Type__Button">Category</string>
     <string name="Feature_UI_Tune__Button">Search</string>
     <string name="Feature_UI_Sort__Button">Sort</string>
-    <string name="Feature_UI__product_list_no_item_title">No Data</string>
+    <string name="Feature_UI__product_list_no_item_title">No Data Found</string>
     <string name="Feature_UI__product_list_no_item_desc">No result! Please try to adjust the filter.</string>
     <string name="Feature_UI__product_list_loading_item_title">We are loading</string>
     <string name="Feature_UI__search_alert_cat_title">Choose Category</string>

@@ -17,7 +17,7 @@ import com.dewonderstruck.apps.ashx0.ui.collection.CollectionFragment
 import com.dewonderstruck.apps.ashx0.ui.collection.productCollectionHeader.ProductCollectionHeaderListFragment
 
 import com.dewonderstruck.apps.ashx0.ui.contactus.ContactUsFragment
-import com.dewonderstruck.apps.ashx0.ui.danceoholics.DanceholicsFragment
+import com.dewonderstruck.apps.ashx0.ui.danceoholics.DanceoholicsFragment
 import com.dewonderstruck.apps.ashx0.ui.forceupdate.ForceUpdateActivity
 import com.dewonderstruck.apps.ashx0.ui.forceupdate.ForceUpdateFragment
 import com.dewonderstruck.apps.ashx0.ui.gallery.GalleryActivity
@@ -186,6 +186,7 @@ internal abstract class MainModule {
     @ContributesAndroidInjector
     abstract fun contributefeaturedProductFragment(): ProductListFragment?
 
+
     @ContributesAndroidInjector
     abstract fun contributeSelectedShopFragment(): MainFragment?
 
@@ -194,6 +195,9 @@ internal abstract class MainModule {
 
     @ContributesAndroidInjector
     abstract fun contributeTypeFilterFragment(): CategoryFilterFragment?
+
+    @ContributesAndroidInjector
+    abstract fun contributeDanceholicsFragment(): DanceoholicsFragment?
 
     @ContributesAndroidInjector
     abstract fun contributeProductCollectionHeaderListFragment(): ProductCollectionHeaderListFragment?
@@ -212,9 +216,6 @@ internal abstract class MainModule {
 
     @ContributesAndroidInjector
     abstract fun contributeNotificationSettingFragment(): NotificationSettingFragment?
-
-    @ContributesAndroidInjector
-    abstract fun contributeDanceholicsFragment(): DanceholicsFragment?
 
     @ContributesAndroidInjector
     abstract fun contributeProfileFragment(): ProfileFragment?
@@ -400,6 +401,9 @@ internal abstract class GalleryDetailActivityModule {
     @ContributesAndroidInjector
     abstract fun contributeGalleryDetailFragment(): GalleryDetailFragment?
 }
+
+
+
 
 @Module
 internal abstract class GalleryActivityModule {

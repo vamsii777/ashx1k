@@ -3,6 +3,9 @@ package com.dewonderstruck.apps.ashx0.utils;
 import android.content.SharedPreferences;
 
 import com.dewonderstruck.apps.Config;
+import com.dewonderstruck.apps.ashx0.ui.danceoholics.data.SliderItem;
+
+import java.util.ArrayList;
 
 import javax.inject.Inject;
 
@@ -30,6 +33,8 @@ public class AppLanguage {
     }
 
     public AppLanguage() {
+
+
 
     }
 

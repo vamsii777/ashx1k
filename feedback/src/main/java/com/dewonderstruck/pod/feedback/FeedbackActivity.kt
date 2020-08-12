@@ -19,9 +19,9 @@ import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
-import com.dewonderstruck.pod.feedback.FeedbackActivity
 import com.dewonderstruck.pod.feedback.components.DeviceInfo.getAllDeviceInfo
 import com.dewonderstruck.pod.feedback.components.SystemLog.extractLogToString
 import com.dewonderstruck.pod.feedback.components.Utils.createEmailOnlyChooserIntent
@@ -47,8 +47,12 @@ class FeedbackActivity : AppCompatActivity(), View.OnClickListener {
     private var selectContainer: LinearLayout? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.feedback_layout)
+        setContentView(R.layout.activity_feedback)
         if (supportActionBar != null) supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        val toolbar = findViewById<View>(R.id.toolbar) as Toolbar
+        setSupportActionBar(toolbar);
+        getSupportActionBar()!!.setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar()!!.setDisplayShowHomeEnabled(true);
         init()
     }
 

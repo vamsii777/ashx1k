@@ -150,9 +150,13 @@ class MainFragment : PSFragment(), DiffUtilDispatchedInterface2 {
             val adRequest2 = AdRequest.Builder()
                     .build()
             binding!!.get()!!.adView2.loadAd(adRequest2)
+            val adRequest3 = AdRequest.Builder()
+                    .build()
+            binding!!.get()!!.adView3.loadAd(adRequest3)
         } else {
             binding!!.get()!!.adView.visibility = View.GONE
             binding!!.get()!!.adView2.visibility = View.GONE
+            binding!!.get()!!.adView3.visibility = View.GONE
         }
         extendedFloatingActionButton = binding!!.get()!!.gotoyounew
         extendedFloatingActionButton!!.setOnClickListener { /*Intent intent = new Intent(Intent.ACTION_VIEW , Uri.parse("https://www.youtube.com/channel/UCXsOq3SXWaSxeE7zNK9FgYA"));

@@ -1,141 +1,748 @@
-<?xml version="1.0" encoding="utf-8"?>
-
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.theodhor.runtimepermissions.MainActivity">
 
-    <!--<data>-->
-    <!--<variable-->
-    <!--name="aboutUs"-->
-    <!--type="com.panaceasoft.mokets.viewobject.AboutUs" />-->
-    <!--</data>-->
+    <data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+        <variable
+            name="shop"
+            type="com.dewonderstruck.apps.ashx0.viewobject.Shop" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-      <!--  <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/dncyoutubelist"
+        <ProgressBar
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="18dp"
+            android:progressDrawable="@drawable/header_grad"
+            android:layout_marginEnd="8dp"
+            android:indeterminateTintMode="src_atop"
+            android:indeterminateTint="@color/global__primary_dark"
+            android:progressTint="@color/md_white_1000"
+            android:id="@+id/progressBar4"
+            android:layout_gravity="center"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/nestedScrollView"
             android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />-->
+            android:layout_height="wrap_content">
 
-        <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
-            android:id="@+id/dncyoutubelist"
-            android:layout_width="match_parent"
-            android:layout_height="300dp"
-            app:videoId="73KnYMA76ZM"
-            app:autoPlay="true"
-            app:showFullScreenButton="false"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:padding="16dp"
-            android:text="@string/sudhir_s_danceoholics_is_a_dance_fitness_company_established_in_2009_we_are_located_in_sri_nagarcolony_banjarahills_we_offer_kids_dance_classes_zumba_fitness_bollywood_dance_dance_fitness_classes_personal_training_wedding_choreography_events_and_more"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/dncyoutubelist" />
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraintLayout3"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginTop="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView2">
-
-
-            <ImageView
-                android:id="@+id/dnctvyou"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_marginStart="24dp"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:focusable="true"
+                android:id="@+id/frag_dnc"
                 android:visibility="invisible"
-                app:layout_constraintStart_toEndOf="@+id/dnc_textView11"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_youtube"
-                tools:visibility="invisible" />
+                android:focusableInTouchMode="true">
 
-            <ImageView
-                android:id="@+id/twitterdnc"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_marginStart="32dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/dnc_textView10"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_twitter" />
-
-            <ImageView
-                android:id="@+id/fbdnc"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_marginStart="32dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_facebook" />
-
-            <TextView
-                android:id="@+id/dnc_textView10"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:text="/danceohlics"
-                android:textColor="@color/bt_blue"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/fbdnc"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/dnc_textView11"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:text="/sudhirdancecom1"
-                android:textColor="@color/bt_blue"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/twitterdnc"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/dnc_textView12"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
-                android:layout_marginEnd="24dp"
-                android:text="/dnctv"
-                android:textColor="@android:color/holo_blue_dark"
-                android:visibility="invisible"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/dnctvyou"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:visibility="invisible" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <LinearLayout
-            android:id="@+id/dncbanner_container"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/constraintLayout3" />
+                <com.google.android.gms.ads.AdView
+                    android:id="@+id/adView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    app:adSize="SMART_BANNER"
+                    app:adUnitId="@string/admob_banner_ads_key2"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/slider1"
+                    android:layout_height="250dp"
+                    android:layout_alignParentBottom="true"
+                    android:clipToPadding = "false"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/adView"
+                    android:layout_width="match_parent">
+                </androidx.viewpager2.widget.ViewPager2>
 
 
+                <TextView
+                    android:id="@+id/titleTextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="8dp"
+                    android:gravity="start"
+                    android:textAlignment="viewStart"
+                    android:textColor="?attr/colorPrimaryDark"
+                    android:textSize="@dimen/font_title_size"
+                    android:textStyle="bold"
+                    app:font='@{"normal"}'
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/aboutDefaultIcon"
+                    app:layout_constraintTop_toBottomOf="@+id/slider1"
+                    app:textSize='@{"font_title_size"}'
+                    tools:text="Title" />
+
+                <TextView
+                    android:id="@+id/descTextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="16dp"
+                    android:gravity="start"
+                    android:lineSpacingExtra="4dp"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/text__primary"
+                    android:textSize="@dimen/font_body_size"
+                    app:font='@{"normal"}'
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/aboutDefaultIcon"
+                    tools:text="Description" />
+
+                <ImageView
+                    android:id="@+id/webImage"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_marginStart="@dimen/space_16"
+                    android:contentDescription="@string/image_default__image"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/websiteTitleTextView"
+                    app:srcCompat="@drawable/web" />
+
+                <TextView
+                    android:id="@+id/websiteTitleTextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="@dimen/space_16"
+                    android:gravity="start"
+                    android:text="@string/about_us__visit_website"
+                    android:textAlignment="viewStart"
+                    app:font='@{"normal"}'
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/webImage"
+                    app:layout_constraintTop_toBottomOf="@+id/phone3TextView"
+                    app:textSize='@{"font_body_size"}'
+                    tools:text="Visit Our Website" />
+
+                <TextView
+                    android:id="@+id/WebsiteTextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="42dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="@dimen/space_16"
+                    android:gravity="start"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="4dp"
+                    android:textAlignment="viewStart"
+                    android:textColor="@android:color/holo_blue_dark"
+                    app:font='@{"normal"}'
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/websiteTitleTextView"
+                    app:textSize='@{"font_body_size"}'
+                    tools:text="http://www.ashtrixx.com" />
+
+                <ImageView
+                    android:id="@+id/emailImage"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="4dp"
+                    android:contentDescription="@string/image_default__image"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toEndOf="@+id/aboutDefaultIcon"
+                    app:layout_constraintTop_toBottomOf="@+id/phone_profile"
+                    app:srcCompat="@drawable/mail"
+                    tools:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/emailTextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="@dimen/space_16"
+                    android:gravity="start"
+                    android:textAlignment="viewStart"
+                    android:textColor="@android:color/holo_blue_dark"
+                    android:textSize="@dimen/font_body_size"
+                    app:font='@{"normal"}'
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/emailImage"
+                    app:layout_constraintTop_toBottomOf="@+id/phone_profile"
+                    app:textSize='@{"font_body_size"}'
+                    tools:text="vamsii.wrkhost@gmail.com" />
+
+
+                <ImageView
+                    android:id="@+id/phoneImage"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_marginStart="16dp"
+                    android:contentDescription="@string/image_default__image"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/phoneTitleTextView"
+                    app:srcCompat="@drawable/phone"
+                    tools:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/phoneTitleTextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:gravity="start"
+                    android:text="@string/about_us__phone"
+                    android:textAlignment="viewStart"
+                    android:visibility="gone"
+                    app:font='@{"normal"}'
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/phoneImage"
+                    app:layout_constraintTop_toBottomOf="@+id/textView36"
+                    app:textSize='@{"font_body_size"}'
+                    tools:text="Phone"
+                    tools:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/phone_profile"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="16dp"
+                    android:gravity="start"
+                    android:textAlignment="viewStart"
+                    android:textSize="@dimen/font_body_size"
+                    android:visibility="gone"
+                    app:font='@{"normal"}'
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/aboutDefaultIcon"
+                    app:layout_constraintTop_toBottomOf="@+id/titleTextView"
+                    tools:text="phone"
+                    tools:visibility="gone" />
+
+
+                <ImageView
+                    android:id="@+id/facebookImage"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_marginStart="@dimen/space_16"
+                    android:contentDescription="@string/image_default__image"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/facebookTitleTextView"
+                    app:srcCompat="@drawable/facebook" />
+
+                <TextView
+                    android:id="@+id/facebookTitleTextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="@dimen/space_16"
+                    android:gravity="start"
+                    android:text="@string/about_us__facebook"
+                    android:textAlignment="viewStart"
+                    app:font='@{"normal"}'
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/facebookImage"
+                    app:layout_constraintTop_toBottomOf="@+id/WebsiteTextView"
+                    app:textSize='@{"font_body_size"}'
+                    tools:text="Facebook" />
+
+                <TextView
+                    android:id="@+id/facebookTextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="42dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="@dimen/space_16"
+                    android:gravity="start"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="4dp"
+                    android:textAlignment="viewStart"
+                    android:textColor="@android:color/holo_blue_dark"
+                    app:font='@{"normal"}'
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/facebookTitleTextView"
+                    app:textSize='@{"font_body_size"}'
+                    tools:text="FB1" />
+
+                <ImageView
+                    android:id="@+id/gplusImage"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_marginStart="@dimen/space_16"
+                    android:contentDescription="@string/image_default__image"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/gplusTitleTextView"
+                    app:srcCompat="@drawable/gplus"
+                    tools:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/gplusTitleTextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="@dimen/space_16"
+                    android:gravity="start"
+                    android:text="@string/about_us__gplus"
+                    android:textAlignment="viewStart"
+                    android:visibility="gone"
+                    app:font='@{"normal"}'
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/gplusImage"
+                    app:layout_constraintTop_toBottomOf="@+id/facebookTextView"
+                    app:textSize='@{"font_body_size"}'
+                    tools:text="Google Plus"
+                    tools:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/gplusTextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="42dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="@dimen/space_16"
+                    android:gravity="start"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="4dp"
+                    android:textAlignment="viewStart"
+                    android:textColor="@android:color/holo_blue_dark"
+                    android:visibility="gone"
+                    app:font='@{"normal"}'
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/gplusTitleTextView"
+                    app:textSize='@{"font_body_size"}'
+                    tools:text="GP1"
+                    tools:visibility="gone" />
+
+
+                <ImageView
+                    android:id="@+id/twitterImage"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_marginStart="@dimen/space_16"
+                    android:contentDescription="@string/image_default__image"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/twitterTitleTextView"
+                    app:srcCompat="@drawable/twitter"
+                    tools:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/twitterTitleTextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="@dimen/space_16"
+                    android:gravity="start"
+                    android:text="@string/about_us__twitter"
+                    android:textAlignment="viewStart"
+                    android:visibility="gone"
+                    app:font='@{"normal"}'
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/twitterImage"
+                    app:layout_constraintTop_toBottomOf="@+id/gplusTextView"
+                    app:textSize='@{"font_body_size"}'
+                    tools:text="Twitter"
+                    tools:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/twitterTextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="42dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="@dimen/space_16"
+                    android:gravity="start"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="4dp"
+                    android:textAlignment="viewStart"
+                    android:textColor="@android:color/holo_blue_dark"
+                    android:visibility="gone"
+                    app:font='@{"normal"}'
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/twitterTitleTextView"
+                    app:textSize='@{"font_body_size"}'
+                    tools:text="T1"
+                    tools:visibility="gone" />
+
+
+                <ImageView
+                    android:id="@+id/instagramImage"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_marginStart="@dimen/space_16"
+                    android:contentDescription="@string/image_default__image"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/instaTitleTextView"
+                    app:srcCompat="@drawable/instagram" />
+
+                <TextView
+                    android:id="@+id/instaTitleTextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="@dimen/space_16"
+                    android:gravity="start"
+                    android:text="@string/about_us__instagram"
+                    android:textAlignment="viewStart"
+                    app:font='@{"normal"}'
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/instagramImage"
+                    app:layout_constraintTop_toBottomOf="@+id/twitterTextView"
+                    app:textSize='@{"font_body_size"}'
+                    tools:text="Instagram" />
+
+                <TextView
+                    android:id="@+id/instaTextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="42dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="@dimen/space_16"
+                    android:gravity="start"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="4dp"
+                    android:textAlignment="viewStart"
+                    android:textColor="@android:color/holo_blue_dark"
+                    app:font='@{"normal"}'
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/instaTitleTextView"
+                    app:textSize='@{"font_body_size"}'
+                    tools:text="Ins1" />
+
+                <ImageView
+                    android:id="@+id/youtubeImage"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_marginStart="@dimen/space_16"
+                    android:contentDescription="@string/image_default__image"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/youTubeTitleTextView"
+                    app:srcCompat="@drawable/youtube" />
+
+                <TextView
+                    android:id="@+id/youTubeTitleTextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="@dimen/space_16"
+                    android:gravity="start"
+                    android:text="@string/about_us__youtube"
+                    android:textAlignment="viewStart"
+                    app:font='@{"normal"}'
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/youtubeImage"
+                    app:layout_constraintTop_toBottomOf="@+id/instaTextView"
+                    app:textSize='@{"font_body_size"}'
+                    tools:text="YouTube" />
+
+                <TextView
+                    android:id="@+id/youtubeTextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="42dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="@dimen/space_16"
+                    android:gravity="start"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="4dp"
+                    android:textAlignment="viewStart"
+                    android:textColor="@android:color/holo_blue_dark"
+                    app:font='@{"normal"}'
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/youTubeTitleTextView"
+                    app:textSize='@{"font_body_size"}'
+                    tools:text="Y1" />
+
+                <ImageView
+                    android:id="@+id/pinterestImage"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_marginStart="@dimen/space_16"
+                    android:contentDescription="@string/image_default__image"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/pinterestTitleTextView"
+                    app:srcCompat="@drawable/pinterest"
+                    tools:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/pinterestTitleTextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="@dimen/space_16"
+                    android:gravity="start"
+                    android:text="@string/about_us__pinterest"
+                    android:textAlignment="viewStart"
+                    android:visibility="gone"
+                    app:font='@{"normal"}'
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/pinterestImage"
+                    app:layout_constraintTop_toBottomOf="@+id/youtubeTextView"
+                    app:textSize='@{"font_body_size"}'
+                    tools:text="Pinterest"
+                    tools:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/pinterestTextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="42dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="@dimen/space_16"
+                    android:gravity="start"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="4dp"
+                    android:textAlignment="viewStart"
+                    android:textColor="@android:color/holo_blue_dark"
+                    android:visibility="gone"
+                    app:font='@{"normal"}'
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/pinterestTitleTextView"
+                    app:textSize='@{"font_body_size"}'
+                    tools:text="P1"
+                    tools:visibility="gone" />
+
+                <ImageView
+                    android:id="@+id/aboutDefaultIcon"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:contentDescription="@string/image_default__image"
+                    android:scaleType="centerCrop"
+                    app:imageUrl="@{shop.defaultIcon.imgPath}"
+                    app:layout_constraintBottom_toBottomOf="@+id/emailImage"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/slider1"
+                    tools:srcCompat="@drawable/placeholder_image" />
+
+                <TextView
+                    android:id="@+id/phone1TextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="42dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="4dp"
+                    android:textAlignment="viewStart"
+                    android:textSize="@dimen/font_body_size"
+                    android:visibility="gone"
+                    app:font='@{"normal"}'
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/phoneTitleTextView"
+                    tools:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/phone2TextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="42dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="4dp"
+                    android:textAlignment="viewStart"
+                    android:textSize="@dimen/font_body_size"
+                    android:visibility="gone"
+                    app:font='@{"normal"}'
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/phone1TextView"
+                    tools:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/phone3TextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="42dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="4dp"
+                    android:textAlignment="viewStart"
+                    android:textSize="@dimen/font_body_size"
+                    android:visibility="gone"
+                    app:font='@{"normal"}'
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/phone2TextView"
+                    tools:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/textView36"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginEnd="16dp"
+                    android:text="Connect"
+                    android:textAlignment="viewStart"
+                    android:textColor="?attr/colorPrimaryDark"
+                    android:textSize="@dimen/font_body_size"
+                    app:font='@{"normal"}'
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/descTextView" />
+
+                <TextView
+                    android:id="@+id/address1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="@dimen/space_16"
+                    android:gravity="start"
+                    android:textAlignment="viewStart"
+                    android:textSize="@dimen/font_body_size"
+                    android:visibility="gone"
+                    app:font='@{"normal"}'
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView16"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/imageView16"
+                    app:layout_constraintTop_toTopOf="@+id/imageView16"
+                    app:textSize='@{"font_body_size"}'
+                    tools:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/textView39"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/space_16"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginEnd="@dimen/space_16"
+                    android:text="@string/about_us__source_address"
+                    android:textAlignment="viewStart"
+                    android:textColor="?attr/colorPrimaryDark"
+                    android:textSize="@dimen/font_body_size"
+                    android:visibility="gone"
+                    app:font='@{"normal"}'
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/pinterestTextView"
+                    tools:visibility="gone" />
+
+                <ImageView
+                    android:id="@+id/imageView16"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_marginStart="@dimen/space_16"
+                    android:layout_marginTop="16dp"
+                    android:contentDescription="@string/image_default__image"
+                    android:visibility="gone"
+                    app:layout_constraintHorizontal_chainStyle="spread_inside"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView39"
+                    app:srcCompat="@drawable/baseline_pin_black_24"
+                    tools:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/address2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="@dimen/space_16"
+                    android:textAlignment="viewStart"
+                    android:textSize="@dimen/font_body_size"
+                    android:visibility="gone"
+                    app:font='@{"normal"}'
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView17"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imageView17"
+                    app:layout_constraintTop_toTopOf="@+id/imageView17"
+                    tools:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/address3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="@dimen/space_16"
+                    android:textAlignment="viewStart"
+                    android:textSize="@dimen/font_body_size"
+                    android:visibility="gone"
+                    app:font='@{"normal"}'
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView18"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imageView18"
+                    app:layout_constraintTop_toTopOf="@+id/imageView18"
+                    tools:visibility="gone" />
+
+                <ImageView
+                    android:id="@+id/imageView17"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_marginStart="@dimen/space_16"
+                    android:layout_marginTop="16dp"
+                    android:contentDescription="@string/image_default__image"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView16"
+                    app:srcCompat="@drawable/baseline_pin_black_24"
+                    tools:visibility="invisible" />
+
+                <ImageView
+                    android:id="@+id/imageView18"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_marginStart="@dimen/space_16"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="24dp"
+                    android:contentDescription="@string/image_default__image"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView17"
+                    app:srcCompat="@drawable/baseline_pin_black_24"
+                    tools:visibility="invisible" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>
