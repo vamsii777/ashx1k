@@ -9,14 +9,14 @@ import com.dewonderstruck.apps.ashx0.R;
 import com.dewonderstruck.apps.Config;
 
 import com.dewonderstruck.apps.ashx0.databinding.ActivityProductListBinding;
-import com.dewonderstruck.apps.ashx0.ui.common.PSAppCompactActivity;
+import com.dewonderstruck.apps.ashx0.ui.common.DeAppCompactActivity;
 import com.dewonderstruck.apps.ashx0.utils.Constants;
 import com.dewonderstruck.apps.ashx0.utils.MyContextWrapper;
 
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 
-public class ProductListActivity extends PSAppCompactActivity {
+public class ProductListActivity extends DeAppCompactActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

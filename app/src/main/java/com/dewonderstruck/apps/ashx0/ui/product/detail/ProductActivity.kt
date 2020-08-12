@@ -2,6 +2,7 @@ package com.dewonderstruck.apps.ashx0.ui.product.detail
 
 import android.content.Context
 import android.content.Intent
+import com.uxcam.UXCam;
 import android.os.Bundle
 import androidx.preference.PreferenceManager
 import android.view.MenuItem
@@ -9,7 +10,7 @@ import androidx.databinding.DataBindingUtil
 import com.dewonderstruck.apps.Config
 import com.dewonderstruck.apps.ashx0.R
 import com.dewonderstruck.apps.ashx0.databinding.ActivityProductBinding
-import com.dewonderstruck.apps.ashx0.ui.common.PSAppCompactActivity
+import com.dewonderstruck.apps.ashx0.ui.common.DeAppCompactActivity
 import com.dewonderstruck.apps.ashx0.utils.AutoClearedValue
 import com.dewonderstruck.apps.ashx0.utils.Constants
 import com.dewonderstruck.apps.ashx0.utils.MyContextWrapper
@@ -17,7 +18,7 @@ import com.dewonderstruck.apps.ashx0.utils.Utils
 import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.appbar.AppBarLayout.OnOffsetChangedListener
 
-class ProductActivity : PSAppCompactActivity() {
+class ProductActivity : DeAppCompactActivity() {
     val KEY = Constants.PRODUCT_NAME
     var productName: String? = null
     private var productDetailFragment: ProductDetailFragment? = null

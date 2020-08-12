@@ -9,13 +9,13 @@ import com.dewonderstruck.apps.ashx0.R;
 import com.dewonderstruck.apps.Config;
 
 import com.dewonderstruck.apps.ashx0.databinding.ActivitySearchByCategoryBinding;
-import com.dewonderstruck.apps.ashx0.ui.common.PSAppCompactActivity;
+import com.dewonderstruck.apps.ashx0.ui.common.DeAppCompactActivity;
 import com.dewonderstruck.apps.ashx0.utils.Constants;
 import com.dewonderstruck.apps.ashx0.utils.MyContextWrapper;
 
 import androidx.databinding.DataBindingUtil;
 
-public class SearchByCategoryActivity extends PSAppCompactActivity {
+public class SearchByCategoryActivity extends DeAppCompactActivity {
 
 
     @Override

@@ -8,18 +8,17 @@ import androidx.databinding.DataBindingUtil
 import com.dewonderstruck.apps.Config
 import com.dewonderstruck.apps.ashx0.R
 import com.dewonderstruck.apps.ashx0.databinding.ActivityAppLoadingBinding
-import com.dewonderstruck.apps.ashx0.ui.common.PSAppCompactActivity
+import com.dewonderstruck.apps.ashx0.ui.common.DeAppCompactActivity
 import com.dewonderstruck.apps.ashx0.utils.Constants
 import com.dewonderstruck.apps.ashx0.utils.MyContextWrapper
-
-class AppLoadingActivity : PSAppCompactActivity() {
+import com.uxcam.UXCam;
+class AppLoadingActivity : DeAppCompactActivity() {
     //region Override Methods
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding: ActivityAppLoadingBinding = DataBindingUtil.setContentView(this, R.layout.activity_app_loading)
         // Init all UI
         initUI(binding)
-
         // ATTENTION: This was auto-generated to handle app links.
         val appLinkIntent = intent
         val appLinkAction = appLinkIntent.action

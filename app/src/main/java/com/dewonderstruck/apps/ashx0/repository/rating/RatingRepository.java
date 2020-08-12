@@ -14,8 +14,8 @@ import com.dewonderstruck.apps.ashx0.api.ApiResponse;
 import com.dewonderstruck.apps.ashx0.api.PSApiService;
 import com.dewonderstruck.apps.ashx0.db.PSCoreDb;
 import com.dewonderstruck.apps.ashx0.db.RatingDao;
+import com.dewonderstruck.apps.ashx0.repository.common.DeRepository;
 import com.dewonderstruck.apps.ashx0.repository.common.NetworkBoundResource2;
-import com.dewonderstruck.apps.ashx0.repository.common.PSRepository;
 import com.dewonderstruck.apps.ashx0.utils.Utils;
 import com.dewonderstruck.apps.ashx0.viewobject.Rating;
 import com.dewonderstruck.apps.ashx0.viewobject.common.Resource;
@@ -27,7 +27,7 @@ import javax.inject.Inject;
 
 import retrofit2.Response;
 
-public class RatingRepository extends PSRepository {
+public class RatingRepository extends DeRepository {
 
     private final RatingDao ratingDao;
 

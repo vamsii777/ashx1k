@@ -61,8 +61,7 @@ class FavouriteListFragment : PSFragment(), DiffUtilDispatchedInterface2 {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                 val layoutManager = recyclerView.layoutManager as GridLayoutManager?
                 if (layoutManager != null) {
-                    val lastPosition = layoutManager
-                            .findLastVisibleItemPosition()
+                    val lastPosition = layoutManager.findLastVisibleItemPosition()
                     if (lastPosition == adapter!!.get().itemCount - 1) {
                         if (!binding!!.get().loadingMore && !productFavouriteViewModel!!.forceEndLoading) {
                             if (connectivity.isConnected) {
@@ -150,7 +149,11 @@ class FavouriteListFragment : PSFragment(), DiffUtilDispatchedInterface2 {
                         if (listResource.data != null) {
                             // Update the data
                             replaceData(listResource.data)
+                            binding!!.get().faviconl.visibility = View.GONE
+                            binding!!.get().favtext.visibility = View.GONE
                         }
+                        binding!!.get().faviconl.visibility = View.GONE
+                        binding!!.get().favtext.visibility = View.GONE
                         productFavouriteViewModel!!.setLoadingState(false)
                     }
                     Status.ERROR -> {
@@ -167,6 +170,8 @@ class FavouriteListFragment : PSFragment(), DiffUtilDispatchedInterface2 {
                 if (productFavouriteViewModel!!.offset > 1) {
                     // No more data for this list
                     // So, Block all future loading
+                    binding!!.get().faviconl.visibility = View.GONE
+                    binding!!.get().favtext.visibility = View.GONE
                     productFavouriteViewModel!!.forceEndLoading = true
                 }
             }

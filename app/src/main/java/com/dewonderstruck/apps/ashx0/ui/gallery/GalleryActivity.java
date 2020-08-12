@@ -11,11 +11,11 @@ import androidx.preference.PreferenceManager;
 import com.dewonderstruck.apps.Config;
 import com.dewonderstruck.apps.ashx0.R;
 import com.dewonderstruck.apps.ashx0.databinding.ActivityGalleryBinding;
-import com.dewonderstruck.apps.ashx0.ui.common.PSAppCompactActivity;
+import com.dewonderstruck.apps.ashx0.ui.common.DeAppCompactActivity;
 import com.dewonderstruck.apps.ashx0.utils.Constants;
 import com.dewonderstruck.apps.ashx0.utils.MyContextWrapper;
 
-public class GalleryActivity extends PSAppCompactActivity {
+public class GalleryActivity extends DeAppCompactActivity {
 
 
     //region Override Methods

@@ -13,7 +13,7 @@ import com.dewonderstruck.apps.ashx0.api.PSApiService;
 import com.dewonderstruck.apps.ashx0.db.PSCoreDb;
 import com.dewonderstruck.apps.ashx0.db.ProductCollectionDao;
 import com.dewonderstruck.apps.ashx0.repository.common.NetworkBoundResource2;
-import com.dewonderstruck.apps.ashx0.repository.common.PSRepository;
+import com.dewonderstruck.apps.ashx0.repository.common.DeRepository;
 import com.dewonderstruck.apps.ashx0.utils.Utils;
 import com.dewonderstruck.apps.ashx0.viewobject.Product;
 import com.dewonderstruck.apps.ashx0.viewobject.ProductCollection;
@@ -31,7 +31,7 @@ import javax.inject.Singleton;
  */
 
 @Singleton
-public class ProductCollectionRepository extends PSRepository {
+public class ProductCollectionRepository extends DeRepository {
 
 
     //region Variables

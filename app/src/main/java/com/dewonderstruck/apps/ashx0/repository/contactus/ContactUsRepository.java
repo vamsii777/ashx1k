@@ -4,7 +4,7 @@ import com.dewonderstruck.apps.AppExecutors;
 import com.dewonderstruck.apps.ashx0.api.ApiResponse;
 import com.dewonderstruck.apps.ashx0.api.PSApiService;
 import com.dewonderstruck.apps.ashx0.db.PSCoreDb;
-import com.dewonderstruck.apps.ashx0.repository.common.PSRepository;
+import com.dewonderstruck.apps.ashx0.repository.common.DeRepository;
 import com.dewonderstruck.apps.ashx0.utils.Utils;
 import com.dewonderstruck.apps.ashx0.viewobject.ApiStatus;
 import com.dewonderstruck.apps.ashx0.viewobject.common.Resource;
@@ -21,7 +21,7 @@ import retrofit2.Response;
  * Website : http://www.dewonderstruck.com
  */
 
-public class ContactUsRepository extends PSRepository {
+public class ContactUsRepository extends DeRepository {
 
     @Inject
     ContactUsRepository(PSApiService psApiService, AppExecutors appExecutors, PSCoreDb db) {

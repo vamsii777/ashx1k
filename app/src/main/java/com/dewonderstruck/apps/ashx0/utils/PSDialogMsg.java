@@ -87,6 +87,7 @@ public class PSDialogMsg {
         okButton.setText(okTitle);
         okButton.setBackgroundResource(R.drawable.rounded_dialog);
         cancelButton.setText(cancelTitle);
+        cancelButton.setBackgroundResource(R.drawable.rounded_dialog);
 
         if (dialog.getWindow() != null) {
             dialog.getWindow().setAttributes(getLayoutParams(dialog));

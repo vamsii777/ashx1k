@@ -5,7 +5,7 @@ import com.dewonderstruck.apps.Config;
 import com.dewonderstruck.apps.ashx0.api.ApiResponse;
 import com.dewonderstruck.apps.ashx0.api.PSApiService;
 import com.dewonderstruck.apps.ashx0.db.PSCoreDb;
-import com.dewonderstruck.apps.ashx0.repository.common.PSRepository;
+import com.dewonderstruck.apps.ashx0.repository.common.DeRepository;
 import com.dewonderstruck.apps.ashx0.utils.Utils;
 import com.dewonderstruck.apps.ashx0.viewobject.ApiStatus;
 import com.dewonderstruck.apps.ashx0.viewobject.common.Resource;
@@ -18,7 +18,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import retrofit2.Response;
 
-public class PaypalRepository extends PSRepository {
+public class PaypalRepository extends DeRepository {
 
 
     @Inject

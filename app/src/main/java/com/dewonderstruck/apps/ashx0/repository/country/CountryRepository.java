@@ -12,7 +12,7 @@ import com.dewonderstruck.apps.ashx0.api.PSApiService;
 import com.dewonderstruck.apps.ashx0.db.CountryDao;
 import com.dewonderstruck.apps.ashx0.db.PSCoreDb;
 import com.dewonderstruck.apps.ashx0.repository.common.NetworkBoundResource2;
-import com.dewonderstruck.apps.ashx0.repository.common.PSRepository;
+import com.dewonderstruck.apps.ashx0.repository.common.DeRepository;
 import com.dewonderstruck.apps.ashx0.utils.Utils;
 import com.dewonderstruck.apps.ashx0.viewobject.Country;
 import com.dewonderstruck.apps.ashx0.viewobject.common.Resource;
@@ -21,7 +21,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-public class CountryRepository extends PSRepository {
+public class CountryRepository extends DeRepository {
 
 
     //region Variables

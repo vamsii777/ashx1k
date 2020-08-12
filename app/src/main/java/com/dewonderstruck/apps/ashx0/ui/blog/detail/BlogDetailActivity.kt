@@ -4,8 +4,8 @@ import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import com.dewonderstruck.apps.ashx0.R
 import com.dewonderstruck.apps.ashx0.databinding.ActivityBlogDetailBinding
-import com.dewonderstruck.apps.ashx0.ui.common.PSAppCompactActivity
-class BlogDetailActivity : PSAppCompactActivity() {
+import com.dewonderstruck.apps.ashx0.ui.common.DeAppCompactActivity
+class BlogDetailActivity : DeAppCompactActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding: ActivityBlogDetailBinding = DataBindingUtil.setContentView(this, R.layout.activity_blog_detail)

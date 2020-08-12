@@ -652,6 +652,7 @@ Learn More >
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="app__ignore">IGNORE</string>
+    <string name="custom_license_title">"Open Source Licenses"</string>
 
 </resources>
 

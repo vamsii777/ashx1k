@@ -14,11 +14,11 @@ import androidx.fragment.app.Fragment;
 import com.dewonderstruck.apps.Config;
 
 import com.dewonderstruck.apps.ashx0.databinding.ActivityNotificationListBinding;
-import com.dewonderstruck.apps.ashx0.ui.common.PSAppCompactActivity;
+import com.dewonderstruck.apps.ashx0.ui.common.DeAppCompactActivity;
 import com.dewonderstruck.apps.ashx0.utils.Constants;
 import com.dewonderstruck.apps.ashx0.utils.MyContextWrapper;
 
-public class NotificationListActivity extends PSAppCompactActivity {
+public class NotificationListActivity extends DeAppCompactActivity {
 
 
     //region Override Methods

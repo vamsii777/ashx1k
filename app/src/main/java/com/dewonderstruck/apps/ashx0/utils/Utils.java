@@ -80,56 +80,55 @@ public class Utils {
     private static SpannableString spannableString;
     private static Fonts currentTypeface;
 
-//    public static final String NOTI_EXISTS_TO_SHOW = "is_noti_exists_to_show";
-//    public static final String NOTI_MSG = "noti_msg";
-//    public static final String NOTI_SETTING = "noti_setting";
-//    public static final String NOTI_TOKEN = "noti_token";
-//
-//    public static final int RESULT_LOAD_IMAGE = 1;
-//    public static final int RESULT_OK = -1;
+    public static final String NOTI_EXISTS_TO_SHOW = "is_noti_exists_to_show";
+    public static final String NOTI_MSG = "noti_msg";
+    public static final String NOTI_SETTING = "noti_setting";
+    public static final String NOTI_TOKEN = "noti_token";
+    public static final int RESULT_LOAD_IMAGE = 1;
+    public static final int RESULT_OK = -1;
 
-//    public static final String USER_NO_USER = "nologinuser";
+    public static final String USER_NO_USER = "nologinuser";
 
-//    public static final String START_OF_OFFSET = "0"; // Please don't change!
+    public static final String START_OF_OFFSET = "0"; // Please don't change!
 //
-//    public static final String PLATFORM = "android"; // Please don't change!
-//
-//    private static Boolean cacheUnicode = null;
+    public static final String PLATFORM = "android"; // Please don't change!
 
-//    public static String IMAGE_TYPE_PRODUCT = "product";
-//    public static String FILTERING_typeName = "product";
-//    public static String FILTERING_typeName_CAT = "category";
-//    public static String FILTERING_CATEGORY_typeName = "category";
-//    public static String IMAGE_TYPE_ABOUT = "about";
+    private static Boolean cacheUnicode = null;
+
+    public static String IMAGE_TYPE_PRODUCT = "product";
+    public static String FILTERING_typeName = "product";
+    public static String FILTERING_typeName_CAT = "category";
+    public static String FILTERING_CATEGORY_typeName = "category";
+    public static String IMAGE_TYPE_ABOUT = "about";
 
     /*Configuration Counts*/
 
-//    public static String CONFIG_COLLECTION_COUNT = "collection_count";
-//    public static String CONFIG_HOME_PRODUCT_COUNT = "home_product_count";
-//    public static String CONFIG_PRODUCT_COUNT = "product_count";
-//    public static String CONFIG_HOME_CATEGORY_COUNT = "home_category_count";
-//    public static String CONFIG_LIST_CATEGORY_COUNT = "list_category_count";
-//    public static String CONFIG_NOTI_LIST_COUNT = "noti_list_count";
-//    public static String CONFIG_COMMENT_COUNT = "comment_count";
+    public static String CONFIG_COLLECTION_COUNT = "collection_count";
+    public static String CONFIG_HOME_PRODUCT_COUNT = "home_product_count";
+    public static String CONFIG_PRODUCT_COUNT = "product_count";
+    public static String CONFIG_HOME_CATEGORY_COUNT = "home_category_count";
+    public static String CONFIG_LIST_CATEGORY_COUNT = "list_category_count";
+    public static String CONFIG_NOTI_LIST_COUNT = "noti_list_count";
+    public static String CONFIG_COMMENT_COUNT = "comment_count";
 
 
     /*Configuration Counts*/
 
     /*For ProductParameterHolder*/
 
-//    public static String active = "1";
-//    public static String FILTERING_INACTIVE = "";
-//    public static String FILTERING_TRENDING = "touch_count";
-//    public static String FILTERING_FEATURE = "featured_date";
-//    //public static String latest = "addedDate";
-//    public static String price = "originalPrice";
-//    public static String FILTERING_ASC = "FILTERING_ASC";
-//    public static String FILTERING_DESC = Constants.FILTERING_DESC;
+    public static String active = "1";
+    public static String FILTERING_INACTIVE = "";
+    public static String FILTERING_TRENDING = "touch_count";
+    public static String FILTERING_FEATURE = "featured_date";
+    public static String latest = "addedDate";
+    public static String price = "originalPrice";
+    public static String FILTERING_ASC = "FILTERING_ASC";
+    public static String FILTERING_DESC = Constants.FILTERING_DESC;
 
     /*For ProductParameterHolder*/
 
     /*PayPal*/
-//    public static int REQUEST_CODE__PAYPAL = 1444;
+    public static int REQUEST_CODE__PAYPAL = 1444;
 
     public static void hideFirstFab(final View v) {
         v.setVisibility(View.GONE);

@@ -2,16 +2,17 @@ package com.dewonderstruck.apps.ashx0.ui.product.favourite
 
 import android.content.Context
 import android.os.Bundle
+import com.uxcam.UXCam;
 import androidx.preference.PreferenceManager
 import androidx.databinding.DataBindingUtil
 import com.dewonderstruck.apps.Config
 import com.dewonderstruck.apps.ashx0.R
 import com.dewonderstruck.apps.ashx0.databinding.ActivityFavouriteListBinding
-import com.dewonderstruck.apps.ashx0.ui.common.PSAppCompactActivity
+import com.dewonderstruck.apps.ashx0.ui.common.DeAppCompactActivity
 import com.dewonderstruck.apps.ashx0.utils.Constants
 import com.dewonderstruck.apps.ashx0.utils.MyContextWrapper
 
-class FavouriteListActivity : PSAppCompactActivity() {
+class FavouriteListActivity : DeAppCompactActivity() {
     //region Override Methods
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

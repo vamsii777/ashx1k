@@ -4,11 +4,11 @@ import android.os.Bundle;
 
 import com.dewonderstruck.apps.ashx0.R;
 import com.dewonderstruck.apps.ashx0.databinding.ActivityForceUpdateBinding;
-import com.dewonderstruck.apps.ashx0.ui.common.PSAppCompactActivity;
+import com.dewonderstruck.apps.ashx0.ui.common.DeAppCompactActivity;
 
 import androidx.databinding.DataBindingUtil;
 
-public class ForceUpdateActivity extends PSAppCompactActivity {
+public class ForceUpdateActivity extends DeAppCompactActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

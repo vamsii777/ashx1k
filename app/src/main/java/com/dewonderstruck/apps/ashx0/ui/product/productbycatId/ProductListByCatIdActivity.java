@@ -8,7 +8,7 @@ import androidx.preference.PreferenceManager;
 import com.dewonderstruck.apps.Config;
 
 
-import com.dewonderstruck.apps.ashx0.ui.common.PSAppCompactActivity;
+import com.dewonderstruck.apps.ashx0.ui.common.DeAppCompactActivity;
 import com.dewonderstruck.apps.ashx0.utils.Constants;
 import com.dewonderstruck.apps.ashx0.utils.MyContextWrapper;
 import com.dewonderstruck.apps.ashx0.R;
@@ -16,7 +16,7 @@ import com.dewonderstruck.apps.ashx0.databinding.ActivityProductListByCatidBindi
 
 import androidx.databinding.DataBindingUtil;
 
-public class ProductListByCatIdActivity extends PSAppCompactActivity {
+public class ProductListByCatIdActivity extends DeAppCompactActivity {
 
     public final String KEY = Constants.CATEGORY_NAME;
     public String catName;

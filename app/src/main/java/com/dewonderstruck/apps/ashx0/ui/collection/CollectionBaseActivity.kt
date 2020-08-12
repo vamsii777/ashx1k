@@ -8,11 +8,11 @@ import androidx.databinding.DataBindingUtil
 import com.dewonderstruck.apps.Config
 import com.dewonderstruck.apps.ashx0.R
 import com.dewonderstruck.apps.ashx0.databinding.ActivityCollectionBinding
-import com.dewonderstruck.apps.ashx0.ui.common.PSAppCompactActivity
+import com.dewonderstruck.apps.ashx0.ui.common.DeAppCompactActivity
 import com.dewonderstruck.apps.ashx0.utils.Constants
 import com.dewonderstruck.apps.ashx0.utils.MyContextWrapper
 
-class CollectionBaseActivity : PSAppCompactActivity() {
+class CollectionBaseActivity : DeAppCompactActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val activityFilteringBinding: ActivityCollectionBinding = DataBindingUtil.setContentView(this, R.layout.activity_collection)

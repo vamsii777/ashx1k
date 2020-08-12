@@ -7,7 +7,7 @@ import com.dewonderstruck.apps.ashx0.api.PSApiService;
 import com.dewonderstruck.apps.ashx0.db.ImageDao;
 import com.dewonderstruck.apps.ashx0.db.PSCoreDb;
 import com.dewonderstruck.apps.ashx0.repository.common.NetworkBoundResource2;
-import com.dewonderstruck.apps.ashx0.repository.common.PSRepository;
+import com.dewonderstruck.apps.ashx0.repository.common.DeRepository;
 import com.dewonderstruck.apps.ashx0.utils.Utils;
 import com.dewonderstruck.apps.ashx0.viewobject.Image;
 import com.dewonderstruck.apps.ashx0.viewobject.common.Resource;
@@ -27,7 +27,7 @@ import androidx.lifecycle.LiveData;
  */
 
 @Singleton
-public class ImageRepository extends PSRepository {
+public class ImageRepository extends DeRepository {
 
 
     //region Variables

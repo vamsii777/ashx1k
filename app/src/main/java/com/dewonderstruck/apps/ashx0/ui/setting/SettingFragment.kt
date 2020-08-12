@@ -1,6 +1,7 @@
 package com.dewonderstruck.apps.ashx0.ui.setting
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.AsyncTask
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -16,7 +17,6 @@ import androidx.lifecycle.ViewModelProviders
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.cache.DiskCache
 import com.dewonderstruck.apps.Config
-import com.dewonderstruck.apps.MainActivity
 import com.dewonderstruck.apps.ashx0.R
 import com.dewonderstruck.apps.ashx0.binding.FragmentDataBindingComponent
 import com.dewonderstruck.apps.ashx0.databinding.FragmentSettingBinding
@@ -32,6 +32,7 @@ import com.facebook.login.LoginManager
 import com.google.ads.consent.ConsentForm
 import com.google.ads.consent.ConsentFormListener
 import com.google.ads.consent.ConsentStatus
+import com.google.android.gms.oss.licenses.OssLicensesMenuActivity
 import java.io.File
 import java.net.MalformedURLException
 import java.net.URL
@@ -69,7 +70,19 @@ class SettingFragment : PSFragment() {
         binding!!.get().editProfileTextView.setOnClickListener { view: View? -> navigationController!!.navigateToEditProfileActivity(requireActivity()) }
         binding!!.get().editProfileImageView.setOnClickListener { view: View? -> navigationController!!.navigateToEditProfileActivity(requireActivity()) }
         binding!!.get().appInfoTextView.setOnClickListener { view: View? -> navigationController!!.navigateToAppInfoActivity(requireActivity()) }
-        binding!!.get().appInfoImageView.setOnClickListener { view: View? -> navigationController!!.navigateToAppInfoActivity(requireActivity()) }
+        binding!!.get().appInfoImageView.setOnClickListener {
+            view: View? ->
+            navigationController!!.navigateToAppInfoActivity(requireActivity())
+        }
+        binding!!.get().applicenses.setOnClickListener {
+            view: View? ->
+            //OssLicensesMenuActivity.setActivityTitle(getString(R.string.custom_license_title));
+            //startActivity(Intent(context, OssLicensesMenuActivity::class.java))
+            val intent = Intent(context, OssLicensesMenuActivity::class.java)
+            val title = getString(R.string.custom_license_title)
+            intent.putExtra("title", title)
+            startActivity(intent)
+        }
         binding!!.get().logOutTextView.setOnClickListener { v: View? ->
             psDialogMsg!!.showConfirmDialog(getString(R.string.edit_setting__logout_question), getString(R.string.app__ok), getString(R.string.app__cancel))
             psDialogMsg!!.show()

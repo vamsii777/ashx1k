@@ -10,6 +10,7 @@ import com.flurry.android.FlurryAgent
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasActivityInjector
 import javax.inject.Inject
+import com.uxcam.UXCam;
 
 /**
  * Created by Vamsi Madduluri on 11/15/17.
@@ -28,11 +29,7 @@ class App : MultiDexApplication(), HasActivityInjector {
     override fun onCreate() {
         super.onCreate()
         // Initialize the Audience Network SDK
-        AudienceNetworkAds.initialize(this)
-        Bugsnag.start(this)
-        FlurryAgent.Builder()
-                .withLogEnabled(true)
-                .build(this, "BJS8NMHKTTVFF9CGKCQ3")
+
 
 
 //if (LeakCanary.isInAnalyzerProcess(this)) {

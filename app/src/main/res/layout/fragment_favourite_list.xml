@@ -38,7 +38,30 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:spanCount="2" />
 
+
+
+
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+        <ImageView
+            android:id="@+id/faviconl"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toTopOf="@+id/load_more_bar"
+            app:layout_constraintTop_toTopOf="@+id/swipe_refresh"
+            app:srcCompat="@drawable/ic_twotone_favorite_24" />
+
+        <TextView
+            android:id="@+id/favtext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="There are no favourite products"
+            android:layout_margin="16dp"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/swipe_refresh"
+            app:layout_constraintTop_toBottomOf="@+id/faviconl" />
 
         <ProgressBar
             android:id="@+id/load_more_bar"

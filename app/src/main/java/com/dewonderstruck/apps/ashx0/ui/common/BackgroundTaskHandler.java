@@ -4,7 +4,8 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Observer;
 import androidx.annotation.Nullable;
-import com.dewonderstruck.apps.ashx0.repository.common.PSRepository;
+
+import com.dewonderstruck.apps.ashx0.repository.common.DeRepository;
 import com.dewonderstruck.apps.ashx0.viewobject.common.Resource;
 
 /**
@@ -19,10 +20,10 @@ public class BackgroundTaskHandler implements Observer<Resource<Boolean>> {
     protected final MutableLiveData<LoadingState> loadingState = new MutableLiveData<>();
     protected String limit;
     protected String offset;
-    protected PSRepository repository;
+    protected DeRepository repository;
     private boolean hasMore;
 
-    protected BackgroundTaskHandler(PSRepository repository) {
+    protected BackgroundTaskHandler(DeRepository repository) {
         this.repository = repository;
         reset();
     }

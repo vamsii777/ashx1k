@@ -208,65 +208,6 @@ public class ProductDetailFragment extends PSFragment implements DataBoundListAd
             });
         }
 
-    /*    binding.get().mainFloatingActionButton.setOnClickListener(v -> {
-            twist = Utils.twistFab(v, !twist);
-
-//            Toast.makeText(getContext(),shopPhoneNumber,Toast.LENGTH_SHORT).show();
-            if (messenger.isEmpty()) {
-                if (twist) {
-                    Utils.showFab(binding.get().whatsappFloatingActionButton);
-                    Utils.showFab(binding.get().whatsAppTextView);
-                    Utils.showFab(binding.get().phoneFloatingActionButton);
-                    Utils.showFab(binding.get().phoneProfile);
-                } else {
-                    Utils.hideFab(binding.get().whatsappFloatingActionButton);
-                    Utils.hideFab(binding.get().whatsAppTextView);
-                    Utils.hideFab(binding.get().phoneFloatingActionButton);
-                    Utils.hideFab(binding.get().phoneProfile);
-                }
-            } else if (whatsappNo.isEmpty()) {
-                if (twist) {
-                    Utils.showFab(binding.get().messengerFloatingActionButton);
-                    Utils.showFab(binding.get().messengerTextView);
-                    Utils.showFab(binding.get().phoneFloatingActionButton);
-                    Utils.showFab(binding.get().phoneProfile);
-                } else {
-                    Utils.hideFab(binding.get().messengerFloatingActionButton);
-                    Utils.hideFab(binding.get().messengerTextView);
-                    Utils.hideFab(binding.get().phoneFloatingActionButton);
-                    Utils.hideFab(binding.get().phoneProfile);
-                }
-            } else if (shopPhoneNumber.isEmpty()) {
-                if (twist) {
-                    Utils.showFab(binding.get().messengerFloatingActionButton);
-                    Utils.showFab(binding.get().messengerTextView);
-                    Utils.showFab(binding.get().whatsappFloatingActionButton);
-                    Utils.showFab(binding.get().whatsAppTextView);
-                } else {
-                    Utils.hideFab(binding.get().messengerFloatingActionButton);
-                    Utils.hideFab(binding.get().messengerTextView);
-                    Utils.hideFab(binding.get().whatsappFloatingActionButton);
-                    Utils.hideFab(binding.get().whatsAppTextView);
-                }
-            } else {
-                if (twist) {
-                    Utils.showFab(binding.get().messengerFloatingActionButton);
-                    Utils.showFab(binding.get().whatsappFloatingActionButton);
-                    Utils.showFab(binding.get().phoneFloatingActionButton);
-                    Utils.showFab(binding.get().messengerTextView);
-                    Utils.showFab(binding.get().whatsAppTextView);
-                    //Utils.showFab(binding.get().phoneTextView);
-                } else {
-                    Utils.hideFab(binding.get().messengerFloatingActionButton);
-                    Utils.hideFab(binding.get().whatsappFloatingActionButton);
-                    Utils.hideFab(binding.get().phoneFloatingActionButton);
-                    Utils.hideFab(binding.get().messengerTextView);
-                    Utils.hideFab(binding.get().whatsAppTextView);
-                    //Utils.hideFab(binding.get().phoneTextView);
-                }
-            }
-
-        });*/
 
         binding.get().messengerFloatingActionButton.setOnClickListener(v -> {
             try {
@@ -294,34 +235,13 @@ public class ProductDetailFragment extends PSFragment implements DataBoundListAd
         });
 
 
-        /*addToCartButton.get().setOnClickListener(view -> {
 
-            if (available) {
-                productDetailViewModel.isAddtoCart = true;
-
-                bottomBoxLayoutBinding.get().lowestButton.setText(getString(R.string.product_detail__add_to_busket));
-
-                mBottomSheetDialog.get().show();
-
-
-            } else {
-                psDialogMsg.showWarningDialog(getString(R.string.product_detail__not_available), getString(R.string.app__ok));
-                psDialogMsg.show();
-            }
-
-
-        });
-*/
 
         buyNowButton.get().setOnClickListener(view -> {
             if (available) {
-                //productDetailViewModel.isAddtoCart = false;
-                //bottomBoxLayoutBinding.get().lowestButton.setText(getString(R.string.product_detail__buy));
-                //mBottomSheetDialog.get().show();
+
                 String url = binding.get().getProduct().productLink;
                 Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-                //i.setData(Uri.parse(url));
-                //requireContext().startActivity(i);
                 if (i.resolveActivity(requireActivity().getPackageManager()) != null) {
                     startActivity(i);
                 } else {
@@ -334,22 +254,6 @@ public class ProductDetailFragment extends PSFragment implements DataBoundListAd
             }
         });
 
-//        buyNowButton.get().setOnClickListener(view -> {
-//
-//            if (available) {
-//                //productDetailViewModel.isAddtoCart = false;
-//                //bottomBoxLayoutBinding.get().lowestButton.setText(getString(R.string.product_detail__buy));
-//                //mBottomSheetDialog.get().show();
-//                String url = binding.get().getProduct().productLink;
-//                Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-//                //i.setData(Uri.parse(url));
-//                getContext().startActivity(i);
-//            } else {
-//                psDialogMsg.showWarningDialog(getString(R.string.product_detail__not_available), getString(R.string.app__ok));
-//                psDialogMsg.show();
-//            }
-//
-//        });
 
 
         binding.get().seeAllFactButton.setOnClickListener(view -> navigationController.navigateToTermsAndConditionsActivity(getActivity(), Constants.SHOP_TERMS));

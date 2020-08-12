@@ -1,27 +1,18 @@
 package com.dewonderstruck.apps.ashx0.ui.danceoholics
 
 import android.content.Context
-import android.content.Intent
 import android.os.Bundle
-import android.view.View
-import android.view.WindowManager
-import android.widget.ProgressBar
-import android.widget.Toolbar
 import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.FragmentActivity
 import androidx.preference.PreferenceManager
 import com.dewonderstruck.apps.Config
 import com.dewonderstruck.apps.ashx0.R
-import com.dewonderstruck.apps.ashx0.databinding.ActivityAppLoadingBinding
 import com.dewonderstruck.apps.ashx0.databinding.ActivityDanceoholicsBinding
-import com.dewonderstruck.apps.ashx0.ui.apploading.AppLoadingFragment
-import com.dewonderstruck.apps.ashx0.ui.common.PSAppCompactActivity
+import com.dewonderstruck.apps.ashx0.ui.common.DeAppCompactActivity
 import com.dewonderstruck.apps.ashx0.utils.Constants
 import com.dewonderstruck.apps.ashx0.utils.MyContextWrapper
-import com.dewonderstruck.apps.ashx0.utils.Utils
 
 
-class DanceoholicsActivity : PSAppCompactActivity() {
+class DanceoholicsActivity : DeAppCompactActivity() {
     //region Override Methods
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

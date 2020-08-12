@@ -4,7 +4,7 @@ import com.dewonderstruck.apps.AppExecutors;
 import com.dewonderstruck.apps.ashx0.api.PSApiService;
 import com.dewonderstruck.apps.ashx0.db.BasketDao;
 import com.dewonderstruck.apps.ashx0.db.PSCoreDb;
-import com.dewonderstruck.apps.ashx0.repository.common.PSRepository;
+import com.dewonderstruck.apps.ashx0.repository.common.DeRepository;
 import com.dewonderstruck.apps.ashx0.utils.Utils;
 import com.dewonderstruck.apps.ashx0.viewobject.Basket;
 import com.dewonderstruck.apps.ashx0.viewobject.common.Resource;
@@ -18,7 +18,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 @Singleton
-public class BasketRepository extends PSRepository {
+public class BasketRepository extends DeRepository {
 
 
     //region Variables

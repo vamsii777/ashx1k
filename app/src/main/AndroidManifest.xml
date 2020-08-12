@@ -37,9 +37,10 @@
         android:required="false" />
 
     <application
+        android:networkSecurityConfig="@xml/network_security_config"
         android:name="com.dewonderstruck.apps.App"
         android:allowBackup="false"
-        android:fullBackupContent="false"
+        android:fullBackupContent="true"
         android:hardwareAccelerated="true"
         android:icon="@mipmap/ic_launcher_round"
         android:label="@string/app__app_name"
@@ -50,7 +51,7 @@
         android:usesCleartextTraffic="true"
         tools:ignore="UnusedAttribute"
         tools:overrideLibrary="com.google.android.youtube.player"
-        tools:replace="android:label, android:allowBackup, android:theme">
+        tools:replace="android:label, android:fullBackupContent ,android:allowBackup, android:theme">
         
         <meta-data
             android:name="com.google.android.gms.ads.AD_MANAGER_APP"
@@ -63,6 +64,13 @@
         <uses-library
             android:name="org.apache.http.legacy"
             android:required="false" />
+
+        <activity
+            android:name="com.google.android.gms.oss.licenses.OssLicensesMenuActivity"
+            android:theme="@style/Theme.MaterialComponents.Light.DarkActionBar" />
+        <activity
+            android:name="com.google.android.gms.oss.licenses.OssLicensesActivity"
+            android:theme="@style/Theme.MaterialComponents.Light.DarkActionBar" />
 
         <activity
             android:name=".ui.apploading.AppLoadingActivity"
@@ -110,6 +118,9 @@
             android:windowSoftInputMode="adjustPan">
 
         </activity>
+
+        <service android:name="com.uxcam.service.HttpPostService"/>
+
         <activity
             android:name=".ui.category.CategoryListActivity"
             android:screenOrientation="portrait"

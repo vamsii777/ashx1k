@@ -12,8 +12,8 @@ import com.dewonderstruck.apps.ashx0.api.ApiResponse;
 import com.dewonderstruck.apps.ashx0.api.PSApiService;
 import com.dewonderstruck.apps.ashx0.db.PSCoreDb;
 import com.dewonderstruck.apps.ashx0.db.TransactionDao;
+import com.dewonderstruck.apps.ashx0.repository.common.DeRepository;
 import com.dewonderstruck.apps.ashx0.repository.common.NetworkBoundResource2;
-import com.dewonderstruck.apps.ashx0.repository.common.PSRepository;
 import com.dewonderstruck.apps.ashx0.utils.Utils;
 import com.dewonderstruck.apps.ashx0.viewobject.TransactionHeaderUpload;
 import com.dewonderstruck.apps.ashx0.viewobject.TransactionObject;
@@ -28,7 +28,7 @@ import javax.inject.Singleton;
 import retrofit2.Response;
 
 @Singleton
-public class TransactionRepository extends PSRepository {
+public class TransactionRepository extends DeRepository {
 
     //region variable
     private final TransactionDao transactionDao;

@@ -1,9 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: com.flurry.android:analytics:12.3.0@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/b3361021190004770dceb3aacba4eb13/jetified-analytics-12.3.0/AndroidManifest.xml" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/b3361021190004770dceb3aacba4eb13/jetified-analytics-12.3.0/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/b3361021190004770dceb3aacba4eb13/jetified-analytics-12.3.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/8a759905d4fdf3bb203f5bee3821b70e/jetified-analytics-12.3.0/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/8a759905d4fdf3bb203f5bee3821b70e/jetified-analytics-12.3.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/8a759905d4fdf3bb203f5bee3821b70e/jetified-analytics-12.3.0/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

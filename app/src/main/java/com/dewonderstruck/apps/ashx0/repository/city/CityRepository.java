@@ -11,8 +11,8 @@ import com.dewonderstruck.apps.ashx0.api.ApiResponse;
 import com.dewonderstruck.apps.ashx0.api.PSApiService;
 import com.dewonderstruck.apps.ashx0.db.CityDao;
 import com.dewonderstruck.apps.ashx0.db.PSCoreDb;
+import com.dewonderstruck.apps.ashx0.repository.common.DeRepository;
 import com.dewonderstruck.apps.ashx0.repository.common.NetworkBoundResource2;
-import com.dewonderstruck.apps.ashx0.repository.common.PSRepository;
 import com.dewonderstruck.apps.ashx0.utils.Utils;
 import com.dewonderstruck.apps.ashx0.viewobject.City;
 import com.dewonderstruck.apps.ashx0.viewobject.common.Resource;
@@ -21,7 +21,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-public class CityRepository extends PSRepository {
+public class CityRepository extends DeRepository {
 
 
     //region Variables

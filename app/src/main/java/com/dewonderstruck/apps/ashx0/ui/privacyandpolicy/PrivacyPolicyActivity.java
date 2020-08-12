@@ -7,10 +7,10 @@ import androidx.databinding.DataBindingUtil;
 
 import com.dewonderstruck.apps.ashx0.R;
 
-import com.dewonderstruck.apps.ashx0.ui.common.PSAppCompactActivity;
+import com.dewonderstruck.apps.ashx0.ui.common.DeAppCompactActivity;
 import com.dewonderstruck.apps.ashx0.databinding.ActivityPrivacyPolicyBinding;
 
-public class PrivacyPolicyActivity extends PSAppCompactActivity {
+public class PrivacyPolicyActivity extends DeAppCompactActivity {
 
 
     //region Override Methods

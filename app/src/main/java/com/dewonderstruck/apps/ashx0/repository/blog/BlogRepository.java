@@ -7,7 +7,7 @@ import com.dewonderstruck.apps.ashx0.api.PSApiService;
 import com.dewonderstruck.apps.ashx0.db.BlogDao;
 import com.dewonderstruck.apps.ashx0.db.PSCoreDb;
 import com.dewonderstruck.apps.ashx0.repository.common.NetworkBoundResource2;
-import com.dewonderstruck.apps.ashx0.repository.common.PSRepository;
+import com.dewonderstruck.apps.ashx0.repository.common.DeRepository;
 import com.dewonderstruck.apps.ashx0.utils.Utils;
 import com.dewonderstruck.apps.ashx0.viewobject.Blog;
 import com.dewonderstruck.apps.ashx0.viewobject.common.Resource;
@@ -23,7 +23,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MediatorLiveData;
 
 @Singleton
-public class BlogRepository extends PSRepository {
+public class BlogRepository extends DeRepository {
 
     private final BlogDao blogDao;
 

@@ -12,8 +12,8 @@ import com.dewonderstruck.apps.ashx0.api.ApiResponse;
 import com.dewonderstruck.apps.ashx0.api.PSApiService;
 import com.dewonderstruck.apps.ashx0.db.PSCoreDb;
 import com.dewonderstruck.apps.ashx0.db.UserDao;
+import com.dewonderstruck.apps.ashx0.repository.common.DeRepository;
 import com.dewonderstruck.apps.ashx0.repository.common.NetworkBoundResource2;
-import com.dewonderstruck.apps.ashx0.repository.common.PSRepository;
 import com.dewonderstruck.apps.ashx0.utils.AbsentLiveData;
 import com.dewonderstruck.apps.ashx0.utils.Utils;
 import com.dewonderstruck.apps.ashx0.viewobject.ApiStatus;
@@ -39,7 +39,7 @@ import retrofit2.Response;
  */
 
 @Singleton
-public class UserRepository extends PSRepository{
+public class UserRepository extends DeRepository {
 
 
     //region Variables
@@ -160,8 +160,6 @@ public class UserRepository extends PSRepository{
     public LiveData<Resource<User>> getUser(String apiKey, String userId) {
 
         return new NetworkBoundResource2<User, List<User>>(appExecutors) {
-
-
 
             @Override
             protected void saveCallResult(@NonNull List<User> items) {

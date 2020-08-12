@@ -18,8 +18,7 @@ import com.dewonderstruck.apps.ashx0.BuildConfig
 import com.dewonderstruck.apps.ashx0.R
 import com.dewonderstruck.apps.ashx0.databinding.ActivityMainBinding
 import com.dewonderstruck.apps.ashx0.ui.common.NavigationController2
-import com.dewonderstruck.apps.ashx0.ui.common.PSAppCompactActivity
-import com.dewonderstruck.apps.ashx0.ui.danceoholics.DanceoholicsActivity
+import com.dewonderstruck.apps.ashx0.ui.common.DeAppCompactActivity
 import com.dewonderstruck.apps.ashx0.ui.product.MainFragment
 import com.dewonderstruck.apps.ashx0.utils.*
 import com.dewonderstruck.apps.ashx0.viewmodel.common.NotificationViewModel
@@ -54,7 +53,7 @@ import com.google.firebase.iid.InstanceIdResult
 import java.net.MalformedURLException
 import java.net.URL
 import javax.inject.Inject
-
+import com.uxcam.UXCam;
 /**
  * MainActivity of Vamsi Madduluri
  * Contact Email : vamsii.wrkhost@gmail.com
@@ -65,7 +64,7 @@ import javax.inject.Inject
  */
 
 
-class MainActivity : PSAppCompactActivity() {
+class MainActivity : DeAppCompactActivity() {
     //region Variables
     //@JvmField
 
