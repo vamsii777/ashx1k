@@ -1,9 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: com.mopub:mopub-sdk-banner:5.13.1@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a0492947e8961ed192af789cc812c241/jetified-mopub-sdk-banner-5.13.1/AndroidManifest.xml" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a0492947e8961ed192af789cc812c241/jetified-mopub-sdk-banner-5.13.1/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a0492947e8961ed192af789cc812c241/jetified-mopub-sdk-banner-5.13.1/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/76634127ba962699b148be2c90955e15/jetified-mopub-sdk-banner-5.13.1/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/76634127ba962699b148be2c90955e15/jetified-mopub-sdk-banner-5.13.1/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/76634127ba962699b148be2c90955e15/jetified-mopub-sdk-banner-5.13.1/res" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.mopub/mopub-sdk-banner/5.13.1/2309ca99b4d5a32a7e0d4f6b5136f0d1dfa0c0c8/mopub-sdk-banner-5.13.1-javadoc.jar!/" />

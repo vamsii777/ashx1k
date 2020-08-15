@@ -21,7 +21,6 @@ import com.dewonderstruck.apps.ashx0.viewmodel.user.UserViewModel
 import com.dewonderstruck.apps.ashx0.viewobject.ApiStatus
 import com.dewonderstruck.apps.ashx0.viewobject.common.Resource
 import com.dewonderstruck.apps.ashx0.viewobject.common.Status
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 /**
  * PasswordChangeFragment

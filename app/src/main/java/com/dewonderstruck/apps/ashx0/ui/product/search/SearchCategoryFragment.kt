@@ -12,7 +12,6 @@ import com.dewonderstruck.apps.Config
 import com.dewonderstruck.apps.ashx0.R
 import com.dewonderstruck.apps.ashx0.binding.FragmentDataBindingComponent
 import com.dewonderstruck.apps.ashx0.databinding.FragmentSearchCategoryBinding
-import com.dewonderstruck.apps.ashx0.ui.common.DeFragment
 import com.dewonderstruck.apps.ashx0.ui.product.search.adapter.SearchCategoryAdapter
 import com.dewonderstruck.apps.ashx0.utils.AutoClearedValue
 import com.dewonderstruck.apps.ashx0.utils.Constants

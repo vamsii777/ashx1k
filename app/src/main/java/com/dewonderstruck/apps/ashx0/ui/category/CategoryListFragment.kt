@@ -26,7 +26,6 @@ import com.dewonderstruck.apps.ashx0.utils.Utils
 import com.dewonderstruck.apps.ashx0.viewmodel.category.CategoryViewModel
 import com.dewonderstruck.apps.ashx0.viewmodel.product.BasketViewModel
 import com.dewonderstruck.apps.ashx0.viewmodel.product.TouchCountViewModel
-import com.dewonderstruck.apps.ashx0.viewobject.Basket
 import com.dewonderstruck.apps.ashx0.viewobject.Category
 import com.dewonderstruck.apps.ashx0.viewobject.common.Resource
 import com.dewonderstruck.apps.ashx0.viewobject.common.Status

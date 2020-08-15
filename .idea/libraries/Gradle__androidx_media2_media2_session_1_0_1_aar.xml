@@ -1,12 +1,12 @@
 <component name="libraryTable">
   <library name="Gradle: androidx.media2:media2-session:1.0.1@aar">
     <ANNOTATIONS>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d0330aa94f0236908021bb11057ab00c/jetified-media2-session-1.0.1/annotations.zip!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/51cd7c8785d0fb9f34c3eb552306ddff/jetified-media2-session-1.0.1/annotations.zip!/" />
     </ANNOTATIONS>
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d0330aa94f0236908021bb11057ab00c/jetified-media2-session-1.0.1/AndroidManifest.xml" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d0330aa94f0236908021bb11057ab00c/jetified-media2-session-1.0.1/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d0330aa94f0236908021bb11057ab00c/jetified-media2-session-1.0.1/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/51cd7c8785d0fb9f34c3eb552306ddff/jetified-media2-session-1.0.1/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/51cd7c8785d0fb9f34c3eb552306ddff/jetified-media2-session-1.0.1/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/51cd7c8785d0fb9f34c3eb552306ddff/jetified-media2-session-1.0.1/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

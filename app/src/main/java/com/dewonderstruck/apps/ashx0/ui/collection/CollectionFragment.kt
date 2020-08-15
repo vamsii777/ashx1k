@@ -13,7 +13,6 @@ import androidx.databinding.DataBindingComponent
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -31,7 +30,6 @@ import com.dewonderstruck.apps.ashx0.utils.Utils
 import com.dewonderstruck.apps.ashx0.viewmodel.collection.ProductCollectionProductViewModel
 import com.dewonderstruck.apps.ashx0.viewmodel.product.BasketViewModel
 import com.dewonderstruck.apps.ashx0.viewmodel.product.ProductFavouriteViewModel
-import com.dewonderstruck.apps.ashx0.viewobject.Basket
 import com.dewonderstruck.apps.ashx0.viewobject.Product
 import com.dewonderstruck.apps.ashx0.viewobject.common.Resource
 import com.dewonderstruck.apps.ashx0.viewobject.common.Status

@@ -1,9 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: com.github.astrit-veliu:Boom:1.0@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/bd723052a7ca9228b772a32f45195ec6/jetified-Boom-1.0/AndroidManifest.xml" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/bd723052a7ca9228b772a32f45195ec6/jetified-Boom-1.0/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/bd723052a7ca9228b772a32f45195ec6/jetified-Boom-1.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/316d9d20dde25229e6f0a652190015d3/jetified-Boom-1.0/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/316d9d20dde25229e6f0a652190015d3/jetified-Boom-1.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/316d9d20dde25229e6f0a652190015d3/jetified-Boom-1.0/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

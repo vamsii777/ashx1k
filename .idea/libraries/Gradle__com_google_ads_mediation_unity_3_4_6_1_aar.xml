@@ -1,12 +1,12 @@
 <component name="libraryTable">
   <library name="Gradle: com.google.ads.mediation:unity:3.4.6.1@aar">
     <ANNOTATIONS>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/95e63f50c16e5459e3cb6bfea6367f71/jetified-unity-3.4.6.1/annotations.zip!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e1711160dc02d8dcf245a6acf8ae5611/jetified-unity-3.4.6.1/annotations.zip!/" />
     </ANNOTATIONS>
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/95e63f50c16e5459e3cb6bfea6367f71/jetified-unity-3.4.6.1/AndroidManifest.xml" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/95e63f50c16e5459e3cb6bfea6367f71/jetified-unity-3.4.6.1/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/95e63f50c16e5459e3cb6bfea6367f71/jetified-unity-3.4.6.1/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e1711160dc02d8dcf245a6acf8ae5611/jetified-unity-3.4.6.1/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e1711160dc02d8dcf245a6acf8ae5611/jetified-unity-3.4.6.1/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/e1711160dc02d8dcf245a6acf8ae5611/jetified-unity-3.4.6.1/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

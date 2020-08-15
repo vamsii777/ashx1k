@@ -15,7 +15,6 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout.OnRefreshListener
-import androidx.lifecycle.ViewModelProviders
 import com.dewonderstruck.apps.ashx0.ui.notification.list.adapter.NotificationListAdapter.NotificationClickCallback
 import com.dewonderstruck.apps.ashx0.viewobject.Noti
 import androidx.lifecycle.LiveData

@@ -9,7 +9,6 @@ import androidx.databinding.DataBindingComponent
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProviders
 import com.dewonderstruck.apps.Config
 import com.dewonderstruck.apps.ashx0.R
 import com.dewonderstruck.apps.ashx0.binding.FragmentDataBindingComponent
