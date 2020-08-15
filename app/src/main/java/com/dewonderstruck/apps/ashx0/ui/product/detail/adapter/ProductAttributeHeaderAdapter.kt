@@ -60,7 +60,7 @@ abstract class ProductAttributeHeaderAdapter protected constructor(private val d
                 if (item.attributesDetailList!![i]!!.additionalPrice == Constants.ZERO) {
                     item.attributesDetailList!![i]!!.additionalPriceWithCurrency = ""
                 } else {
-                    item.attributesDetailList!![i]!!.additionalPriceWithCurrency = "( + " + currencySymbol + Constants.SPACE_STRING + item.attributesDetailList[i].additionalPrice + " )"
+                    item.attributesDetailList!![i]!!.additionalPriceWithCurrency = "( + " + currencySymbol + Constants.SPACE_STRING + item.attributesDetailList!![i].additionalPrice + " )"
                 }
                 Utils.psLog("""
     $selectedAttr

@@ -171,7 +171,7 @@ class ProductDetailFragment : DeFragment(), DiffUtilDispatchedInterface2 {
         }
         buyNowButton!!.get().setOnClickListener { view: View? ->
             if (available) {
-                val url = binding!!.get()!!.product.productLink
+                val url = binding!!.get()!!.product!!.productLink
                 val i = Intent(Intent.ACTION_VIEW, Uri.parse(url))
                 if (i.resolveActivity(requireActivity().packageManager) != null) {
                     startActivity(i)

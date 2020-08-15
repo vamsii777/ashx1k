@@ -876,7 +876,7 @@ public class Utils {
 //    }
 
     public static void updateUserLoginData(SharedPreferences pref, User user){
-        addUserLoginData(pref,user,user.userPassword);
+        addUserLoginData(pref,user,user.getUserPassword());
         deleteUserVerifyData(pref);
     }
 
@@ -886,9 +886,9 @@ public class Utils {
     }
 
     public static void addUserLoginData(SharedPreferences pref, User user, String password){
-        pref.edit().putString(Constants.FACEBOOK_ID, user.facebookId).apply();
+        pref.edit().putString(Constants.FACEBOOK_ID, user.getFacebookId()).apply();
 //        pref.edit().putString(Constants.PHONE_ID, user.phoneId).apply();
-        pref.edit().putString(Constants.GOOGLE_ID, user.googleId).apply();
+        pref.edit().putString(Constants.GOOGLE_ID, user.getGoogleId()).apply();
         pref.edit().putString(Constants.USER_PHONE, user.userPhone).apply();
         pref.edit().putString(Constants.USER_ID, user.userId).apply();
         pref.edit().putString(Constants.USER_NAME, user.userName).apply();

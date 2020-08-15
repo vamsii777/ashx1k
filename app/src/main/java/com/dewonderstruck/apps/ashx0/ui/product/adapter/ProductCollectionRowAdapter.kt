@@ -38,7 +38,7 @@ class ProductCollectionRowAdapter(private val dataBindingComponent: DataBindingC
             holder.binding.titleTextView.text = productCollectionHeader.name
             holder.binding.productCollection = productCollectionHeader
             holder.binding.viewAllTextView.setOnClickListener { view: View? -> callback.onViewAllClick(productCollectionHeaderList!![position]) }
-            if (productCollectionHeader.productList.size != 0) {
+            if (productCollectionHeader.productList!!.size != 0) {
                 val homeScreenAdapter = ProductHorizontalListAdapter(dataBindingComponent, object : ProductHorizontalListAdapter.NewsClickCallback {
                     override fun onClick(product: Product?) {
                         callback.onClick(product)

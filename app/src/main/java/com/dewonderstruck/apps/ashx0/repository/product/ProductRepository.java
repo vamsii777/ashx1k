@@ -572,7 +572,7 @@ public class ProductRepository extends DeRepository {
 
                     if (historyFlag.equals(Constants.ONE)) {
 
-                        db.historyDao().insert(new HistoryProduct(productId, itemList.name, itemList.defaultPhoto.imgPath, Utils.getDateTime()));
+                        db.historyDao().insert(new HistoryProduct(productId, itemList.getName(), itemList.defaultPhoto.imgPath, Utils.getDateTime()));
                     }
 
                     db.setTransactionSuccessful();

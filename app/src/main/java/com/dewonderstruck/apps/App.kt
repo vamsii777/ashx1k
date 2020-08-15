@@ -29,12 +29,7 @@ class App : MultiDexApplication(), HasActivityInjector {
     override fun onCreate() {
         super.onCreate()
         // Initialize the Audience Network SDK
-        UXCam.startWithKey("3h907xkjin0je8l");
-        AudienceNetworkAds.initialize(this)
-        Bugsnag.start(this)
-        FlurryAgent.Builder()
-                .withLogEnabled(true)
-                .build(this, "BJS8NMHKTTVFF9CGKCQ3")
+
 
 
 //if (LeakCanary.isInAnalyzerProcess(this)) {

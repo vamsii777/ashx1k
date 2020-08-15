@@ -452,7 +452,7 @@ class NavigationController2 @Inject constructor() {
     fun navigateToProductDetailActivity(activity: Activity, basket: Basket) {
         val intent = Intent(activity, ProductActivity::class.java)
         intent.putExtra(Constants.PRODUCT_ID, basket.productId)
-        intent.putExtra(Constants.PRODUCT_NAME, basket.product.name)
+        intent.putExtra(Constants.PRODUCT_NAME, basket.product!!.name)
         intent.putExtra(Constants.HISTORY_FLAG, Constants.ZERO)
         intent.putExtra(Constants.BASKET_FLAG, Constants.ONE)
         intent.putExtra(Constants.PRODUCT_PRICE, basket.basketPrice.toString())

@@ -224,7 +224,7 @@ class UserRegisterFragment : DeFragment() {
                 "",
                 "",
                 "",
-                token,
+                token!!,
                 "",
                 "",
                 "", null, null))
