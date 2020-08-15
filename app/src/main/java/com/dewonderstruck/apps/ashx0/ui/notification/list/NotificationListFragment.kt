@@ -79,7 +79,7 @@ class NotificationListFragment constructor() : PSFragment(), DiffUtilDispatchedI
         })
         binding!!.get()!!.swipeRefresh.setColorSchemeColors(getResources().getColor(com.dewonderstruck.apps.ashx0.R.color.view__primary_line))
         binding!!.get()!!.swipeRefresh.setProgressBackgroundColorSchemeColor(getResources().getColor(com.dewonderstruck.apps.ashx0.R.color.global__primary))
-        binding!!.get()!!.swipeRefresh.setOnRefreshListener(OnRefreshListener({
+        binding!!.get()!!.swipeRefresh.setOnRefreshListener(OnRefreshListener {
             notificationListViewModel!!.loadingDirection = com.dewonderstruck.apps.ashx0.utils.Utils.LoadingDirection.top
 
             // reset productViewModel.offset
@@ -87,11 +87,11 @@ class NotificationListFragment constructor() : PSFragment(), DiffUtilDispatchedI
 
             // reset productViewModel.forceEndLoading
             notificationListViewModel!!.forceEndLoading = false
-            var deviceToken: kotlin.String? = pref.getString(com.dewonderstruck.apps.ashx0.utils.Constants.NOTI_TOKEN, "")
+            val deviceToken: kotlin.String? = pref.getString(com.dewonderstruck.apps.ashx0.utils.Constants.NOTI_TOKEN, "")
 
             // update live data
             notificationListViewModel!!.setNotificationListObj(loginUserId, deviceToken, com.dewonderstruck.apps.Config.NOTI_LIST_COUNT.toString(), notificationListViewModel!!.offset.toString())
-        }))
+        })
     }
 
     protected override fun initViewModels(): kotlin.Unit {
@@ -189,8 +189,8 @@ class NotificationListFragment constructor() : PSFragment(), DiffUtilDispatchedI
 
     public override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?): kotlin.Unit {
         super.onActivityResult(requestCode, resultCode, data)
-        com.dewonderstruck.apps.ashx0.utils.Utils.psLog("Request code " + requestCode)
-        com.dewonderstruck.apps.ashx0.utils.Utils.psLog("Result code " + resultCode)
+        com.dewonderstruck.apps.ashx0.utils.Utils.psLog("Request code $requestCode")
+        com.dewonderstruck.apps.ashx0.utils.Utils.psLog("Result code $resultCode")
         if ((requestCode == com.dewonderstruck.apps.ashx0.utils.Constants.REQUEST_CODE__NOTIFICATION_LIST_FRAGMENT
                         && resultCode == com.dewonderstruck.apps.ashx0.utils.Constants.RESULT_CODE__REFRESH_NOTIFICATION)) {
             notificationListViewModel!!.notiId = data!!.getStringExtra(com.dewonderstruck.apps.ashx0.utils.Constants.NOTI_HEADER_ID)
