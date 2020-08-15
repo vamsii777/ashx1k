@@ -7,6 +7,6 @@ import com.google.gson.annotations.SerializedName
 @Entity
 class LikedProduct(@field:SerializedName("id") val productId: String) {
     @PrimaryKey(autoGenerate = true)
-    val id = 0
+    var id = 0
 
 }

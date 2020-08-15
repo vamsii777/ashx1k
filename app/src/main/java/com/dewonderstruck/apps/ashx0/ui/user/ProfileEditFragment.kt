@@ -71,8 +71,8 @@ class ProfileEditFragment : DeFragment() {
                 fadeIn(binding!!.get().root)
                 binding!!.get().user = listResource[0].user
                 userViewModel!!.user = listResource[0].user
-                userViewModel!!.countryId = userViewModel!!.user.country.id
-                userViewModel!!.cityId = userViewModel!!.user.city.id
+                userViewModel!!.countryId = userViewModel!!.user.country!!.id
+                userViewModel!!.cityId = userViewModel!!.user.city!!.id
                 Utils.psLog("Photo : " + listResource[0].user.userProfilePhoto)
             } else {
                 Utils.psLog("Empty Data")
@@ -149,22 +149,22 @@ class ProfileEditFragment : DeFragment() {
                 userViewModel!!.countryName = data.getStringExtra(Constants.COUNTRY_NAME)
                 binding!!.get().countryTextView.text = userViewModel!!.countryName
                 userViewModel!!.countryId = countryId
-                userViewModel!!.user.country.id = countryId!!
+                userViewModel!!.user.country!!.id = countryId!!
                 cityId = ""
                 userViewModel!!.cityId = cityId
                 binding!!.get().cityTextView.text = ""
                 if (activity != null) {
-                    userViewModel!!.user.country.id = userViewModel!!.countryId
-                    userViewModel!!.user.city.id = userViewModel!!.cityId
+                    userViewModel!!.user.country!!.id = userViewModel!!.countryId
+                    userViewModel!!.user.city!!.id = userViewModel!!.cityId
                 }
             } else if (requestCode == Constants.REQUEST_CODE__SEARCH_FRAGMENT && resultCode == Constants.RESULT_CODE__SEARCH_WITH_CITY) {
                 cityId = data!!.getStringExtra(Constants.CITY_ID)
                 userViewModel!!.cityName = data.getStringExtra(Constants.CITY_NAME)
                 binding!!.get().cityTextView.text = userViewModel!!.cityName
                 userViewModel!!.cityId = cityId
-                userViewModel!!.user.city.id = cityId!!
+                userViewModel!!.user.city!!.id = cityId!!
                 if (activity != null) {
-                    userViewModel!!.user.city.id = userViewModel!!.cityId
+                    userViewModel!!.user.city!!.id = userViewModel!!.cityId
                 }
             }
         } catch (e: Exception) {
@@ -193,8 +193,8 @@ class ProfileEditFragment : DeFragment() {
             return
         }
         if (!checkToUpdateProfile()) {
-            userViewModel!!.user.city.name = binding!!.get().cityTextView.text.toString()
-            userViewModel!!.user.country.name = binding!!.get().countryTextView.text.toString()
+            userViewModel!!.user.city!!.name = binding!!.get().cityTextView.text.toString()
+            userViewModel!!.user.country!!.name = binding!!.get().countryTextView.text.toString()
             updateUserProfile()
         }
         userViewModel!!.updateUserData.observe(this, Observer { listResource: Resource<User?>? ->
@@ -260,7 +260,7 @@ class ProfileEditFragment : DeFragment() {
     }
 
     private fun checkToUpdateProfile(): Boolean {
-        return binding!!.get().userNameEditText.text.toString() == userViewModel!!.user.userName && binding!!.get().userEmailEditText.text.toString() == userViewModel!!.user.userEmail && binding!!.get().userPhoneEditText.text.toString() == userViewModel!!.user.userPhone && binding!!.get().userAboutMeEditText.text.toString() == userViewModel!!.user.userAboutMe && binding!!.get().firstNameEditText.text.toString() == userViewModel!!.user.shippingFirstName && binding!!.get().lastNameEditText.text.toString() == userViewModel!!.user.shippingLastName && binding!!.get().companyEditText.text.toString() == userViewModel!!.user.shippingCompany && binding!!.get().address1EditText.text.toString() == userViewModel!!.user.shippingAddress1 && binding!!.get().address2EditText.text.toString() == userViewModel!!.user.shippingAddress2 && binding!!.get().countryTextView.text.toString() == userViewModel!!.user.country.name && binding!!.get().card1StateEditText.text.toString() == userViewModel!!.user.shippingState && binding!!.get().cityTextView.text.toString() == userViewModel!!.user.city.name && binding!!.get().card1PostalEditText.text.toString() == userViewModel!!.user.shippingPostalCode && binding!!.get().emailEditText.text.toString() == userViewModel!!.user.shippingEmail && binding!!.get().phoneEditText.text.toString() == userViewModel!!.user.shippingPhone && binding!!.get().card2FirstNameEditText.text.toString() == userViewModel!!.user.billingFirstName && binding!!.get().card2LastNameEditText.text.toString() == userViewModel!!.user.billingLastName && binding!!.get().card2CompanyEditText.text.toString() == userViewModel!!.user.billingCompany && binding!!.get().card2Address1EditText.text.toString() == userViewModel!!.user.billingAddress1 && binding!!.get().card2Address2EditText.text.toString() == userViewModel!!.user.billingAddress2 && binding!!.get().card2CountryEditText.text.toString() == userViewModel!!.user.billingCountry && binding!!.get().card2StateEditText.text.toString() == userViewModel!!.user.billingState && binding!!.get().card2CityEditText.text.toString() == userViewModel!!.user.billingCity && binding!!.get().card2PostalEditText.text.toString() == userViewModel!!.user.billingPostalCode && binding!!.get().card2EmailEditText.text.toString() == userViewModel!!.user.billingEmail && binding!!.get().card2PhoneEditText.text.toString() == userViewModel!!.user.billingPhone
+        return binding!!.get().userNameEditText.text.toString() == userViewModel!!.user.userName && binding!!.get().userEmailEditText.text.toString() == userViewModel!!.user.userEmail && binding!!.get().userPhoneEditText.text.toString() == userViewModel!!.user.userPhone && binding!!.get().userAboutMeEditText.text.toString() == userViewModel!!.user.userAboutMe && binding!!.get().firstNameEditText.text.toString() == userViewModel!!.user.shippingFirstName && binding!!.get().lastNameEditText.text.toString() == userViewModel!!.user.shippingLastName && binding!!.get().companyEditText.text.toString() == userViewModel!!.user.shippingCompany && binding!!.get().address1EditText.text.toString() == userViewModel!!.user.shippingAddress1 && binding!!.get().address2EditText.text.toString() == userViewModel!!.user.shippingAddress2 && binding!!.get().countryTextView.text.toString() == userViewModel!!.user.country!!.name && binding!!.get().card1StateEditText.text.toString() == userViewModel!!.user.shippingState  && binding!!.get().emailEditText.text.toString() == userViewModel!!.user.shippingEmail && binding!!.get().phoneEditText.text.toString() == userViewModel!!.user.shippingPhone && binding!!.get().card2FirstNameEditText.text.toString() == userViewModel!!.user.billingFirstName && binding!!.get().card2LastNameEditText.text.toString() == userViewModel!!.user.billingLastName && binding!!.get().card2CompanyEditText.text.toString() == userViewModel!!.user.billingCompany && binding!!.get().card2Address1EditText.text.toString() == userViewModel!!.user.billingAddress1 && binding!!.get().card2Address2EditText.text.toString() == userViewModel!!.user.billingAddress2 && binding!!.get().card2CountryEditText.text.toString() == userViewModel!!.user.billingCountry && binding!!.get().card2StateEditText.text.toString() == userViewModel!!.user.billingState && binding!!.get().card2CityEditText.text.toString() == userViewModel!!.user.billingCity && binding!!.get().card2PostalEditText.text.toString() == userViewModel!!.user.billingPostalCode && binding!!.get().card2EmailEditText.text.toString() == userViewModel!!.user.billingEmail && binding!!.get().card2PhoneEditText.text.toString() == userViewModel!!.user.billingPhone
     }
 
     private fun updateUserProfile() {

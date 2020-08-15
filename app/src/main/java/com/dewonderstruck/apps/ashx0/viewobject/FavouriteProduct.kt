@@ -8,6 +8,6 @@ import com.google.gson.annotations.SerializedName
 class FavouriteProduct(@field:SerializedName("id") val productId: String, var sorting: Int) {
     @kotlin.jvm.JvmField
     @PrimaryKey(autoGenerate = true)
-    val id = 0
+    var id = 0
 
 }

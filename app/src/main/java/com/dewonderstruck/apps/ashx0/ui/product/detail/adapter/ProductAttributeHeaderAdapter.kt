@@ -56,20 +56,20 @@ abstract class ProductAttributeHeaderAdapter protected constructor(private val d
             if (basketItemHolderHashMap.containsKey(item.id)) {
                 selectedAttr = basketItemHolderHashMap[item.id]
             }
-            for (i in item.attributesDetailList.indices) {
-                if (item.attributesDetailList[i].additionalPrice == Constants.ZERO) {
-                    item.attributesDetailList[i].additionalPriceWithCurrency = ""
+            for (i in item.attributesDetailList!!.indices) {
+                if (item.attributesDetailList!![i]!!.additionalPrice == Constants.ZERO) {
+                    item.attributesDetailList!![i]!!.additionalPriceWithCurrency = ""
                 } else {
-                    item.attributesDetailList[i].additionalPriceWithCurrency = "( + " + currencySymbol + Constants.SPACE_STRING + item.attributesDetailList[i].additionalPrice + " )"
+                    item.attributesDetailList!![i]!!.additionalPriceWithCurrency = "( + " + currencySymbol + Constants.SPACE_STRING + item.attributesDetailList[i].additionalPrice + " )"
                 }
                 Utils.psLog("""
     $selectedAttr
 
     """.trimIndent())
-                if (item.attributesDetailList[i].name == selectedAttr) {
+                if (item.attributesDetailList!![i].name == selectedAttr) {
                     selectedIndex = i + 1
                 }
-                detail.add(item.attributesDetailList[i])
+                detail.add(item.attributesDetailList!![i])
             }
 
             //Creating the ArrayAdapter instance having the list

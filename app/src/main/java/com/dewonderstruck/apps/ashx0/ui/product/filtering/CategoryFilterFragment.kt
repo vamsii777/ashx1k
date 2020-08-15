@@ -89,13 +89,15 @@ class CategoryFilterFragment : DeFragment(), DiffUtilDispatchedInterface2 {
 
     @SuppressLint("UseRequireInsteadOfGet")
     private fun initializeAdapter() {
-        val nvAdapter = CategoryAdapter(dataBindingComponent, filteringClickCallback { catId: String, subCatId: String ->
-            assignCategoryId(catId, subCatId)
-            navigationController.navigateBackToHomeFeaturedFragment(this@CategoryFilterFragment.activity!!, catId, subCatId)
-            if (activity != null) {
-                this@CategoryFilterFragment.activity!!.finish()
+        val nvAdapter = CategoryAdapter(dataBindingComponent, object : filteringClickCallback {
+            override fun onClick(catId: String?, subCatId: String?) {
+                assignCategoryId(catId!!, subCatId!!)
+                navigationController.navigateBackToHomeFeaturedFragment(this@CategoryFilterFragment.activity!!, catId, subCatId)
+                if (activity != null) {
+                    this@CategoryFilterFragment.activity!!.finish()
+                }
             }
-        }, catId, subCatId)
+        }, catId!!, subCatId!!)
         adapter = AutoClearedValue(this, nvAdapter)
         binding!!.get().CategoryList.setAdapter(nvAdapter)
     }
@@ -150,7 +152,7 @@ class CategoryFilterFragment : DeFragment(), DiffUtilDispatchedInterface2 {
     }
 
     private fun replaceSubCategory(subCategoryList: List<SubCategory>?) {
-        adapter!!.get().replaceSubCategory(subCategoryList)
+        adapter!!.get().replaceSubCategory(subCategoryList!!)
         adapter!!.get().notifyDataSetChanged()
         binding!!.get().executePendingBindings()
     }
