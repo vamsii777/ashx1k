@@ -15,7 +15,7 @@ import com.dewonderstruck.apps.Config
 import com.dewonderstruck.apps.ashx0.R
 import com.dewonderstruck.apps.ashx0.binding.FragmentDataBindingComponent
 import com.dewonderstruck.apps.ashx0.databinding.FragmentAppLoadingBinding
-import com.dewonderstruck.apps.ashx0.ui.common.PSFragment
+import com.dewonderstruck.apps.ashx0.ui.common.DeFragment
 import com.dewonderstruck.apps.ashx0.utils.AutoClearedValue
 import com.dewonderstruck.apps.ashx0.utils.Constants
 import com.dewonderstruck.apps.ashx0.utils.PSDialogMsg
@@ -30,7 +30,7 @@ import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.util.*
 
-class AppLoadingFragment : PSFragment() {
+class AppLoadingFragment : DeFragment() {
     //region Variables
     private val dataBindingComponent: DataBindingComponent = FragmentDataBindingComponent(this)
     private var psDialogMsg: PSDialogMsg? = null
@@ -120,7 +120,9 @@ class AppLoadingFragment : PSFragment() {
                     .setCancelable(false)
                     .setTitle(psAppInfo.psAppVersion.versionTitle)
                     .setMessage(psAppInfo.psAppVersion.versionMessage)
-                    .setNeutralButton(resources.getString(R.string.app__ignore)) { dialog, which ->
+                    .setNeutralButton(resources.getString(R.string.app__ignore))
+
+                    { dialog, which ->
                         // Respond to neutral button press
 
                         navigationController.navigateToMainActivity(this@AppLoadingFragment.activity!!)
@@ -129,6 +131,7 @@ class AppLoadingFragment : PSFragment() {
                         }
                         dialog.dismiss()
                     }
+
                     .setNegativeButton(resources.getString(R.string.app__cancel)) { dialog, which ->
                         // Respond to negative button press
 

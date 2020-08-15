@@ -20,7 +20,7 @@ import com.dewonderstruck.apps.Config
 import com.dewonderstruck.apps.ashx0.R
 import com.dewonderstruck.apps.ashx0.binding.FragmentDataBindingComponent
 import com.dewonderstruck.apps.ashx0.databinding.FragmentDanceoholicsBinding
-import com.dewonderstruck.apps.ashx0.ui.common.PSFragment
+import com.dewonderstruck.apps.ashx0.ui.common.DeFragment
 import com.dewonderstruck.apps.ashx0.ui.danceoholics.data.SliderAdapter
 import com.dewonderstruck.apps.ashx0.ui.danceoholics.data.SliderItem
 import com.dewonderstruck.apps.ashx0.utils.AutoClearedValue
@@ -37,7 +37,7 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 
-class DanceoholicsFragment : PSFragment() {
+class DanceoholicsFragment : DeFragment() {
 
 
     //region Variables

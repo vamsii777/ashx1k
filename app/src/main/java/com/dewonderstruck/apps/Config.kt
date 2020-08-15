@@ -116,7 +116,7 @@ object Config {
      * Image Cache and Loading
      */
     @JvmField
-    var IMAGE_CACHE_LIMIT = 350 // Mb
+    var IMAGE_CACHE_LIMIT = 250 // Mb
     @JvmField
     var PRE_LOAD_FULL_IMAGE = true
 

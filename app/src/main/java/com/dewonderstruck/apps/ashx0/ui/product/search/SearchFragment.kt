@@ -21,7 +21,7 @@ import com.dewonderstruck.apps.ashx0.R
 import com.dewonderstruck.apps.ashx0.binding.FragmentDataBindingComponent
 import com.dewonderstruck.apps.ashx0.databinding.FragmentSearchBinding
 import com.dewonderstruck.apps.ashx0.ui.common.DataBoundListAdapter.DiffUtilDispatchedInterface2
-import com.dewonderstruck.apps.ashx0.ui.common.PSFragment
+import com.dewonderstruck.apps.ashx0.ui.common.DeFragment
 import com.dewonderstruck.apps.ashx0.utils.AutoClearedValue
 import com.dewonderstruck.apps.ashx0.utils.Constants
 import com.dewonderstruck.apps.ashx0.utils.PSDialogMsg
@@ -31,7 +31,7 @@ import com.dewonderstruck.apps.ashx0.viewobject.Basket
 import com.google.android.gms.ads.AdRequest
 import com.google.firebase.database.*
 
-class SearchFragment : PSFragment(), DiffUtilDispatchedInterface2 {
+class SearchFragment : DeFragment(), DiffUtilDispatchedInterface2 {
     private val dataBindingComponent: DataBindingComponent = FragmentDataBindingComponent(this)
     private var catId: String? = Constants.NO_DATA
     private var subCatId: String? = Constants.NO_DATA

@@ -13,7 +13,7 @@ import com.dewonderstruck.apps.Config
 import com.dewonderstruck.apps.ashx0.R
 import com.dewonderstruck.apps.ashx0.binding.FragmentDataBindingComponent
 import com.dewonderstruck.apps.ashx0.databinding.FragmentTermsAndConditionsBinding
-import com.dewonderstruck.apps.ashx0.ui.common.PSFragment
+import com.dewonderstruck.apps.ashx0.ui.common.DeFragment
 import com.dewonderstruck.apps.ashx0.utils.AutoClearedValue
 import com.dewonderstruck.apps.ashx0.utils.Constants
 import com.dewonderstruck.apps.ashx0.utils.Utils
@@ -22,7 +22,7 @@ import com.dewonderstruck.apps.ashx0.viewobject.Shop
 import com.dewonderstruck.apps.ashx0.viewobject.common.Resource
 import com.dewonderstruck.apps.ashx0.viewobject.common.Status
 
-class TermsAndConditionsFragment : PSFragment() {
+class TermsAndConditionsFragment : DeFragment() {
     //region Variables
     private val dataBindingComponent: DataBindingComponent = FragmentDataBindingComponent(this)
     private var shopViewModel: ShopViewModel? = null

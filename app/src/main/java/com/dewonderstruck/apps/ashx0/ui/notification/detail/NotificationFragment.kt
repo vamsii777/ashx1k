@@ -15,7 +15,7 @@ import com.dewonderstruck.apps.ashx0.R
 import com.dewonderstruck.apps.ashx0.binding.FragmentDataBindingComponent
 import com.dewonderstruck.apps.ashx0.databinding.FragmentNotificationBinding
 import com.dewonderstruck.apps.ashx0.ui.common.DataBoundListAdapter.DiffUtilDispatchedInterface2
-import com.dewonderstruck.apps.ashx0.ui.common.PSFragment
+import com.dewonderstruck.apps.ashx0.ui.common.DeFragment
 import com.dewonderstruck.apps.ashx0.utils.AutoClearedValue
 import com.dewonderstruck.apps.ashx0.utils.Constants
 import com.dewonderstruck.apps.ashx0.utils.Utils
@@ -25,7 +25,7 @@ import com.dewonderstruck.apps.ashx0.viewobject.common.Resource
 import com.dewonderstruck.apps.ashx0.viewobject.common.Status
 import com.google.android.gms.ads.AdRequest
 
-class NotificationFragment : PSFragment(), DiffUtilDispatchedInterface2 {
+class NotificationFragment : DeFragment(), DiffUtilDispatchedInterface2 {
     private val dataBindingComponent: DataBindingComponent = FragmentDataBindingComponent(this)
     private var notificationViewModel: NotificationsViewModel? = null
     private var notiId: String? = null

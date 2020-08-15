@@ -19,7 +19,7 @@ import com.dewonderstruck.apps.ashx0.databinding.FragmentProductCollectionHeader
 import com.dewonderstruck.apps.ashx0.ui.collection.adapter.ProductCollectionHeaderListAdapter
 import com.dewonderstruck.apps.ashx0.ui.collection.adapter.ProductCollectionHeaderListAdapter.ProductCollectionHeaderClickCallback
 import com.dewonderstruck.apps.ashx0.ui.common.DataBoundListAdapter.DiffUtilDispatchedInterface2
-import com.dewonderstruck.apps.ashx0.ui.common.PSFragment
+import com.dewonderstruck.apps.ashx0.ui.common.DeFragment
 import com.dewonderstruck.apps.ashx0.utils.AutoClearedValue
 import com.dewonderstruck.apps.ashx0.utils.Utils
 import com.dewonderstruck.apps.ashx0.viewmodel.collection.ProductCollectionViewModel
@@ -31,7 +31,7 @@ import com.google.android.gms.ads.AdRequest
 /**
  * A simple [Fragment] subclass.
  */
-class ProductCollectionHeaderListFragment : PSFragment(), DiffUtilDispatchedInterface2 {
+class ProductCollectionHeaderListFragment : DeFragment(), DiffUtilDispatchedInterface2 {
     //region Variables
     private val dataBindingComponent: DataBindingComponent = FragmentDataBindingComponent(this)
     private var productCollectionViewModel: ProductCollectionViewModel? = null

@@ -21,7 +21,7 @@ import com.dewonderstruck.apps.ashx0.binding.FragmentDataBindingComponent;
 import com.dewonderstruck.apps.ashx0.databinding.FragmentBlogListBinding;
 import com.dewonderstruck.apps.ashx0.ui.blog.list.adapter.BlogListAdapter;
 import com.dewonderstruck.apps.ashx0.ui.common.DataBoundListAdapter;
-import com.dewonderstruck.apps.ashx0.ui.common.PSFragment;
+import com.dewonderstruck.apps.ashx0.ui.common.DeFragment;
 import com.dewonderstruck.apps.ashx0.utils.AutoClearedValue;
 import com.dewonderstruck.apps.ashx0.utils.Utils;
 import com.dewonderstruck.apps.ashx0.viewmodel.blog.BlogViewModel;
@@ -30,7 +30,7 @@ import com.dewonderstruck.apps.ashx0.viewobject.common.Status;
 
 import java.util.List;
 
-public class BlogListFragment extends PSFragment implements DataBoundListAdapter.DiffUtilDispatchedInterface2 {
+public class BlogListFragment extends DeFragment implements DataBoundListAdapter.DiffUtilDispatchedInterface2 {
 
     private final androidx.databinding.DataBindingComponent dataBindingComponent = new FragmentDataBindingComponent(this);
     private BlogViewModel blogViewModel;

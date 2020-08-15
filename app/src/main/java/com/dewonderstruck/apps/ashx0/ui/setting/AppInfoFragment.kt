@@ -18,7 +18,7 @@ import androidx.lifecycle.ViewModelProviders
 import com.dewonderstruck.apps.ashx0.R
 import com.dewonderstruck.apps.ashx0.binding.FragmentDataBindingComponent
 import com.dewonderstruck.apps.ashx0.databinding.FragmentAppInfoBinding
-import com.dewonderstruck.apps.ashx0.ui.common.PSFragment
+import com.dewonderstruck.apps.ashx0.ui.common.DeFragment
 import com.dewonderstruck.apps.ashx0.utils.AutoClearedValue
 import com.dewonderstruck.apps.ashx0.utils.Utils
 import com.dewonderstruck.apps.ashx0.viewmodel.aboutus.AboutUsViewModel
@@ -29,7 +29,7 @@ import com.dewonderstruck.apps.ashx0.viewobject.common.Status
 /**
  * A simple [Fragment] subclass.
  */
-class AppInfoFragment : PSFragment() {
+class AppInfoFragment : DeFragment() {
     //region Variables
     private val dataBindingComponent: DataBindingComponent = FragmentDataBindingComponent(this)
     private var aboutUsViewModel: AboutUsViewModel? = null
@@ -67,7 +67,7 @@ class AppInfoFragment : PSFragment() {
         }
 
 
-        //For phone 4
+        /*//For phone 4
         binding!!.get().phone3TextView.setOnClickListener { view: View? ->
             val number3 = binding!!.get().phone3TextView.text.toString()
             if (ContextCompat.checkSelfPermission(binding!!.get().root.context, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
@@ -80,7 +80,7 @@ class AppInfoFragment : PSFragment() {
                 val dial = "tel:$number3"
                 startActivity(Intent(Intent.ACTION_CALL, Uri.parse(dial)))
             }
-        }
+        }*/
 
         //For website
         binding!!.get().WebsiteTextView.setOnClickListener { view: View? ->

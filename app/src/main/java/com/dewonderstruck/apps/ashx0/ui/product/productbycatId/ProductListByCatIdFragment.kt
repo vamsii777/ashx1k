@@ -19,7 +19,7 @@ import com.dewonderstruck.apps.ashx0.R
 import com.dewonderstruck.apps.ashx0.binding.FragmentDataBindingComponent
 import com.dewonderstruck.apps.ashx0.databinding.FragmentProdcutListByCatidBinding
 import com.dewonderstruck.apps.ashx0.ui.common.DataBoundListAdapter.DiffUtilDispatchedInterface2
-import com.dewonderstruck.apps.ashx0.ui.common.PSFragment
+import com.dewonderstruck.apps.ashx0.ui.common.DeFragment
 import com.dewonderstruck.apps.ashx0.ui.product.adapter.ProductVerticalListAdapter
 import com.dewonderstruck.apps.ashx0.utils.AutoClearedValue
 import com.dewonderstruck.apps.ashx0.utils.Constants
@@ -32,7 +32,7 @@ import com.dewonderstruck.apps.ashx0.viewobject.common.Resource
 import com.dewonderstruck.apps.ashx0.viewobject.common.Status
 import com.like.LikeButton
 
-class ProductListByCatIdFragment : PSFragment(), DiffUtilDispatchedInterface2 {
+class ProductListByCatIdFragment : DeFragment(), DiffUtilDispatchedInterface2 {
     //region Variables
     private val dataBindingComponent: DataBindingComponent = FragmentDataBindingComponent(this)
     private var catId: String? = null

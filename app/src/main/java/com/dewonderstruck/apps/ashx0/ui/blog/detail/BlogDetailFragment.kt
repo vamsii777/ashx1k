@@ -15,7 +15,7 @@ import com.dewonderstruck.apps.Config
 import com.dewonderstruck.apps.ashx0.R
 import com.dewonderstruck.apps.ashx0.binding.FragmentDataBindingComponent
 import com.dewonderstruck.apps.ashx0.databinding.FragmentBlogDetailBinding
-import com.dewonderstruck.apps.ashx0.ui.common.PSFragment
+import com.dewonderstruck.apps.ashx0.ui.common.DeFragment
 import com.dewonderstruck.apps.ashx0.utils.AutoClearedValue
 import com.dewonderstruck.apps.ashx0.utils.Constants
 import com.dewonderstruck.apps.ashx0.utils.PSDialogMsg
@@ -25,7 +25,7 @@ import com.dewonderstruck.apps.ashx0.viewobject.common.Resource
 import com.dewonderstruck.apps.ashx0.viewobject.common.Status
 import com.google.android.gms.ads.AdRequest
 
-class BlogDetailFragment : PSFragment() {
+class BlogDetailFragment : DeFragment() {
     private val dataBindingComponent: DataBindingComponent = FragmentDataBindingComponent(this)
     private var blogViewModel: BlogViewModel? = null
     private var blogId: String? = null

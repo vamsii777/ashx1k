@@ -12,7 +12,7 @@ import com.dewonderstruck.apps.Config
 import com.dewonderstruck.apps.ashx0.R
 import com.dewonderstruck.apps.ashx0.binding.FragmentDataBindingComponent
 import com.dewonderstruck.apps.ashx0.databinding.FragmentSearchCategoryBinding
-import com.dewonderstruck.apps.ashx0.ui.common.PSFragment
+import com.dewonderstruck.apps.ashx0.ui.common.DeFragment
 import com.dewonderstruck.apps.ashx0.ui.product.search.adapter.SearchCategoryAdapter
 import com.dewonderstruck.apps.ashx0.utils.AutoClearedValue
 import com.dewonderstruck.apps.ashx0.utils.Constants
@@ -23,7 +23,7 @@ import com.dewonderstruck.apps.ashx0.viewobject.common.Resource
 import com.dewonderstruck.apps.ashx0.viewobject.common.Status
 import com.google.android.gms.ads.AdRequest
 
-class SearchCategoryFragment : PSFragment() {
+class SearchCategoryFragment : DeFragment() {
     private val dataBindingComponent: DataBindingComponent = FragmentDataBindingComponent(this)
     private var categoryViewModel: CategoryViewModel? = null
     var catId: String? = null

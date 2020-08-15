@@ -32,7 +32,7 @@ import com.dewonderstruck.apps.ashx0.databinding.FragmentMainBinding
 import com.dewonderstruck.apps.ashx0.ui.category.adapter.CategoryIconListAdapter
 import com.dewonderstruck.apps.ashx0.ui.category.adapter.TrendingCategoryAdapter
 import com.dewonderstruck.apps.ashx0.ui.common.DataBoundListAdapter.DiffUtilDispatchedInterface2
-import com.dewonderstruck.apps.ashx0.ui.common.PSFragment
+import com.dewonderstruck.apps.ashx0.ui.common.DeFragment
 import com.dewonderstruck.apps.ashx0.ui.product.adapter.DiscountListAdapter
 import com.dewonderstruck.apps.ashx0.ui.product.adapter.ProductCollectionRowAdapter
 import com.dewonderstruck.apps.ashx0.ui.product.adapter.ProductHorizontalListAdapter
@@ -62,7 +62,7 @@ import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.util.*
 
-class MainFragment : PSFragment(), DiffUtilDispatchedInterface2 {
+class MainFragment : DeFragment(), DiffUtilDispatchedInterface2 {
     private val dataBindingComponent: DataBindingComponent = FragmentDataBindingComponent(this)
     private var homeLatestProductViewModel: HomeLatestProductViewModel? = null
     private var basketViewModel: BasketViewModel? = null

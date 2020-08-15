@@ -15,7 +15,7 @@ import com.dewonderstruck.apps.MainActivity
 import com.dewonderstruck.apps.ashx0.R
 import com.dewonderstruck.apps.ashx0.binding.FragmentDataBindingComponent
 import com.dewonderstruck.apps.ashx0.databinding.FragmentPhoneLoginBinding
-import com.dewonderstruck.apps.ashx0.ui.common.PSFragment
+import com.dewonderstruck.apps.ashx0.ui.common.DeFragment
 import com.dewonderstruck.apps.ashx0.utils.AutoClearedValue
 import com.dewonderstruck.apps.ashx0.utils.PSDialogMsg
 import com.dewonderstruck.apps.ashx0.utils.Utils
@@ -25,7 +25,7 @@ import com.facebook.LoggingBehavior
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuth.AuthStateListener
 
-class PhoneLoginFragment : PSFragment() {
+class PhoneLoginFragment : DeFragment() {
     //region Variables
     private val dataBindingComponent: DataBindingComponent = FragmentDataBindingComponent(this)
     private var psDialogMsg: PSDialogMsg? = null

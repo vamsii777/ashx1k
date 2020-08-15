@@ -14,7 +14,7 @@ import androidx.lifecycle.ViewModelProviders
 import com.dewonderstruck.apps.ashx0.R
 import com.dewonderstruck.apps.ashx0.binding.FragmentDataBindingComponent
 import com.dewonderstruck.apps.ashx0.databinding.FragmentUserRegisterBinding
-import com.dewonderstruck.apps.ashx0.ui.common.PSFragment
+import com.dewonderstruck.apps.ashx0.ui.common.DeFragment
 import com.dewonderstruck.apps.ashx0.utils.AutoClearedValue
 import com.dewonderstruck.apps.ashx0.utils.Constants
 import com.dewonderstruck.apps.ashx0.utils.PSDialogMsg
@@ -27,7 +27,7 @@ import com.dewonderstruck.apps.ashx0.viewobject.common.Status
 /**
  * UserRegisterFragment
  */
-class UserRegisterFragment : PSFragment() {
+class UserRegisterFragment : DeFragment() {
     //region Variables
     private val dataBindingComponent: DataBindingComponent = FragmentDataBindingComponent(this)
     private var userViewModel: UserViewModel? = null

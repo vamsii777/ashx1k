@@ -20,7 +20,7 @@ import com.dewonderstruck.apps.Config
 import com.dewonderstruck.apps.ashx0.R
 import com.dewonderstruck.apps.ashx0.binding.FragmentDataBindingComponent
 import com.dewonderstruck.apps.ashx0.databinding.FragmentSettingBinding
-import com.dewonderstruck.apps.ashx0.ui.common.PSFragment
+import com.dewonderstruck.apps.ashx0.ui.common.DeFragment
 import com.dewonderstruck.apps.ashx0.utils.AutoClearedValue
 import com.dewonderstruck.apps.ashx0.utils.GetSizeTaskForGlide
 import com.dewonderstruck.apps.ashx0.utils.PSDialogMsg
@@ -37,7 +37,7 @@ import java.io.File
 import java.net.MalformedURLException
 import java.net.URL
 
-class SettingFragment : PSFragment() {
+class SettingFragment : DeFragment() {
     //region Variables
     private val dataBindingComponent: DataBindingComponent = FragmentDataBindingComponent(this)
 

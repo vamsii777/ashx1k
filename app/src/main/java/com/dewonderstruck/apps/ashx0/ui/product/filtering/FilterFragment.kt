@@ -14,14 +14,14 @@ import com.dewonderstruck.apps.ashx0.R
 import com.dewonderstruck.apps.ashx0.binding.FragmentDataBindingComponent
 import com.dewonderstruck.apps.ashx0.databinding.FragmentFilterBinding
 import com.dewonderstruck.apps.ashx0.ui.common.DataBoundListAdapter.DiffUtilDispatchedInterface2
-import com.dewonderstruck.apps.ashx0.ui.common.PSFragment
+import com.dewonderstruck.apps.ashx0.ui.common.DeFragment
 import com.dewonderstruck.apps.ashx0.utils.AutoClearedValue
 import com.dewonderstruck.apps.ashx0.utils.Constants
 import com.dewonderstruck.apps.ashx0.viewmodel.homelist.HomeSearchProductViewModel
 import com.dewonderstruck.apps.ashx0.viewobject.holder.ProductParameterHolder
 import com.google.android.gms.ads.AdRequest
 
-class FilterFragment : PSFragment(), DiffUtilDispatchedInterface2 {
+class FilterFragment : DeFragment(), DiffUtilDispatchedInterface2 {
     private val dataBindingComponent: DataBindingComponent = FragmentDataBindingComponent(this)
     private var homeSearchProductViewModel: HomeSearchProductViewModel? = null
 

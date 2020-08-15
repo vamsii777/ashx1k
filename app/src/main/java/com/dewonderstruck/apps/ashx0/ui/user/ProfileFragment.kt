@@ -16,7 +16,7 @@ import com.dewonderstruck.apps.ashx0.R
 import com.dewonderstruck.apps.ashx0.binding.FragmentDataBindingComponent
 import com.dewonderstruck.apps.ashx0.databinding.FragmentProfileBinding
 import com.dewonderstruck.apps.ashx0.ui.common.DataBoundListAdapter.DiffUtilDispatchedInterface2
-import com.dewonderstruck.apps.ashx0.ui.common.PSFragment
+import com.dewonderstruck.apps.ashx0.ui.common.DeFragment
 import com.dewonderstruck.apps.ashx0.utils.AutoClearedValue
 import com.dewonderstruck.apps.ashx0.utils.Constants
 import com.dewonderstruck.apps.ashx0.utils.PSDialogMsg
@@ -31,7 +31,7 @@ import com.dewonderstruck.apps.ashx0.viewobject.common.Status
 /**
  * ProfileFragment
  */
-class ProfileFragment : PSFragment(), DiffUtilDispatchedInterface2 {
+class ProfileFragment : DeFragment(), DiffUtilDispatchedInterface2 {
     //region Variables
     private val dataBindingComponent: DataBindingComponent = FragmentDataBindingComponent(this)
     private var userViewModel: UserViewModel? = null

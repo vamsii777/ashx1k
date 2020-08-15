@@ -12,11 +12,11 @@ import androidx.databinding.DataBindingUtil
 import com.dewonderstruck.apps.ashx0.R
 import com.dewonderstruck.apps.ashx0.binding.FragmentDataBindingComponent
 import com.dewonderstruck.apps.ashx0.databinding.FragmentForceUpdateBinding
-import com.dewonderstruck.apps.ashx0.ui.common.PSFragment
+import com.dewonderstruck.apps.ashx0.ui.common.DeFragment
 import com.dewonderstruck.apps.ashx0.utils.AutoClearedValue
 import com.dewonderstruck.apps.ashx0.utils.Constants
 
-class ForceUpdateFragment : PSFragment() {
+class ForceUpdateFragment : DeFragment() {
     private val dataBindingComponent: DataBindingComponent = FragmentDataBindingComponent(this)
 
     @VisibleForTesting

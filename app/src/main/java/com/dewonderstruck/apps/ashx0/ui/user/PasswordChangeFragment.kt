@@ -13,7 +13,7 @@ import androidx.lifecycle.ViewModelProviders
 import com.dewonderstruck.apps.ashx0.R
 import com.dewonderstruck.apps.ashx0.binding.FragmentDataBindingComponent
 import com.dewonderstruck.apps.ashx0.databinding.FragmentPasswordChangeBinding
-import com.dewonderstruck.apps.ashx0.ui.common.PSFragment
+import com.dewonderstruck.apps.ashx0.ui.common.DeFragment
 import com.dewonderstruck.apps.ashx0.utils.AutoClearedValue
 import com.dewonderstruck.apps.ashx0.utils.PSDialogMsg
 import com.dewonderstruck.apps.ashx0.utils.Utils
@@ -21,11 +21,13 @@ import com.dewonderstruck.apps.ashx0.viewmodel.user.UserViewModel
 import com.dewonderstruck.apps.ashx0.viewobject.ApiStatus
 import com.dewonderstruck.apps.ashx0.viewobject.common.Resource
 import com.dewonderstruck.apps.ashx0.viewobject.common.Status
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 /**
  * PasswordChangeFragment
  */
-class PasswordChangeFragment : PSFragment() {
+
+class PasswordChangeFragment : DeFragment() {
     //region Variables
     private val dataBindingComponent: DataBindingComponent = FragmentDataBindingComponent(this)
     private var userViewModel: UserViewModel? = null

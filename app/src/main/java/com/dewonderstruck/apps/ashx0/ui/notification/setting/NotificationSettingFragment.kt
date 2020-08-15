@@ -11,12 +11,13 @@ import androidx.annotation.VisibleForTesting
 import androidx.databinding.DataBindingComponent
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import com.dewonderstruck.apps.ashx0.R
 import com.dewonderstruck.apps.ashx0.binding.FragmentDataBindingComponent
 import com.dewonderstruck.apps.ashx0.databinding.FragmentNotificationSettingBinding
 import com.dewonderstruck.apps.ashx0.ui.common.BackgroundTaskHandler.LoadingState
-import com.dewonderstruck.apps.ashx0.ui.common.PSFragment
+import com.dewonderstruck.apps.ashx0.ui.common.DeFragment
 import com.dewonderstruck.apps.ashx0.utils.AutoClearedValue
 import com.dewonderstruck.apps.ashx0.utils.Constants
 import com.dewonderstruck.apps.ashx0.utils.PSDialogMsg
@@ -26,7 +27,7 @@ import com.dewonderstruck.apps.ashx0.viewmodel.common.NotificationViewModel
 /**
  * NotificationSettingFragment
  */
-class NotificationSettingFragment : PSFragment() {
+class NotificationSettingFragment : DeFragment() {
     //region Variables
     private val dataBindingComponent: DataBindingComponent = FragmentDataBindingComponent(this)
     private var psDialogMsg: PSDialogMsg? = null
@@ -71,7 +72,8 @@ class NotificationSettingFragment : PSFragment() {
     }
 
     override fun initViewModels() {
-        notificationViewModel = ViewModelProviders.of(this, viewModelFactory).get(NotificationViewModel::class.java)
+        notificationViewModel = ViewModelProvider(this, viewModelFactory).get(NotificationViewModel::class.java)
+
     }
 
     override fun initAdapters() {}

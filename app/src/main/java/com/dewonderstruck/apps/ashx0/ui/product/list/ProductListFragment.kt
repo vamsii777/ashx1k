@@ -21,7 +21,7 @@ import com.dewonderstruck.apps.ashx0.binding.FragmentDataBindingComponent
 import com.dewonderstruck.apps.ashx0.databinding.BottomBoxLayoutBinding
 import com.dewonderstruck.apps.ashx0.databinding.FragmentProductListBinding
 import com.dewonderstruck.apps.ashx0.ui.common.DataBoundListAdapter.DiffUtilDispatchedInterface2
-import com.dewonderstruck.apps.ashx0.ui.common.PSFragment
+import com.dewonderstruck.apps.ashx0.ui.common.DeFragment
 import com.dewonderstruck.apps.ashx0.ui.product.adapter.ProductVerticalListAdapter
 import com.dewonderstruck.apps.ashx0.utils.AutoClearedValue
 import com.dewonderstruck.apps.ashx0.utils.Constants
@@ -40,7 +40,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.like.LikeButton
 import java.util.*
 
-class ProductListFragment : PSFragment(), DiffUtilDispatchedInterface2 {
+class ProductListFragment : DeFragment(), DiffUtilDispatchedInterface2 {
     private val dataBindingComponent: DataBindingComponent = FragmentDataBindingComponent(this)
     private var typeClicked = false
     private var filterClicked = false

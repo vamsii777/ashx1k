@@ -17,7 +17,7 @@ import androidx.viewpager.widget.ViewPager.OnPageChangeListener
 import com.dewonderstruck.apps.ashx0.R
 import com.dewonderstruck.apps.ashx0.binding.FragmentDataBindingComponent
 import com.dewonderstruck.apps.ashx0.databinding.FragmentGalleryDetailBinding
-import com.dewonderstruck.apps.ashx0.ui.common.PSFragment
+import com.dewonderstruck.apps.ashx0.ui.common.DeFragment
 import com.dewonderstruck.apps.ashx0.utils.AutoClearedValue
 import com.dewonderstruck.apps.ashx0.utils.Constants
 import com.dewonderstruck.apps.ashx0.utils.TouchImageView
@@ -29,7 +29,7 @@ import com.dewonderstruck.apps.ashx0.viewobject.common.Resource
 /**
  * Gallery Detail Fragment
  */
-class GalleryDetailFragment : PSFragment() {
+class GalleryDetailFragment : DeFragment() {
     //region Variables
     private val dataBindingComponent: DataBindingComponent = FragmentDataBindingComponent(this)
 

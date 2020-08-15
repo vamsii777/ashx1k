@@ -14,12 +14,13 @@ import androidx.constraintlayout.motion.widget.MotionScene
 import androidx.databinding.DataBindingComponent
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import com.dewonderstruck.apps.Config
 import com.dewonderstruck.apps.ashx0.R
 import com.dewonderstruck.apps.ashx0.binding.FragmentDataBindingComponent
 import com.dewonderstruck.apps.ashx0.databinding.FragmentUserLoginBinding
-import com.dewonderstruck.apps.ashx0.ui.common.PSFragment
+import com.dewonderstruck.apps.ashx0.ui.common.DeFragment
 import com.dewonderstruck.apps.ashx0.utils.AutoClearedValue
 import com.dewonderstruck.apps.ashx0.utils.Constants
 import com.dewonderstruck.apps.ashx0.utils.PSDialogMsg
@@ -48,7 +49,7 @@ import org.json.JSONObject
 /**
  * UserLoginFragment
  */
-class UserLoginFragment() : PSFragment() {
+class UserLoginFragment() : DeFragment() {
     //region Variables
     private val dataBindingComponent: DataBindingComponent = FragmentDataBindingComponent(this)
     private var userViewModel: UserViewModel? = null
@@ -92,7 +93,7 @@ class UserLoginFragment() : PSFragment() {
         val credential = GoogleAuthProvider.getCredential(acct.idToken, null)
         if (activity != null) {
             mAuth!!.signInWithCredential(credential)
-                    .addOnCompleteListener((activity)!!, { task: Task<AuthResult?> ->
+                    .addOnCompleteListener((activity)!!) { task: Task<AuthResult?> ->
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(MotionScene.TAG, "signInWithCredential:success")
@@ -105,7 +106,7 @@ class UserLoginFragment() : PSFragment() {
                             Log.w(MotionScene.TAG, "signInWithCredential:failure", task.getException())
                             Toast.makeText(getActivity(), "SignIn Failed", Toast.LENGTH_LONG).show()
                         }
-                    })
+                    }
         }
     }
 
@@ -147,13 +148,13 @@ class UserLoginFragment() : PSFragment() {
 
         //fadeIn Animation
         fadeIn(binding!!.get().root)
-        binding!!.get().loginButton.setOnClickListener({ view: View? ->
+        binding!!.get().loginButton.setOnClickListener { view: View? ->
             Utils.hideKeyboard(getActivity())
             if (connectivity.isConnected()) {
                 val userEmail: String = binding!!.get().emailEditText.getText().toString().trim { it <= ' ' }
                 val userPassword: String = binding!!.get().passwordEditText.getText().toString().trim { it <= ' ' }
-                Utils.psLog("Email " + userEmail)
-                Utils.psLog("Password " + userPassword)
+                Utils.psLog("Email $userEmail")
+                Utils.psLog("Password $userPassword")
                 if ((userEmail == "")) {
                     psDialogMsg!!.showWarningDialog(getString(R.string.error_message__blank_email), getString(R.string.app__ok))
                     psDialogMsg!!.show()
@@ -172,7 +173,7 @@ class UserLoginFragment() : PSFragment() {
                 psDialogMsg!!.showWarningDialog(getString(R.string.no_internet_error), getString(R.string.app__ok))
                 psDialogMsg!!.show()
             }
-        })
+        }
         binding!!.get().registerButton.setOnClickListener({ view: View? -> Utils.navigateAfterRegister(getActivity(), navigationController) })
         binding!!.get().forgotPasswordButton.setOnClickListener({ view: View? -> Utils.navigateAfterForgotPassword(getActivity(), navigationController) })
         if (Config.ENABLE_FACEBOOK_LOGIN) {
@@ -325,7 +326,7 @@ class UserLoginFragment() : PSFragment() {
                 "",
                 "",
                 "",
-                token,
+                this!!.token!!,
                 "",
                 "",
                 "",
@@ -336,7 +337,7 @@ class UserLoginFragment() : PSFragment() {
     }
 
     override fun initViewModels() {
-        userViewModel = ViewModelProviders.of(this, viewModelFactory).get(UserViewModel::class.java)
+        userViewModel = ViewModelProvider(this, viewModelFactory).get(UserViewModel::class.java)
     }
 
     override fun initAdapters() {}
@@ -388,41 +389,41 @@ class UserLoginFragment() : PSFragment() {
         binding!!.get().fbLoginButton.fragment = this
         binding!!.get().fbLoginButton.registerCallback(callbackManager, object : FacebookCallback<LoginResult> {
             override fun onSuccess(loginResult: LoginResult) {
-                val request = GraphRequest.newMeRequest(loginResult.accessToken,
-                        { `object`: JSONObject?, response: GraphResponse? ->
-                            var name: String? = ""
-                            var email: String? = ""
-                            var id: String = ""
-                            val imageURL: String = ""
-                            try {
-                                if (`object` != null) {
-                                    name = `object`.getString("name")
-                                }
-                                //link.setText(object.getString("link"));
-                            } catch (e: JSONException) {
-                                e.printStackTrace()
-                            }
-                            try {
-                                if (`object` != null) {
-                                    email = `object`.getString("email")
-                                }
-                                //link.setText(object.getString("link"));
-                            } catch (e: JSONException) {
-                                e.printStackTrace()
-                            }
-                            try {
-                                if (`object` != null) {
-                                    id = `object`.getString("id")
-                                }
-                                //link.setText(object.getString("link"));
-                            } catch (e: JSONException) {
-                                e.printStackTrace()
-                            }
-                            if (!(id == "")) {
-                                prgDialog!!.get().show()
-                                userViewModel!!.registerFBUser(id, name, email, imageURL)
-                            }
-                        })
+                val request = GraphRequest.newMeRequest(loginResult.accessToken
+                ) { `object`: JSONObject?, response: GraphResponse? ->
+                    var name: String? = ""
+                    var email: String? = ""
+                    var id: String = ""
+                    val imageURL: String = ""
+                    try {
+                        if (`object` != null) {
+                            name = `object`.getString("name")
+                        }
+                        //link.setText(object.getString("link"));
+                    } catch (e: JSONException) {
+                        e.printStackTrace()
+                    }
+                    try {
+                        if (`object` != null) {
+                            email = `object`.getString("email")
+                        }
+                        //link.setText(object.getString("link"));
+                    } catch (e: JSONException) {
+                        e.printStackTrace()
+                    }
+                    try {
+                        if (`object` != null) {
+                            id = `object`.getString("id")
+                        }
+                        //link.setText(object.getString("link"));
+                    } catch (e: JSONException) {
+                        e.printStackTrace()
+                    }
+                    if (!(id == "")) {
+                        prgDialog!!.get().show()
+                        userViewModel!!.registerFBUser(id, name, email, imageURL)
+                    }
+                }
                 val parameters = Bundle()
                 parameters.putString("fields", "email,name,id")
                 request.parameters = parameters

@@ -11,7 +11,7 @@ import com.dewonderstruck.apps.Config
 import com.dewonderstruck.apps.ashx0.R
 import com.dewonderstruck.apps.ashx0.binding.FragmentDataBindingComponent
 import com.dewonderstruck.apps.ashx0.databinding.FragmentSearchCityListBinding
-import com.dewonderstruck.apps.ashx0.ui.common.PSFragment
+import com.dewonderstruck.apps.ashx0.ui.common.DeFragment
 import com.dewonderstruck.apps.ashx0.ui.product.search.adapter.SearchCityAdapter
 import com.dewonderstruck.apps.ashx0.utils.AutoClearedValue
 import com.dewonderstruck.apps.ashx0.utils.Constants
@@ -25,7 +25,7 @@ import com.google.android.gms.ads.AdRequest
 /**
  * A simple [Fragment] subclass.
  */
-class SearchCityListFragment : PSFragment() {
+class SearchCityListFragment : DeFragment() {
     private val dataBindingComponent: DataBindingComponent = FragmentDataBindingComponent(this)
     private var cityViewModel: CityViewModel? = null
     var cityId: String? = null

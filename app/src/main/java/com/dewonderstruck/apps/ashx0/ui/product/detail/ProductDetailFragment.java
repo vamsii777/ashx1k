@@ -9,10 +9,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.telephony.PhoneNumberUtils;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -33,6 +30,7 @@ import androidx.viewpager.widget.ViewPager;
 import com.dewonderstruck.apps.ashx0.R;
 import com.dewonderstruck.apps.ashx0.databinding.BottomBoxBasketAndBuyBinding;
 import com.dewonderstruck.apps.ashx0.databinding.FragmentProductDetailBinding;
+import com.dewonderstruck.apps.ashx0.ui.common.DeFragment;
 import com.google.android.flexbox.FlexDirection;
 import com.google.android.flexbox.FlexboxLayoutManager;
 import com.google.android.flexbox.JustifyContent;
@@ -45,7 +43,6 @@ import com.like.OnLikeListener;
 import com.dewonderstruck.apps.ashx0.binding.FragmentDataBindingComponent;
 
 import com.dewonderstruck.apps.ashx0.ui.common.DataBoundListAdapter;
-import com.dewonderstruck.apps.ashx0.ui.common.PSFragment;
 import com.dewonderstruck.apps.ashx0.ui.product.adapter.ProductHorizontalListAdapter;
 import com.dewonderstruck.apps.ashx0.ui.product.detail.adapter.ProductAttributeHeaderAdapter;
 import com.dewonderstruck.apps.ashx0.ui.product.detail.adapter.ProductColorAdapter;
@@ -82,14 +79,13 @@ import com.dewonderstruck.apps.ashx0.viewobject.holder.TabObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Objects;
 
 /**
  * Created by Vamsi Madduluri
  * Contact Email : vamsii.wrkhost@gmail.com
  * Website : http://www.dewonderstruck.com
  */
-public class ProductDetailFragment extends PSFragment implements DataBoundListAdapter.DiffUtilDispatchedInterface2 {
+public class ProductDetailFragment extends DeFragment implements DataBoundListAdapter.DiffUtilDispatchedInterface2 {
 
     //region Variables
     private final DataBindingComponent dataBindingComponent = new FragmentDataBindingComponent(this);
@@ -240,7 +236,7 @@ public class ProductDetailFragment extends PSFragment implements DataBoundListAd
         buyNowButton.get().setOnClickListener(view -> {
             if (available) {
 
-                String url = binding.get().getProduct().productLink;
+                String url = binding.get().getProduct().getProductLink();
                 Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
                 if (i.resolveActivity(requireActivity().getPackageManager()) != null) {
                     startActivity(i);
@@ -421,14 +417,14 @@ public class ProductDetailFragment extends PSFragment implements DataBoundListAd
 
                     productAttributeHeaderViewModel.productAttributeDetail = productAttributeDetail;
 
-                    if(productAttributeDetail.id.equals("-1")) {
-                        productAttributeHeaderViewModel.basketItemHolderHashMap.remove(productAttributeDetail.headerId);
+                    if(productAttributeDetail.getId().equals("-1")) {
+                        productAttributeHeaderViewModel.basketItemHolderHashMap.remove(productAttributeDetail.getHeaderId());
                     }else {
-                        productAttributeHeaderViewModel.basketItemHolderHashMap.put(productAttributeDetail.headerId, productAttributeDetail.name);
+                        productAttributeHeaderViewModel.basketItemHolderHashMap.put(productAttributeDetail.getHeaderId(), productAttributeDetail.getName());
                     }
-                    additionPrice = productAttributeDetail.additionalPrice;
+                    additionPrice = productAttributeDetail.getAdditionalPrice();
 
-                    productAttributeHeaderViewModel.attributeHeaderHashMap.put(productAttributeDetail.headerId, Integer.parseInt(additionPrice));
+                    productAttributeHeaderViewModel.attributeHeaderHashMap.put(productAttributeDetail.getHeaderId(), Integer.parseInt(additionPrice));
 
                     productAttributeHeaderViewModel.priceAfterAttribute = productAttributeHeaderViewModel.price;
                     productAttributeHeaderViewModel.originalPriceAfterAttribute = productAttributeHeaderViewModel.originalPrice;
@@ -739,7 +735,7 @@ public class ProductDetailFragment extends PSFragment implements DataBoundListAd
                                 productDetailViewModel.productContainer = listResource.data;
 
                                 //headerAdapter.get().currencySymbol = listResource.data.currencySymbol;
-                                productDetailViewModel.currencySymbol = listResource.data.currencySymbol;
+                                productDetailViewModel.currencySymbol = listResource.data.getCurrencySymbol();
 
                                 productColorViewModel.setProductColorListObj(productDetailViewModel.productId);
                                 productSpecsViewModel.setProductSpecsListObj(productDetailViewModel.productId);
@@ -748,7 +744,7 @@ public class ProductDetailFragment extends PSFragment implements DataBoundListAd
                                 replaceProductDetailData(listResource.data);
                                 bindingRatingData(listResource.data);
                                 bindingFavoriteData(listResource.data);
-                                bindingDescData(listResource.data.description);
+                                bindingDescData(listResource.data.getDescription());
 
                                 bindProductDetailInfo(listResource.data);
 
@@ -767,7 +763,7 @@ public class ProductDetailFragment extends PSFragment implements DataBoundListAd
                                 productDetailViewModel.productContainer = listResource.data;
 
                                 //headerAdapter.get().currencySymbol = listResource.data.currencySymbol;
-                                productDetailViewModel.currencySymbol = listResource.data.currencySymbol;
+                                productDetailViewModel.currencySymbol = listResource.data.getCurrencySymbol();
 
                                 productColorViewModel.setProductColorListObj(productDetailViewModel.productId);
                                 productSpecsViewModel.setProductSpecsListObj(productDetailViewModel.productId);
@@ -783,7 +779,7 @@ public class ProductDetailFragment extends PSFragment implements DataBoundListAd
 
                                 bindProductDetailInfo(listResource.data);
 
-                                productRelatedViewModel.setProductRelatedListObj(productDetailViewModel.productId, listResource.data.catId);
+                                productRelatedViewModel.setProductRelatedListObj(productDetailViewModel.productId, listResource.data.getCatId());
 
                             }
 
@@ -923,7 +919,7 @@ public class ProductDetailFragment extends PSFragment implements DataBoundListAd
 
                     productAttributeHeaderViewModel.headerIdList.clear();
                     for (int i = 0; i < listResource.size(); i++) {
-                        productAttributeHeaderViewModel.headerIdList.add(listResource.get(i).id);
+                        productAttributeHeaderViewModel.headerIdList.add(listResource.get(i).getId());
                     }
 
                     productAttributeHeaderViewModel.isHeaderData = true;
@@ -975,32 +971,32 @@ public class ProductDetailFragment extends PSFragment implements DataBoundListAd
 
     private void bindProductDetailInfo(Product product) {
 
-        if (product.minimumOrder == null || product.minimumOrder.equals("0") || product.minimumOrder.isEmpty()) {
+        if (product.getMinimumOrder() == null || product.getMinimumOrder().equals("0") || product.getMinimumOrder().isEmpty()) {
             binding.get().productMinOrderValueTextView.setVisibility(View.GONE);
             binding.get().productMinOrderTextView.setVisibility(View.GONE);
         } else {
-            binding.get().productMinOrderValueTextView.setText(product.minimumOrder);
+            binding.get().productMinOrderValueTextView.setText(product.getMinimumOrder());
         }
 
-        if (product.productUnit == null || product.productUnit.equals("0") || product.productUnit.isEmpty()) {
+        if (product.getProductUnit() == null || product.getProductUnit().equals("0") || product.getProductUnit().isEmpty()) {
             binding.get().productUnitValueTextView.setVisibility(View.GONE);
             binding.get().productUnitTextView.setVisibility(View.GONE);
         } else {
-            binding.get().productUnitValueTextView.setText(product.productUnit);
+            binding.get().productUnitValueTextView.setText(product.getProductUnit());
         }
 
-        if (product.productMeasurement == null || product.productMeasurement.equals("0") || product.productMeasurement.isEmpty()) {
+        if (product.getProductMeasurement() == null || product.getProductMeasurement().equals("0") || product.getProductMeasurement().isEmpty()) {
             binding.get().productMeasurementTextView.setVisibility(View.GONE);
             binding.get().productMeasurementValueTextView.setVisibility(View.GONE);
         } else {
-            binding.get().productMeasurementValueTextView.setText(product.productMeasurement);
+            binding.get().productMeasurementValueTextView.setText(product.getProductMeasurement());
         }
 
-        if (product.shippingCost == null || product.shippingCost.equals("0") || product.shippingCost.isEmpty()) {
+        if (product.getShippingCost() == null || product.getShippingCost().equals("0") || product.getShippingCost().isEmpty()) {
             binding.get().productShippingCostTextView.setVisibility(View.GONE);
             binding.get().productShippingCostValueTextView.setVisibility(View.GONE);
         } else {
-            String shippingCostString = product.currencySymbol + Constants.SPACE_STRING + product.shippingCost;
+            String shippingCostString = product.getCurrencySymbol() + Constants.SPACE_STRING + product.getShippingCost();
             binding.get().productShippingCostValueTextView.setText(shippingCostString);
         }
 
@@ -1008,7 +1004,7 @@ public class ProductDetailFragment extends PSFragment implements DataBoundListAd
     }
 
     private void bindingFavoriteData(Product product) {
-        if (product.isFavourited.equals(Constants.ONE)) {
+        if (product.isFavourited().equals(Constants.ONE)) {
             binding.get().heartButton.setLiked(true);
         } else {
             binding.get().heartButton.setLiked(false);
@@ -1017,12 +1013,12 @@ public class ProductDetailFragment extends PSFragment implements DataBoundListAd
 
     private void bindingRatingData(Product product) {
 
-        if (product.ratingDetails.totalRatingValue == 0.0) {
+        if (product.getRatingDetails().getTotalRatingValue() == 0.0) {
             binding.get().starTextView.setText(getString(R.string.product_detail__rating));
         } else {
-            binding.get().starTextView.setText(getString(R.string.rating__total_count_n_value, product.ratingDetails.totalRatingValue + "", product.ratingDetails.totalRatingCount + ""));
+            binding.get().starTextView.setText(getString(R.string.rating__total_count_n_value, product.getRatingDetails().getTotalRatingValue() + "", product.getRatingDetails().getTotalRatingCount() + ""));
         }
-        binding.get().ratingBar.setRating(product.ratingDetails.totalRatingValue);
+        binding.get().ratingBar.setRating(product.getRatingDetails().getTotalRatingValue());
 
 
     }
@@ -1044,7 +1040,7 @@ public class ProductDetailFragment extends PSFragment implements DataBoundListAd
 
             try {
                 tmpColorList.add((ProductColor) listResource.get(i).clone());
-                tmpColorList.get(i).isColorSelect = tmpColorList.get(i).id.equals(productColorViewModel.colorSelectId);
+                tmpColorList.get(i).isColorSelect = tmpColorList.get(i).getId().equals(productColorViewModel.colorSelectId);
             } catch (CloneNotSupportedException e) {
                 e.printStackTrace();
             }
@@ -1092,12 +1088,12 @@ public class ProductDetailFragment extends PSFragment implements DataBoundListAd
     private void replaceProductDetailData(Product product) {
         binding.get().setProduct(product);
 
-        if (product.isAvailable.equals(Constants.ONE)) {
+        if (product.isAvailable().equals(Constants.ONE)) {
             binding.get().inStockTextView.setText(getString(R.string.product_detail__in_stock));
             binding.get().inStockTextView.setTextColor(getResources().getColor(R.color.md_green_700));
 
             this.available = true;
-        } else if (product.isAvailable.equals(Constants.ZERO)) {
+        } else if (product.isAvailable().equals(Constants.ZERO)) {
             binding.get().inStockTextView.setText(getString(R.string.product_detail__item_not_available));
             binding.get().inStockTextView.setTextColor(getResources().getColor(R.color.button__primary_bg));
 
@@ -1121,24 +1117,24 @@ public class ProductDetailFragment extends PSFragment implements DataBoundListAd
             binding.get().colorRecyclerView.setSelected(true);//color
 
         } else {
-            binding.get().priceTextView.setText(String.valueOf(Utils.format(product.unitPrice)));
+            binding.get().priceTextView.setText(String.valueOf(Utils.format(product.getUnitPrice())));
 
-            bottomBoxLayoutBinding.get().priceTextView.setText(String.valueOf(Utils.format(product.unitPrice)));
+            bottomBoxLayoutBinding.get().priceTextView.setText(String.valueOf(Utils.format(product.getUnitPrice())));
 
-            if (product.minimumOrder != null && !product.minimumOrder.equals("0")) {
-                num = Integer.valueOf(product.minimumOrder);
-                bottomBoxLayoutBinding.get().qtyEditText.setText(product.minimumOrder);
+            if (product.getMinimumOrder() != null && !product.getMinimumOrder().equals("0")) {
+                num = Integer.valueOf(product.getMinimumOrder());
+                bottomBoxLayoutBinding.get().qtyEditText.setText(product.getMinimumOrder());
             } else {
                 num = 1;
             }
         }
 
-        if (product.minimumOrder != null && !product.minimumOrder.equals("0")) {
-            minOrder = Integer.valueOf(product.minimumOrder);
+        if (product.getMinimumOrder() != null && !product.getMinimumOrder().equals("0")) {
+            minOrder = Integer.valueOf(product.getMinimumOrder());
         }
 
-        binding.get().priceCurrencyTextView.setText(product.currencySymbol);
-        bottomBoxLayoutBinding.get().priceCurrencyTextView.setText(product.currencySymbol);
+        binding.get().priceCurrencyTextView.setText(product.getCurrencySymbol());
+        bottomBoxLayoutBinding.get().priceCurrencyTextView.setText(product.getCurrencySymbol());
         //endregion
 
         //detail pop
@@ -1167,17 +1163,17 @@ public class ProductDetailFragment extends PSFragment implements DataBoundListAd
             bottomBoxLayoutBinding.get().attributeTitleTextView.setVisibility(View.GONE);
         }
 
-        if (product.isDiscount.equals(Constants.ONE)) {
-            String originalPriceStr = product.currencySymbol + Constants.SPACE_STRING + Utils.format(product.originalPrice);
+        if (product.isDiscount().equals(Constants.ONE)) {
+            String originalPriceStr = product.getCurrencySymbol() + Constants.SPACE_STRING + Utils.format(product.getOriginalPrice());
             bottomBoxLayoutBinding.get().originalPriceTextView.setText(originalPriceStr);
             bottomBoxLayoutBinding.get().originalPriceTextView.setPaintFlags(binding.get().originalPriceTextView.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
         } else {
             bottomBoxLayoutBinding.get().originalPriceTextView.setVisibility(View.GONE);
         }
 
-        bottomBoxLayoutBinding.get().setImagePath(product.defaultPhoto.imgPath);
+        bottomBoxLayoutBinding.get().setImagePath(product.getDefaultPhoto().getImgPath());
 
-        bottomBoxLayoutBinding.get().prodNameTextView.setText(product.name);
+        bottomBoxLayoutBinding.get().prodNameTextView.setText(product.getName());
 
         bottomBoxLayoutBinding.get().colorRecycler.setNestedScrollingEnabled(false);
         bottomBoxLayoutBinding.get().attributeHeaderRecycler.setNestedScrollingEnabled(false);
@@ -1202,14 +1198,14 @@ public class ProductDetailFragment extends PSFragment implements DataBoundListAd
             bottomBoxLayoutBinding.get().qtyEditText.setText(String.valueOf(num));
         });
 
-        String originalPriceStr = product.currencySymbol + Constants.SPACE_STRING + Utils.format(product.originalPrice);
+        String originalPriceStr = product.getCurrencySymbol() + Constants.SPACE_STRING + Utils.format(product.getOriginalPrice());
         binding.get().originalPriceTextView.setText(originalPriceStr);
-        binding.get().commentCountTextView.setText(String.valueOf(product.commentHeaderCount));
-        binding.get().favCountTextView.setText(String.valueOf(product.favouriteCount));
-        binding.get().touchCountTextView.setText(Utils.numberFormat(product.touchCount));
+        binding.get().commentCountTextView.setText(String.valueOf(product.getCommentHeaderCount()));
+        binding.get().favCountTextView.setText(String.valueOf(product.getFavouriteCount()));
+        binding.get().touchCountTextView.setText(Utils.numberFormat(product.getTouchCount()));
 
-        productAttributeHeaderViewModel.price = product.unitPrice;
-        productAttributeHeaderViewModel.originalPrice = product.originalPrice;
+        productAttributeHeaderViewModel.price = product.getUnitPrice();
+        productAttributeHeaderViewModel.originalPrice = product.getOriginalPrice();
 
         binding.get().heartButton.setOnLikeListener(new OnLikeListener() {
             @Override
@@ -1235,24 +1231,24 @@ public class ProductDetailFragment extends PSFragment implements DataBoundListAd
        //binding.get().likeImageView.setOnClickListener(view -> sendLikePostData());
 //        binding.get().likeTextView.setOnClickListener(view -> sendLikePostData());
 
-        if (!product.isFeatured.equals(Constants.ONE)) {
+        if (!product.isFeatured().equals(Constants.ONE)) {
             binding.get().featureTextView.setVisibility(View.GONE);
             binding.get().featureIconImageView.setVisibility(View.GONE);
         }
 
-        if (!product.isDiscount.equals(Constants.ONE)) {
+        if (!product.isDiscount().equals(Constants.ONE)) {
             binding.get().originalPriceTextView.setVisibility(View.GONE);
             binding.get().discountPercentButton.setVisibility(View.INVISIBLE);
         } else {
             binding.get().originalPriceTextView.setVisibility(View.VISIBLE);
             binding.get().discountPercentButton.setVisibility(View.VISIBLE);
-            int discountValue = (int) product.discountPercent;
+            int discountValue = (int) product.getDiscountPercent();
             String discountValueStr = "-" + discountValue + "%";
             binding.get().discountPercentTextView.setText(discountValueStr);
             binding.get().originalPriceTextView.setPaintFlags(binding.get().originalPriceTextView.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
         }
 
-        if (product.highlightInformation.equals("")) {
+        if (product.getHighlightInformation().equals("")) {
             binding.get().constraintLayout5.setVisibility(View.GONE);
             binding.get().highlightTextview.setVisibility(View.GONE);
         } else {
@@ -1619,11 +1615,11 @@ public class ProductDetailFragment extends PSFragment implements DataBoundListAd
             tabObjectList.get().clear();
         }
 
-        tabObjectList.get().add(new TabObject(Constants.CATEGORY, listResource.catId, listResource.category.name));
-        tabObjectList.get().add(new TabObject(Constants.SUBCATEGORY, listResource.subCatId, listResource.subCategory.name));
+        tabObjectList.get().add(new TabObject(Constants.CATEGORY, listResource.getCatId(), listResource.getCategory().getName()));
+        tabObjectList.get().add(new TabObject(Constants.SUBCATEGORY, listResource.getSubCatId(), listResource.getSubCategory().getName()));
 
-        if (!listResource.searchTag.isEmpty()) {
-            String[] tags = listResource.searchTag.split(",");
+        if (!listResource.getSearchTag().isEmpty()) {
+            String[] tags = listResource.getSearchTag().split(",");
             for (String tag : tags) {
                 tabObjectList.get().add(new TabObject(Constants.PRODUCT_TAG, tag, tag));
             }
@@ -1676,7 +1672,7 @@ public class ProductDetailFragment extends PSFragment implements DataBoundListAd
 
             // Success Action
             if (!favouriteViewModel.isLoading) {
-                favouriteViewModel.setFavouritePostDataObj(product.id, loginUserId);
+                favouriteViewModel.setFavouritePostDataObj(product.getId(), loginUserId);
                 likeButton.setLikeDrawable(ResourcesCompat.getDrawable(getResources(), R.drawable.heart_off, null));
             }
         });
@@ -1689,7 +1685,7 @@ public class ProductDetailFragment extends PSFragment implements DataBoundListAd
 
             // Success Action
             if (!favouriteViewModel.isLoading) {
-                favouriteViewModel.setFavouritePostDataObj(product.id, loginUserId);
+                favouriteViewModel.setFavouritePostDataObj(product.getId(), loginUserId);
                 likeButton.setLikeDrawable(ResourcesCompat.getDrawable(getResources(), R.drawable.heart_on, null));
             }
         });

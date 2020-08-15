@@ -15,7 +15,7 @@ import com.dewonderstruck.apps.ashx0.R
 import com.dewonderstruck.apps.ashx0.binding.FragmentDataBindingComponent
 import com.dewonderstruck.apps.ashx0.databinding.TypeFilterBinding
 import com.dewonderstruck.apps.ashx0.ui.common.DataBoundListAdapter.DiffUtilDispatchedInterface2
-import com.dewonderstruck.apps.ashx0.ui.common.PSFragment
+import com.dewonderstruck.apps.ashx0.ui.common.DeFragment
 import com.dewonderstruck.apps.ashx0.ui.product.filtering.adapter.CategoryAdapter
 import com.dewonderstruck.apps.ashx0.ui.product.filtering.adapter.CategoryAdapter.filteringClickCallback
 import com.dewonderstruck.apps.ashx0.utils.AutoClearedValue
@@ -27,7 +27,7 @@ import com.dewonderstruck.apps.ashx0.viewobject.Category
 import com.dewonderstruck.apps.ashx0.viewobject.SubCategory
 import com.dewonderstruck.apps.ashx0.viewobject.common.Resource
 
-class CategoryFilterFragment : PSFragment(), DiffUtilDispatchedInterface2 {
+class CategoryFilterFragment : DeFragment(), DiffUtilDispatchedInterface2 {
     private val dataBindingComponent: DataBindingComponent = FragmentDataBindingComponent(this)
     private var categoryViewModel: CategoryViewModel? = null
     private var subCategoryViewModel: SubCategoryViewModel? = null

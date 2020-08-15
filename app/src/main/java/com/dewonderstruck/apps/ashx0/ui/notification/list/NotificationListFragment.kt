@@ -1,7 +1,7 @@
 package com.dewonderstruck.apps.ashx0.ui.notification.list
 
 import android.annotation.SuppressLint
-import com.dewonderstruck.apps.ashx0.ui.common.PSFragment
+import com.dewonderstruck.apps.ashx0.ui.common.DeFragment
 import com.dewonderstruck.apps.ashx0.ui.common.DataBoundListAdapter.DiffUtilDispatchedInterface2
 import androidx.databinding.DataBindingComponent
 import com.dewonderstruck.apps.ashx0.binding.FragmentDataBindingComponent
@@ -22,7 +22,7 @@ import androidx.lifecycle.LiveData
 import android.content.Intent
 import androidx.lifecycle.ViewModelProvider
 
-class NotificationListFragment constructor() : PSFragment(), DiffUtilDispatchedInterface2 {
+class NotificationListFragment constructor() : DeFragment(), DiffUtilDispatchedInterface2 {
     private val dataBindingComponent: DataBindingComponent? = FragmentDataBindingComponent(this)
     private var notificationListViewModel: NotificationsViewModel? = null
     var nvAdapter: NotificationListAdapter? = null

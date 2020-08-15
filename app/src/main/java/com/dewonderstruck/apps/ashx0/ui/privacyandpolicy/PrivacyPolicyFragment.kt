@@ -12,7 +12,7 @@ import androidx.lifecycle.ViewModelProviders
 import com.dewonderstruck.apps.ashx0.R
 import com.dewonderstruck.apps.ashx0.binding.FragmentDataBindingComponent
 import com.dewonderstruck.apps.ashx0.databinding.FragmentPrivacyPolicyBinding
-import com.dewonderstruck.apps.ashx0.ui.common.PSFragment
+import com.dewonderstruck.apps.ashx0.ui.common.DeFragment
 import com.dewonderstruck.apps.ashx0.utils.AutoClearedValue
 import com.dewonderstruck.apps.ashx0.utils.Utils
 import com.dewonderstruck.apps.ashx0.viewmodel.aboutus.AboutUsViewModel
@@ -20,7 +20,7 @@ import com.dewonderstruck.apps.ashx0.viewobject.AboutUs
 import com.dewonderstruck.apps.ashx0.viewobject.common.Resource
 import com.dewonderstruck.apps.ashx0.viewobject.common.Status
 
-class PrivacyPolicyFragment : PSFragment() {
+class PrivacyPolicyFragment : DeFragment() {
     //region Variables
     private val dataBindingComponent: DataBindingComponent = FragmentDataBindingComponent(this)
     private var aboutUsViewModel: AboutUsViewModel? = null

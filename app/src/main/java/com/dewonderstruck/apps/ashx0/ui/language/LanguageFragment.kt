@@ -18,7 +18,7 @@ import com.dewonderstruck.apps.ashx0.R
 import com.dewonderstruck.apps.ashx0.binding.FragmentDataBindingComponent
 import com.dewonderstruck.apps.ashx0.databinding.FragmentLanguageBinding
 import com.dewonderstruck.apps.ashx0.ui.apploading.AppLoadingActivity
-import com.dewonderstruck.apps.ashx0.ui.common.PSFragment
+import com.dewonderstruck.apps.ashx0.ui.common.DeFragment
 import com.dewonderstruck.apps.ashx0.utils.AutoClearedValue
 import com.dewonderstruck.apps.ashx0.utils.Constants
 import com.dewonderstruck.apps.ashx0.utils.LanguageData
@@ -26,7 +26,7 @@ import com.dewonderstruck.apps.ashx0.utils.PSDialogMsg
 import java.util.*
 import javax.inject.Inject
 
-class LanguageFragment : PSFragment() {
+class LanguageFragment : DeFragment() {
     //region Variables
     @set:Inject
     lateinit var sharedPreferences: SharedPreferences

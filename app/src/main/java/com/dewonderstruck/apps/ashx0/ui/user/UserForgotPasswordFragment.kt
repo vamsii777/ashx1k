@@ -1,5 +1,6 @@
 package com.dewonderstruck.apps.ashx0.ui.user
 
+import android.annotation.SuppressLint
 import android.app.ProgressDialog
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,11 +10,12 @@ import androidx.annotation.VisibleForTesting
 import androidx.databinding.DataBindingComponent
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import com.dewonderstruck.apps.ashx0.R
 import com.dewonderstruck.apps.ashx0.binding.FragmentDataBindingComponent
 import com.dewonderstruck.apps.ashx0.databinding.FragmentUserForgotPasswordBinding
-import com.dewonderstruck.apps.ashx0.ui.common.PSFragment
+import com.dewonderstruck.apps.ashx0.ui.common.DeFragment
 import com.dewonderstruck.apps.ashx0.utils.AutoClearedValue
 import com.dewonderstruck.apps.ashx0.utils.PSDialogMsg
 import com.dewonderstruck.apps.ashx0.utils.Utils
@@ -25,7 +27,7 @@ import com.dewonderstruck.apps.ashx0.viewobject.common.Status
 /**
  * UserForgotPasswordFragment
  */
-class UserForgotPasswordFragment : PSFragment() {
+class UserForgotPasswordFragment : DeFragment() {
     //region Variables
     private val dataBindingComponent: DataBindingComponent = FragmentDataBindingComponent(this)
     private var userViewModel: UserViewModel? = null
@@ -71,7 +73,7 @@ class UserForgotPasswordFragment : PSFragment() {
     }
 
     override fun initViewModels() {
-        userViewModel = ViewModelProviders.of(this, viewModelFactory).get(UserViewModel::class.java)
+        userViewModel = ViewModelProvider(this, viewModelFactory).get(UserViewModel::class.java)
     }
 
     override fun initAdapters() {}
@@ -79,11 +81,12 @@ class UserForgotPasswordFragment : PSFragment() {
 
     //endregion
     //region Private Methods
+    @SuppressLint("SetTextI18n")
     private fun updateForgotBtnStatus() {
         if (userViewModel!!.isLoading) {
             binding!!.get().forgotPasswordButton.text = resources.getString(R.string.message__loading)
         } else {
-            binding!!.get().forgotPasswordButton.text = resources.getString(R.string.forgot_password__title)
+            binding!!.get().forgotPasswordButton.text = "Forgot Password"
         }
     }
 
