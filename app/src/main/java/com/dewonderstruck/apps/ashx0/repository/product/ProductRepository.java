@@ -507,7 +507,7 @@ public class ProductRepository extends DeRepository {
                         if (response.body != null) {
 
                             for (Product item : response.body) {
-                                db.productDao().insert(new ProductListByCatId(item.id, item.catId));
+                                db.productDao().insert(new ProductListByCatId(item.getId(), item.getCatId()));
 
                             }
 
